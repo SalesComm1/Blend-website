@@ -744,8 +744,8 @@
     }
 
     .reveal {
-      opacity: 0;
-      transform: translate3d(0, 30px, 0);
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
@@ -1148,14 +1148,10 @@
       const data = new FormData(form);
       const subject = encodeURIComponent('BLEND Demo Request');
       const body = encodeURIComponent(
-        'Name: ' + data.get('name') + '
-' +
-        'Phone number: ' + data.get('phone') + '
-' +
-        'Email address: ' + data.get('email') + '
-' +
-        'Name of Company: ' + data.get('company') + '
-' +
+        'Name: ' + data.get('name') + '\n' +
+        'Phone number: ' + data.get('phone') + '\n' +
+        'Email address: ' + data.get('email') + '\n' +
+        'Name of Company: ' + data.get('company') + '\n' +
         'Favorite color: ' + data.get('color')
       );
       window.location.href = 'mailto:Rob@salescomm.com?subject=' + subject + '&body=' + body;
