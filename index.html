@@ -10,26 +10,21 @@
   />
   <style>
     :root {
-      --bg: #07030b;
-      --panel: rgba(22, 8, 30, 0.7);
-      --panel-strong: rgba(28, 12, 38, 0.88);
-      --text: #f6edf5;
-      --muted: #cbbccc;
-      --line: rgba(255, 159, 87, 0.35);
-      --purple: #8c46ff;
-      --blue: #37a4ff;
-      --cyan: #6ce1d8;
-      --gold: #ffca76;
-      --orange: #ff9357;
-      --pink: #ff5c9f;
-      --glow: 0 0 0 1px rgba(255,255,255,0.04), 0 22px 60px rgba(255, 89, 0, 0.16), 0 10px 30px rgba(112, 0, 255, 0.18);
-      --radius: 24px;
-      --radius-sm: 18px;
+      --bg: #09090b;
+      --bg-soft: #111114;
+      --panel: #121216;
+      --panel-2: #18181d;
+      --line: rgba(255,255,255,0.08);
+      --text: #f5f1ee;
+      --muted: #b4afb0;
+      --accent: #d89c6a;
+      --accent-soft: #8a5cf6;
+      --shadow: 0 16px 50px rgba(0,0,0,0.28);
+      --radius: 26px;
       --max: 1180px;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -37,77 +32,13 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 80% 12%, rgba(255, 137, 66, 0.20), transparent 26%),
-        radial-gradient(circle at 15% 82%, rgba(86, 40, 255, 0.20), transparent 24%),
-        radial-gradient(circle at 50% 100%, rgba(255, 51, 140, 0.10), transparent 35%),
-        linear-gradient(180deg, #040208 0%, #09020f 45%, #10040f 100%);
-      min-height: 100vh;
-      line-height: 1.5;
+        radial-gradient(circle at top right, rgba(216,156,106,0.10), transparent 24%),
+        linear-gradient(180deg, #08080a 0%, #0d0d10 60%, #09090b 100%);
       overflow-x: hidden;
     }
 
-    .ambient {
-      position: fixed;
-      inset: auto;
-      border-radius: 999px;
-      filter: blur(90px);
-      opacity: 0.34;
-      pointer-events: none;
-      z-index: 0;
-      transform: translate3d(0, 0, 0);
-      transition: transform 0.2s linear;
-    }
-
-    .ambient-1 {
-      top: 8%;
-      right: -120px;
-      width: 320px;
-      height: 320px;
-      background: rgba(255, 141, 76, 0.20);
-      animation: floatOrb 12s ease-in-out infinite;
-    }
-
-    .ambient-2 {
-      top: 38%;
-      left: -100px;
-      width: 260px;
-      height: 260px;
-      background: rgba(123, 74, 255, 0.22);
-      animation: floatOrb 15s ease-in-out infinite reverse;
-    }
-
-    .ambient-3 {
-      bottom: -90px;
-      left: 42%;
-      width: 280px;
-      height: 280px;
-      background: rgba(255, 83, 160, 0.14);
-      animation: floatOrb 18s ease-in-out infinite;
-    }
-
-    @keyframes floatOrb {
-      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-      50% { transform: translate3d(0, -20px, 0) scale(1.06); }
-    }
-
-    @keyframes riseIn {
-      from {
-        opacity: 0;
-        transform: translate3d(0, 28px, 0) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: var(--glow); }
-      50% { box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 28px 70px rgba(255, 106, 0, 0.18), 0 12px 36px rgba(112, 0, 255, 0.22); }
-    }
-
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img { display: block; max-width: 100%; }
 
     .container {
       width: min(calc(100% - 32px), var(--max));
@@ -117,54 +48,67 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      background: rgba(7, 3, 11, 0.56);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(10,10,12,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .nav {
-      min-height: 78px;
+      min-height: 84px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-left,
+    .nav-right {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 20px;
+      min-width: 0;
+    }
+
+    .nav-right {
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.74);
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: #fff;
     }
 
     .brand {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
     }
 
     .brand-mark {
-      font-size: clamp(2rem, 5vw, 3.7rem);
-      font-weight: 900;
-      letter-spacing: 0.08em;
+      font-size: clamp(2rem, 4vw, 3.3rem);
       line-height: 0.95;
+      letter-spacing: 0.08em;
+      font-weight: 900;
       text-transform: uppercase;
-      background: linear-gradient(90deg, var(--purple), var(--blue), var(--cyan), var(--gold), var(--pink));
+      background: linear-gradient(90deg, #9b5cff 0%, #50a7ff 35%, #7edfd2 58%, #ffc97a 78%, #ff78ac 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 28px rgba(156, 93, 255, 0.18);
     }
 
     .brand-tag {
-      color: rgba(255,255,255,0.68);
-      font-size: 0.94rem;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.62);
       letter-spacing: 0.02em;
     }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      color: rgba(255,255,255,0.78);
-      font-size: 0.96rem;
-    }
-
-    .nav-links a:hover { color: white; }
 
     .btn {
       display: inline-flex;
@@ -172,66 +116,37 @@
       justify-content: center;
       padding: 14px 22px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
       font-weight: 700;
-      letter-spacing: 0.01em;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
-      cursor: pointer;
+      white-space: nowrap;
     }
 
     .btn:hover {
-      transform: translateY(-2px) scale(1.01);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.24);
     }
 
     .btn-primary {
-      color: #18070a;
-      background: linear-gradient(90deg, #ffe0a6, #ff9f6e 50%, #ff63aa);
-      box-shadow: 0 10px 30px rgba(255, 142, 78, 0.24);
+      background: #f3e7dc;
+      color: #111;
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: white;
+      background: rgba(255,255,255,0.03);
+      color: #fff;
     }
 
     .hero {
-      padding: 84px 0 52px;
+      padding: 84px 0 48px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-copy,
-    .hero-card,
-    .glass-card {
-      background: linear-gradient(180deg, rgba(26, 10, 40, 0.74), rgba(15, 6, 24, 0.92));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--glow);
-      border-radius: var(--radius);
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-copy {
-      padding: 42px;
-      position: relative;
-      overflow: hidden;
-      animation: riseIn 0.9s ease both;
-    }
-
-    .hero-copy::before {
-      content: "";
-      position: absolute;
-      inset: auto -10% -30% auto;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(255,155,93,0.2), transparent 66%);
-      pointer-events: none;
+    .hero-shell {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 44px;
     }
 
     .eyebrow {
@@ -240,649 +155,602 @@
       gap: 10px;
       padding: 8px 14px;
       border-radius: 999px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(255, 190, 122, 0.22);
-      color: #ffbc88;
-      background: rgba(255, 145, 87, 0.08);
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      border: 1px solid rgba(216,156,106,0.25);
+      background: rgba(216,156,106,0.06);
+      color: #e6b083;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      font-size: 0.82rem;
+      margin-bottom: 18px;
     }
 
     h1, h2, h3, p { margin: 0; }
 
     h1 {
-      font-size: clamp(2.7rem, 5vw, 5.1rem);
-      line-height: 0.96;
-      letter-spacing: -0.04em;
-      margin-bottom: 18px;
-      max-width: 11ch;
+      font-size: clamp(2.8rem, 6vw, 5.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 10ch;
+      margin: 0 auto 16px;
+      text-align: center;
+    }
+
+    .hero-copy {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
     }
 
     .hero-copy p {
-      font-size: 1.08rem;
       color: var(--muted);
-      max-width: 60ch;
+      font-size: 1.06rem;
+      margin: 0 auto;
+      max-width: 58ch;
     }
 
     .hero-actions {
       display: flex;
+      justify-content: center;
       gap: 14px;
-      margin-top: 28px;
+      margin-top: 26px;
       flex-wrap: wrap;
     }
 
-    .stats {
+    .hero-meta {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-top: 28px;
+      margin-top: 34px;
     }
 
-    .stat {
-      padding: 18px 18px 16px;
-      border-radius: 18px;
+    .meta-card {
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
     }
 
-    .stat strong {
+    .meta-card strong {
       display: block;
-      font-size: 1.55rem;
-      margin-bottom: 4px;
-      color: white;
+      font-size: 1.4rem;
+      margin-bottom: 6px;
     }
 
-    .stat span {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.72);
+    .meta-card span {
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    .hero-card {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-      animation: riseIn 1.05s ease both;
-      animation-delay: 0.08s;
+    section {
+      padding: 22px 0;
+      position: relative;
+      z-index: 1;
     }
 
-    .card-label {
-      color: #ffbc88;
+    .section-head {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 22px;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #dfae84;
       font-size: 0.82rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .feature-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 8px;
-    }
-
-    .feature-item {
-      display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 14px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 18px;
-    }
-
-    .icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      font-size: 1.5rem;
-      background: linear-gradient(135deg, rgba(140,70,255,0.22), rgba(255,107,168,0.22), rgba(255,173,92,0.18));
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .feature-item h3 {
-      font-size: 1.05rem;
-      margin-bottom: 4px;
-    }
-
-    .feature-item p {
-      color: rgba(255,255,255,0.72);
-      font-size: 0.96rem;
-    }
-
-    section {
-      padding: 18px 0;
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 22px;
-    }
-
-    .section-head .kicker {
-      color: #ffbc88;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-      font-size: 0.84rem;
-      margin-bottom: 10px;
-      display: inline-block;
-    }
-
     .section-head h2 {
-      font-size: clamp(2rem, 3vw, 3.2rem);
-      line-height: 1;
-      margin-bottom: 12px;
-      letter-spacing: -0.03em;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 0.97;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
     }
 
     .section-head p {
       color: var(--muted);
-      font-size: 1.02rem;
+      font-size: 1rem;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .glass-card {
-      padding: 28px;
-      animation: riseIn 0.9s ease both;
-    }
-
-    .glass-card:hover,
-    .hero-card:hover {
-      animation: pulseGlow 2.6s ease-in-out infinite;
-    }
-
-    .bullet-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .bullet {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 14px;
-      align-items: start;
-    }
-
-    .bullet .mini {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      font-size: 1.3rem;
-    }
-
-    .bullet h3 {
-      margin-bottom: 4px;
-      font-size: 1.08rem;
-    }
-
-    .bullet p {
-      color: rgba(255,255,255,0.72);
-      font-size: 0.96rem;
-    }
-
-    .process {
-      display: grid;
-      gap: 16px;
-      margin-top: 6px;
-    }
-
-    .step {
+    .horizontal-shell {
       position: relative;
-      padding: 18px 18px 18px 74px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
+      height: 600vh;
     }
 
-    .step-number {
-      position: absolute;
-      left: 18px;
-      top: 18px;
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
+    .horizontal-sticky {
+      position: sticky;
+      top: 84px;
+      height: calc(100vh - 84px);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+    }
+
+    .track {
+      display: flex;
+      gap: 0;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      padding-left: 6vw;
+      padding-right: 6vw;
+    }
+
+    .panel {
+      width: 88vw;
+      max-width: 1120px;
+      min-width: 88vw;
+      height: min(72vh, 760px);
+      margin-right: 24px;
+      padding: clamp(24px, 4vw, 44px);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(18,18,22,0.96), rgba(12,12,15,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
       display: grid;
-      place-items: center;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .panel-copy {
+      max-width: 62ch;
+    }
+
+    .panel-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #f1ddcf;
       font-weight: 800;
-      color: white;
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      box-shadow: 0 8px 20px rgba(173, 63, 255, 0.22);
+      margin-bottom: 16px;
     }
 
-    .step h3 {
-      font-size: 1.06rem;
-      margin-bottom: 6px;
+    .panel h3 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
     }
 
-    .step p {
-      color: rgba(255,255,255,0.72);
-      font-size: 0.96rem;
+    .panel p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin-bottom: 18px;
     }
 
-    .proof-grid {
+    .panel-list {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
 
-    .proof {
-      padding: 22px;
-      border-radius: 20px;
+    .panel-list div {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #ece7e3;
+      font-size: 0.98rem;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .panel-list div:first-child {
+      border-top: 0;
+    }
+
+    .panel-visual {
+      display: grid;
+      gap: 14px;
+      align-content: center;
+    }
+
+    .visual-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
-      text-align: left;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-      transition: transform 0.24s ease, border-color 0.24s ease;
+      border-radius: 22px;
+      padding: 18px;
     }
 
-    .proof:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 184, 128, 0.4);
-    }
-
-    .proof strong {
+    .visual-card strong {
       display: block;
-      font-size: 1.8rem;
+      font-size: 1rem;
       margin-bottom: 6px;
     }
 
-    .proof span {
-      color: rgba(255,255,255,0.74);
-      font-size: 0.95rem;
+    .visual-card span {
+      color: var(--muted);
+      font-size: 0.94rem;
+      display: block;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stack-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 24px;
+      min-height: 220px;
+    }
+
+    .stack-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .stack-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
     .cta {
-      padding: 34px;
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 88% 18%, rgba(255, 148, 84, 0.24), transparent 26%),
-        linear-gradient(180deg, rgba(38, 12, 45, 0.88), rgba(20, 8, 28, 0.96));
+      background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--glow);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
       display: grid;
-      grid-template-columns: 1.2fr auto;
+      grid-template-columns: 1.1fr auto;
       gap: 18px;
       align-items: center;
-      margin: 26px 0 56px;
-      animation: riseIn 1s ease both;
+      margin: 22px 0 56px;
     }
 
     .cta p {
-      margin-top: 8px;
       color: var(--muted);
+      margin-top: 10px;
       max-width: 56ch;
     }
 
     .site-footer {
-      padding: 18px 0 40px;
+      padding: 16px 0 40px;
       color: rgba(255,255,255,0.58);
       font-size: 0.92rem;
     }
 
     .footer-row {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 18px;
     }
 
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .grid-2,
+    @media (max-width: 980px) {
+      .nav {
+        grid-template-columns: 1fr;
+        padding: 18px 0;
+      }
+
+      .nav-left,
+      .nav-right,
+      .brand {
+        justify-content: center;
+      }
+
+      .hero-meta,
+      .stack-grid,
       .cta,
-      .proof-grid {
+      .panel {
         grid-template-columns: 1fr;
       }
 
-      .proof-grid { grid-template-columns: repeat(2, 1fr); }
+      .panel {
+        height: auto;
+        min-height: 68vh;
+      }
+
+      .panel-visual {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 760px) {
-      .nav {
-        min-height: auto;
-        padding: 16px 0;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-
-      .hero {
-        padding-top: 46px;
-      }
-
-      .hero-copy,
-      .hero-card,
-      .glass-card,
-      .cta {
+      .hero-shell,
+      .cta,
+      .stack-card,
+      .panel {
         padding: 22px;
-      }
-
-      .stats,
-      .proof-grid {
-        grid-template-columns: 1fr;
       }
 
       h1 {
         max-width: none;
       }
 
-      .brand-mark {
-        font-size: 2.4rem;
+      .hero-meta,
+      .stack-grid,
+      .panel-visual {
+        grid-template-columns: 1fr;
       }
 
-      .ambient {
-        opacity: 0.2;
+      .horizontal-shell {
+        height: auto;
+      }
+
+      .horizontal-sticky {
+        position: relative;
+        top: 0;
+        height: auto;
+        overflow: visible;
+        display: block;
+        background: transparent;
+      }
+
+      .track {
+        display: grid;
+        padding: 0;
+        transform: none !important;
+        gap: 16px;
+      }
+
+      .panel {
+        width: 100%;
+        min-width: 100%;
+        margin-right: 0;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .track {
+        transform: none !important;
       }
     }
   </style>
 </head>
 <body>
-  <div class="ambient ambient-1" aria-hidden="true"></div>
-  <div class="ambient ambient-2" aria-hidden="true"></div>
-  <div class="ambient ambient-3" aria-hidden="true"></div>
   <header class="site-header">
     <div class="container nav">
+      <div class="nav-left">
+        <a class="nav-link" href="#selling-points">Selling points</a>
+        <a class="nav-link" href="#why-blend">Why BLEND</a>
+      </div>
+
       <a class="brand" href="#top" aria-label="BLEND home">
         <span class="brand-mark">BLEND</span>
         <span class="brand-tag">human touch meets AI precision</span>
       </a>
 
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#benefits">Benefits</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#results">Results</a>
-        <a href="#demo" class="btn btn-primary">Schedule a Demo</a>
-      </nav>
+      <div class="nav-right">
+        <a class="nav-link" href="#demo">Book a demo</a>
+        <a class="btn btn-primary" href="#demo">Schedule demo</a>
+      </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
+    <section class="hero reveal">
+      <div class="container hero-shell">
         <div class="hero-copy">
-          <div class="eyebrow">AI-Powered Call &amp; Text Concierge</div>
-          <h1>The Future of Salon Communication</h1>
+          <div class="eyebrow">AI-powered call &amp; text concierge</div>
+          <h1>The future of salon communication</h1>
           <p>
-            BLEND helps salons capture more bookings, respond instantly, and elevate every client interaction with an always-on AI concierge that sounds polished, warm, and on-brand.
+            BLEND helps salons answer faster, convert more inquiries, reduce no-shows, and make every guest interaction feel polished, warm, and premium.
           </p>
-
           <div class="hero-actions">
-            <a href="#demo" class="btn btn-primary">Book a Demo</a>
-            <a href="#benefits" class="btn btn-secondary">See How It Works</a>
-          </div>
-
-          <div class="stats" aria-label="Key benefits">
-            <div class="stat">
-              <strong>24/7</strong>
-              <span>Always available for calls, texts, and booking inquiries</span>
-            </div>
-            <div class="stat">
-              <strong>More bookings</strong>
-              <span>Capture opportunities that used to vanish into voicemail</span>
-            </div>
-            <div class="stat">
-              <strong>Less admin</strong>
-              <span>Support your front desk without adding payroll pressure</span>
-            </div>
+            <a href="#demo" class="btn btn-primary">Book a demo</a>
+            <a href="#selling-points" class="btn btn-secondary">See the six selling points</a>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Highlights">
-          <div>
-            <div class="card-label">Built for growth</div>
-            <div class="feature-list">
-              <article class="feature-item">
-                <div class="icon">📈</div>
-                <div>
-                  <h3>Higher booking conversion</h3>
-                  <p>Follow up fast, answer common questions, and turn missed calls into appointments.</p>
-                </div>
-              </article>
-
-              <article class="feature-item">
-                <div class="icon">💬</div>
-                <div>
-                  <h3>Better client capture</h3>
-                  <p>From first inquiry to confirmed visit, BLEND keeps the conversation moving.</p>
-                </div>
-              </article>
-
-              <article class="feature-item">
-                <div class="icon">✨</div>
-                <div>
-                  <h3>Modern brand experience</h3>
-                  <p>Give your salon a premium, tech-forward first impression every time someone reaches out.</p>
-                </div>
-              </article>
-            </div>
+        <div class="hero-meta reveal">
+          <div class="meta-card">
+            <strong>24/7</strong>
+            <span>Answers calls and texts around the clock.</span>
           </div>
-
-          <a href="#demo" class="btn btn-primary">Schedule Your Demo</a>
-        </aside>
-      </div>
-    </section>
-
-    <section id="benefits">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Why salons switch</span>
-          <h2>More bookings, happier clients, fewer dropped opportunities</h2>
-          <p>
-            The brochure’s promise becomes the homepage’s spine: BLEND acts like a polished front desk extension that never sleeps, never forgets, and never lets a hot lead go cold.
-          </p>
-        </div>
-
-        <div class="grid-2">
-          <div class="glass-card">
-            <div class="bullet-list">
-              <div class="bullet">
-                <div class="mini">📞</div>
-                <div>
-                  <h3>Never miss a booking opportunity</h3>
-                  <p>Answer after-hours calls and text inquiries the moment they come in.</p>
-                </div>
-              </div>
-              <div class="bullet">
-                <div class="mini">🕒</div>
-                <div>
-                  <h3>24/7 availability without extra payroll</h3>
-                  <p>Extend your salon’s responsiveness without adding round-the-clock staffing.</p>
-                </div>
-              </div>
-              <div class="bullet">
-                <div class="mini">💬</div>
-                <div>
-                  <h3>Instant text responses</h3>
-                  <p>Meet clients where they already communicate and keep the experience effortless.</p>
-                </div>
-              </div>
-              <div class="bullet">
-                <div class="mini">📅</div>
-                <div>
-                  <h3>Effortless appointment support</h3>
-                  <p>Handle common scheduling conversations, reminders, and intake flows with consistency.</p>
-                </div>
-              </div>
-            </div>
+          <div class="meta-card">
+            <strong>More bookings</strong>
+            <span>Turns missed moments into live opportunities.</span>
           </div>
-
-          <div class="glass-card">
-            <div class="bullet-list">
-              <div class="bullet">
-                <div class="mini">🎯</div>
-                <div>
-                  <h3>Higher conversion from missed calls</h3>
-                  <p>When clients reach out at the wrong time for you, it becomes the right time for BLEND.</p>
-                </div>
-              </div>
-              <div class="bullet">
-                <div class="mini">🔁</div>
-                <div>
-                  <h3>Reactivation of past clients</h3>
-                  <p>Reconnect with previous guests through smart, timely follow-up messages.</p>
-                </div>
-              </div>
-              <div class="bullet">
-                <div class="mini">✅</div>
-                <div>
-                  <h3>Fewer no-shows</h3>
-                  <p>Automated reminders and confirmations help reduce last-minute cancellations.</p>
-                </div>
-              </div>
-              <div class="bullet">
-                <div class="mini">🌟</div>
-                <div>
-                  <h3>Elevated guest experience</h3>
-                  <p>Every inquiry feels prompt, attentive, and professional from the first touchpoint.</p>
-                </div>
-              </div>
-            </div>
+          <div class="meta-card">
+            <strong>Less chaos</strong>
+            <span>Supports the front desk without more payroll.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="how-it-works">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">How BLEND works</span>
-          <h2>A clean three-step flow, no robot cobwebs attached</h2>
-          <p>
-            A visitor reaches out. BLEND responds instantly in your salon’s tone. More inquiries turn into conversations, confirmations, and booked appointments.
-          </p>
-        </div>
+    <section id="selling-points" class="reveal">
+      <div class="container section-head">
+        <span class="kicker">Six major selling points</span>
+        <h2>Scroll down and the story moves sideways</h2>
+        <p>
+          Each panel acts like its own mini page, so you can add more copy later without breaking the flow.
+        </p>
+      </div>
 
-        <div class="grid-2">
-          <div class="glass-card">
-            <div class="process">
-              <div class="step">
-                <div class="step-number">1</div>
-                <h3>Client reaches out</h3>
-                <p>Someone calls or texts your salon with a question, service inquiry, or booking request.</p>
+      <div class="horizontal-shell" id="horizontal-shell">
+        <div class="horizontal-sticky">
+          <div class="track" id="horizontal-track">
+            <article class="panel">
+              <div class="panel-copy">
+                <div class="panel-index">01</div>
+                <h3>Never miss a booking opportunity</h3>
+                <p>
+                  BLEND responds when your team cannot. After-hours calls, mid-service texts, and missed phone moments still become live conversations.
+                </p>
+                <div class="panel-list">
+                  <div><span>•</span><span>Capture inbound interest even when the salon is busy.</span></div>
+                  <div><span>•</span><span>Turn voicemail dead-ends into actual follow-up.</span></div>
+                  <div><span>•</span><span>Add more detail here later as your messaging grows.</span></div>
+                </div>
               </div>
-              <div class="step">
-                <div class="step-number">2</div>
-                <h3>BLEND responds instantly</h3>
-                <p>Your AI concierge replies promptly, captures details, and keeps the conversation flowing in a polished tone.</p>
+              <div class="panel-visual">
+                <div class="visual-card"><strong>Missed call rescue</strong><span>Fast response keeps hot leads from cooling off.</span></div>
+                <div class="visual-card"><strong>Instant engagement</strong><span>The conversation starts right away instead of tomorrow.</span></div>
               </div>
-              <div class="step">
-                <div class="step-number">3</div>
-                <h3>More bookings, fewer drop-offs</h3>
-                <p>Leads stay warm, clients get answers quickly, and your team spends less time chasing missed opportunities.</p>
-              </div>
-            </div>
-          </div>
+            </article>
 
-          <div class="glass-card">
-            <div class="card-label">Perfect for salons that want to...</div>
-            <div class="bullet-list">
-              <div class="bullet">
-                <div class="mini">💇</div>
-                <div>
-                  <h3>Stay responsive during busy chair hours</h3>
-                  <p>Your team can focus on clients in the salon while BLEND handles inbound communication.</p>
+            <article class="panel">
+              <div class="panel-copy">
+                <div class="panel-index">02</div>
+                <h3>24/7 availability without extra payroll</h3>
+                <p>
+                  Your salon should not need a midnight front desk to feel responsive. BLEND gives you constant availability without stacking more staffing cost.
+                </p>
+                <div class="panel-list">
+                  <div><span>•</span><span>Stay open conversationally, even when the lights are off.</span></div>
+                  <div><span>•</span><span>Support growth without hiring for every hour of the day.</span></div>
+                  <div><span>•</span><span>Keep the experience consistent and polished.</span></div>
                 </div>
               </div>
-              <div class="bullet">
-                <div class="mini">📲</div>
-                <div>
-                  <h3>Keep text-first clients engaged</h3>
-                  <p>Modern guests expect a fast, conversational experience on mobile.</p>
+              <div class="panel-visual">
+                <div class="visual-card"><strong>Always-on coverage</strong><span>No more “sorry we missed you” energy.</span></div>
+                <div class="visual-card"><strong>Lean operations</strong><span>More support without more operational drag.</span></div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-copy">
+                <div class="panel-index">03</div>
+                <h3>Instant text responses</h3>
+                <p>
+                  Today’s clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.
+                </p>
+                <div class="panel-list">
+                  <div><span>•</span><span>Reply to service questions in seconds.</span></div>
+                  <div><span>•</span><span>Make booking feel frictionless instead of delayed.</span></div>
+                  <div><span>•</span><span>Expand this later with service-specific examples.</span></div>
                 </div>
               </div>
-              <div class="bullet">
-                <div class="mini">🏆</div>
-                <div>
-                  <h3>Look premium from the first hello</h3>
-                  <p>The brand experience starts before the haircut. BLEND helps it feel seamless.</p>
+              <div class="panel-visual">
+                <div class="visual-card"><strong>Text-first behavior</strong><span>Great for modern guests who prefer messaging.</span></div>
+                <div class="visual-card"><strong>Brand tone control</strong><span>Fast does not have to feel robotic.</span></div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-copy">
+                <div class="panel-index">04</div>
+                <h3>Better client capture and conversion</h3>
+                <p>
+                  BLEND keeps conversations moving from first question to confirmed appointment, so fewer curious visitors fall through the cracks.
+                </p>
+                <div class="panel-list">
+                  <div><span>•</span><span>Guide guests from inquiry to action.</span></div>
+                  <div><span>•</span><span>Make first impressions feel premium and modern.</span></div>
+                  <div><span>•</span><span>Add proof points and case studies here later.</span></div>
                 </div>
               </div>
-              <div class="bullet">
-                <div class="mini">💸</div>
-                <div>
-                  <h3>Grow without bloating operations</h3>
-                  <p>Support revenue growth while keeping your staffing model lean and focused.</p>
+              <div class="panel-visual">
+                <div class="visual-card"><strong>Higher conversion</strong><span>More conversations become real appointments.</span></div>
+                <div class="visual-card"><strong>Cleaner pipeline</strong><span>Leads get captured instead of quietly disappearing.</span></div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-copy">
+                <div class="panel-index">05</div>
+                <h3>Fewer no-shows</h3>
+                <p>
+                  Smart reminders, confirmations, and timely follow-up help protect the schedule you worked hard to fill.
+                </p>
+                <div class="panel-list">
+                  <div><span>•</span><span>Reduce last-minute drop-offs.</span></div>
+                  <div><span>•</span><span>Keep guests informed before they forget.</span></div>
+                  <div><span>•</span><span>Leave space here for reminder workflow details later.</span></div>
                 </div>
               </div>
-            </div>
+              <div class="panel-visual">
+                <div class="visual-card"><strong>Reminder engine</strong><span>Helpful nudges can save real revenue.</span></div>
+                <div class="visual-card"><strong>Schedule protection</strong><span>Less empty-chair heartbreak.</span></div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-copy">
+                <div class="panel-index">06</div>
+                <h3>Turn past clients into new revenue</h3>
+                <p>
+                  BLEND helps you reconnect with previous guests through thoughtful outreach that brings old relationships back into motion.
+                </p>
+                <div class="panel-list">
+                  <div><span>•</span><span>Reactivate older clients with smarter follow-up.</span></div>
+                  <div><span>•</span><span>Unlock revenue hiding in your existing database.</span></div>
+                  <div><span>•</span><span>Expand this section later with campaign ideas and examples.</span></div>
+                </div>
+              </div>
+              <div class="panel-visual">
+                <div class="visual-card"><strong>Reactivation engine</strong><span>Old guests can become fresh bookings.</span></div>
+                <div class="visual-card"><strong>Revenue from your list</strong><span>Your past client book is a sleeping asset.</span></div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="results">
+    <section id="why-blend">
       <div class="container">
-        <div class="section-head">
-          <span class="kicker">Growth outcomes</span>
-          <h2>Engineered for conversion and retention</h2>
+        <div class="section-head reveal">
+          <span class="kicker">Why BLEND</span>
+          <h2>Built to feel premium, not overdesigned</h2>
           <p>
-            This section mirrors the brochure’s strongest talking points and gives them homepage weight, like polished brass on a dark velvet wall.
+            Less gradient fog, more clarity. The site now leans cleaner and lets motion do the talking.
           </p>
         </div>
 
-        <div class="proof-grid">
-          <div class="proof">
-            <strong>Higher</strong>
-            <span>booking conversion from fast follow-up and lead capture</span>
-          </div>
-          <div class="proof">
-            <strong>Better</strong>
-            <span>client capture across calls, texts, and after-hours inquiries</span>
-          </div>
-          <div class="proof">
-            <strong>Fewer</strong>
-            <span>no-shows through reminders and proactive communication</span>
-          </div>
-          <div class="proof">
-            <strong>More</strong>
-            <span>revenue from reactivating previous guests and missed opportunities</span>
-          </div>
+        <div class="stack-grid">
+          <article class="stack-card reveal">
+            <h3>Centered brand</h3>
+            <p>The logo now sits in the middle of the header so the brand lands first and cleanly.</p>
+          </article>
+          <article class="stack-card reveal">
+            <h3>Scroll-triggered motion</h3>
+            <p>Content reveals as visitors move down the page, giving the site more rhythm and energy.</p>
+          </article>
+          <article class="stack-card reveal">
+            <h3>Expandable structure</h3>
+            <p>Each selling-point panel is roomy enough for you to add more copy later without redesigning the whole page.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="demo">
       <div class="container">
-        <div class="cta">
+        <div class="cta reveal">
           <div>
-            <div class="kicker">Ready to transform your front desk?</div>
-            <h2>Schedule your demo and see BLEND in action</h2>
+            <span class="kicker">Ready to transform your front desk?</span>
+            <h2>Schedule your demo and show salons what BLEND can do</h2>
             <p>
-              Replace this button link with your Calendly, Google Form, or sales email. For GitHub Pages, this file can live as <code>index.html</code> in the root of a repository and publish as a static landing page.
+              Swap this button link for Calendly, your email, or any booking tool you choose later.
             </p>
           </div>
-          <a class="btn btn-primary" href="mailto:hello@blend.example?subject=BLEND%20Demo%20Request">Schedule Your Demo</a>
+          <a class="btn btn-primary" href="mailto:hello@itsblend.com?subject=BLEND%20Demo%20Request">Schedule your demo</a>
         </div>
       </div>
     </section>
@@ -891,37 +759,52 @@
   <footer class="site-footer">
     <div class="container footer-row">
       <div>© 2026 BLEND. Human touch meets AI precision.</div>
-      <div>Built as a lightweight static page for easy GitHub Pages hosting.</div>
+      <div>Built as a lightweight static page for GitHub Pages.</div>
     </div>
   </footer>
+
   <script>
-    const floating = document.querySelectorAll('.ambient');
-    const cards = document.querySelectorAll('.hero-copy, .hero-card');
+    const revealItems = document.querySelectorAll('.reveal');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    window.addEventListener('mousemove', (event) => {
-      const x = (event.clientX / window.innerWidth) - 0.5;
-      const y = (event.clientY / window.innerHeight) - 0.5;
-
-      floating.forEach((item, index) => {
-        const speed = (index + 1) * 12;
-        item.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
+    if (!prefersReducedMotion) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, {
+        threshold: 0.16
       });
 
-      cards.forEach((card, index) => {
-        const tiltX = y * (index === 0 ? -6 : -4);
-        const tiltY = x * (index === 0 ? 6 : 4);
-        card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-      });
-    });
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add('in-view'));
+    }
 
-    window.addEventListener('mouseleave', () => {
-      floating.forEach((item) => {
-        item.style.transform = 'translate3d(0, 0, 0)';
-      });
-      cards.forEach((card) => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-      });
-    });
+    const shell = document.getElementById('horizontal-shell');
+    const sticky = shell.querySelector('.horizontal-sticky');
+    const track = document.getElementById('horizontal-track');
+
+    function updateHorizontalScroll() {
+      if (window.innerWidth <= 760 || prefersReducedMotion) {
+        track.style.transform = 'translate3d(0, 0, 0)';
+        return;
+      }
+
+      const rect = shell.getBoundingClientRect();
+      const maxScroll = shell.offsetHeight - window.innerHeight;
+      const progress = Math.min(Math.max(-rect.top / maxScroll, 0), 1);
+      const maxTranslate = track.scrollWidth - window.innerWidth;
+      const move = maxTranslate * progress;
+      track.style.transform = `translate3d(${-move}px, 0, 0)`;
+    }
+
+    window.addEventListener('scroll', updateHorizontalScroll, { passive: true });
+    window.addEventListener('resize', updateHorizontalScroll);
+    window.addEventListener('load', updateHorizontalScroll);
+    updateHorizontalScroll();
   </script>
 </body>
 </html>
