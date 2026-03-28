@@ -141,6 +141,12 @@
       backdrop-filter: blur(14px);
       background: rgba(255, 250, 247, 0.84);
       border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+      transition: background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(255, 250, 247, 0.96);
+      box-shadow: 0 8px 24px rgba(17,17,17,0.06);
     }
 
     .nav {
@@ -186,29 +192,71 @@
 
     .brand {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 6px;
       text-align: center;
+      transition: transform 0.3s ease;
+      transform-origin: center top;
     }
 
-    .brand-mark {
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      line-height: 0.95;
-      letter-spacing: 0.08em;
-      font-weight: 900;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, var(--purple) 0%, var(--blue) 35%, var(--cyan) 58%, var(--gold) 78%, var(--pink) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .logo-wrap {
+      background: #ffffff;
+      padding: 14px 22px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+      border: 1px solid rgba(17,17,17,0.06);
+      transition: padding 0.32s ease, border-radius 0.32s ease, box-shadow 0.32s ease, transform 0.32s ease;
+      transform-origin: center top;
     }
 
-    .brand-tag {
-      font-size: 0.92rem;
-      color: rgba(23, 23, 23, 0.62);
-      letter-spacing: 0.02em;
+    .logo-img {
+      height: 56px;
+      width: auto;
+      display: block;
+      transition: height 0.32s ease;
+    }
+
+    .site-header.scrolled .logo-wrap {
+      padding: 10px 16px;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06), 0 2px 5px rgba(0,0,0,0.03);
+    }
+
+    .site-header.scrolled .logo-img {
+      height: 40px;
+    }
+
+    .hero-logo-stage {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 28px;
+      transition: opacity 0.35s ease, transform 0.45s ease;
+    }
+
+    .hero-logo-stage.hidden {
+      opacity: 0;
+      transform: translateY(-18px) scale(0.94);
+      pointer-events: none;
+    }
+
+    .hero-logo-wrap {
+      background: #ffffff;
+      padding: 24px 34px;
+      border-radius: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 50px rgba(17,17,17,0.10), 0 6px 14px rgba(17,17,17,0.05);
+      border: 1px solid rgba(17,17,17,0.06);
+    }
+
+    .hero-logo-img {
+      height: clamp(82px, 12vw, 138px);
+      width: auto;
+      display: block;
     }
 
     .btn {
@@ -997,6 +1045,19 @@
       .contact-chip { white-space: normal; text-align: center; }
       .bubble { max-width: 100%; }
       .phone-mockup { width: 100%; max-width: 360px; }
+      .logo-wrap {
+        padding: 10px 16px;
+      }
+      .logo-img {
+        height: 44px;
+      }
+      .hero-logo-wrap {
+        padding: 18px 22px;
+        border-radius: 22px;
+      }
+      .hero-logo-img {
+        height: clamp(70px, 18vw, 96px);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1024,8 +1085,9 @@
       </div>
 
       <a class="brand" href="#top" aria-label="BLEND home">
-        <span class="brand-mark">BLEND</span>
-        <span class="brand-tag">human touch meets AI precision</span>
+        <div class="logo-wrap">
+          <img src="logo.png" alt="BLEND logo" class="logo-img" />
+        </div>
       </a>
 
       <div class="nav-right">
@@ -1039,6 +1101,11 @@
     <section class="hero reveal">
       <div class="container hero-shell hero-shell-simplified">
         <div class="hero-copy hero-copy-simplified">
+          <div class="hero-logo-stage" id="heroLogoStage" aria-hidden="true">
+            <div class="hero-logo-wrap">
+              <img src="logo.png" alt="BLEND logo" class="hero-logo-img" />
+            </div>
+          </div>
           <div class="eyebrow">AI-powered call &amp; text concierge for salons</div>
           <h1>Never lose another salon conversation.</h1>
           <p class="hero-lead">BLEND answers, follows up, and keeps booking conversations moving so your front desk never becomes a bottleneck.</p>
@@ -1336,6 +1403,20 @@
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
+
+    const siteHeader = document.querySelector('.site-header');
+    const heroLogoStage = document.getElementById('heroLogoStage');
+
+    function updateHeaderState() {
+      const isScrolled = window.scrollY > 40;
+      siteHeader.classList.toggle('scrolled', isScrolled);
+      if (heroLogoStage) {
+        heroLogoStage.classList.toggle('hidden', isScrolled);
+      }
+    }
+
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    window.addEventListener('load', updateHeaderState);
 
     form.addEventListener('submit', (event) => {
       event.preventDefault();
