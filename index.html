@@ -11,18 +11,17 @@
   <style>
     :root {
       --bg: #09090b;
-      --bg-soft: #101015;
-      --panel: #13131a;
-      --panel-2: #191923;
+      --panel: #121218;
+      --panel-2: #171720;
       --line: rgba(255,255,255,0.08);
-      --text: #f5f1ee;
-      --muted: #b8b2b4;
+      --text: #f4efec;
+      --muted: #b7b0b5;
       --purple: #9b5cff;
       --blue: #50a7ff;
       --cyan: #7edfd2;
       --gold: #ffc97a;
       --pink: #ff78ac;
-      --shadow: 0 16px 50px rgba(0,0,0,0.28);
+      --shadow: 0 18px 50px rgba(0,0,0,0.30);
       --radius: 26px;
       --max: 1180px;
     }
@@ -40,33 +39,105 @@
     }
 
     body::before,
-    body::after {
+    body::after,
+    .splat,
+    .splat-2,
+    .splat-3,
+    .splat-4 {
       content: "";
       position: fixed;
-      inset: auto;
-      width: 340px;
-      height: 340px;
-      border-radius: 999px;
-      filter: blur(120px);
-      opacity: 0.16;
       pointer-events: none;
       z-index: 0;
+      opacity: 0.95;
+      mix-blend-mode: screen;
+      filter: blur(2px);
     }
 
     body::before {
-      top: 8%;
-      right: -120px;
-      background: var(--pink);
+      top: 80px;
+      right: -80px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle at 45% 38%, rgba(255,120,172,0.75) 0 18%, rgba(255,120,172,0.28) 18% 32%, transparent 32%),
+                  radial-gradient(circle at 72% 64%, rgba(80,167,255,0.76) 0 11%, transparent 11%),
+                  radial-gradient(circle at 22% 72%, rgba(155,92,255,0.72) 0 10%, transparent 10%),
+                  radial-gradient(circle at 55% 55%, rgba(255,201,122,0.30) 0 46%, transparent 46%);
+      border-radius: 47% 53% 58% 42% / 44% 41% 59% 56%;
+      filter: blur(18px);
+      opacity: 0.48;
     }
 
     body::after {
-      bottom: 10%;
-      left: -120px;
-      background: var(--blue);
+      bottom: 110px;
+      left: -110px;
+      width: 390px;
+      height: 390px;
+      background: radial-gradient(circle at 48% 40%, rgba(80,167,255,0.72) 0 17%, rgba(80,167,255,0.24) 17% 31%, transparent 31%),
+                  radial-gradient(circle at 24% 66%, rgba(126,223,210,0.74) 0 10%, transparent 10%),
+                  radial-gradient(circle at 75% 68%, rgba(255,120,172,0.72) 0 10%, transparent 10%),
+                  radial-gradient(circle at 52% 52%, rgba(155,92,255,0.26) 0 45%, transparent 45%);
+      border-radius: 61% 39% 47% 53% / 47% 55% 45% 53%;
+      filter: blur(22px);
+      opacity: 0.42;
+    }
+
+    .splat {
+      top: 32%;
+      right: 8%;
+      width: 170px;
+      height: 170px;
+      background: radial-gradient(circle at 35% 35%, rgba(255,201,122,0.82) 0 12%, transparent 12%),
+                  radial-gradient(circle at 62% 48%, rgba(255,120,172,0.88) 0 18%, transparent 18%),
+                  radial-gradient(circle at 44% 70%, rgba(255,201,122,0.78) 0 9%, transparent 9%),
+                  radial-gradient(circle at 60% 62%, rgba(255,120,172,0.22) 0 42%, transparent 42%);
+      border-radius: 58% 42% 51% 49% / 45% 59% 41% 55%;
+      filter: blur(10px);
+      opacity: 0.34;
+    }
+
+    .splat-2 {
+      top: 62%;
+      left: 4%;
+      width: 190px;
+      height: 190px;
+      background: radial-gradient(circle at 38% 35%, rgba(155,92,255,0.84) 0 15%, transparent 15%),
+                  radial-gradient(circle at 64% 40%, rgba(80,167,255,0.84) 0 13%, transparent 13%),
+                  radial-gradient(circle at 40% 64%, rgba(126,223,210,0.84) 0 11%, transparent 11%),
+                  radial-gradient(circle at 50% 52%, rgba(80,167,255,0.18) 0 44%, transparent 44%);
+      border-radius: 43% 57% 49% 51% / 54% 46% 54% 46%;
+      filter: blur(12px);
+      opacity: 0.32;
+    }
+
+    .splat-3 {
+      top: 1120px;
+      right: 4%;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle at 50% 45%, rgba(126,223,210,0.85) 0 18%, transparent 18%),
+                  radial-gradient(circle at 28% 62%, rgba(80,167,255,0.82) 0 8%, transparent 8%),
+                  radial-gradient(circle at 72% 68%, rgba(255,120,172,0.82) 0 8%, transparent 8%),
+                  radial-gradient(circle at 50% 52%, rgba(126,223,210,0.18) 0 44%, transparent 44%);
+      border-radius: 49% 51% 40% 60% / 42% 49% 51% 58%;
+      filter: blur(9px);
+      opacity: 0.28;
+    }
+
+    .splat-4 {
+      top: 1540px;
+      left: 8%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle at 42% 42%, rgba(255,201,122,0.84) 0 16%, transparent 16%),
+                  radial-gradient(circle at 65% 38%, rgba(155,92,255,0.84) 0 10%, transparent 10%),
+                  radial-gradient(circle at 55% 68%, rgba(255,120,172,0.82) 0 11%, transparent 11%),
+                  radial-gradient(circle at 50% 52%, rgba(255,201,122,0.16) 0 44%, transparent 44%);
+      border-radius: 64% 36% 52% 48% / 52% 43% 57% 48%;
+      filter: blur(10px);
+      opacity: 0.3;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
 
     .container {
       width: min(calc(100% - 32px), var(--max));
@@ -78,14 +149,14 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 50;
       backdrop-filter: blur(14px);
-      background: rgba(10,10,12,0.78);
+      background: rgba(10,10,12,0.82);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .nav {
-      min-height: 84px;
+      min-height: 88px;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
@@ -96,12 +167,27 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
       min-width: 0;
     }
 
-    .nav-right {
-      justify-content: flex-end;
+    .nav-right { justify-content: flex-end; }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    .contact-chip strong {
+      color: white;
     }
 
     .nav-link {
@@ -109,9 +195,7 @@
       font-size: 0.95rem;
     }
 
-    .nav-link:hover {
-      color: #fff;
-    }
+    .nav-link:hover { color: #fff; }
 
     .brand {
       display: flex;
@@ -150,34 +234,36 @@
       transition: transform 0.22s ease, box-shadow 0.22s ease;
       font-weight: 700;
       white-space: nowrap;
+      color: #121212;
     }
 
     .btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.24);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.24);
     }
 
-    .btn-primary {
-      background: linear-gradient(90deg, var(--purple), var(--blue), var(--cyan), var(--gold), var(--pink));
-      color: #111;
-    }
-
-    .btn-secondary {
-      background: linear-gradient(90deg, rgba(155,92,255,0.95), rgba(80,167,255,0.95), rgba(255,120,172,0.95));
-      color: #111;
-    }
+    .btn-purple { background: var(--purple); }
+    .btn-blue { background: var(--blue); }
+    .btn-cyan { background: var(--cyan); }
+    .btn-gold { background: var(--gold); }
+    .btn-pink { background: var(--pink); }
 
     .hero {
       padding: 84px 0 48px;
     }
 
-    .hero-shell {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line);
-      border-radius: 30px;
+    .hero-shell,
+    .panel,
+    .stack-card,
+    .cta,
+    .talk-page {
+      background: rgba(18,18,24,0.96);
+      border: 1px solid rgba(255,255,255,0.08);
       box-shadow: var(--shadow);
-      padding: 44px;
+      border-radius: 30px;
     }
+
+    .hero-shell { padding: 44px; }
 
     .eyebrow {
       display: inline-flex;
@@ -208,7 +294,7 @@
 
     .hero-copy {
       text-align: center;
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
     }
 
@@ -248,11 +334,12 @@
       position: absolute;
       inset: 0 auto 0 0;
       width: 4px;
-      background: var(--purple);
+      background: var(--meta-accent, var(--purple));
     }
 
-    .meta-card:nth-child(2)::before { background: var(--blue); }
-    .meta-card:nth-child(3)::before { background: var(--pink); }
+    .meta-card:nth-child(1) { --meta-accent: var(--purple); }
+    .meta-card:nth-child(2) { --meta-accent: var(--blue); }
+    .meta-card:nth-child(3) { --meta-accent: var(--pink); }
 
     .meta-card strong {
       display: block;
@@ -294,9 +381,13 @@
       margin-bottom: 10px;
     }
 
-    .section-head p {
+    .section-head p,
+    .panel p,
+    .stack-card p,
+    .cta p,
+    .talk-page p,
+    .visual-card span {
       color: var(--muted);
-      font-size: 1rem;
     }
 
     .selling-stack {
@@ -306,10 +397,6 @@
 
     .panel {
       padding: clamp(24px, 4vw, 44px);
-      border-radius: 28px;
-      background: rgba(18,18,22,0.96);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 24px;
@@ -321,23 +408,18 @@
     .panel::after {
       content: "";
       position: absolute;
-      inset: 0;
+      inset: auto -40px -40px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      opacity: 0.18;
+      background: var(--panel-accent, var(--purple));
+      filter: blur(48px);
       pointer-events: none;
-      opacity: 0.12;
-      background:
-        radial-gradient(circle at 85% 20%, var(--panel-accent, var(--purple)) 0, transparent 28%),
-        radial-gradient(circle at 15% 80%, var(--panel-accent-2, var(--blue)) 0, transparent 22%);
     }
 
     .panel-copy,
-    .panel-visual {
-      position: relative;
-      z-index: 1;
-    }
-
-    .panel-copy {
-      max-width: 62ch;
-    }
+    .panel-visual { position: relative; z-index: 1; }
 
     .panel-index {
       display: inline-flex;
@@ -361,7 +443,6 @@
     }
 
     .panel p {
-      color: var(--muted);
       font-size: 1.02rem;
       margin-bottom: 18px;
     }
@@ -381,9 +462,7 @@
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    .panel-list div:first-child {
-      border-top: 0;
-    }
+    .panel-list div:first-child { border-top: 0; }
 
     .panel-visual {
       display: grid;
@@ -394,9 +473,71 @@
     .visual-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
+      border-left: 4px solid var(--card-accent, var(--purple));
       border-radius: 22px;
       padding: 18px;
-      border-left: 4px solid var(--card-accent, var(--purple));
+    }
+
+    .chat-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .chat-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+
+    .chat-thread {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bubble {
+      max-width: 88%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      line-height: 1.45;
+      font-size: 0.94rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+    }
+
+    .bubble.client {
+      justify-self: start;
+      background: rgba(255,255,255,0.05);
+      color: #f6f1ee;
+      border-top-left-radius: 8px;
+    }
+
+    .bubble.blend {
+      justify-self: end;
+      background: var(--bubble-accent, rgba(155,92,255,0.18));
+      color: #121212;
+      border-top-right-radius: 8px;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .chat-why {
+      margin-top: 4px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .chat-why strong {
+      color: #fff;
     }
 
     .visual-card strong {
@@ -405,29 +546,12 @@
       margin-bottom: 6px;
     }
 
-    .visual-card span {
-      color: var(--muted);
-      font-size: 0.94rem;
-      display: block;
-    }
-
-    .panel-1 { --panel-accent: var(--purple); --panel-accent-2: var(--blue); --card-accent: var(--purple); }
-    .panel-2 { --panel-accent: var(--gold); --panel-accent-2: var(--pink); --card-accent: var(--gold); }
-    .panel-3 { --panel-accent: var(--blue); --panel-accent-2: var(--cyan); --card-accent: var(--blue); }
-    .panel-4 { --panel-accent: var(--pink); --panel-accent-2: var(--purple); --card-accent: var(--pink); }
-    .panel-5 { --panel-accent: var(--gold); --panel-accent-2: var(--blue); --card-accent: var(--cyan); }
-    .panel-6 { --panel-accent: var(--cyan); --panel-accent-2: var(--pink); --card-accent: var(--cyan); }
-
-    .reveal {
-      opacity: 0;
-      transform: translate3d(0, 30px, 0);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal.in-view {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
+    .panel-1 { --panel-accent: var(--purple); --card-accent: var(--purple); --bubble-accent: var(--gold); }
+    .panel-2 { --panel-accent: var(--gold); --card-accent: var(--gold); --bubble-accent: var(--cyan); }
+    .panel-3 { --panel-accent: var(--blue); --card-accent: var(--blue); --bubble-accent: var(--pink); }
+    .panel-4 { --panel-accent: var(--pink); --card-accent: var(--pink); --bubble-accent: var(--gold); }
+    .panel-5 { --panel-accent: var(--cyan); --card-accent: var(--cyan); --bubble-accent: var(--blue); }
+    .panel-6 { --panel-accent: var(--gold); --card-accent: var(--purple); --bubble-accent: var(--pink); }
 
     .stack-grid {
       display: grid;
@@ -436,9 +560,6 @@
     }
 
     .stack-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
       padding: 24px;
       min-height: 220px;
       position: relative;
@@ -464,17 +585,8 @@
       margin-bottom: 8px;
     }
 
-    .stack-card p {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
     .cta {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 28px;
       padding: 34px;
-      box-shadow: var(--shadow);
       display: grid;
       grid-template-columns: 1.1fr auto;
       gap: 18px;
@@ -487,17 +599,107 @@
     .cta::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--purple), var(--blue), var(--cyan), var(--gold), var(--pink));
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: var(--cyan);
     }
 
-    .cta p {
-      color: var(--muted);
-      margin-top: 10px;
-      max-width: 56ch;
+    .talk-page {
+      padding: 50px 28px;
+      text-align: center;
+      margin: 22px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .talk-page::before {
+      content: "";
+      position: absolute;
+      inset: -50px auto auto -50px;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: var(--pink);
+      opacity: 0.16;
+      filter: blur(56px);
+    }
+
+    .talk-page::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -40px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: var(--blue);
+      opacity: 0.14;
+      filter: blur(60px);
+    }
+
+    .talk-page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .phone-label {
+      display: inline-block;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+
+    .big-number {
+      display: inline-block;
+      font-size: clamp(2.4rem, 7vw, 5.2rem);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .text-only {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.84rem;
+    }
+
+    .talk-page h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .talk-page p {
+      max-width: 700px;
+      margin: 0 auto 14px;
+      font-size: 1.02rem;
+    }
+
+    .talk-note {
+      max-width: 760px;
+      margin: 16px auto 0;
+      color: #eee4de;
+      font-size: 1rem;
+    }
+
+    .bottom-contact {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
     }
 
     .site-footer {
@@ -516,6 +718,104 @@
       flex-wrap: wrap;
     }
 
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4,4,6,0.78);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 100;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      width: min(100%, 620px);
+      background: rgba(18,18,24,0.98);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .modal h3 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .modal p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .form-grid label {
+      display: grid;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .form-grid input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: white;
+      font: inherit;
+      outline: none;
+    }
+
+    .form-grid input:focus {
+      border-color: rgba(126,223,210,0.8);
+      box-shadow: 0 0 0 3px rgba(126,223,210,0.14);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
     @media (max-width: 980px) {
       .nav {
         grid-template-columns: 1fr;
@@ -524,7 +824,8 @@
 
       .nav-left,
       .nav-right,
-      .brand {
+      .brand,
+      .bottom-contact {
         justify-content: center;
       }
 
@@ -534,18 +835,21 @@
       .panel {
         grid-template-columns: 1fr;
       }
-
-      .panel-visual {
-        grid-template-columns: 1fr 1fr;
-      }
     }
 
     @media (max-width: 760px) {
       .hero-shell,
-      .cta,
+      .panel,
       .stack-card,
-      .panel {
+      .cta,
+      .talk-page,
+      .modal {
         padding: 22px;
+      }
+
+      .nav-left,
+      .nav-right {
+        flex-wrap: wrap;
       }
 
       h1 {
@@ -553,9 +857,18 @@
       }
 
       .hero-meta,
-      .stack-grid,
-      .panel-visual {
+      .stack-grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .form-actions {
+        justify-content: center;
+      }
+
+      .contact-chip {
+        white-space: normal;
+        text-align: center;
       }
     }
 
@@ -570,11 +883,16 @@
   </style>
 </head>
 <body>
+  <div class="splat" aria-hidden="true"></div>
+  <div class="splat-2" aria-hidden="true"></div>
+  <div class="splat-3" aria-hidden="true"></div>
+  <div class="splat-4" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="container nav">
       <div class="nav-left">
+        <a class="contact-chip" href="tel:8015906020"><span>Questions?</span> <strong>801-590-6020</strong></a>
         <a class="nav-link" href="#selling-points">Selling points</a>
-        <a class="nav-link" href="#why-blend">Why BLEND</a>
       </div>
 
       <a class="brand" href="#top" aria-label="BLEND home">
@@ -583,8 +901,8 @@
       </a>
 
       <div class="nav-right">
-        <a class="nav-link" href="#demo">Book a demo</a>
-        <a class="btn btn-primary" href="#demo">Schedule demo</a>
+        <a class="btn btn-purple" href="#talk-to-ai">Talk To AI</a>
+        <button class="btn btn-blue open-demo" type="button">Schedule a Demo</button>
       </div>
     </div>
   </header>
@@ -599,8 +917,9 @@
             BLEND helps salons answer faster, convert more inquiries, reduce no-shows, and make every guest interaction feel polished, warm, and premium.
           </p>
           <div class="hero-actions">
-            <a href="#demo" class="btn btn-primary">Book a demo</a>
-            <a href="#selling-points" class="btn btn-secondary">See the six selling points</a>
+            <a href="#talk-to-ai" class="btn btn-pink">Talk To AI</a>
+            <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
+            <a href="#selling-points" class="btn btn-cyan">See the six selling points</a>
           </div>
         </div>
 
@@ -639,109 +958,22 @@
               BLEND responds when your team cannot. After-hours calls, mid-service texts, and missed phone moments still become live conversations.
             </p>
             <div class="panel-list">
-              <div><span>•</span><span>Capture inbound interest even when the salon is busy.</span></div>
-              <div><span>•</span><span>Turn voicemail dead-ends into actual follow-up.</span></div>
-              <div><span>•</span><span>Add more detail here later as your messaging grows.</span></div>
-            </div>
-          </div>
-          <div class="panel-visual">
-            <div class="visual-card"><strong>Missed call rescue</strong><span>Fast response keeps hot leads from cooling off.</span></div>
-            <div class="visual-card"><strong>Instant engagement</strong><span>The conversation starts right away instead of tomorrow.</span></div>
-          </div>
-        </article>
-
-        <article class="panel panel-2 reveal">
-          <div class="panel-copy">
-            <div class="panel-index">02</div>
-            <h3>24/7 availability without extra payroll</h3>
-            <p>
-              Your salon should not need a midnight front desk to feel responsive. BLEND gives you constant availability without stacking more staffing cost.
-            </p>
-            <div class="panel-list">
-              <div><span>•</span><span>Stay open conversationally, even when the lights are off.</span></div>
-              <div><span>•</span><span>Support growth without hiring for every hour of the day.</span></div>
-              <div><span>•</span><span>Keep the experience consistent and polished.</span></div>
-            </div>
-          </div>
-          <div class="panel-visual">
-            <div class="visual-card"><strong>Always-on coverage</strong><span>No more “sorry we missed you” energy.</span></div>
-            <div class="visual-card"><strong>Lean operations</strong><span>More support without more operational drag.</span></div>
-          </div>
-        </article>
-
-        <article class="panel panel-3 reveal">
-          <div class="panel-copy">
-            <div class="panel-index">03</div>
-            <h3>Instant text responses</h3>
-            <p>
-              Today’s clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.
-            </p>
-            <div class="panel-list">
-              <div><span>•</span><span>Reply to service questions in seconds.</span></div>
-              <div><span>•</span><span>Make booking feel frictionless instead of delayed.</span></div>
-              <div><span>•</span><span>Expand this later with service-specific examples.</span></div>
-            </div>
-          </div>
-          <div class="panel-visual">
-            <div class="visual-card"><strong>Text-first behavior</strong><span>Great for modern guests who prefer messaging.</span></div>
-            <div class="visual-card"><strong>Brand tone control</strong><span>Fast does not have to feel robotic.</span></div>
-          </div>
-        </article>
-
-        <article class="panel panel-4 reveal">
-          <div class="panel-copy">
-            <div class="panel-index">04</div>
-            <h3>Better client capture and conversion</h3>
-            <p>
-              BLEND keeps conversations moving from first question to confirmed appointment, so fewer curious visitors fall through the cracks.
-            </p>
-            <div class="panel-list">
-              <div><span>•</span><span>Guide guests from inquiry to action.</span></div>
-              <div><span>•</span><span>Make first impressions feel premium and modern.</span></div>
-              <div><span>•</span><span>Add proof points and case studies here later.</span></div>
-            </div>
-          </div>
-          <div class="panel-visual">
-            <div class="visual-card"><strong>Higher conversion</strong><span>More conversations become real appointments.</span></div>
-            <div class="visual-card"><strong>Cleaner pipeline</strong><span>Leads get captured instead of quietly disappearing.</span></div>
-          </div>
-        </article>
-
-        <article class="panel panel-5 reveal">
-          <div class="panel-copy">
-            <div class="panel-index">05</div>
-            <h3>Fewer no-shows</h3>
-            <p>
-              Smart reminders, confirmations, and timely follow-up help protect the schedule you worked hard to fill.
-            </p>
-            <div class="panel-list">
-              <div><span>•</span><span>Reduce last-minute drop-offs.</span></div>
-              <div><span>•</span><span>Keep guests informed before they forget.</span></div>
-              <div><span>•</span><span>Leave space here for reminder workflow details later.</span></div>
-            </div>
-          </div>
-          <div class="panel-visual">
-            <div class="visual-card"><strong>Reminder engine</strong><span>Helpful nudges can save real revenue.</span></div>
-            <div class="visual-card"><strong>Schedule protection</strong><span>Less empty-chair heartbreak.</span></div>
-          </div>
-        </article>
-
-        <article class="panel panel-6 reveal">
-          <div class="panel-copy">
-            <div class="panel-index">06</div>
-            <h3>Turn past clients into new revenue</h3>
-            <p>
-              BLEND helps you reconnect with previous guests through thoughtful outreach that brings old relationships back into motion.
-            </p>
-            <div class="panel-list">
               <div><span>•</span><span>Reactivate older clients with smarter follow-up.</span></div>
               <div><span>•</span><span>Unlock revenue hiding in your existing database.</span></div>
-              <div><span>•</span><span>Expand this section later with campaign ideas and examples.</span></div>
+              <div><span>•</span><span>Bring quiet client relationships back to life.</span></div>
             </div>
           </div>
           <div class="panel-visual">
-            <div class="visual-card"><strong>Reactivation engine</strong><span>Old guests can become fresh bookings.</span></div>
-            <div class="visual-card"><strong>Revenue from your list</strong><span>Your past client book is a sleeping asset.</span></div>
+            <div class="chat-card">
+              <div class="chat-label">Sample conversation</div>
+              <div class="chat-thread">
+                <div class="bubble blend">Hi Emma. It’s been a little while since your last visit, so we wanted to check in. Want to freshen things up for spring?</div>
+                <div class="bubble client">Honestly yes, I’ve been meaning to book something.</div>
+                <div class="bubble blend">Perfect timing. I can help you get back on the schedule.</div>
+                <div class="bubble client">Let’s do it.</div>
+              </div>
+              <div class="chat-why"><strong>Why it matters:</strong> Past clients are hidden revenue, and a simple nudge can wake that revenue right back up.</div>
+            </div>
           </div>
         </article>
       </div>
@@ -751,25 +983,46 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="kicker">Why BLEND</span>
-          <h2>Built to feel premium, not overdesigned</h2>
+          <h2>Built to feel premium, playful, and clear</h2>
           <p>
-            Less gradient fog, more clarity. The site now leans cleaner and lets motion do the talking.
+            More color from the logo, less sleepy gray. The page now feels more like your brand walked into the room wearing a velvet jacket and good shoes.
           </p>
         </div>
 
         <div class="stack-grid">
           <article class="stack-card reveal">
             <h3>Centered brand</h3>
-            <p>The logo now sits in the middle of the header so the brand lands first and cleanly.</p>
+            <p>The logo stays centered so the BLEND identity lands first and cleanly.</p>
           </article>
           <article class="stack-card reveal">
-            <h3>Scroll-triggered motion</h3>
-            <p>Content reveals as visitors move down the page, giving the site more rhythm and energy.</p>
+            <h3>Bold contact points</h3>
+            <p>Your question line and your AI text line are both obvious now, which helps people know exactly where to go.</p>
           </article>
           <article class="stack-card reveal">
-            <h3>Expandable structure</h3>
-            <p>Each selling-point panel is roomy enough for you to add more copy later without redesigning the whole page.</p>
+            <h3>Color with restraint</h3>
+            <p>The page stays dark and premium while bright logo colors pop through the interface like confetti with a black-tie dress code.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="talk-to-ai">
+      <div class="container">
+        <div class="talk-page reveal">
+          <span class="phone-label">Text this number. Do not call it.</span>
+          <a class="big-number" href="sms:2088024546">208-802-4546</a>
+          <div class="text-only">Text only for the BLEND test drive</div>
+          <h2>Take BLEND for a test drive</h2>
+          <p>
+            You would never buy a car without taking it for a spin first. Same idea here. This line is built specifically for salons, so text it and see how BLEND talks back in the real world.
+          </p>
+          <p class="talk-note">
+            Again, this is a <strong>text experience</strong>. Please <strong>text 208-802-4546</strong> instead of calling it.
+          </p>
+          <div class="hero-actions" style="margin-top: 24px;">
+            <a href="sms:2088024546" class="btn btn-pink">Text 208-802-4546</a>
+            <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
+          </div>
         </div>
       </div>
     </section>
@@ -779,12 +1032,18 @@
         <div class="cta reveal">
           <div>
             <span class="kicker">Ready to transform your front desk?</span>
-            <h2>Schedule your demo and show salons what BLEND can do</h2>
+            <h2>Talk to AI, ask questions, or open a demo request</h2>
             <p>
-              Swap this button link for Calendly, your email, or any booking tool you choose later.
+              Questions about BLEND? Use the contact number. Want the full walkthrough? Hit the demo button and send your info.
             </p>
           </div>
-          <a class="btn btn-primary" href="mailto:hello@itsblend.com?subject=BLEND%20Demo%20Request">Schedule your demo</a>
+          <div class="hero-actions" style="justify-content: flex-end; margin-top: 0;">
+            <a class="btn btn-cyan" href="#talk-to-ai">Talk To AI</a>
+            <button class="btn btn-blue open-demo" type="button">Schedule a Demo</button>
+          </div>
+        </div>
+        <div class="bottom-contact reveal">
+          <a class="contact-chip" href="tel:8015906020"><span>Questions? Call or text</span> <strong>801-590-6020</strong></a>
         </div>
       </div>
     </section>
@@ -793,9 +1052,43 @@
   <footer class="site-footer">
     <div class="container footer-row">
       <div>© 2026 BLEND. Human touch meets AI precision.</div>
-      <div>Built as a lightweight static page for GitHub Pages.</div>
+      <div>Questions? 801-590-6020</div>
     </div>
   </footer>
+
+  <div class="modal-backdrop" id="demoModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+      <button class="close-btn" type="button" id="closeModal" aria-label="Close demo form">×</button>
+      <h3 id="demoTitle">Schedule a Demo</h3>
+      <p>Answer these quick questions and your email app will open a draft to Rob.</p>
+      <form class="form-grid" id="demoForm">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Phone number
+          <input type="tel" name="phone" required />
+        </label>
+        <label>
+          Email address
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Name of Company
+          <input type="text" name="company" required />
+        </label>
+        <label>
+          What is your favorite color?
+          <input type="text" name="color" required />
+        </label>
+        <div class="form-actions">
+          <button class="btn btn-purple" type="button" id="cancelModal">Cancel</button>
+          <button class="btn btn-gold" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script>
     const revealItems = document.querySelectorAll('.reveal');
@@ -808,14 +1101,69 @@
             entry.target.classList.add('in-view');
           }
         });
-      }, {
-        threshold: 0.16
-      });
+      }, { threshold: 0.16 });
 
       revealItems.forEach((item) => revealObserver.observe(item));
     } else {
       revealItems.forEach((item) => item.classList.add('in-view'));
     }
+
+    const modal = document.getElementById('demoModal');
+    const openButtons = document.querySelectorAll('.open-demo');
+    const closeButton = document.getElementById('closeModal');
+    const cancelButton = document.getElementById('cancelModal');
+    const form = document.getElementById('demoForm');
+
+    function openModal() {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    openButtons.forEach((button) => {
+      button.addEventListener('click', openModal);
+    });
+
+    closeButton.addEventListener('click', closeModal);
+    cancelButton.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = encodeURIComponent('BLEND Demo Request');
+      const body = encodeURIComponent(
+        'Name: ' + data.get('name') + '
+' +
+        'Phone number: ' + data.get('phone') + '
+' +
+        'Email address: ' + data.get('email') + '
+' +
+        'Name of Company: ' + data.get('company') + '
+' +
+        'Favorite color: ' + data.get('color')
+      );
+      window.location.href = 'mailto:Rob@salescomm.com?subject=' + subject + '&body=' + body;
+      closeModal();
+      form.reset();
+    });
   </script>
 </body>
 </html>
