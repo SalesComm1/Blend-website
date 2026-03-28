@@ -215,7 +215,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 22px;
+      padding: 16px 26px;
       border-radius: 999px;
       border: 1px solid rgba(17, 17, 17, 0.06);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
@@ -224,6 +224,7 @@
       color: #121212;
       cursor: pointer;
       box-shadow: 0 10px 24px rgba(17,17,17,0.08);
+      letter-spacing: -0.01em;
     }
 
     .btn:hover {
@@ -240,18 +241,23 @@
     main { position: relative; z-index: 1; }
 
     section {
-      padding: 28px 0;
+      padding: 56px 0;
       position: relative;
       z-index: 2;
     }
 
-    .hero { padding: 84px 0 48px; }
+    .journey-section + .journey-section {
+      margin-top: 8px;
+    }
+
+    .hero { padding: 96px 0 72px; }
 
     .hero-shell,
     .panel,
     .stack-card,
     .cta,
-    .talk-page {
+    .talk-page,
+    .story-block {
       background: var(--panel);
       border: 1px solid rgba(17, 17, 17, 0.08);
       box-shadow: var(--shadow);
@@ -259,7 +265,12 @@
     }
 
     .hero-shell {
-      padding: 46px;
+      padding: 56px;
+    }
+
+    .hero-shell-simplified {
+      display: grid;
+      gap: 34px;
     }
 
     .eyebrow {
@@ -281,76 +292,131 @@
     h1, h2, h3, p { margin: 0; }
 
     h1 {
-      font-size: clamp(2.8rem, 6vw, 5.6rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      max-width: 10ch;
-      margin: 0 auto 16px;
+      font-size: clamp(3.2rem, 7vw, 6.4rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      max-width: 9ch;
+      margin: 0 auto 18px;
       text-align: center;
     }
 
     .hero-copy {
       text-align: center;
-      max-width: 780px;
+      max-width: 840px;
       margin: 0 auto;
     }
 
+    .hero-lead,
     .hero-copy p {
       color: var(--muted);
-      font-size: 1.06rem;
+      font-size: 1.12rem;
       margin: 0 auto;
-      max-width: 58ch;
+      max-width: 52ch;
+      line-height: 1.55;
     }
 
     .hero-actions {
       display: flex;
       justify-content: center;
-      gap: 14px;
-      margin-top: 26px;
+      gap: 16px;
+      margin-top: 30px;
       flex-wrap: wrap;
     }
 
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 34px;
+    .hero-actions-premium .btn {
+      min-width: 190px;
     }
 
-    .meta-card {
+    .hero-mini-benefits {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-benefit {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(17,17,17,0.08);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 118px;
+      box-shadow: 0 10px 22px rgba(17,17,17,0.04);
+    }
+
+    .mini-benefit strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .mini-benefit span {
+      color: var(--muted);
+      line-height: 1.5;
+      display: block;
+      font-size: 0.96rem;
+    }
+
+    .story-block {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .story-copy {
+      max-width: 58ch;
+    }
+
+    .story-copy h2 {
+      font-size: clamp(2.1rem, 4vw, 3.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    .story-copy p {
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.6;
+    }
+
+    .story-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .story-stat,
+    .solution-card {
       background: rgba(255,255,255,0.78);
       border: 1px solid rgba(17,17,17,0.08);
       border-radius: 20px;
       padding: 20px;
-      position: relative;
-      overflow: hidden;
-      min-height: 118px;
+      min-height: 106px;
     }
 
-    .meta-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
-      background: var(--meta-accent, var(--purple));
-    }
-
-    .meta-card:nth-child(1) { --meta-accent: var(--purple); }
-    .meta-card:nth-child(2) { --meta-accent: var(--blue); }
-    .meta-card:nth-child(3) { --meta-accent: var(--pink); }
-
-    .meta-card strong {
+    .story-stat strong,
+    .solution-card strong {
       display: block;
-      font-size: 1.4rem;
       margin-bottom: 6px;
+      font-size: 1rem;
     }
 
-    .meta-card span { color: var(--muted); font-size: 0.95rem; }
+    .story-stat span,
+    .solution-card span {
+      color: var(--muted);
+      display: block;
+      line-height: 1.5;
+      font-size: 0.96rem;
+    }
 
     .section-head {
       text-align: center;
       max-width: 780px;
-      margin: 0 auto 22px;
+      margin: 0 auto 28px;
+    }
+
+    .section-head-wide {
+      margin-bottom: 34px;
     }
 
     .kicker {
@@ -364,10 +430,10 @@
     }
 
     .section-head h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 0.97;
-      letter-spacing: -0.04em;
-      margin-bottom: 10px;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
     }
 
     .section-head p,
@@ -378,18 +444,22 @@
     .chat-why,
     .number-caption {
       color: var(--muted);
+      line-height: 1.6;
     }
 
     .selling-stack {
       display: grid;
-      gap: 18px;
+      gap: 24px;
+    }
+
+    .proof-stack .panel {
+      padding: 42px;
     }
 
     .panel {
-      padding: clamp(24px, 4vw, 44px);
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 30px;
       align-items: center;
       position: relative;
       overflow: hidden;
@@ -414,58 +484,49 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
       background: rgba(17,17,17,0.04);
       border: 1px solid rgba(17,17,17,0.08);
       color: #5b4b3c;
       font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .panel h3 {
-      font-size: clamp(2rem, 4vw, 4rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      margin-bottom: 14px;
-    }
-
-    .panel p {
-      font-size: 1.02rem;
       margin-bottom: 18px;
     }
 
-    .panel-list { display: grid; gap: 12px; }
-
-    .panel-list div {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: #353535;
-      font-size: 0.98rem;
-      padding: 10px 0;
-      border-top: 1px solid rgba(17,17,17,0.08);
+    .panel h3 {
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+      max-width: 10ch;
     }
 
-    .panel-list div:first-child { border-top: 0; }
+    .panel p {
+      font-size: 1.04rem;
+      margin-bottom: 20px;
+    }
 
-    .panel-visual { display: grid; gap: 14px; align-content: center; }
+    .panel-visual { display: grid; gap: 16px; align-content: center; }
 
     .chat-card {
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.84);
       border: 1px solid rgba(17,17,17,0.08);
-      border-radius: 24px;
-      padding: 18px;
+      border-radius: 26px;
+      padding: 20px;
       display: grid;
-      gap: 12px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+      gap: 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .chat-card-large {
+      padding: 24px;
     }
 
     .chat-window {
-      max-height: 360px;
+      max-height: 400px;
       overflow-y: auto;
-      padding-right: 6px;
+      padding-right: 8px;
       scroll-behavior: smooth;
       scrollbar-width: thin;
       scrollbar-color: rgba(0,0,0,0.16) transparent;
@@ -485,17 +546,36 @@
       color: #9b6c2e;
     }
 
-    .chat-thread { display: grid; gap: 10px; }
+    .chat-thread { display: grid; gap: 12px; }
 
     .bubble {
-      max-width: 88%;
-      padding: 12px 14px;
-      border-radius: 18px;
-      line-height: 1.45;
-      font-size: 0.94rem;
+      max-width: 90%;
+      padding: 14px 16px;
+      border-radius: 20px;
+      line-height: 1.48;
+      font-size: 0.97rem;
       border: 1px solid rgba(17,17,17,0.08);
       box-shadow: 0 8px 20px rgba(17,17,17,0.06);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
     }
+
+    .animated-chat.play .bubble {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animated-chat.play .bubble:nth-child(1) { transition-delay: 0.05s; }
+    .animated-chat.play .bubble:nth-child(2) { transition-delay: 0.18s; }
+    .animated-chat.play .bubble:nth-child(3) { transition-delay: 0.31s; }
+    .animated-chat.play .bubble:nth-child(4) { transition-delay: 0.44s; }
+    .animated-chat.play .bubble:nth-child(5) { transition-delay: 0.57s; }
+    .animated-chat.play .bubble:nth-child(6) { transition-delay: 0.7s; }
+    .animated-chat.play .bubble:nth-child(7) { transition-delay: 0.83s; }
+    .animated-chat.play .bubble:nth-child(8) { transition-delay: 0.96s; }
+    .animated-chat.play .bubble:nth-child(9) { transition-delay: 1.09s; }
+    .animated-chat.play .bubble:nth-child(10) { transition-delay: 1.22s; }
 
     .bubble.client {
       justify-self: start;
@@ -517,7 +597,7 @@
       margin-top: 4px;
       padding-top: 12px;
       border-top: 1px solid rgba(17,17,17,0.08);
-      font-size: 0.92rem;
+      font-size: 0.94rem;
     }
 
     .chat-why strong { color: var(--text); }
@@ -525,18 +605,15 @@
     .panel-1 { --panel-accent: var(--purple); --bubble-accent: var(--gold); }
     .panel-2 { --panel-accent: var(--gold); --bubble-accent: var(--cyan); }
     .panel-3 { --panel-accent: var(--blue); --bubble-accent: var(--pink); }
-    .panel-4 { --panel-accent: var(--pink); --bubble-accent: var(--gold); }
-    .panel-5 { --panel-accent: var(--cyan); --bubble-accent: var(--blue); }
-    .panel-6 { --panel-accent: var(--gold); --bubble-accent: var(--pink); }
 
-    .stack-grid {
+    .benefits-grid-large {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
     .stack-card {
-      padding: 24px;
+      padding: 28px;
       min-height: 220px;
       position: relative;
       overflow: hidden;
@@ -557,19 +634,22 @@
     .stack-card:nth-child(2) { --card-top: var(--blue); }
     .stack-card:nth-child(3) { --card-top: var(--pink); }
 
-    .stack-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .stack-card h3 { font-size: 1.18rem; margin-bottom: 10px; }
 
     .talk-page {
-      padding: 56px 40px;
-      margin: 22px 0 56px;
+      padding: 64px 48px;
       position: relative;
       overflow: hidden;
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 32px;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 38px;
       align-items: center;
       text-align: left;
-      background: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.9);
+    }
+
+    .journey-moment .container {
+      position: relative;
     }
 
     .talk-page::before {
@@ -619,21 +699,21 @@
     }
 
     .talk-page h2 {
-      font-size: clamp(2.2rem, 4.5vw, 4.4rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
       margin-bottom: 16px;
-      max-width: 9ch;
+      max-width: 8ch;
     }
 
     .talk-page p {
-      max-width: 58ch;
+      max-width: 56ch;
       margin: 0 0 14px;
-      font-size: 1.04rem;
+      font-size: 1.06rem;
     }
 
     .talk-note {
-      max-width: 58ch;
+      max-width: 56ch;
       margin: 18px 0 0;
       font-size: 1rem;
       color: var(--text);
@@ -641,78 +721,106 @@
 
     .talk-actions {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .phone-showcase {
       display: grid;
       justify-items: center;
-      gap: 18px;
+      gap: 20px;
     }
 
-    .phone-card {
-      width: min(100%, 460px);
-      padding: 28px 24px;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.88);
-      border: 1px solid rgba(17,17,17,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), var(--shadow);
+    .phone-showcase-mockup {
+      align-items: center;
+    }
+
+    .phone-mockup {
+      width: min(100%, 360px);
+      border-radius: 38px;
+      padding: 14px;
+      background: linear-gradient(180deg, #20232b, #111319);
+      box-shadow: 0 20px 40px rgba(17,17,17,0.16);
+      position: relative;
+    }
+
+    .phone-notch {
+      width: 120px;
+      height: 20px;
+      border-radius: 999px;
+      background: #0c0d10;
+      margin: 0 auto 14px;
+    }
+
+    .phone-screen {
+      border-radius: 28px;
+      background: #f8f3ef;
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      min-height: 540px;
+      align-content: start;
+    }
+
+    .phone-header-small {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8e5f24;
+      font-weight: 800;
+      margin-bottom: 6px;
       text-align: center;
     }
 
-    .phone-card-label {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(17,17,17,0.04);
-      border: 1px solid rgba(17,17,17,0.08);
-      color: #9b6c2e;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
+    .phone-message {
+      max-width: 88%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      font-size: 0.94rem;
+      line-height: 1.45;
+      box-shadow: 0 8px 18px rgba(17,17,17,0.06);
     }
 
-    .big-number {
-      display: block;
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
-      line-height: 0.92;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      margin-bottom: 12px;
-      word-break: break-word;
-    }
-
-    .text-only {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(17,17,17,0.08);
+    .phone-message.client {
+      justify-self: start;
+      background: rgba(17,17,17,0.06);
       color: var(--text);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.82rem;
+      border-top-left-radius: 8px;
+    }
+
+    .phone-message.blend {
+      justify-self: end;
+      background: linear-gradient(135deg, var(--pink), var(--gold));
+      color: #151515;
+      border-top-right-radius: 8px;
+      font-weight: 600;
+    }
+
+    .phone-input {
+      margin-top: auto;
+      border-radius: 999px;
+      border: 1px solid rgba(17,17,17,0.08);
+      background: rgba(17,17,17,0.04);
+      padding: 12px 14px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
     }
 
     .cta {
-      padding: 34px;
+      padding: 38px;
       display: grid;
       grid-template-columns: 1.1fr auto;
       gap: 18px;
       align-items: center;
-      margin: 22px 0 24px;
       position: relative;
       overflow: hidden;
       background: rgba(255,255,255,0.86);
+    }
+
+    .cta-final {
+      margin: 0 0 24px;
     }
 
     .cta::before {
@@ -730,7 +838,7 @@
     }
 
     .site-footer {
-      padding: 16px 0 40px;
+      padding: 32px 0 40px;
       color: rgba(17,17,17,0.58);
       font-size: 0.92rem;
     }
@@ -834,7 +942,48 @@
       transform: translate3d(0, 18px, 0);
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1080px) {
+      .hero-mini-benefits,
+      .benefits-grid-large,
+      .story-block,
+      .panel,
+      .talk-page,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .panel h3,
+      .talk-page h2,
+      .story-copy h2 {
+        max-width: none;
+      }
+
+      .talk-page,
+      .story-block {
+        text-align: center;
+      }
+
+      .story-copy,
+      .talk-copy,
+      .talk-page p,
+      .talk-note {
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .talk-actions,
+      .hero-actions,
+      .form-actions {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero-shell, .panel, .stack-card, .cta, .talk-page, .modal, .story-block {
+        padding: 24px;
+      }
+
       .nav {
         grid-template-columns: 1fr;
         padding: 18px 0;
@@ -844,34 +993,15 @@
         justify-content: center;
       }
 
-      .hero-meta, .stack-grid, .cta, .panel, .talk-page {
-        grid-template-columns: 1fr;
-      }
-
-      .talk-page { text-align: center; }
-      .talk-copy, .talk-page h2, .talk-page p, .talk-note {
-        max-width: none;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .talk-actions { justify-content: center; }
-    }
-
-    @media (max-width: 760px) {
-      .hero-shell, .panel, .stack-card, .cta, .talk-page, .modal {
-        padding: 22px;
-      }
-
       h1 { max-width: none; }
-      .hero-meta, .stack-grid { grid-template-columns: 1fr; }
-      .hero-actions, .form-actions { justify-content: center; }
       .contact-chip { white-space: normal; text-align: center; }
       .bubble { max-width: 100%; }
+      .phone-mockup { width: 100%; max-width: 360px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .reveal, .reveal:not(.in-view) {
+      .reveal, .reveal:not(.in-view), .bubble {
         opacity: 1;
         transform: none;
         transition: none;
@@ -907,59 +1037,83 @@
 
   <main id="top">
     <section class="hero reveal">
-      <div class="container hero-shell">
-        <div class="hero-copy">
-          <div class="eyebrow">AI-powered call &amp; text concierge</div>
-          <h1>The future of salon communication</h1>
-          <p>BLEND helps salons answer faster, convert more inquiries, reduce no-shows, and make every guest interaction feel polished, warm, and premium.</p>
-          <div class="hero-actions">
+      <div class="container hero-shell hero-shell-simplified">
+        <div class="hero-copy hero-copy-simplified">
+          <div class="eyebrow">AI-powered call &amp; text concierge for salons</div>
+          <h1>Never lose another salon conversation.</h1>
+          <p class="hero-lead">BLEND answers, follows up, and keeps booking conversations moving so your front desk never becomes a bottleneck.</p>
+          <div class="hero-actions hero-actions-premium">
             <a href="#talk-to-ai" class="btn btn-pink">Talk To AI</a>
             <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
-            <a href="#selling-points" class="btn btn-cyan">See the six selling points</a>
           </div>
         </div>
 
-        <div class="hero-meta reveal">
-          <div class="meta-card">
-            <strong>24/7</strong>
-            <span>Answers calls and texts around the clock.</span>
+        <div class="hero-mini-benefits reveal">
+          <div class="mini-benefit">
+            <strong>24/7 response</strong>
+            <span>Texts and calls never sit there getting dusty.</span>
           </div>
-          <div class="meta-card">
-            <strong>More bookings</strong>
-            <span>Turns missed moments into live opportunities.</span>
+          <div class="mini-benefit">
+            <strong>More booked guests</strong>
+            <span>Missed moments turn into live opportunities.</span>
           </div>
-          <div class="meta-card">
-            <strong>Less chaos</strong>
-            <span>Supports the front desk without more payroll.</span>
+          <div class="mini-benefit">
+            <strong>Less front-desk chaos</strong>
+            <span>Your team gets breathing room without losing momentum.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="selling-points" class="reveal">
-      <div class="container section-head">
-        <span class="kicker">Six major selling points</span>
-        <h2>A smoother vertical story</h2>
-        <p>Each selling point flows straight down the page for a cleaner, calmer scroll, and each one now shows real conversation bubbles.</p>
+    <section id="problem" class="journey-section reveal">
+      <div class="container story-block problem-block">
+        <div class="story-copy">
+          <span class="kicker">Step 1 · The problem</span>
+          <h2>Salons lose revenue in the cracks.</h2>
+          <p>Someone calls while your team is with a guest. A text comes in after hours. A hot lead cools off. The problem is not demand. The problem is response speed.</p>
+        </div>
+        <div class="story-side stat-stack">
+          <div class="story-stat"><strong>Busy chairs</strong><span>Your stylists are working, not babysitting the inbox.</span></div>
+          <div class="story-stat"><strong>After-hours interest</strong><span>Good leads show up at inconvenient times.</span></div>
+          <div class="story-stat"><strong>Silent drop-off</strong><span>Most lost bookings vanish quietly, not dramatically.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution" class="journey-section reveal">
+      <div class="container story-block solution-block">
+        <div class="story-copy">
+          <span class="kicker">Step 2 · The solution</span>
+          <h2>BLEND replies like a polished front desk that never clocks out.</h2>
+          <p>It answers quickly, keeps the tone warm, captures useful details, and moves guests toward the next step without making your team do twenty little tasks at once.</p>
+        </div>
+        <div class="story-side solution-grid">
+          <div class="solution-card"><strong>Answers fast</strong><span>Calls and texts get immediate attention.</span></div>
+          <div class="solution-card"><strong>Sounds human</strong><span>Professional, calm, and easy to talk to.</span></div>
+          <div class="solution-card"><strong>Guides the guest</strong><span>Not just answers. It moves the conversation forward.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="journey-section reveal">
+      <div class="container section-head section-head-wide">
+        <span class="kicker">Step 3 · The proof</span>
+        <h2>This is what BLEND actually sounds like.</h2>
+        <p>Not vague AI talk. Real salon-style conversations that feel useful, smooth, and easy to trust.</p>
       </div>
 
-      <div class="container selling-stack">
+      <div class="container selling-stack proof-stack">
         <article class="panel panel-1 reveal">
           <div class="panel-copy">
             <div class="panel-index">01</div>
             <h3>Never miss a booking opportunity</h3>
             <p>BLEND responds when your team cannot. After-hours calls, mid-service texts, and missed phone moments still become live conversations.</p>
-            <div class="panel-list">
-              <div><span>•</span><span>Capture inbound interest even when the salon is busy.</span></div>
-              <div><span>•</span><span>Turn voicemail dead-ends into actual follow-up.</span></div>
-              <div><span>•</span><span>Show real product behavior with text bubbles people can instantly understand.</span></div>
-            </div>
           </div>
           <div class="panel-visual">
-            <div class="chat-card">
+            <div class="chat-card chat-card-large">
               <div class="chat-label">Sample conversation</div>
               <div class="chat-window auto-scroll-chat">
-                <div class="chat-thread">
+                <div class="chat-thread animated-chat">
                   <div class="bubble client">Hi, I just missed your call. Do you have anything open tomorrow for highlights?</div>
                   <div class="bubble blend">Yes, I can help with that. We have openings tomorrow afternoon. Want me to help you grab one?</div>
                   <div class="bubble client">Yes please. After 2 would be great.</div>
@@ -982,17 +1136,12 @@
             <div class="panel-index">02</div>
             <h3>24/7 availability without extra payroll</h3>
             <p>Your salon should not need a midnight front desk to feel responsive. BLEND gives you constant availability without stacking more staffing cost.</p>
-            <div class="panel-list">
-              <div><span>•</span><span>Stay open conversationally, even when the lights are off.</span></div>
-              <div><span>•</span><span>Support growth without hiring for every hour of the day.</span></div>
-              <div><span>•</span><span>After-hours questions still get warm, useful responses.</span></div>
-            </div>
           </div>
           <div class="panel-visual">
-            <div class="chat-card">
+            <div class="chat-card chat-card-large">
               <div class="chat-label">Sample conversation</div>
               <div class="chat-window auto-scroll-chat">
-                <div class="chat-thread">
+                <div class="chat-thread animated-chat">
                   <div class="bubble client">Hey, I know it’s late. Are you open on Saturdays for balayage?</div>
                   <div class="bubble blend">Yes. I can help with that. Saturday availability changes quickly, but I can guide you toward the best opening.</div>
                   <div class="bubble client">Amazing. I thought I’d have to wait until tomorrow to ask.</div>
@@ -1015,17 +1164,12 @@
             <div class="panel-index">03</div>
             <h3>Instant text responses</h3>
             <p>Today’s clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.</p>
-            <div class="panel-list">
-              <div><span>•</span><span>Reply to service questions in seconds.</span></div>
-              <div><span>•</span><span>Make booking feel frictionless instead of delayed.</span></div>
-              <div><span>•</span><span>Keep the tone polished, human, and easy to follow.</span></div>
-            </div>
           </div>
           <div class="panel-visual">
-            <div class="chat-card">
+            <div class="chat-card chat-card-large">
               <div class="chat-label">Sample conversation</div>
               <div class="chat-window auto-scroll-chat">
-                <div class="chat-thread">
+                <div class="chat-thread animated-chat">
                   <div class="bubble client">Do you do women’s cuts with gloss?</div>
                   <div class="bubble blend">Yes, absolutely. We can help with both. Are you looking for something subtle and shiny or more of a full refresh?</div>
                   <div class="bubble client">Subtle and shiny. Also how long does it take?</div>
@@ -1042,166 +1186,72 @@
             </div>
           </div>
         </article>
+      </div>
+    </section>
 
-        <article class="panel panel-4 reveal">
-          <div class="panel-copy">
-            <div class="panel-index">04</div>
-            <h3>Better client capture and conversion</h3>
-            <p>BLEND keeps conversations moving from first question to confirmed appointment, so fewer curious visitors fall through the cracks.</p>
-            <div class="panel-list">
-              <div><span>•</span><span>Guide guests from inquiry to action.</span></div>
-              <div><span>•</span><span>Make first impressions feel premium and modern.</span></div>
-              <div><span>•</span><span>Turn uncertainty into momentum with the right response.</span></div>
-            </div>
-          </div>
-          <div class="panel-visual">
-            <div class="chat-card">
-              <div class="chat-label">Sample conversation</div>
-              <div class="chat-window auto-scroll-chat">
-                <div class="chat-thread">
-                  <div class="bubble client">I’m thinking about extensions but I’m not sure where to start.</div>
-                  <div class="bubble blend">You’re in the right place. We can help you figure out what type makes the most sense and get you pointed toward a consultation.</div>
-                  <div class="bubble client">That sounds good. I’ve never done them before.</div>
-                  <div class="bubble blend">Perfect. We love first-timers. Let’s get you moving toward the best next step.</div>
-                  <div class="bubble client">I mostly want more fullness, not super long hair.</div>
-                  <div class="bubble blend">That is great to know. It helps narrow the conversation and makes the consultation feel more productive.</div>
-                  <div class="bubble client">Do people usually match the color first?</div>
-                  <div class="bubble blend">Yes, color matching is a big part of making extensions look seamless, and the salon can guide you through that process.</div>
-                  <div class="bubble client">Okay, I already feel less overwhelmed.</div>
-                  <div class="bubble blend">That is exactly what better client capture should feel like. Less confusion, more momentum.</div>
-                </div>
-              </div>
-              <div class="chat-why"><strong>Why it matters:</strong> Curious shoppers become real leads because the conversation keeps moving instead of stalling.</div>
-            </div>
-          </div>
+    <section id="benefits" class="journey-section reveal">
+      <div class="container section-head section-head-wide">
+        <span class="kicker">Step 4 · The benefits</span>
+        <h2>What this changes for the salon.</h2>
+        <p>When response improves, everything downstream gets easier: booking, guest experience, retention, and schedule protection.</p>
+      </div>
+
+      <div class="container stack-grid benefits-grid-large">
+        <article class="stack-card reveal">
+          <h3>More bookings</h3>
+          <p>Leads stay warm instead of drifting off while the team is busy.</p>
         </article>
-
-        <article class="panel panel-5 reveal">
-          <div class="panel-copy">
-            <div class="panel-index">05</div>
-            <h3>Fewer no-shows</h3>
-            <p>Smart reminders, confirmations, and timely follow-up help protect the schedule you worked hard to fill.</p>
-            <div class="panel-list">
-              <div><span>•</span><span>Reduce last-minute drop-offs.</span></div>
-              <div><span>•</span><span>Keep guests informed before they forget.</span></div>
-              <div><span>•</span><span>Protect your calendar with simple, timely nudges.</span></div>
-            </div>
-          </div>
-          <div class="panel-visual">
-            <div class="chat-card">
-              <div class="chat-label">Sample conversation</div>
-              <div class="chat-window auto-scroll-chat">
-                <div class="chat-thread">
-                  <div class="bubble blend">Friendly reminder about your appointment tomorrow at 2:00 PM. Reply here if you need anything before then.</div>
-                  <div class="bubble client">Thank you. Can you remind me where you’re located again?</div>
-                  <div class="bubble blend">Of course. We’re at your salon location on file, and I can help with any last-minute questions too.</div>
-                  <div class="bubble client">Perfect. I’ll be there.</div>
-                  <div class="bubble blend">Amazing. We’re looking forward to seeing you tomorrow.</div>
-                  <div class="bubble client">Do I need to come with clean hair?</div>
-                  <div class="bubble blend">The salon can guide that based on the service, but the good news is you can ask these little questions without having to call the front desk.</div>
-                  <div class="bubble client">That makes this way less stressful.</div>
-                  <div class="bubble blend">Exactly. Calm reminders and quick answers help people actually show up.</div>
-                </div>
-              </div>
-              <div class="chat-why"><strong>Why it matters:</strong> Small reminders reduce no-shows and protect the revenue already sitting on the books.</div>
-            </div>
-          </div>
+        <article class="stack-card reveal">
+          <h3>Better first impressions</h3>
+          <p>Guests feel taken care of from the first message, not just when they walk in.</p>
         </article>
-
-        <article class="panel panel-6 reveal">
-          <div class="panel-copy">
-            <div class="panel-index">06</div>
-            <h3>Turn past clients into new revenue</h3>
-            <p>BLEND helps you reconnect with previous guests through thoughtful outreach that brings old relationships back into motion.</p>
-            <div class="panel-list">
-              <div><span>•</span><span>Reactivate older clients with smarter follow-up.</span></div>
-              <div><span>•</span><span>Unlock revenue hiding in your existing database.</span></div>
-              <div><span>•</span><span>Bring quiet client relationships back to life.</span></div>
-            </div>
-          </div>
-          <div class="panel-visual">
-            <div class="chat-card">
-              <div class="chat-label">Sample conversation</div>
-              <div class="chat-window auto-scroll-chat">
-                <div class="chat-thread">
-                  <div class="bubble blend">Hi Emma. It’s been a little while since your last visit, so we wanted to check in. Want to freshen things up for spring?</div>
-                  <div class="bubble client">Honestly yes, I’ve been meaning to book something.</div>
-                  <div class="bubble blend">Perfect timing. I can help you get back on the schedule.</div>
-                  <div class="bubble client">Let’s do it.</div>
-                  <div class="bubble blend">Amazing. Are you thinking trim, color, or a full refresh?</div>
-                  <div class="bubble client">Probably trim and color.</div>
-                  <div class="bubble blend">Perfect. That makes it easier to guide you toward the right appointment type.</div>
-                  <div class="bubble client">I honestly forgot how easy this could be.</div>
-                  <div class="bubble blend">That’s the magic. Your past client list is not old news, it’s future revenue waiting for the right message.</div>
-                </div>
-              </div>
-              <div class="chat-why"><strong>Why it matters:</strong> Past clients are hidden revenue, and a simple nudge can wake that revenue right back up.</div>
-            </div>
-          </div>
+        <article class="stack-card reveal">
+          <h3>Fewer no-shows</h3>
+          <p>Reminders and easy follow-up protect the schedule you worked hard to fill.</p>
         </article>
       </div>
     </section>
 
-    <section id="why-blend">
+    <section id="talk-to-ai" class="journey-section journey-moment reveal">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="kicker">Why BLEND</span>
-          <h2>Built to feel premium, playful, and clear</h2>
-          <p>More color from the logo, less sleepy gray. The page now feels more like your brand walked into the room wearing a velvet jacket and good shoes.</p>
-        </div>
-
-        <div class="stack-grid">
-          <article class="stack-card reveal">
-            <h3>Centered brand</h3>
-            <p>The logo stays centered so the BLEND identity lands first and cleanly.</p>
-          </article>
-          <article class="stack-card reveal">
-            <h3>Bold contact points</h3>
-            <p>Your question line and your AI text line are both obvious now, which helps people know exactly where to go.</p>
-          </article>
-          <article class="stack-card reveal">
-            <h3>Color with restraint</h3>
-            <p>The page stays dark and premium while bright logo colors pop through the interface like confetti with a black-tie dress code.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="talk-to-ai">
-      <div class="container">
-        <div class="talk-page reveal">
+        <div class="talk-page reveal talk-page-moment">
           <div class="talk-copy">
-            <span class="phone-label">Text this number. Do not call it.</span>
-            <h2>Take BLEND for a test drive</h2>
-            <p>You would never buy a car without taking it for a spin first. Same idea here. This line is built specifically for salons, so text it and see how BLEND talks back in the real world.</p>
-            <p class="talk-note">This is a <strong>text-only experience</strong>. Please <strong>text 208-802-4546</strong> instead of calling it.</p>
+            <span class="phone-label">Step 5 · Try it yourself</span>
+            <h2>Text the line. Feel the product.</h2>
+            <p>You would never buy a car without a test drive. Same idea here. This is the cleanest way to understand BLEND in under a minute.</p>
+            <p class="talk-note">This line is built specifically for salons. <strong>Text 208-802-4546.</strong> Do not call it.</p>
             <div class="talk-actions">
               <a href="sms:2088024546" class="btn btn-pink">Text 208-802-4546</a>
               <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
             </div>
           </div>
 
-          <div class="phone-showcase">
-            <div class="phone-card">
-              <div class="phone-card-label">Salon test drive line</div>
-              <a class="big-number" href="sms:2088024546">208-802-4546</a>
-              <p class="number-caption">Text this number to try BLEND like a real salon guest would. It is designed for texting, not calling.</p>
+          <div class="phone-showcase phone-showcase-mockup">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-header-small">BLEND test drive</div>
+                <div class="phone-message client">Hi, I’m a salon owner. What do you actually do?</div>
+                <div class="phone-message blend">I help salons answer faster, capture more bookings, and keep guest conversations moving even when the front desk is busy.</div>
+                <div class="phone-message client">So I should text this number?</div>
+                <div class="phone-message blend">Yes. Text 208-802-4546 to try the experience for yourself.</div>
+                <div class="phone-input">Text only. Do not call.</div>
+              </div>
             </div>
-            <div class="text-only">Text only for the BLEND test drive</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="demo">
+    <section id="demo" class="journey-section reveal">
       <div class="container">
-        <div class="cta reveal">
+        <div class="cta reveal cta-final">
           <div>
-            <span class="kicker">Ready to transform your front desk?</span>
-            <h2>Talk to AI, ask questions, or open a demo request</h2>
-            <p>Questions about BLEND? Use the contact number. Want the full walkthrough? Hit the demo button and send your info.</p>
+            <span class="kicker">Step 6 · Convert</span>
+            <h2>Ready to bring BLEND into the salon?</h2>
+            <p>Try the text line, ask questions, or open a demo request and keep the conversation going.</p>
           </div>
-          <div class="hero-actions" style="justify-content: flex-end; margin-top: 0;">
+          <div class="hero-actions hero-actions-premium" style="justify-content: flex-end; margin-top: 0;">
             <a class="btn btn-cyan" href="#talk-to-ai">Talk To AI</a>
             <button class="btn btn-blue open-demo" type="button">Schedule a Demo</button>
           </div>
@@ -1308,13 +1358,17 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const el = entry.target;
+          const animatedThread = el.querySelector('.animated-chat');
+          if (animatedThread) {
+            animatedThread.classList.add('play');
+          }
           if (el.dataset.scrolled === 'true') return;
           el.dataset.scrolled = 'true';
           const maxScroll = el.scrollHeight - el.clientHeight;
           if (maxScroll > 12) {
             setTimeout(() => {
               el.scrollTo({ top: maxScroll, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-            }, 300);
+            }, 700);
           }
         }
       });
@@ -1322,6 +1376,8 @@
 
     if (!prefersReducedMotion) {
       chatWindows.forEach((item) => chatObserver.observe(item));
+    } else {
+      document.querySelectorAll('.animated-chat').forEach((thread) => thread.classList.add('play'));
     }
   </script>
 </body>
