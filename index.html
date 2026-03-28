@@ -37,12 +37,73 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 80% 12%, rgba(255, 137, 66, 0.28), transparent 26%),
-        radial-gradient(circle at 15% 82%, rgba(112, 54, 255, 0.24), transparent 24%),
-        radial-gradient(circle at 50% 100%, rgba(255, 51, 140, 0.14), transparent 35%),
-        linear-gradient(180deg, #050209 0%, #09020f 45%, #12040d 100%);
+        radial-gradient(circle at 80% 12%, rgba(255, 137, 66, 0.20), transparent 26%),
+        radial-gradient(circle at 15% 82%, rgba(86, 40, 255, 0.20), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255, 51, 140, 0.10), transparent 35%),
+        linear-gradient(180deg, #040208 0%, #09020f 45%, #10040f 100%);
       min-height: 100vh;
       line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .ambient {
+      position: fixed;
+      inset: auto;
+      border-radius: 999px;
+      filter: blur(90px);
+      opacity: 0.34;
+      pointer-events: none;
+      z-index: 0;
+      transform: translate3d(0, 0, 0);
+      transition: transform 0.2s linear;
+    }
+
+    .ambient-1 {
+      top: 8%;
+      right: -120px;
+      width: 320px;
+      height: 320px;
+      background: rgba(255, 141, 76, 0.20);
+      animation: floatOrb 12s ease-in-out infinite;
+    }
+
+    .ambient-2 {
+      top: 38%;
+      left: -100px;
+      width: 260px;
+      height: 260px;
+      background: rgba(123, 74, 255, 0.22);
+      animation: floatOrb 15s ease-in-out infinite reverse;
+    }
+
+    .ambient-3 {
+      bottom: -90px;
+      left: 42%;
+      width: 280px;
+      height: 280px;
+      background: rgba(255, 83, 160, 0.14);
+      animation: floatOrb 18s ease-in-out infinite;
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(0, -20px, 0) scale(1.06); }
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 28px, 0) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: var(--glow); }
+      50% { box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 28px 70px rgba(255, 106, 0, 0.18), 0 12px 36px rgba(112, 0, 255, 0.22); }
     }
 
     a { color: inherit; text-decoration: none; }
@@ -58,7 +119,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(16px);
-      background: rgba(7, 3, 11, 0.66);
+      background: rgba(7, 3, 11, 0.56);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
@@ -119,13 +180,13 @@
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px) scale(1.01);
       box-shadow: 0 12px 28px rgba(0,0,0,0.28);
     }
 
     .btn-primary {
       color: #18070a;
-      background: linear-gradient(90deg, #ffd28b, #ff9f6e 55%, #ff6ca8);
+      background: linear-gradient(90deg, #ffe0a6, #ff9f6e 50%, #ff63aa);
       box-shadow: 0 10px 30px rgba(255, 142, 78, 0.24);
     }
 
@@ -148,16 +209,19 @@
     .hero-copy,
     .hero-card,
     .glass-card {
-      background: linear-gradient(180deg, rgba(35, 12, 46, 0.7), rgba(18, 7, 27, 0.9));
+      background: linear-gradient(180deg, rgba(26, 10, 40, 0.74), rgba(15, 6, 24, 0.92));
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: var(--glow);
       border-radius: var(--radius);
+      position: relative;
+      z-index: 1;
     }
 
     .hero-copy {
       padding: 42px;
       position: relative;
       overflow: hidden;
+      animation: riseIn 0.9s ease both;
     }
 
     .hero-copy::before {
@@ -241,6 +305,8 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 18px;
+      animation: riseIn 1.05s ease both;
+      animation-delay: 0.08s;
     }
 
     .card-label {
@@ -328,6 +394,12 @@
 
     .glass-card {
       padding: 28px;
+      animation: riseIn 0.9s ease both;
+    }
+
+    .glass-card:hover,
+    .hero-card:hover {
+      animation: pulseGlow 2.6s ease-in-out infinite;
     }
 
     .bullet-list {
@@ -416,6 +488,12 @@
       border: 1px solid rgba(255,255,255,0.08);
       text-align: left;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      transition: transform 0.24s ease, border-color 0.24s ease;
+    }
+
+    .proof:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 184, 128, 0.4);
     }
 
     .proof strong {
@@ -442,6 +520,7 @@
       gap: 18px;
       align-items: center;
       margin: 26px 0 56px;
+      animation: riseIn 1s ease both;
     }
 
     .cta p {
@@ -513,10 +592,25 @@
       .brand-mark {
         font-size: 2.4rem;
       }
+
+      .ambient {
+        opacity: 0.2;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="ambient ambient-1" aria-hidden="true"></div>
+  <div class="ambient ambient-2" aria-hidden="true"></div>
+  <div class="ambient ambient-3" aria-hidden="true"></div>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="BLEND home">
@@ -800,5 +894,34 @@
       <div>Built as a lightweight static page for easy GitHub Pages hosting.</div>
     </div>
   </footer>
+  <script>
+    const floating = document.querySelectorAll('.ambient');
+    const cards = document.querySelectorAll('.hero-copy, .hero-card');
+
+    window.addEventListener('mousemove', (event) => {
+      const x = (event.clientX / window.innerWidth) - 0.5;
+      const y = (event.clientY / window.innerHeight) - 0.5;
+
+      floating.forEach((item, index) => {
+        const speed = (index + 1) * 12;
+        item.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
+      });
+
+      cards.forEach((card, index) => {
+        const tiltX = y * (index === 0 ? -6 : -4);
+        const tiltY = x * (index === 0 ? 6 : 4);
+        card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      });
+    });
+
+    window.addEventListener('mouseleave', () => {
+      floating.forEach((item) => {
+        item.style.transform = 'translate3d(0, 0, 0)';
+      });
+      cards.forEach((card) => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    });
+  </script>
 </body>
 </html>
