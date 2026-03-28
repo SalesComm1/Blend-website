@@ -274,7 +274,300 @@
     .section-head {
       text-align: center;
       max-width: 780px;
-      margin:
+      margin: 0 auto 22px;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 0.97;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .selling-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel {
+      padding: clamp(24px, 4vw, 44px);
+      border-radius: 28px;
+      background: rgba(18,18,22,0.96);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.12;
+      background:
+        radial-gradient(circle at 85% 20%, var(--panel-accent, var(--purple)) 0, transparent 28%),
+        radial-gradient(circle at 15% 80%, var(--panel-accent-2, var(--blue)) 0, transparent 22%);
+    }
+
+    .panel-copy,
+    .panel-visual {
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-copy {
+      max-width: 62ch;
+    }
+
+    .panel-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #f1ddcf;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .panel h3 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin-bottom: 18px;
+    }
+
+    .panel-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .panel-list div {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #ece7e3;
+      font-size: 0.98rem;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .panel-list div:first-child {
+      border-top: 0;
+    }
+
+    .panel-visual {
+      display: grid;
+      gap: 14px;
+      align-content: center;
+    }
+
+    .visual-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 18px;
+      border-left: 4px solid var(--card-accent, var(--purple));
+    }
+
+    .visual-card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .visual-card span {
+      color: var(--muted);
+      font-size: 0.94rem;
+      display: block;
+    }
+
+    .panel-1 { --panel-accent: var(--purple); --panel-accent-2: var(--blue); --card-accent: var(--purple); }
+    .panel-2 { --panel-accent: var(--gold); --panel-accent-2: var(--pink); --card-accent: var(--gold); }
+    .panel-3 { --panel-accent: var(--blue); --panel-accent-2: var(--cyan); --card-accent: var(--blue); }
+    .panel-4 { --panel-accent: var(--pink); --panel-accent-2: var(--purple); --card-accent: var(--pink); }
+    .panel-5 { --panel-accent: var(--gold); --panel-accent-2: var(--blue); --card-accent: var(--cyan); }
+    .panel-6 { --panel-accent: var(--cyan); --panel-accent-2: var(--pink); --card-accent: var(--cyan); }
+
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stack-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 24px;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stack-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--card-top, var(--purple));
+    }
+
+    .stack-card:nth-child(1) { --card-top: var(--purple); }
+    .stack-card:nth-child(2) { --card-top: var(--blue); }
+    .stack-card:nth-child(3) { --card-top: var(--pink); }
+
+    .stack-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .stack-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .cta {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.1fr auto;
+      gap: 18px;
+      align-items: center;
+      margin: 22px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--blue), var(--cyan), var(--gold), var(--pink));
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 56ch;
+    }
+
+    .site-footer {
+      padding: 16px 0 40px;
+      color: rgba(255,255,255,0.58);
+      font-size: 0.92rem;
+    }
+
+    .footer-row {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        grid-template-columns: 1fr;
+        padding: 18px 0;
+      }
+
+      .nav-left,
+      .nav-right,
+      .brand {
+        justify-content: center;
+      }
+
+      .hero-meta,
+      .stack-grid,
+      .cta,
+      .panel {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-visual {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero-shell,
+      .cta,
+      .stack-card,
+      .panel {
+        padding: 22px;
+      }
+
+      h1 {
+        max-width: none;
+      }
+
+      .hero-meta,
+      .stack-grid,
+      .panel-visual {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -331,130 +624,126 @@
     <section id="selling-points" class="reveal">
       <div class="container section-head">
         <span class="kicker">Six major selling points</span>
-        <h2>Scroll down and the story moves sideways</h2>
+        <h2>A smoother vertical story</h2>
         <p>
-          Each panel acts like its own mini page, so you can add more copy later without breaking the flow.
+          Each selling point now flows straight down the page for a cleaner, calmer scroll. You can still add more text later without redesigning the whole thing.
         </p>
       </div>
 
-      <div class="horizontal-shell" id="horizontal-shell">
-        <div class="horizontal-sticky">
-          <div class="track" id="horizontal-track">
-            <article class="panel">
-              <div class="panel-copy">
-                <div class="panel-index">01</div>
-                <h3>Never miss a booking opportunity</h3>
-                <p>
-                  BLEND responds when your team cannot. After-hours calls, mid-service texts, and missed phone moments still become live conversations.
-                </p>
-                <div class="panel-list">
-                  <div><span>•</span><span>Capture inbound interest even when the salon is busy.</span></div>
-                  <div><span>•</span><span>Turn voicemail dead-ends into actual follow-up.</span></div>
-                  <div><span>•</span><span>Add more detail here later as your messaging grows.</span></div>
-                </div>
-              </div>
-              <div class="panel-visual">
-                <div class="visual-card"><strong>Missed call rescue</strong><span>Fast response keeps hot leads from cooling off.</span></div>
-                <div class="visual-card"><strong>Instant engagement</strong><span>The conversation starts right away instead of tomorrow.</span></div>
-              </div>
-            </article>
-
-            <article class="panel">
-              <div class="panel-copy">
-                <div class="panel-index">02</div>
-                <h3>24/7 availability without extra payroll</h3>
-                <p>
-                  Your salon should not need a midnight front desk to feel responsive. BLEND gives you constant availability without stacking more staffing cost.
-                </p>
-                <div class="panel-list">
-                  <div><span>•</span><span>Stay open conversationally, even when the lights are off.</span></div>
-                  <div><span>•</span><span>Support growth without hiring for every hour of the day.</span></div>
-                  <div><span>•</span><span>Keep the experience consistent and polished.</span></div>
-                </div>
-              </div>
-              <div class="panel-visual">
-                <div class="visual-card"><strong>Always-on coverage</strong><span>No more “sorry we missed you” energy.</span></div>
-                <div class="visual-card"><strong>Lean operations</strong><span>More support without more operational drag.</span></div>
-              </div>
-            </article>
-
-            <article class="panel">
-              <div class="panel-copy">
-                <div class="panel-index">03</div>
-                <h3>Instant text responses</h3>
-                <p>
-                  Today’s clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.
-                </p>
-                <div class="panel-list">
-                  <div><span>•</span><span>Reply to service questions in seconds.</span></div>
-                  <div><span>•</span><span>Make booking feel frictionless instead of delayed.</span></div>
-                  <div><span>•</span><span>Expand this later with service-specific examples.</span></div>
-                </div>
-              </div>
-              <div class="panel-visual">
-                <div class="visual-card"><strong>Text-first behavior</strong><span>Great for modern guests who prefer messaging.</span></div>
-                <div class="visual-card"><strong>Brand tone control</strong><span>Fast does not have to feel robotic.</span></div>
-              </div>
-            </article>
-
-            <article class="panel">
-              <div class="panel-copy">
-                <div class="panel-index">04</div>
-                <h3>Better client capture and conversion</h3>
-                <p>
-                  BLEND keeps conversations moving from first question to confirmed appointment, so fewer curious visitors fall through the cracks.
-                </p>
-                <div class="panel-list">
-                  <div><span>•</span><span>Guide guests from inquiry to action.</span></div>
-                  <div><span>•</span><span>Make first impressions feel premium and modern.</span></div>
-                  <div><span>•</span><span>Add proof points and case studies here later.</span></div>
-                </div>
-              </div>
-              <div class="panel-visual">
-                <div class="visual-card"><strong>Higher conversion</strong><span>More conversations become real appointments.</span></div>
-                <div class="visual-card"><strong>Cleaner pipeline</strong><span>Leads get captured instead of quietly disappearing.</span></div>
-              </div>
-            </article>
-
-            <article class="panel">
-              <div class="panel-copy">
-                <div class="panel-index">05</div>
-                <h3>Fewer no-shows</h3>
-                <p>
-                  Smart reminders, confirmations, and timely follow-up help protect the schedule you worked hard to fill.
-                </p>
-                <div class="panel-list">
-                  <div><span>•</span><span>Reduce last-minute drop-offs.</span></div>
-                  <div><span>•</span><span>Keep guests informed before they forget.</span></div>
-                  <div><span>•</span><span>Leave space here for reminder workflow details later.</span></div>
-                </div>
-              </div>
-              <div class="panel-visual">
-                <div class="visual-card"><strong>Reminder engine</strong><span>Helpful nudges can save real revenue.</span></div>
-                <div class="visual-card"><strong>Schedule protection</strong><span>Less empty-chair heartbreak.</span></div>
-              </div>
-            </article>
-
-            <article class="panel">
-              <div class="panel-copy">
-                <div class="panel-index">06</div>
-                <h3>Turn past clients into new revenue</h3>
-                <p>
-                  BLEND helps you reconnect with previous guests through thoughtful outreach that brings old relationships back into motion.
-                </p>
-                <div class="panel-list">
-                  <div><span>•</span><span>Reactivate older clients with smarter follow-up.</span></div>
-                  <div><span>•</span><span>Unlock revenue hiding in your existing database.</span></div>
-                  <div><span>•</span><span>Expand this section later with campaign ideas and examples.</span></div>
-                </div>
-              </div>
-              <div class="panel-visual">
-                <div class="visual-card"><strong>Reactivation engine</strong><span>Old guests can become fresh bookings.</span></div>
-                <div class="visual-card"><strong>Revenue from your list</strong><span>Your past client book is a sleeping asset.</span></div>
-              </div>
-            </article>
+      <div class="container selling-stack">
+        <article class="panel panel-1 reveal">
+          <div class="panel-copy">
+            <div class="panel-index">01</div>
+            <h3>Never miss a booking opportunity</h3>
+            <p>
+              BLEND responds when your team cannot. After-hours calls, mid-service texts, and missed phone moments still become live conversations.
+            </p>
+            <div class="panel-list">
+              <div><span>•</span><span>Capture inbound interest even when the salon is busy.</span></div>
+              <div><span>•</span><span>Turn voicemail dead-ends into actual follow-up.</span></div>
+              <div><span>•</span><span>Add more detail here later as your messaging grows.</span></div>
+            </div>
           </div>
-        </div>
+          <div class="panel-visual">
+            <div class="visual-card"><strong>Missed call rescue</strong><span>Fast response keeps hot leads from cooling off.</span></div>
+            <div class="visual-card"><strong>Instant engagement</strong><span>The conversation starts right away instead of tomorrow.</span></div>
+          </div>
+        </article>
+
+        <article class="panel panel-2 reveal">
+          <div class="panel-copy">
+            <div class="panel-index">02</div>
+            <h3>24/7 availability without extra payroll</h3>
+            <p>
+              Your salon should not need a midnight front desk to feel responsive. BLEND gives you constant availability without stacking more staffing cost.
+            </p>
+            <div class="panel-list">
+              <div><span>•</span><span>Stay open conversationally, even when the lights are off.</span></div>
+              <div><span>•</span><span>Support growth without hiring for every hour of the day.</span></div>
+              <div><span>•</span><span>Keep the experience consistent and polished.</span></div>
+            </div>
+          </div>
+          <div class="panel-visual">
+            <div class="visual-card"><strong>Always-on coverage</strong><span>No more “sorry we missed you” energy.</span></div>
+            <div class="visual-card"><strong>Lean operations</strong><span>More support without more operational drag.</span></div>
+          </div>
+        </article>
+
+        <article class="panel panel-3 reveal">
+          <div class="panel-copy">
+            <div class="panel-index">03</div>
+            <h3>Instant text responses</h3>
+            <p>
+              Today’s clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.
+            </p>
+            <div class="panel-list">
+              <div><span>•</span><span>Reply to service questions in seconds.</span></div>
+              <div><span>•</span><span>Make booking feel frictionless instead of delayed.</span></div>
+              <div><span>•</span><span>Expand this later with service-specific examples.</span></div>
+            </div>
+          </div>
+          <div class="panel-visual">
+            <div class="visual-card"><strong>Text-first behavior</strong><span>Great for modern guests who prefer messaging.</span></div>
+            <div class="visual-card"><strong>Brand tone control</strong><span>Fast does not have to feel robotic.</span></div>
+          </div>
+        </article>
+
+        <article class="panel panel-4 reveal">
+          <div class="panel-copy">
+            <div class="panel-index">04</div>
+            <h3>Better client capture and conversion</h3>
+            <p>
+              BLEND keeps conversations moving from first question to confirmed appointment, so fewer curious visitors fall through the cracks.
+            </p>
+            <div class="panel-list">
+              <div><span>•</span><span>Guide guests from inquiry to action.</span></div>
+              <div><span>•</span><span>Make first impressions feel premium and modern.</span></div>
+              <div><span>•</span><span>Add proof points and case studies here later.</span></div>
+            </div>
+          </div>
+          <div class="panel-visual">
+            <div class="visual-card"><strong>Higher conversion</strong><span>More conversations become real appointments.</span></div>
+            <div class="visual-card"><strong>Cleaner pipeline</strong><span>Leads get captured instead of quietly disappearing.</span></div>
+          </div>
+        </article>
+
+        <article class="panel panel-5 reveal">
+          <div class="panel-copy">
+            <div class="panel-index">05</div>
+            <h3>Fewer no-shows</h3>
+            <p>
+              Smart reminders, confirmations, and timely follow-up help protect the schedule you worked hard to fill.
+            </p>
+            <div class="panel-list">
+              <div><span>•</span><span>Reduce last-minute drop-offs.</span></div>
+              <div><span>•</span><span>Keep guests informed before they forget.</span></div>
+              <div><span>•</span><span>Leave space here for reminder workflow details later.</span></div>
+            </div>
+          </div>
+          <div class="panel-visual">
+            <div class="visual-card"><strong>Reminder engine</strong><span>Helpful nudges can save real revenue.</span></div>
+            <div class="visual-card"><strong>Schedule protection</strong><span>Less empty-chair heartbreak.</span></div>
+          </div>
+        </article>
+
+        <article class="panel panel-6 reveal">
+          <div class="panel-copy">
+            <div class="panel-index">06</div>
+            <h3>Turn past clients into new revenue</h3>
+            <p>
+              BLEND helps you reconnect with previous guests through thoughtful outreach that brings old relationships back into motion.
+            </p>
+            <div class="panel-list">
+              <div><span>•</span><span>Reactivate older clients with smarter follow-up.</span></div>
+              <div><span>•</span><span>Unlock revenue hiding in your existing database.</span></div>
+              <div><span>•</span><span>Expand this section later with campaign ideas and examples.</span></div>
+            </div>
+          </div>
+          <div class="panel-visual">
+            <div class="visual-card"><strong>Reactivation engine</strong><span>Old guests can become fresh bookings.</span></div>
+            <div class="visual-card"><strong>Revenue from your list</strong><span>Your past client book is a sleeping asset.</span></div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -527,29 +816,6 @@
     } else {
       revealItems.forEach((item) => item.classList.add('in-view'));
     }
-
-    const shell = document.getElementById('horizontal-shell');
-    const sticky = shell.querySelector('.horizontal-sticky');
-    const track = document.getElementById('horizontal-track');
-
-    function updateHorizontalScroll() {
-      if (window.innerWidth <= 760 || prefersReducedMotion) {
-        track.style.transform = 'translate3d(0, 0, 0)';
-        return;
-      }
-
-      const rect = shell.getBoundingClientRect();
-      const maxScroll = shell.offsetHeight - window.innerHeight;
-      const progress = Math.min(Math.max(-rect.top / maxScroll, 0), 1);
-      const maxTranslate = track.scrollWidth - window.innerWidth;
-      const move = maxTranslate * progress;
-      track.style.transform = `translate3d(${-move}px, 0, 0)`;
-    }
-
-    window.addEventListener('scroll', updateHorizontalScroll, { passive: true });
-    window.addEventListener('resize', updateHorizontalScroll);
-    window.addEventListener('load', updateHorizontalScroll);
-    updateHorizontalScroll();
   </script>
 </body>
 </html>
