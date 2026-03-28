@@ -7,18 +7,22 @@
   <meta name="description" content="BLEND helps salons capture more bookings with an AI-powered call and text concierge that answers instantly, books appointments, and reactivates past clients." />
   <style>
     :root {
-      --bg: #09090b;
-      --panel: rgba(18, 18, 24, 0.96);
-      --line: rgba(255, 255, 255, 0.08);
-      --text: #f4efec;
-      --muted: #b7b0b5;
+      --bg: #ffffff;
+      --panel: rgba(255,255,255,0.96);
+      --panel-strong: #ffffff;
+      --text: #121212;
+      --muted: #6b6b6b;
+      --line: rgba(0,0,0,0.08);
+
       --purple: #9b5cff;
       --blue: #50a7ff;
       --cyan: #7edfd2;
       --gold: #ffc97a;
       --pink: #ff78ac;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
-      --radius: 28px;
+
+      --glow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 24px;
+      --radius-sm: 16px;
       --max: 1180px;
     }
 
@@ -27,10 +31,8 @@
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      overflow-x: hidden;
-      position: relative;
+      color: #121212;
+      background: #ffffff;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -171,7 +173,7 @@
       white-space: nowrap;
     }
 
-    .contact-chip strong { color: white; }
+    .contact-chip strong { color: #121212; }
 
     .nav-link {
       color: rgba(255, 255, 255, 0.74);
@@ -247,403 +249,159 @@
     .stack-card,
     .cta,
     .talk-page {
-      background: var(--panel);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-    }
-
-    .hero-shell { padding: 44px; }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-      font-size: 0.82rem;
-      margin-bottom: 18px;
-    }
-
-    h1, h2, h3, p { margin: 0; }
-
-    h1 {
-      font-size: clamp(2.8rem, 6vw, 5.6rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      max-width: 10ch;
-      margin: 0 auto 16px;
-      text-align: center;
-    }
-
-    .hero-copy {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .hero-copy p {
-      color: var(--muted);
-      font-size: 1.06rem;
-      margin: 0 auto;
-      max-width: 58ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 26px;
-      flex-wrap: wrap;
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 34px;
-    }
-
-    .meta-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .meta-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
-      background: var(--meta-accent, var(--purple));
-    }
-
-    .meta-card:nth-child(1) { --meta-accent: var(--purple); }
-    .meta-card:nth-child(2) { --meta-accent: var(--blue); }
-    .meta-card:nth-child(3) { --meta-accent: var(--pink); }
-
-    .meta-card strong {
-      display: block;
-      font-size: 1.4rem;
-      margin-bottom: 6px;
-    }
-
-    .meta-card span { color: var(--muted); font-size: 0.95rem; }
-
-    .section-head {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto 22px;
-    }
-
-    .kicker {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--gold);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .section-head h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 0.97;
-      letter-spacing: -0.04em;
-      margin-bottom: 10px;
-    }
-
-    .section-head p,
-    .panel p,
-    .stack-card p,
-    .cta p,
-    .talk-page p,
-    .visual-card span,
-    .chat-why {
-      color: var(--muted);
-    }
-
-    .selling-stack {
-      display: grid;
-      gap: 18px;
-    }
-
-    .panel {
-      padding: clamp(24px, 4vw, 44px);
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .panel::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -40px auto;
-      width: 180px;
-      height: 180px;
-      border-radius: 999px;
-      opacity: 0.18;
-      background: var(--panel-accent, var(--purple));
-      filter: blur(48px);
-      pointer-events: none;
-    }
-
-    .panel-copy, .panel-visual { position: relative; z-index: 1; }
-
-    .panel-index {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #f1ddcf;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .panel h3 {
-      font-size: clamp(2rem, 4vw, 4rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      margin-bottom: 14px;
-    }
-
-    .panel p {
-      font-size: 1.02rem;
-      margin-bottom: 18px;
-    }
-
-    .panel-list { display: grid; gap: 12px; }
-
-    .panel-list div {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: #ece7e3;
-      font-size: 0.98rem;
-      padding: 10px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .panel-list div:first-child { border-top: 0; }
-
-    .panel-visual { display: grid; gap: 14px; align-content: center; }
-
-    .chat-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
-      padding: 18px;
-      display: grid;
-      gap: 12px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-    }
-
-    .chat-window {
-      max-height: 360px;
-      overflow-y: auto;
-      padding-right: 6px;
-      scroll-behavior: smooth;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,0.16) transparent;
-    }
-
-    .chat-window::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .chat-window::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .chat-window::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.14);
-      border-radius: 999px;
-    }
-
-    .chat-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-      color: var(--gold);
-    }
-
-    .chat-thread { display: grid; gap: 10px; }
-
-    .bubble {
-      max-width: 88%;
-      padding: 12px 14px;
-      border-radius: 18px;
-      line-height: 1.45;
-      font-size: 0.94rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.16);
-    }
-
-    .bubble.client {
-      justify-self: start;
-      background: rgba(255,255,255,0.05);
-      color: #f6f1ee;
-      border-top-left-radius: 8px;
-    }
-
-    .bubble.blend {
-      justify-self: end;
-      background: var(--bubble-accent, rgba(155,92,255,0.18));
-      color: #121212;
-      border-top-right-radius: 8px;
-      border-color: transparent;
-      font-weight: 600;
-    }
-
-    .chat-why {
-      margin-top: 4px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.92rem;
-    }
-
-    .chat-why strong { color: #fff; }
-
-    .panel-1 { --panel-accent: var(--purple); --bubble-accent: var(--gold); }
-    .panel-2 { --panel-accent: var(--gold); --bubble-accent: var(--cyan); }
-    .panel-3 { --panel-accent: var(--blue); --bubble-accent: var(--pink); }
-    .panel-4 { --panel-accent: var(--pink); --bubble-accent: var(--gold); }
-    .panel-5 { --panel-accent: var(--cyan); --bubble-accent: var(--blue); }
-    .panel-6 { --panel-accent: var(--gold); --bubble-accent: var(--pink); }
-
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stack-card {
-      padding: 24px;
-      min-height: 220px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stack-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--card-top, var(--purple));
-    }
-
-    .stack-card:nth-child(1) { --card-top: var(--purple); }
-    .stack-card:nth-child(2) { --card-top: var(--blue); }
-    .stack-card:nth-child(3) { --card-top: var(--pink); }
-
-    .stack-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-
-    .talk-page {
-      padding: 50px 28px;
-      text-align: center;
+      padding: 56px 40px;
       margin: 22px 0 56px;
       position: relative;
       overflow: hidden;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 32px;
+      align-items: center;
+      text-align: left;
     }
 
     .talk-page::before {
       content: "";
       position: absolute;
-      inset: -50px auto auto -50px;
-      width: 180px;
-      height: 180px;
+      top: -60px;
+      left: -60px;
+      width: 220px;
+      height: 220px;
       border-radius: 999px;
       background: var(--pink);
-      opacity: 0.16;
-      filter: blur(56px);
+      opacity: 0.12;
+      filter: blur(64px);
     }
 
     .talk-page::after {
       content: "";
       position: absolute;
-      inset: auto -60px -40px auto;
-      width: 220px;
-      height: 220px;
+      right: -70px;
+      bottom: -50px;
+      width: 260px;
+      height: 260px;
       border-radius: 999px;
       background: var(--blue);
-      opacity: 0.14;
-      filter: blur(60px);
+      opacity: 0.1;
+      filter: blur(72px);
     }
 
-    .talk-page > * { position: relative; z-index: 1; }
+    .talk-page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .talk-copy {
+      max-width: 620px;
+    }
 
     .phone-label {
-      display: inline-block;
-      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--gold);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       font-weight: 800;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .talk-page h2 {
+      font-size: clamp(2.2rem, 4.5vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin-bottom: 16px;
+      max-width: 9ch;
+    }
+
+    .talk-page p {
+      max-width: 58ch;
+      margin: 0 0 14px;
+      font-size: 1.04rem;
+    }
+
+    .talk-note {
+      max-width: 58ch;
+      margin: 18px 0 0;
+      color: #eee4de;
+      font-size: 1rem;
+    }
+
+    .talk-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .phone-showcase {
+      display: grid;
+      justify-items: center;
+      gap: 18px;
+    }
+
+    .phone-card {
+      width: min(100%, 460px);
+      padding: 28px 24px;
+      border-radius: 30px;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+      text-align: center;
+    }
+
+    .phone-card-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(0,0,0,0.08);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
     }
 
     .big-number {
-      display: inline-block;
-      font-size: clamp(2.4rem, 7vw, 5.2rem);
-      line-height: 1;
+      display: block;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 0.92;
       font-weight: 900;
-      letter-spacing: -0.04em;
-      margin-bottom: 18px;
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
+      word-break: break-word;
+    }
+
+    .number-caption {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.5;
+      max-width: 28ch;
+      margin: 0 auto;
     }
 
     .text-only {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 20px;
       padding: 12px 16px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: white;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.08);
+      color: #121212;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-size: 0.84rem;
-    }
-
-    .talk-page h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      margin-bottom: 12px;
-    }
-
-    .talk-page p {
-      max-width: 700px;
-      margin: 0 auto 14px;
-      font-size: 1.02rem;
-    }
-
-    .talk-note {
-      max-width: 760px;
-      margin: 16px auto 0;
-      color: #eee4de;
-      font-size: 1rem;
+      font-size: 0.82rem;
     }
 
     .cta {
@@ -704,7 +462,7 @@
     .modal {
       width: min(100%, 620px);
       background: rgba(18,18,24,0.98);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 28px;
       box-shadow: var(--shadow);
       padding: 26px;
@@ -718,9 +476,9 @@
       width: 42px;
       height: 42px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      color: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(0,0,0,0.03);
+      color: #121212;
       font-size: 1.3rem;
       cursor: pointer;
     }
@@ -746,9 +504,9 @@
       width: 100%;
       padding: 14px 16px;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(0,0,0,0.08);
       background: rgba(255,255,255,0.03);
-      color: white;
+      color: #121212;
       outline: none;
     }
 
@@ -798,9 +556,23 @@
 
       h1 { max-width: none; }
       .hero-meta, .stack-grid { grid-template-columns: 1fr; }
-      .hero-actions, .form-actions { justify-content: center; }
+      .hero-actions, .form-actions, .talk-actions { justify-content: center; }
       .contact-chip { white-space: normal; text-align: center; }
       .bubble { max-width: 100%; }
+      .talk-page {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .talk-copy {
+        max-width: none;
+      }
+      .talk-page h2,
+      .talk-page p,
+      .talk-note {
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1103,15 +875,24 @@
     <section id="talk-to-ai">
       <div class="container">
         <div class="talk-page reveal">
-          <span class="phone-label">Text this number. Do not call it.</span>
-          <a class="big-number" href="sms:2088024546">208-802-4546</a>
-          <div class="text-only">Text only for the BLEND test drive</div>
-          <h2>Take BLEND for a test drive</h2>
-          <p>You would never buy a car without taking it for a spin first. Same idea here. This line is built specifically for salons, so text it and see how BLEND talks back in the real world.</p>
-          <p class="talk-note">Again, this is a <strong>text experience</strong>. Please <strong>text 208-802-4546</strong> instead of calling it.</p>
-          <div class="hero-actions" style="margin-top: 24px;">
-            <a href="sms:2088024546" class="btn btn-pink">Text 208-802-4546</a>
-            <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
+          <div class="talk-copy">
+            <span class="phone-label">Text this number. Do not call it.</span>
+            <h2>Take BLEND for a test drive</h2>
+            <p>You would never buy a car without taking it for a spin first. Same idea here. This line is built specifically for salons, so text it and see how BLEND talks back in the real world.</p>
+            <p class="talk-note">This is a <strong>text-only experience</strong>. Please <strong>text 208-802-4546</strong> instead of calling it.</p>
+            <div class="talk-actions">
+              <a href="sms:2088024546" class="btn btn-pink">Text 208-802-4546</a>
+              <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
+            </div>
+          </div>
+
+          <div class="phone-showcase">
+            <div class="phone-card">
+              <div class="phone-card-label">Salon test drive line</div>
+              <a class="big-number" href="sms:2088024546">208-802-4546</a>
+              <p class="number-caption">Text this number to try BLEND like a real salon guest would. It is designed for texting, not calling.</p>
+            </div>
+            <div class="text-only">Text only for the BLEND test drive</div>
           </div>
         </div>
       </div>
