@@ -454,6 +454,28 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
     }
 
+    .chat-window {
+      max-height: 360px;
+      overflow-y: auto;
+      padding-right: 6px;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.16) transparent;
+    }
+
+    .chat-window::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .chat-window::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .chat-window::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.14);
+      border-radius: 999px;
+    }
+
     .chat-label {
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -869,11 +891,19 @@
           <div class="panel-visual">
             <div class="chat-card">
               <div class="chat-label">Sample conversation</div>
-              <div class="chat-thread">
-                <div class="bubble client">Hi, I just missed your call. Do you have anything open tomorrow for highlights?</div>
-                <div class="bubble blend">Yes, I can help with that. We have openings tomorrow afternoon. Want me to help you grab one?</div>
-                <div class="bubble client">Yes please. After 2 would be great.</div>
-                <div class="bubble blend">Perfect. I can help you move toward the best option after 2 so this missed call still becomes a booking.</div>
+              <div class="chat-window auto-scroll-chat">
+                <div class="chat-thread">
+                  <div class="bubble client">Hi, I just missed your call. Do you have anything open tomorrow for highlights?</div>
+                  <div class="bubble blend">Yes, I can help with that. We have openings tomorrow afternoon. Want me to help you grab one?</div>
+                  <div class="bubble client">Yes please. After 2 would be great.</div>
+                  <div class="bubble blend">Perfect. I can help you move toward the best option after 2 so this missed call still becomes a booking.</div>
+                  <div class="bubble client">Amazing. Do you also do toner with that?</div>
+                  <div class="bubble blend">Yes. Highlights and toner are a very common combo, and I can help guide you toward the best fit.</div>
+                  <div class="bubble client">How long should I expect to be there?</div>
+                  <div class="bubble blend">Usually a few hours depending on the starting point and what look you want. That way the salon can plan enough time for you.</div>
+                  <div class="bubble client">Great. I mostly just want brighter pieces around my face.</div>
+                  <div class="bubble blend">Perfect. That gives the stylist a strong starting point and keeps the conversation moving toward the appointment.</div>
+                </div>
               </div>
               <div class="chat-why"><strong>Why it matters:</strong> A missed call turns into a live booking conversation instead of disappearing.</div>
             </div>
@@ -894,11 +924,19 @@
           <div class="panel-visual">
             <div class="chat-card">
               <div class="chat-label">Sample conversation</div>
-              <div class="chat-thread">
-                <div class="bubble client">Hey, I know it’s late. Are you open on Saturdays for balayage?</div>
-                <div class="bubble blend">Yes. I can help with that. Saturday availability changes quickly, but I can guide you toward the best opening.</div>
-                <div class="bubble client">Amazing. I thought I’d have to wait until tomorrow to ask.</div>
-                <div class="bubble blend">Nope. BLEND keeps the salon responsive even after hours.</div>
+              <div class="chat-window auto-scroll-chat">
+                <div class="chat-thread">
+                  <div class="bubble client">Hey, I know it’s late. Are you open on Saturdays for balayage?</div>
+                  <div class="bubble blend">Yes. I can help with that. Saturday availability changes quickly, but I can guide you toward the best opening.</div>
+                  <div class="bubble client">Amazing. I thought I’d have to wait until tomorrow to ask.</div>
+                  <div class="bubble blend">Nope. BLEND keeps the salon responsive even after hours.</div>
+                  <div class="bubble client">Do I need a consultation first?</div>
+                  <div class="bubble blend">Sometimes that depends on your hair history and how big of a change you want, but I can help you move toward the right next step.</div>
+                  <div class="bubble client">I haven’t colored my hair in about a year.</div>
+                  <div class="bubble blend">That is helpful context. It gives the salon a better picture before you even walk in.</div>
+                  <div class="bubble client">This is so much easier than waiting for opening hours.</div>
+                  <div class="bubble blend">Exactly. That is the whole point of always-on support made specifically for salons.</div>
+                </div>
               </div>
               <div class="chat-why"><strong>Why it matters:</strong> The salon feels open and attentive without needing a real person awake at midnight.</div>
             </div>
@@ -919,11 +957,19 @@
           <div class="panel-visual">
             <div class="chat-card">
               <div class="chat-label">Sample conversation</div>
-              <div class="chat-thread">
-                <div class="bubble client">Do you do women’s cuts with gloss?</div>
-                <div class="bubble blend">Yes, absolutely. We can help with both. Are you looking for something subtle and shiny or more of a full refresh?</div>
-                <div class="bubble client">Subtle and shiny. Also how long does it take?</div>
-                <div class="bubble blend">Usually around two hours depending on your hair. Want me to help you move toward an appointment?</div>
+              <div class="chat-window auto-scroll-chat">
+                <div class="chat-thread">
+                  <div class="bubble client">Do you do women’s cuts with gloss?</div>
+                  <div class="bubble blend">Yes, absolutely. We can help with both. Are you looking for something subtle and shiny or more of a full refresh?</div>
+                  <div class="bubble client">Subtle and shiny. Also how long does it take?</div>
+                  <div class="bubble blend">Usually around two hours depending on your hair. Want me to help you move toward an appointment?</div>
+                  <div class="bubble client">Yes. I have fine hair if that matters.</div>
+                  <div class="bubble blend">That does help. Details like that make the conversation more useful before the booking even happens.</div>
+                  <div class="bubble client">I also need something low maintenance.</div>
+                  <div class="bubble blend">Perfect. That gives the stylist direction and makes the guest feel understood right away.</div>
+                  <div class="bubble client">Love that. I hate repeating everything later.</div>
+                  <div class="bubble blend">Exactly. BLEND helps collect the helpful stuff early so booking feels easy instead of repetitive.</div>
+                </div>
               </div>
               <div class="chat-why"><strong>Why it matters:</strong> Fast, friendly text replies make the salon feel modern and easy to book.</div>
             </div>
@@ -944,11 +990,19 @@
           <div class="panel-visual">
             <div class="chat-card">
               <div class="chat-label">Sample conversation</div>
-              <div class="chat-thread">
-                <div class="bubble client">I’m thinking about extensions but I’m not sure where to start.</div>
-                <div class="bubble blend">You’re in the right place. We can help you figure out what type makes the most sense and get you pointed toward a consultation.</div>
-                <div class="bubble client">That sounds good. I’ve never done them before.</div>
-                <div class="bubble blend">Perfect. We love first-timers. Let’s get you moving toward the best next step.</div>
+              <div class="chat-window auto-scroll-chat">
+                <div class="chat-thread">
+                  <div class="bubble client">I’m thinking about extensions but I’m not sure where to start.</div>
+                  <div class="bubble blend">You’re in the right place. We can help you figure out what type makes the most sense and get you pointed toward a consultation.</div>
+                  <div class="bubble client">That sounds good. I’ve never done them before.</div>
+                  <div class="bubble blend">Perfect. We love first-timers. Let’s get you moving toward the best next step.</div>
+                  <div class="bubble client">I mostly want more fullness, not super long hair.</div>
+                  <div class="bubble blend">That is great to know. It helps narrow the conversation and makes the consultation feel more productive.</div>
+                  <div class="bubble client">Do people usually match the color first?</div>
+                  <div class="bubble blend">Yes, color matching is a big part of making extensions look seamless, and the salon can guide you through that process.</div>
+                  <div class="bubble client">Okay, I already feel less overwhelmed.</div>
+                  <div class="bubble blend">That is exactly what better client capture should feel like. Less confusion, more momentum.</div>
+                </div>
               </div>
               <div class="chat-why"><strong>Why it matters:</strong> Curious shoppers become real leads because the conversation keeps moving instead of stalling.</div>
             </div>
@@ -969,11 +1023,18 @@
           <div class="panel-visual">
             <div class="chat-card">
               <div class="chat-label">Sample conversation</div>
-              <div class="chat-thread">
-                <div class="bubble blend">Friendly reminder about your appointment tomorrow at 2:00 PM. Reply here if you need anything before then.</div>
-                <div class="bubble client">Thank you. Can you remind me where you’re located again?</div>
-                <div class="bubble blend">Of course. We’re at your salon location on file, and I can help with any last-minute questions too.</div>
-                <div class="bubble client">Perfect. I’ll be there.</div>
+              <div class="chat-window auto-scroll-chat">
+                <div class="chat-thread">
+                  <div class="bubble blend">Friendly reminder about your appointment tomorrow at 2:00 PM. Reply here if you need anything before then.</div>
+                  <div class="bubble client">Thank you. Can you remind me where you’re located again?</div>
+                  <div class="bubble blend">Of course. We’re at your salon location on file, and I can help with any last-minute questions too.</div>
+                  <div class="bubble client">Perfect. I’ll be there.</div>
+                  <div class="bubble blend">Amazing. We’re looking forward to seeing you tomorrow.</div>
+                  <div class="bubble client">Do I need to come with clean hair?</div>
+                  <div class="bubble blend">The salon can guide that based on the service, but the good news is you can ask these little questions without having to call the front desk.</div>
+                  <div class="bubble client">That makes this way less stressful.</div>
+                  <div class="bubble blend">Exactly. Calm reminders and quick answers help people actually show up.</div>
+                </div>
               </div>
               <div class="chat-why"><strong>Why it matters:</strong> Small reminders reduce no-shows and protect the revenue already sitting on the books.</div>
             </div>
@@ -994,11 +1055,18 @@
           <div class="panel-visual">
             <div class="chat-card">
               <div class="chat-label">Sample conversation</div>
-              <div class="chat-thread">
-                <div class="bubble blend">Hi Emma. It’s been a little while since your last visit, so we wanted to check in. Want to freshen things up for spring?</div>
-                <div class="bubble client">Honestly yes, I’ve been meaning to book something.</div>
-                <div class="bubble blend">Perfect timing. I can help you get back on the schedule.</div>
-                <div class="bubble client">Let’s do it.</div>
+              <div class="chat-window auto-scroll-chat">
+                <div class="chat-thread">
+                  <div class="bubble blend">Hi Emma. It’s been a little while since your last visit, so we wanted to check in. Want to freshen things up for spring?</div>
+                  <div class="bubble client">Honestly yes, I’ve been meaning to book something.</div>
+                  <div class="bubble blend">Perfect timing. I can help you get back on the schedule.</div>
+                  <div class="bubble client">Let’s do it.</div>
+                  <div class="bubble blend">Amazing. Are you thinking trim, color, or a full refresh?</div>
+                  <div class="bubble client">Probably trim and color.</div>
+                  <div class="bubble blend">Perfect. That makes it easier to guide you toward the right appointment type.</div>
+                  <div class="bubble client">I honestly forgot how easy this could be.</div>
+                  <div class="bubble blend">That’s the magic. Your past client list is not old news, it’s future revenue waiting for the right message.</div>
+                </div>
               </div>
               <div class="chat-why"><strong>Why it matters:</strong> Past clients are hidden revenue, and a simple nudge can wake that revenue right back up.</div>
             </div>
@@ -1158,6 +1226,27 @@
       closeModal();
       form.reset();
     });
+  
+    const chatWindows = document.querySelectorAll('.auto-scroll-chat');
+    const chatObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (el.dataset.scrolled === 'true') return;
+          el.dataset.scrolled = 'true';
+          const maxScroll = el.scrollHeight - el.clientHeight;
+          if (maxScroll > 12) {
+            setTimeout(() => {
+              el.scrollTo({ top: maxScroll, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+            }, 300);
+          }
+        }
+      });
+    }, { threshold: 0.6 });
+
+    if (!prefersReducedMotion) {
+      chatWindows.forEach((item) => chatObserver.observe(item));
+    }
   </script>
 </body>
 </html>
