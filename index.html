@@ -241,15 +241,29 @@ form-origin: center top;
     }
 
    .hero-logo-wrap {
-  background: white;
+  --logo-badge-bg: rgba(255, 255, 255, 0.96);
+  --logo-badge-border: rgba(17, 17, 17, 0.08);
+  --logo-badge-shadow: 0 18px 40px rgba(17, 17, 17, 0.10);
+
+  background: var(--logo-badge-bg);
   padding: 18px 28px;
-  border-radius: 20px;
-}0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: none;
-      border: none;
+  border-radius: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--logo-badge-border);
+  box-shadow: var(--logo-badge-shadow);
+  backdrop-filter: blur(10px);
+  transition: background 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+}
+      .site-header.scrolled .logo-wrap {
+  --logo-badge-bg: rgba(255, 255, 255, 0.78);
+  --logo-badge-border: rgba(17, 17, 17, 0.06);
+  --logo-badge-shadow: 0 8px 20px rgba(17, 17, 17, 0.06);
+
+  padding: 6px 12px;
+  border-radius: 12px;
+}
     }
 
     .hero-logo-img {
@@ -988,7 +1002,20 @@ form-origin: center top;
       opacity: 0.25;
       transform: translate3d(0, 18px, 0);
     }
+@media (prefers-color-scheme: dark) {
+  .logo-wrap,
+  .hero-logo-wrap {
+    --logo-badge-bg: rgba(255, 255, 255, 0.10);
+    --logo-badge-border: rgba(255, 255, 255, 0.14);
+    --logo-badge-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  }
 
+  .site-header.scrolled .logo-wrap {
+    --logo-badge-bg: rgba(255, 255, 255, 0.14);
+    --logo-badge-border: rgba(255, 255, 255, 0.16);
+    --logo-badge-shadow: 0 10px 24px rgba(0, 0, 0, 0.30);
+  }
+}
     @media (max-width: 1080px) {
       .hero-mini-benefits,
       .benefits-grid-large,
