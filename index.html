@@ -1,164 +1,1718 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BLEND | AI-Powered Call & Text Concierge</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLEND | AI-Powered Call & Text Concierge</title>
+  <meta
+    name="description"
+    content="BLEND helps salons capture more bookings with an AI-powered call and text concierge that answers instantly, books appointments, and reactivates past clients."
+  />
+  <style>
+    :root {
+      --bg: #fffaf7;
+      --panel: rgba(255, 255, 255, 0.9);
+      --text: #171717;
+      --muted: #686868;
+      --purple: #9b5cff;
+      --blue: #50a7ff;
+      --cyan: #7edfd2;
+      --gold: #ffc97a;
+      --pink: #ff78ac;
+      --shadow: 0 18px 48px rgba(17, 17, 17, 0.08);
+      --radius: 28px;
+      --max: 1180px;
+    }
 
-<style>
-/* ================= LOGO TIGHTEN ================= */
-.logo-wrap,
-.hero-logo-wrap {
-  padding: 0;
-  margin: 0;
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-.logo-img {
-  height: 130px;
-  display: block;
-  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.25));
-}
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      position: relative;
+    }
 
-.site-header.scrolled .logo-img {
-  height: 70px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.hero-logo-img {
-  height: clamp(200px, 26vw, 380px);
-  display: block;
-  filter: drop-shadow(0 20px 50px rgba(0,0,0,0.3));
-}
+    button,
+    input {
+      font: inherit;
+    }
 
-/* ================= REMOVE EXTRA SPACE ================= */
-.hero-logo-stage {
-  margin-bottom: 0;
-}
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
 
-/* ================= NAV CLEANUP ================= */
-.nav-link[href="#selling-points"] {
-  display: none;
-}
+    .paint,
+    .paint::before,
+    .paint::after,
+    .paint-2,
+    .paint-2::before,
+    .paint-2::after,
+    .paint-3,
+    .paint-3::before,
+    .paint-3::after,
+    .paint-4,
+    .paint-4::before,
+    .paint-4::after {
+      position: fixed;
+      pointer-events: none;
+      content: "";
+      z-index: 0;
+      border-radius: 50%;
+      mix-blend-mode: multiply;
+      opacity: 0.7;
+    }
 
-/* ================= STEP 2 FLIPPED ================= */
-.solution-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+    .paint {
+      top: 70px;
+      right: -70px;
+      width: 280px;
+      height: 280px;
+      background: rgba(255, 120, 172, 0.12);
+      filter: blur(28px);
+    }
 
-.solution-block .story-copy {
-  order: 2;
-}
+    .paint::before {
+      inset: 30px 120px 140px 10px;
+      background: rgba(155, 92, 255, 0.45);
+      filter: blur(10px);
+    }
 
-.solution-block .solution-grid {
-  order: 1;
-}
+    .paint::after {
+      inset: 120px 20px 40px 120px;
+      background: rgba(255, 201, 122, 0.5);
+      filter: blur(10px);
+    }
 
-/* ================= BUTTON STYLE DIFFERENTIATION ================= */
-.solution-card {
-  border-radius: 14px;
-  padding: 18px;
-  background: rgba(255,255,255,0.7);
-  box-shadow: none;
-  border: 1px solid rgba(0,0,0,0.06);
-  transition: all 0.2s ease;
-}
+    .paint-2 {
+      top: 32%;
+      left: -70px;
+      width: 220px;
+      height: 220px;
+      background: rgba(80, 167, 255, 0.1);
+      filter: blur(26px);
+    }
 
-.solution-card:hover {
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.9);
-}
+    .paint-2::before {
+      inset: 20px 80px 110px 20px;
+      background: rgba(126, 223, 210, 0.48);
+      filter: blur(10px);
+    }
 
-/* ================= CHAT → SUBTLE PHONE FEEL ================= */
-.chat-card {
-  background: #f8f3ef;
-  border-radius: 28px;
-  padding: 18px;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
-  position: relative;
-}
+    .paint-2::after {
+      inset: 120px 30px 20px 120px;
+      background: rgba(80, 167, 255, 0.5);
+      filter: blur(10px);
+    }
 
-/* subtle top notch hint */
-.chat-card::before {
-  content: "";
-  width: 60px;
-  height: 6px;
-  background: rgba(0,0,0,0.15);
-  border-radius: 999px;
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.4;
-}
+    .paint-3 {
+      bottom: 120px;
+      right: 5%;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 201, 122, 0.08);
+      filter: blur(22px);
+    }
 
-/* bubbles refined */
-.bubble {
-  border-radius: 18px;
-  padding: 12px 14px;
-  font-size: 0.95rem;
-}
+    .paint-3::before {
+      inset: 15px 65px 85px 15px;
+      background: rgba(255, 120, 172, 0.5);
+      filter: blur(8px);
+    }
 
-.bubble.client {
-  background: rgba(0,0,0,0.05);
-}
+    .paint-3::after {
+      inset: 85px 10px 15px 90px;
+      background: rgba(155, 92, 255, 0.46);
+      filter: blur(8px);
+    }
 
-.bubble.blend {
-  background: linear-gradient(135deg, #ff78ac, #ffc97a);
-}
+    .paint-4 {
+      top: 72%;
+      left: 7%;
+      width: 150px;
+      height: 150px;
+      background: rgba(126, 223, 210, 0.08);
+      filter: blur(18px);
+    }
 
-/* ================= GENERAL ================= */
-body {
-  font-family: Inter, sans-serif;
-}
-</style>
+    .paint-4::before {
+      inset: 18px 55px 65px 10px;
+      background: rgba(255, 201, 122, 0.52);
+      filter: blur(8px);
+    }
+
+    .paint-4::after {
+      inset: 70px 18px 10px 70px;
+      background: rgba(80, 167, 255, 0.46);
+      filter: blur(8px);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 250, 247, 0.84);
+      border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+      transition: background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(255, 250, 247, 0.96);
+      box-shadow: 0 8px 24px rgba(17, 17, 17, 0.06);
+    }
+
+    .nav {
+      min-height: 64px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-right {
+      justify-content: flex-end;
+    }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      color: rgba(23, 23, 23, 0.88);
+      font-size: 0.92rem;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(17, 17, 17, 0.04);
+    }
+
+    .contact-chip strong {
+      color: var(--text);
+    }
+
+    .nav-link {
+      color: rgba(23, 23, 23, 0.72);
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+      transform-origin: center top;
+    }
+
+    .logo-wrap {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: center top;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .logo-img {
+      height: 136px;
+      width: auto;
+      display: block;
+      transition: height 0.32s ease, transform 0.32s ease;
+      transform: scale(1.34);
+      transform-origin: center center;
+      filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.16));
+      margin: -14px -20px -12px;
+    }
+
+    .site-header.scrolled .logo-wrap {
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .site-header.scrolled .logo-img {
+      height: 82px;
+      margin: -10px -16px -8px;
+    }
+
+    .hero-logo-stage {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2px;
+      transition: opacity 0.35s ease, transform 0.45s ease;
+    }
+
+    .hero-logo-stage.hidden {
+      opacity: 0;
+      transform: translateY(-18px) scale(0.94);
+      pointer-events: none;
+    }
+
+    .hero-logo-wrap {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      transition: none;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .hero-logo-img {
+      height: clamp(230px, 24vw, 360px);
+      width: auto;
+      display: block;
+      transform: scale(1.38);
+      transform-origin: center center;
+      filter: drop-shadow(0 18px 54px rgba(0, 0, 0, 0.18));
+      margin: -32px -44px -26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 17, 17, 0.06);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      font-weight: 700;
+      white-space: nowrap;
+      color: #121212;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(17, 17, 17, 0.08);
+      letter-spacing: -0.01em;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(17, 17, 17, 0.12);
+    }
+
+    .btn-purple { background: var(--purple); }
+    .btn-blue { background: var(--blue); }
+    .btn-cyan { background: var(--cyan); }
+    .btn-gold { background: var(--gold); }
+    .btn-pink { background: var(--pink); }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: 56px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .journey-section + .journey-section {
+      margin-top: 8px;
+    }
+
+    .hero {
+      padding: 32px 0 40px;
+    }
+
+    .hero-shell,
+    .panel,
+    .stack-card,
+    .cta,
+    .talk-page,
+    .story-block {
+      background: var(--panel);
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .hero-shell {
+      padding: 40px 56px 48px;
+    }
+
+    .hero-shell-simplified {
+      display: grid;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      background: rgba(255, 255, 255, 0.7);
+      color: #9b6c2e;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      font-size: 0.82rem;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 7vw, 6.4rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      max-width: 9ch;
+      margin: 0 auto 18px;
+      text-align: center;
+    }
+
+    .hero-copy {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .hero-lead,
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1.12rem;
+      margin: 0 auto;
+      max-width: 52ch;
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions-premium .btn {
+      min-width: 190px;
+    }
+
+    .hero-mini-benefits {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-benefit {
+      display: block;
+      border-radius: 18px;
+      padding: 20px 22px;
+      min-height: 110px;
+      border: none;
+      cursor: pointer;
+      box-shadow:
+        0 6px 0 rgba(0, 0, 0, 0.08),
+        0 14px 28px rgba(17, 17, 17, 0.08);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .mini-benefit:nth-child(1) {
+      background: linear-gradient(135deg, #7edfd2, #50a7ff);
+    }
+
+    .mini-benefit:nth-child(2) {
+      background: linear-gradient(135deg, #ffc97a, #ff78ac);
+    }
+
+    .mini-benefit:nth-child(3) {
+      background: linear-gradient(135deg, #9b5cff, #ff78ac);
+    }
+
+    .mini-benefit strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #121212;
+    }
+
+    .mini-benefit span {
+      color: rgba(18, 18, 18, 0.78);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      display: block;
+    }
+
+    .mini-benefit:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.06),
+        0 22px 36px rgba(17, 17, 17, 0.12);
+    }
+
+    .mini-benefit:active {
+      transform: translateY(2px);
+      box-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.1),
+        0 8px 18px rgba(17, 17, 17, 0.08);
+    }
+
+    .story-block {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .story-copy {
+      max-width: 58ch;
+    }
+
+    .story-copy h2 {
+      font-size: clamp(2.1rem, 4vw, 3.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    .story-copy p {
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.6;
+    }
+
+    .story-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .story-stat,
+    .solution-card {
+      position: relative;
+      display: block;
+      border-radius: 22px;
+      padding: 18px 20px 18px 24px;
+      min-height: auto;
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 24px rgba(17, 17, 17, 0.05);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      overflow: hidden;
+    }
+
+    .story-stat::before,
+    .solution-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 4px;
+      border-radius: 999px;
+      background: var(--card-accent, var(--purple));
+    }
+
+    .story-stat:nth-child(1),
+    .solution-card:nth-child(1) {
+      --card-accent: var(--cyan);
+    }
+
+    .story-stat:nth-child(2),
+    .solution-card:nth-child(2) {
+      --card-accent: var(--gold);
+    }
+
+    .story-stat:nth-child(3),
+    .solution-card:nth-child(3) {
+      --card-accent: var(--pink);
+    }
+
+    .story-stat strong,
+    .solution-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+      color: #121212;
+    }
+
+    .story-stat span,
+    .solution-card span {
+      color: rgba(18, 18, 18, 0.72);
+      display: block;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .story-stat:hover,
+    .solution-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 16px 30px rgba(17, 17, 17, 0.08);
+      border-color: rgba(17, 17, 17, 0.12);
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 28px;
+    }
+
+    .section-head-wide {
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #9b6c2e;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
+    }
+
+    .section-head p,
+    .panel p,
+    .stack-card p,
+    .cta p,
+    .talk-page p,
+    .chat-why,
+    .number-caption {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .selling-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .proof-stack .panel {
+      padding: 42px;
+    }
+
+    .panel {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 30px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      opacity: 0.14;
+      background: var(--panel-accent, var(--purple));
+      filter: blur(48px);
+      pointer-events: none;
+    }
+
+    .panel-copy,
+    .panel-visual {
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: rgba(17, 17, 17, 0.04);
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      color: #5b4b3c;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .panel h3 {
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+      max-width: 10ch;
+    }
+
+    .panel p {
+      font-size: 1.04rem;
+      margin-bottom: 20px;
+    }
+
+    .panel-visual {
+      display: grid;
+      gap: 16px;
+      align-content: center;
+    }
+
+    .chat-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(252, 248, 244, 0.98), rgba(247, 241, 236, 0.98));
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      border-radius: 30px;
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 16px 34px rgba(17, 17, 17, 0.07);
+      overflow: hidden;
+    }
+
+    .chat-card::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 54px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(17, 17, 17, 0.12);
+      opacity: 0.45;
+    }
+
+    .chat-card-large {
+      padding: 18px;
+    }
+
+    .chat-window {
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 28px 8px 4px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255, 252, 249, 0.94), rgba(248, 243, 239, 0.94));
+      border: 1px solid rgba(17, 17, 17, 0.04);
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.16) transparent;
+    }
+
+    .chat-window::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .chat-window::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.14);
+      border-radius: 999px;
+    }
+
+    .chat-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 800;
+      color: #8e6a3b;
+      text-align: center;
+      padding-top: 4px;
+    }
+
+    .chat-thread {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bubble {
+      max-width: 88%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      line-height: 1.48;
+      font-size: 0.95rem;
+      border: 1px solid rgba(17, 17, 17, 0.05);
+      box-shadow: 0 6px 14px rgba(17, 17, 17, 0.05);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .animated-chat.play .bubble {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animated-chat.play .bubble:nth-child(1) { transition-delay: 0.05s; }
+    .animated-chat.play .bubble:nth-child(2) { transition-delay: 0.18s; }
+    .animated-chat.play .bubble:nth-child(3) { transition-delay: 0.31s; }
+    .animated-chat.play .bubble:nth-child(4) { transition-delay: 0.44s; }
+    .animated-chat.play .bubble:nth-child(5) { transition-delay: 0.57s; }
+    .animated-chat.play .bubble:nth-child(6) { transition-delay: 0.7s; }
+    .animated-chat.play .bubble:nth-child(7) { transition-delay: 0.83s; }
+    .animated-chat.play .bubble:nth-child(8) { transition-delay: 0.96s; }
+    .animated-chat.play .bubble:nth-child(9) { transition-delay: 1.09s; }
+    .animated-chat.play .bubble:nth-child(10) { transition-delay: 1.22s; }
+
+    .bubble.client {
+      justify-self: start;
+      background: rgba(17, 17, 17, 0.05);
+      color: var(--text);
+      border-top-left-radius: 8px;
+    }
+
+    .bubble.blend {
+      justify-self: end;
+      background: linear-gradient(135deg, rgba(255, 120, 172, 0.78), rgba(255, 201, 122, 0.88));
+      color: #121212;
+      border-top-right-radius: 8px;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .chat-why {
+      margin-top: 4px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(17, 17, 17, 0.08);
+      font-size: 0.94rem;
+    }
+
+    .chat-why strong {
+      color: var(--text);
+    }
+
+    .panel-1 { --panel-accent: var(--purple); --bubble-accent: var(--gold); }
+    .panel-2 { --panel-accent: var(--gold); --bubble-accent: var(--cyan); }
+    .panel-3 { --panel-accent: var(--blue); --bubble-accent: var(--pink); }
+
+    .benefits-grid-large {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .stack-card {
+      padding: 28px;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .stack-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--card-top, var(--purple));
+    }
+
+    .stack-card:nth-child(1) { --card-top: var(--purple); }
+    .stack-card:nth-child(2) { --card-top: var(--blue); }
+    .stack-card:nth-child(3) { --card-top: var(--pink); }
+
+    .stack-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+    }
+
+    .talk-page {
+      padding: 64px 48px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 38px;
+      align-items: center;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .journey-moment .container {
+      position: relative;
+    }
+
+    .talk-page::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: var(--pink);
+      opacity: 0.1;
+      filter: blur(64px);
+    }
+
+    .talk-page::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      bottom: -50px;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: var(--blue);
+      opacity: 0.08;
+      filter: blur(72px);
+    }
+
+    .talk-page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .talk-copy {
+      max-width: 620px;
+    }
+
+    .phone-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #9b6c2e;
+      margin-bottom: 16px;
+      font-weight: 800;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(17, 17, 17, 0.08);
+    }
+
+    .talk-page h2 {
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      margin-bottom: 16px;
+      max-width: 8ch;
+    }
+
+    .talk-page p {
+      max-width: 56ch;
+      margin: 0 0 14px;
+      font-size: 1.06rem;
+    }
+
+    .talk-note {
+      max-width: 56ch;
+      margin: 18px 0 0;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .talk-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .phone-showcase {
+      display: grid;
+      justify-items: center;
+      gap: 20px;
+    }
+
+    .phone-showcase-mockup {
+      align-items: center;
+    }
+
+    .phone-mockup {
+      width: min(100%, 360px);
+      border-radius: 38px;
+      padding: 14px;
+      background: linear-gradient(180deg, #20232b, #111319);
+      box-shadow: 0 20px 40px rgba(17, 17, 17, 0.16);
+      position: relative;
+    }
+
+    .phone-notch {
+      width: 120px;
+      height: 20px;
+      border-radius: 999px;
+      background: #0c0d10;
+      margin: 0 auto 14px;
+    }
+
+    .phone-screen {
+      border-radius: 28px;
+      background: #f8f3ef;
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      min-height: 540px;
+      align-content: start;
+    }
+
+    .phone-header-small {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8e5f24;
+      font-weight: 800;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .phone-message {
+      max-width: 88%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      font-size: 0.94rem;
+      line-height: 1.45;
+      box-shadow: 0 8px 18px rgba(17, 17, 17, 0.06);
+    }
+
+    .phone-message.client {
+      justify-self: start;
+      background: rgba(17, 17, 17, 0.06);
+      color: var(--text);
+      border-top-left-radius: 8px;
+    }
+
+    .phone-message.blend {
+      justify-self: end;
+      background: linear-gradient(135deg, var(--pink), var(--gold));
+      color: #151515;
+      border-top-right-radius: 8px;
+      font-weight: 600;
+    }
+
+    .phone-input {
+      margin-top: auto;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      background: rgba(17, 17, 17, 0.04);
+      padding: 12px 14px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .cta {
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1.1fr auto;
+      gap: 18px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.86);
+    }
+
+    .cta-final {
+      margin: 0 0 24px;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: var(--cyan);
+    }
+
+    .bottom-contact {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .site-footer {
+      padding: 32px 0 40px;
+      color: rgba(17, 17, 17, 0.58);
+      font-size: 0.92rem;
+    }
+
+    .footer-row {
+      border-top: 1px solid rgba(17, 17, 17, 0.08);
+      padding-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.32);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 100;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      width: min(100%, 620px);
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      background: rgba(17, 17, 17, 0.04);
+      color: var(--text);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .modal h3 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .modal p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .form-grid label {
+      display: grid;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: rgba(17, 17, 17, 0.88);
+    }
+
+    .form-grid input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      background: rgba(17, 17, 17, 0.03);
+      color: var(--text);
+      outline: none;
+    }
+
+    .form-grid input:focus {
+      border-color: rgba(80, 167, 255, 0.5);
+      box-shadow: 0 0 0 3px rgba(80, 167, 255, 0.12);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal:not(.in-view) {
+      opacity: 0.25;
+      transform: translate3d(0, 18px, 0);
+    }
+
+    .solution-block {
+      grid-template-columns: 0.82fr 1.18fr;
+    }
+
+    .solution-block .story-copy {
+      order: 2;
+      max-width: 60ch;
+    }
+
+    .solution-block .solution-grid {
+      order: 1;
+    }
+
+    .solution-grid {
+      gap: 14px;
+    }
+
+    .solution-card {
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .logo-wrap,
+      .hero-logo-wrap {
+        background: transparent;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-mini-benefits,
+      .benefits-grid-large,
+      .story-block,
+      .panel,
+      .talk-page,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .panel h3,
+      .talk-page h2,
+      .story-copy h2 {
+        max-width: none;
+      }
+
+      .talk-page,
+      .story-block {
+        text-align: center;
+      }
+
+      .story-copy,
+      .talk-copy,
+      .talk-page p,
+      .talk-note {
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .talk-actions,
+      .hero-actions,
+      .form-actions {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero-shell,
+      .panel,
+      .stack-card,
+      .cta,
+      .talk-page,
+      .modal,
+      .story-block {
+        padding: 24px;
+      }
+
+      .nav {
+        grid-template-columns: 1fr;
+        padding: 18px 0;
+      }
+
+      .nav-left,
+      .nav-right,
+      .brand,
+      .bottom-contact {
+        justify-content: center;
+      }
+
+      h1 {
+        max-width: none;
+      }
+
+      .contact-chip {
+        white-space: normal;
+        text-align: center;
+      }
+
+      .bubble {
+        max-width: 100%;
+      }
+
+      .phone-mockup {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .logo-img {
+        height: 96px;
+        margin: -8px -12px -6px;
+      }
+
+      .hero-logo-img {
+        height: clamp(180px, 42vw, 260px);
+        margin: -22px -24px -18px;
+      }
+
+      .solution-block .story-copy,
+      .solution-block .solution-grid {
+        order: initial;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal,
+      .reveal:not(.in-view),
+      .bubble {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .chat-window {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="paint" aria-hidden="true"></div>
+  <div class="paint-2" aria-hidden="true"></div>
+  <div class="paint-3" aria-hidden="true"></div>
+  <div class="paint-4" aria-hidden="true"></div>
 
-<header class="site-header">
-  <div class="nav">
-    <div></div>
-
-    <a class="brand" href="#">
-      <div class="logo-wrap">
-        <img src="blend-new-logo.png" class="logo-img" />
+  <header class="site-header">
+    <div class="container nav">
+      <div class="nav-left">
+        <a class="contact-chip" href="tel:8015906020"><span>Questions?</span> <strong>801-590-6020</strong></a>
       </div>
-    </a>
 
-    <div></div>
-  </div>
-</header>
+      <a class="brand" href="#top" aria-label="BLEND home">
+        <div class="logo-wrap">
+          <img src="blend-logo-2.png" alt="BLEND logo" class="logo-img" />
+        </div>
+      </a>
 
-<section class="hero">
-  <div class="hero-logo-stage">
-    <div class="hero-logo-wrap">
-      <img src="blend-new-logo.png" class="hero-logo-img" />
+      <div class="nav-right">
+        <a class="btn btn-purple" href="#talk-to-ai">Talk To AI</a>
+        <button class="btn btn-blue open-demo" type="button">Schedule a Demo</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero reveal">
+      <div class="container hero-shell hero-shell-simplified">
+        <div class="hero-copy hero-copy-simplified">
+          <div class="hero-logo-stage" id="heroLogoStage" aria-hidden="true">
+            <div class="hero-logo-wrap">
+              <img src="blend-logo-2.png" alt="BLEND logo" class="hero-logo-img" />
+            </div>
+          </div>
+
+          <div class="eyebrow">AI-powered call &amp; text concierge for salons</div>
+          <h1>Never lose another salon conversation.</h1>
+          <p class="hero-lead">
+            BLEND answers, follows up, and keeps booking conversations moving so your front desk never becomes a bottleneck.
+          </p>
+
+          <div class="hero-actions hero-actions-premium">
+            <a href="#talk-to-ai" class="btn btn-pink">Talk To AI</a>
+            <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
+          </div>
+        </div>
+
+        <div class="hero-mini-benefits reveal">
+          <a href="#talk-to-ai" class="mini-benefit">
+            <strong>24/7 response</strong>
+            <span>Texts and calls never sit there getting dusty.</span>
+          </a>
+          <a href="#talk-to-ai" class="mini-benefit">
+            <strong>More booked guests</strong>
+            <span>Missed moments turn into live opportunities.</span>
+          </a>
+          <a href="#talk-to-ai" class="mini-benefit">
+            <strong>Less front-desk chaos</strong>
+            <span>Your team gets breathing room without losing momentum.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="journey-section reveal">
+      <div class="container story-block problem-block">
+        <div class="story-copy">
+          <span class="kicker">Step 1 · The problem</span>
+          <h2>Salons lose revenue in the cracks.</h2>
+          <p>
+            Someone calls while your team is with a guest. A text comes in after hours. A hot lead cools off. The problem is not demand. The problem is response speed.
+          </p>
+        </div>
+        <div class="story-side stat-stack">
+          <div class="story-stat"><strong>Busy chairs</strong><span>Your stylists are working, not babysitting the inbox.</span></div>
+          <div class="story-stat"><strong>After-hours interest</strong><span>Good leads show up at inconvenient times.</span></div>
+          <div class="story-stat"><strong>Silent drop-off</strong><span>Most lost bookings vanish quietly, not dramatically.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution" class="journey-section reveal">
+      <div class="container story-block solution-block">
+        <div class="story-copy">
+          <span class="kicker">Step 2 · The solution</span>
+          <h2>BLEND replies like a polished front desk that never clocks out.</h2>
+          <p>
+            It answers quickly, keeps the tone warm, captures useful details, and moves guests toward the next step without making your team do twenty little tasks at once.
+          </p>
+        </div>
+        <div class="story-side solution-grid">
+          <div class="solution-card"><strong>Answers fast</strong><span>Calls and texts get immediate attention.</span></div>
+          <div class="solution-card"><strong>Sounds human</strong><span>Professional, calm, and easy to talk to.</span></div>
+          <div class="solution-card"><strong>Guides the guest</strong><span>Not just answers. It moves the conversation forward.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="journey-section reveal">
+      <div class="container section-head section-head-wide">
+        <span class="kicker">Step 3 · The proof</span>
+        <h2>This is what BLEND actually sounds like.</h2>
+        <p>Not vague AI talk. Real salon-style conversations that feel useful, smooth, and easy to trust.</p>
+      </div>
+
+      <div class="container selling-stack proof-stack" id="selling-points">
+        <article class="panel panel-1 reveal">
+          <div class="panel-copy">
+            <div class="panel-index">01</div>
+            <h3>Never miss a booking opportunity</h3>
+            <p>
+              BLEND responds when your team cannot. After-hours calls, mid-service texts, and missed phone moments still become live conversations.
+            </p>
+          </div>
+          <div class="panel-visual">
+            <div class="chat-card chat-card-large">
+              <div class="chat-label">Sample conversation</div>
+              <div class="chat-window auto-scroll-chat">
+                <div class="chat-thread animated-chat">
+                  <div class="bubble client">Hi, I just missed your call. Do you have anything open tomorrow for highlights?</div>
+                  <div class="bubble blend">Yes, I can help with that. We have openings tomorrow afternoon. Want me to help you grab one?</div>
+                  <div class="bubble client">Yes please. After 2 would be great.</div>
+                  <div class="bubble blend">Perfect. I can help you move toward the best option after 2 so this missed call still becomes a booking.</div>
+                  <div class="bubble client">Amazing. Do you also do toner with that?</div>
+                  <div class="bubble blend">Yes. Highlights and toner are a very common combo, and I can help guide you toward the best fit.</div>
+                  <div class="bubble client">How long should I expect to be there?</div>
+                  <div class="bubble blend">Usually a few hours depending on the starting point and what look you want. That way the salon can plan enough time for you.</div>
+                  <div class="bubble client">Great. I mostly just want brighter pieces around my face.</div>
+                  <div class="bubble blend">Perfect. That gives the stylist a strong starting point and keeps the conversation moving toward the appointment.</div>
+                </div>
+              </div>
+              <div class="chat-why"><strong>Why it matters:</strong> A missed call turns into a live booking conversation instead of disappearing.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel panel-2 reveal">
+          <div class="panel-copy">
+            <div class="panel-index">02</div>
+            <h3>24/7 availability without extra payroll</h3>
+            <p>
+              Your salon should not need a midnight front desk to feel responsive. BLEND gives you constant availability without stacking more staffing cost.
+            </p>
+          </div>
+          <div class="panel-visual">
+            <div class="chat-card chat-card-large">
+              <div class="chat-label">Sample conversation</div>
+              <div class="chat-window auto-scroll-chat">
+                <div class="chat-thread animated-chat">
+                  <div class="bubble client">Hey, I know it’s late. Are you open on Saturdays for balayage?</div>
+                  <div class="bubble blend">Yes. I can help with that. Saturday availability changes quickly, but I can guide you toward the best opening.</div>
+                  <div class="bubble client">Amazing. I thought I’d have to wait until tomorrow to ask.</div>
+                  <div class="bubble blend">Nope. BLEND keeps the salon responsive even after hours.</div>
+                  <div class="bubble client">Do I need a consultation first?</div>
+                  <div class="bubble blend">Sometimes that depends on your hair history and how big of a change you want, but I can help you move toward the right next step.</div>
+                  <div class="bubble client">I haven’t colored my hair in about a year.</div>
+                  <div class="bubble blend">That is helpful context. It gives the salon a better picture before you even walk in.</div>
+                  <div class="bubble client">This is so much easier than waiting for opening hours.</div>
+                  <div class="bubble blend">Exactly. That is the whole point of always-on support made specifically for salons.</div>
+                </div>
+              </div>
+              <div class="chat-why"><strong>Why it matters:</strong> The salon feels open and attentive without needing a real person awake at midnight.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel panel-3 reveal">
+          <div class="panel-copy">
+            <div class="panel-index">03</div>
+            <h3>Instant text responses</h3>
+            <p>
+              Today’s clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.
+            </p>
+          </div>
+          <div class="panel-visual">
+            <div class="chat-card chat-card-large">
+              <div class="chat-label">Sample conversation</div>
+              <div class="chat-window auto-scroll-chat">
+                <div class="chat-thread animated-chat">
+                  <div class="bubble client">Do you do women’s cuts with gloss?</div>
+                  <div class="bubble blend">Yes, absolutely. We can help with both. Are you looking for something subtle and shiny or more of a full refresh?</div>
+                  <div class="bubble client">Subtle and shiny. Also how long does it take?</div>
+                  <div class="bubble blend">Usually around two hours depending on your hair. Want me to help you move toward an appointment?</div>
+                  <div class="bubble client">Yes. I have fine hair if that matters.</div>
+                  <div class="bubble blend">That does help. Details like that make the conversation more useful before the booking even happens.</div>
+                  <div class="bubble client">I also need something low maintenance.</div>
+                  <div class="bubble blend">Perfect. That gives the stylist direction and makes the guest feel understood right away.</div>
+                  <div class="bubble client">Love that. I hate repeating everything later.</div>
+                  <div class="bubble blend">Exactly. BLEND helps collect the helpful stuff early so booking feels easy instead of repetitive.</div>
+                </div>
+              </div>
+              <div class="chat-why"><strong>Why it matters:</strong> Fast, friendly text replies make the salon feel modern and easy to book.</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="benefits" class="journey-section reveal">
+      <div class="container section-head section-head-wide">
+        <span class="kicker">Step 4 · The benefits</span>
+        <h2>What this changes for the salon.</h2>
+        <p>When response improves, everything downstream gets easier: booking, guest experience, retention, and schedule protection.</p>
+      </div>
+
+      <div class="container stack-grid benefits-grid-large">
+        <article class="stack-card reveal">
+          <h3>More bookings</h3>
+          <p>Leads stay warm instead of drifting off while the team is busy.</p>
+        </article>
+        <article class="stack-card reveal">
+          <h3>Better first impressions</h3>
+          <p>Guests feel taken care of from the first message, not just when they walk in.</p>
+        </article>
+        <article class="stack-card reveal">
+          <h3>Fewer no-shows</h3>
+          <p>Reminders and easy follow-up protect the schedule you worked hard to fill.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="talk-to-ai" class="journey-section journey-moment reveal">
+      <div class="container">
+        <div class="talk-page reveal talk-page-moment">
+          <div class="talk-copy">
+            <span class="phone-label">Step 5 · Try it yourself</span>
+            <h2>Text the line. Feel the product.</h2>
+            <p>
+              You would never buy a car without a test drive. Same idea here. This is the cleanest way to understand BLEND in under a minute.
+            </p>
+            <p class="talk-note">
+              This line is built specifically for salons. <strong>Text 208-802-4546.</strong> Do not call it.
+            </p>
+            <div class="talk-actions">
+              <a href="sms:2088024546" class="btn btn-pink">Text 208-802-4546</a>
+              <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
+            </div>
+          </div>
+
+          <div class="phone-showcase phone-showcase-mockup">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-header-small">BLEND test drive</div>
+                <div class="phone-message client">Hi, I’m a salon owner. What do you actually do?</div>
+                <div class="phone-message blend">I help salons answer faster, capture more bookings, and keep guest conversations moving even when the front desk is busy.</div>
+                <div class="phone-message client">So I should text this number?</div>
+                <div class="phone-message blend">Yes. Text 208-802-4546 to try the experience for yourself.</div>
+                <div class="phone-input">Text only. Do not call.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="journey-section reveal">
+      <div class="container">
+        <div class="cta reveal cta-final">
+          <div>
+            <span class="kicker">Step 6 · Convert</span>
+            <h2>Ready to bring BLEND into the salon?</h2>
+            <p>Try the text line, ask questions, or open a demo request and keep the conversation going.</p>
+          </div>
+          <div class="hero-actions hero-actions-premium" style="justify-content: flex-end; margin-top: 0;">
+            <a class="btn btn-cyan" href="#talk-to-ai">Talk To AI</a>
+            <button class="btn btn-blue open-demo" type="button">Schedule a Demo</button>
+          </div>
+        </div>
+
+        <div class="bottom-contact reveal">
+          <a class="contact-chip" href="tel:8015906020"><span>Questions? Call or text</span> <strong>801-590-6020</strong></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© 2026 BLEND. Human touch meets AI precision.</div>
+      <div>Questions? 801-590-6020</div>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="demoModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+      <button class="close-btn" type="button" id="closeModal" aria-label="Close demo form">×</button>
+      <h3 id="demoTitle">Schedule a Demo</h3>
+      <p>Answer these quick questions and your email app will open a draft to Rob.</p>
+      <form class="form-grid" id="demoForm">
+        <label>Name<input type="text" name="name" required /></label>
+        <label>Phone number<input type="tel" name="phone" required /></label>
+        <label>Email address<input type="email" name="email" required /></label>
+        <label>Name of Company<input type="text" name="company" required /></label>
+        <label>What is your favorite color?<input type="text" name="color" required /></label>
+        <div class="form-actions">
+          <button class="btn btn-purple" type="button" id="cancelModal">Cancel</button>
+          <button class="btn btn-gold" type="submit">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
-</section>
 
-<section id="solution" class="solution-block">
-  <div class="story-copy">
-    <h2>BLEND replies like a polished front desk that never clocks out.</h2>
-    <p>
-      It answers quickly, keeps the tone warm, captures useful details,
-      and moves guests toward the next step without friction.
-    </p>
-  </div>
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  <div class="solution-grid">
-    <div class="solution-card"><strong>Answers fast</strong></div>
-    <div class="solution-card"><strong>Sounds human</strong></div>
-    <div class="solution-card"><strong>Guides the guest</strong></div>
-  </div>
-</section>
+    if (!prefersReducedMotion) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.12 });
 
-<section>
-  <div class="chat-card">
-    <div class="bubble client">Hi, do you have openings tomorrow?</div>
-    <div class="bubble blend">Yes, I can help with that.</div>
-  </div>
-</section>
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add('in-view'));
+    }
 
+    const modal = document.getElementById('demoModal');
+    const openButtons = document.querySelectorAll('.open-demo');
+    const closeButton = document.getElementById('closeModal');
+    const cancelButton = document.getElementById('cancelModal');
+    const form = document.getElementById('demoForm');
+
+    function openModal() {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    openButtons.forEach((button) => button.addEventListener('click', openModal));
+    closeButton.addEventListener('click', closeModal);
+    cancelButton.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    const siteHeader = document.querySelector('.site-header');
+    const heroLogoStage = document.getElementById('heroLogoStage');
+
+    function updateHeaderState() {
+      const isScrolled = window.scrollY > 40;
+      siteHeader.classList.toggle('scrolled', isScrolled);
+      if (heroLogoStage) {
+        heroLogoStage.classList.toggle('hidden', isScrolled);
+      }
+    }
+
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    window.addEventListener('load', updateHeaderState);
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = encodeURIComponent('BLEND Demo Request');
+      const body = encodeURIComponent(
+        'Name: ' + data.get('name') + '\n' +
+        'Phone number: ' + data.get('phone') + '\n' +
+        'Email address: ' + data.get('email') + '\n' +
+        'Name of Company: ' + data.get('company') + '\n' +
+        'Favorite color: ' + data.get('color')
+      );
+      window.location.href = 'mailto:Rob@salescomm.com?subject=' + subject + '&body=' + body;
+      closeModal();
+      form.reset();
+    });
+
+    const chatWindows = document.querySelectorAll('.auto-scroll-chat');
+    const chatObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const animatedThread = el.querySelector('.animated-chat');
+          if (animatedThread) {
+            animatedThread.classList.add('play');
+          }
+          if (el.dataset.scrolled === 'true') return;
+          el.dataset.scrolled = 'true';
+          const maxScroll = el.scrollHeight - el.clientHeight;
+          if (maxScroll > 12) {
+            setTimeout(() => {
+              el.scrollTo({ top: maxScroll, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+            }, 700);
+          }
+        }
+      });
+    }, { threshold: 0.6 });
+
+    if (!prefersReducedMotion) {
+      chatWindows.forEach((item) => chatObserver.observe(item));
+    } else {
+      document.querySelectorAll('.animated-chat').forEach((thread) => thread.classList.add('play'));
+    }
+  </script>
 </body>
 </html>
