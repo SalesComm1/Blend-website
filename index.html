@@ -377,48 +377,62 @@
 
     .hero-actions-premium .btn {
       min-width: 190px;
-    }
+    }.mini-benefit {
+  border-radius: 18px;
+  padding: 20px 22px;
+  min-height: 110px;
+  border: none;
+  cursor: pointer;
 
-    .hero-mini-benefits {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
+  /* Make it feel like a button */
+  box-shadow: 
+    0 6px 0 rgba(0,0,0,0.08),
+    0 14px 28px rgba(17,17,17,0.08);
 
-    .m.mini-benefit {
-  border-radius: 22px;
-  padding: 22px;
-  min-height: 118px;
-  box-shadow: 0 12px 24px rgba(17,17,17,0.06);
-  border: 1px solid rgba(17,17,17,0.06);
+  transition: all 0.18s ease;
 }
 
+/* COLORS */
 .mini-benefit:nth-child(1) {
-  background: linear-gradient(135deg, rgba(126, 223, 210, 0.38), rgba(126, 223, 210, 0.18));
+  background: linear-gradient(135deg, #7edfd2, #50a7ff);
 }
 
 .mini-benefit:nth-child(2) {
-  background: linear-gradient(135deg, rgba(255, 201, 122, 0.42), rgba(255, 201, 122, 0.2));
+  background: linear-gradient(135deg, #ffc97a, #ff78ac);
 }
 
 .mini-benefit:nth-child(3) {
-  background: linear-gradient(135deg, rgba(255, 120, 172, 0.30), rgba(255, 120, 172, 0.14));
+  background: linear-gradient(135deg, #9b5cff, #ff78ac);
 }
-    }
 
-    .mini-benefit strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
+/* TEXT */
+.mini-benefit strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: #121212;
+}
 
-    .mini-benefit span {
-      color: var(--muted);
-      line-height: 1.5;
-      display: block;
-      font-size: 0.96rem;
-    }
+.mini-benefit span {
+  color: rgba(18,18,18,0.75);
+  font-size: 0.95rem;
+}
 
+/* HOVER = lift */
+.mini-benefit:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 0 rgba(0,0,0,0.06),
+    0 22px 36px rgba(17,17,17,0.12);
+}
+
+/* CLICK = press down */
+.mini-benefit:active {
+  transform: translateY(2px);
+  box-shadow: 
+    0 2px 0 rgba(0,0,0,0.1),
+    0 8px 18px rgba(17,17,17,0.08);
+}
     .story-block {
       padding: 40px;
       display: grid;
