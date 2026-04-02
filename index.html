@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BLEND | AI-Powered Call & Text Concierge</title>
-  <meta name="description" content="BLEND helps salons capture more bookings with an AI-powered call and text concierge that answers instantly, books appointments, and reactivates past clients." />
+  <meta
+    name="description"
+    content="BLEND helps salons capture more bookings with an AI-powered call and text concierge that answers instantly, books appointments, and reactivates past clients."
+  />
   <style>
     :root {
       --bg: #fffaf7;
       --panel: rgba(255, 255, 255, 0.9);
-      --panel-strong: #ffffff;
-      --line: rgba(17, 17, 17, 0.08);
       --text: #171717;
       --muted: #686868;
       --purple: #9b5cff;
@@ -35,8 +36,15 @@
       position: relative;
     }
 
-    a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
 
     .container {
       width: min(calc(100% - 32px), var(--max));
@@ -45,10 +53,18 @@
       z-index: 2;
     }
 
-    .paint, .paint::before, .paint::after,
-    .paint-2, .paint-2::before, .paint-2::after,
-    .paint-3, .paint-3::before, .paint-3::after,
-    .paint-4, .paint-4::before, .paint-4::after {
+    .paint,
+    .paint::before,
+    .paint::after,
+    .paint-2,
+    .paint-2::before,
+    .paint-2::after,
+    .paint-3,
+    .paint-3::before,
+    .paint-3::after,
+    .paint-4,
+    .paint-4::before,
+    .paint-4::after {
       position: fixed;
       pointer-events: none;
       content: "";
@@ -66,11 +82,13 @@
       background: rgba(255, 120, 172, 0.12);
       filter: blur(28px);
     }
+
     .paint::before {
       inset: 30px 120px 140px 10px;
       background: rgba(155, 92, 255, 0.45);
       filter: blur(10px);
     }
+
     .paint::after {
       inset: 120px 20px 40px 120px;
       background: rgba(255, 201, 122, 0.5);
@@ -85,11 +103,13 @@
       background: rgba(80, 167, 255, 0.1);
       filter: blur(26px);
     }
+
     .paint-2::before {
       inset: 20px 80px 110px 20px;
       background: rgba(126, 223, 210, 0.48);
       filter: blur(10px);
     }
+
     .paint-2::after {
       inset: 120px 30px 20px 120px;
       background: rgba(80, 167, 255, 0.5);
@@ -104,11 +124,13 @@
       background: rgba(255, 201, 122, 0.08);
       filter: blur(22px);
     }
+
     .paint-3::before {
       inset: 15px 65px 85px 15px;
       background: rgba(255, 120, 172, 0.5);
       filter: blur(8px);
     }
+
     .paint-3::after {
       inset: 85px 10px 15px 90px;
       background: rgba(155, 92, 255, 0.46);
@@ -123,11 +145,13 @@
       background: rgba(126, 223, 210, 0.08);
       filter: blur(18px);
     }
+
     .paint-4::before {
       inset: 18px 55px 65px 10px;
       background: rgba(255, 201, 122, 0.52);
       filter: blur(8px);
     }
+
     .paint-4::after {
       inset: 70px 18px 10px 70px;
       background: rgba(80, 167, 255, 0.46);
@@ -157,7 +181,8 @@
       gap: 12px;
     }
 
-    .nav-left, .nav-right {
+    .nav-left,
+    .nav-right {
       display: flex;
       align-items: center;
       gap: 18px;
@@ -165,7 +190,9 @@
       flex-wrap: wrap;
     }
 
-    .nav-right { justify-content: flex-end; }
+    .nav-right {
+      justify-content: flex-end;
+    }
 
     .contact-chip {
       display: inline-flex;
@@ -181,14 +208,18 @@
       box-shadow: 0 8px 20px rgba(17, 17, 17, 0.04);
     }
 
-    .contact-chip strong { color: var(--text); }
+    .contact-chip strong {
+      color: var(--text);
+    }
 
     .nav-link {
       color: rgba(23, 23, 23, 0.72);
       font-size: 0.95rem;
     }
 
-    .nav-link:hover { color: var(--text); }
+    .nav-link:hover {
+      color: var(--text);
+    }
 
     .brand {
       display: flex;
@@ -199,32 +230,31 @@
       transform-origin: center top;
     }
 
-    ..logo-wrap {
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transform-origin: center top;
-}
+    .logo-wrap {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: center top;
     }
 
-   .logo-img {
-  height: 130px;
+    .logo-img {
+      height: 110px;
       width: auto;
       display: block;
       transition: height 0.32s ease;
     }
 
     .site-header.scrolled .logo-wrap {
-      padding: 4px 8px;
-      border-radius: 10px;
+      padding: 0;
+      border-radius: 0;
       box-shadow: none;
     }
 
     .site-header.scrolled .logo-img {
-      height: 56px;
+      height: 64px;
     }
 
     .hero-logo-stage {
@@ -240,22 +270,21 @@
       pointer-events: none;
     }
 
-    ..hero-logo-wrap {
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  box-shadow: none;
-  backdrop-filter: none;
-  transition: none;
-};
+    .hero-logo-wrap {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      transition: none;
     }
 
     .hero-logo-img {
-  height: clamp(150px, 18vw, 240px);
+      height: clamp(150px, 18vw, 240px);
       width: auto;
       display: block;
     }
@@ -287,7 +316,10 @@
     .btn-gold { background: var(--gold); }
     .btn-pink { background: var(--pink); }
 
-    main { position: relative; z-index: 1; }
+    main {
+      position: relative;
+      z-index: 1;
+    }
 
     section {
       padding: 56px 0;
@@ -300,7 +332,7 @@
     }
 
     .hero {
-      padding: 28px 0 32px;
+      padding: 32px 0 40px;
     }
 
     .hero-shell,
@@ -340,7 +372,9 @@
       margin-bottom: 16px;
     }
 
-    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3, p {
+      margin: 0;
+    }
 
     h1 {
       font-size: clamp(3.2rem, 7vw, 6.4rem);
@@ -376,62 +410,67 @@
 
     .hero-actions-premium .btn {
       min-width: 190px;
-    }.mini-benefit {
-  border-radius: 18px;
-  padding: 20px 22px;
-  min-height: 110px;
-  border: none;
-  cursor: pointer;
+    }
 
-  /* Make it feel like a button */
-  box-shadow: 
-    0 6px 0 rgba(0,0,0,0.08),
-    0 14px 28px rgba(17,17,17,0.08);
+    .hero-mini-benefits {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
 
-  transition: all 0.18s ease;
-}
+    .mini-benefit {
+      display: block;
+      border-radius: 18px;
+      padding: 20px 22px;
+      min-height: 110px;
+      border: none;
+      cursor: pointer;
+      box-shadow:
+        0 6px 0 rgba(0, 0, 0, 0.08),
+        0 14px 28px rgba(17, 17, 17, 0.08);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
 
-/* COLORS */
-.mini-benefit:nth-child(1) {
-  background: linear-gradient(135deg, #7edfd2, #50a7ff);
-}
+    .mini-benefit:nth-child(1) {
+      background: linear-gradient(135deg, #7edfd2, #50a7ff);
+    }
 
-.mini-benefit:nth-child(2) {
-  background: linear-gradient(135deg, #ffc97a, #ff78ac);
-}
+    .mini-benefit:nth-child(2) {
+      background: linear-gradient(135deg, #ffc97a, #ff78ac);
+    }
 
-.mini-benefit:nth-child(3) {
-  background: linear-gradient(135deg, #9b5cff, #ff78ac);
-}
+    .mini-benefit:nth-child(3) {
+      background: linear-gradient(135deg, #9b5cff, #ff78ac);
+    }
 
-/* TEXT */
-.mini-benefit strong {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 6px;
-  color: #121212;
-}
+    .mini-benefit strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #121212;
+    }
 
-.mini-benefit span {
-  color: rgba(18,18,18,0.75);
-  font-size: 0.95rem;
-}
+    .mini-benefit span {
+      color: rgba(18, 18, 18, 0.78);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      display: block;
+    }
 
-/* HOVER = lift */
-.mini-benefit:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 10px 0 rgba(0,0,0,0.06),
-    0 22px 36px rgba(17,17,17,0.12);
-}
+    .mini-benefit:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.06),
+        0 22px 36px rgba(17, 17, 17, 0.12);
+    }
 
-/* CLICK = press down */
-.mini-benefit:active {
-  transform: translateY(2px);
-  box-shadow: 
-    0 2px 0 rgba(0,0,0,0.1),
-    0 8px 18px rgba(17,17,17,0.08);
-}
+    .mini-benefit:active {
+      transform: translateY(2px);
+      box-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.1),
+        0 8px 18px rgba(17, 17, 17, 0.08);
+    }
+
     .story-block {
       padding: 40px;
       display: grid;
@@ -555,7 +594,11 @@
       pointer-events: none;
     }
 
-    .panel-copy, .panel-visual { position: relative; z-index: 1; }
+    .panel-copy,
+    .panel-visual {
+      position: relative;
+      z-index: 1;
+    }
 
     .panel-index {
       display: inline-flex;
@@ -584,7 +627,11 @@
       margin-bottom: 20px;
     }
 
-    .panel-visual { display: grid; gap: 16px; align-content: center; }
+    .panel-visual {
+      display: grid;
+      gap: 16px;
+      align-content: center;
+    }
 
     .chat-card {
       background: rgba(255, 255, 255, 0.84);
@@ -606,12 +653,15 @@
       padding-right: 8px;
       scroll-behavior: smooth;
       scrollbar-width: thin;
-      scrollbar-color: rgba(0,0,0,0.16) transparent;
+      scrollbar-color: rgba(0, 0, 0, 0.16) transparent;
     }
 
-    .chat-window::-webkit-scrollbar { width: 8px; }
+    .chat-window::-webkit-scrollbar {
+      width: 8px;
+    }
+
     .chat-window::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,0.14);
+      background: rgba(0, 0, 0, 0.14);
       border-radius: 999px;
     }
 
@@ -623,7 +673,10 @@
       color: #9b6c2e;
     }
 
-    .chat-thread { display: grid; gap: 12px; }
+    .chat-thread {
+      display: grid;
+      gap: 12px;
+    }
 
     .bubble {
       max-width: 90%;
@@ -677,7 +730,9 @@
       font-size: 0.94rem;
     }
 
-    .chat-why strong { color: var(--text); }
+    .chat-why strong {
+      color: var(--text);
+    }
 
     .panel-1 { --panel-accent: var(--purple); --bubble-accent: var(--gold); }
     .panel-2 { --panel-accent: var(--gold); --bubble-accent: var(--cyan); }
@@ -711,7 +766,10 @@
     .stack-card:nth-child(2) { --card-top: var(--blue); }
     .stack-card:nth-child(3) { --card-top: var(--pink); }
 
-    .stack-card h3 { font-size: 1.18rem; margin-bottom: 10px; }
+    .stack-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+    }
 
     .talk-page {
       padding: 64px 48px;
@@ -755,9 +813,14 @@
       filter: blur(72px);
     }
 
-    .talk-page > * { position: relative; z-index: 1; }
+    .talk-page > * {
+      position: relative;
+      z-index: 1;
+    }
 
-    .talk-copy { max-width: 620px; }
+    .talk-copy {
+      max-width: 620px;
+    }
 
     .phone-label {
       display: inline-flex;
@@ -942,7 +1005,9 @@
       z-index: 100;
     }
 
-    .modal-backdrop.open { display: flex; }
+    .modal-backdrop.open {
+      display: flex;
+    }
 
     .modal {
       width: min(100%, 620px);
@@ -974,9 +1039,15 @@
       letter-spacing: -0.03em;
     }
 
-    .modal p { color: var(--muted); margin-bottom: 18px; }
+    .modal p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
 
-    .form-grid { display: grid; gap: 12px; }
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
 
     .form-grid label {
       display: grid;
@@ -1022,15 +1093,7 @@
     @media (prefers-color-scheme: dark) {
       .logo-wrap,
       .hero-logo-wrap {
-        --logo-badge-bg: rgba(255, 255, 255, 0.10);
-        --logo-badge-border: rgba(255, 255, 255, 0.14);
-        --logo-badge-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
-      }
-
-      .site-header.scrolled .logo-wrap {
-        --logo-badge-bg: rgba(255, 255, 255, 0.14);
-        --logo-badge-border: rgba(255, 255, 255, 0.16);
-        --logo-badge-shadow: 0 10px 24px rgba(0, 0, 0, 0.30);
+        background: transparent;
       }
     }
 
@@ -1072,7 +1135,13 @@
     }
 
     @media (max-width: 760px) {
-      .hero-shell, .panel, .stack-card, .cta, .talk-page, .modal, .story-block {
+      .hero-shell,
+      .panel,
+      .stack-card,
+      .cta,
+      .talk-page,
+      .modal,
+      .story-block {
         padding: 24px;
       }
 
@@ -1081,43 +1150,56 @@
         padding: 18px 0;
       }
 
-      .nav-left, .nav-right, .brand, .bottom-contact {
+      .nav-left,
+      .nav-right,
+      .brand,
+      .bottom-contact {
         justify-content: center;
       }
 
-      h1 { max-width: none; }
-      .contact-chip { white-space: normal; text-align: center; }
-      .bubble { max-width: 100%; }
-      .phone-mockup { width: 100%; max-width: 360px; }
+      h1 {
+        max-width: none;
+      }
 
-      .logo-wrap {
-        padding: 6px 10px;
+      .contact-chip {
+        white-space: normal;
+        text-align: center;
+      }
+
+      .bubble {
+        max-width: 100%;
+      }
+
+      .phone-mockup {
+        width: 100%;
+        max-width: 360px;
       }
 
       .logo-img {
-        height: 58px;
-      }
-
-      .hero-logo-wrap {
-        padding: 8px 14px;
-        border-radius: 16px;
+        height: 70px;
       }
 
       .hero-logo-img {
-        height: clamp(72px, 18vw, 100px);
+        height: clamp(100px, 22vw, 150px);
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
+      html {
+        scroll-behavior: auto;
+      }
 
-      .reveal, .reveal:not(.in-view), .bubble {
+      .reveal,
+      .reveal:not(.in-view),
+      .bubble {
         opacity: 1;
         transform: none;
         transition: none;
       }
 
-      .chat-window { scroll-behavior: auto; }
+      .chat-window {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
@@ -1156,9 +1238,13 @@
               <img src="blend-logo-2.png" alt="BLEND logo" class="hero-logo-img" />
             </div>
           </div>
+
           <div class="eyebrow">AI-powered call &amp; text concierge for salons</div>
           <h1>Never lose another salon conversation.</h1>
-          <p class="hero-lead">BLEND answers, follows up, and keeps booking conversations moving so your front desk never becomes a bottleneck.</p>
+          <p class="hero-lead">
+            BLEND answers, follows up, and keeps booking conversations moving so your front desk never becomes a bottleneck.
+          </p>
+
           <div class="hero-actions hero-actions-premium">
             <a href="#talk-to-ai" class="btn btn-pink">Talk To AI</a>
             <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
@@ -1169,15 +1255,15 @@
           <a href="#talk-to-ai" class="mini-benefit">
             <strong>24/7 response</strong>
             <span>Texts and calls never sit there getting dusty.</span>
-          </div>
+          </a>
           <a href="#talk-to-ai" class="mini-benefit">
             <strong>More booked guests</strong>
             <span>Missed moments turn into live opportunities.</span>
-          </div>
+          </a>
           <a href="#talk-to-ai" class="mini-benefit">
             <strong>Less front-desk chaos</strong>
             <span>Your team gets breathing room without losing momentum.</span>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -1187,7 +1273,9 @@
         <div class="story-copy">
           <span class="kicker">Step 1 · The problem</span>
           <h2>Salons lose revenue in the cracks.</h2>
-          <p>Someone calls while your team is with a guest. A text comes in after hours. A hot lead cools off. The problem is not demand. The problem is response speed.</p>
+          <p>
+            Someone calls while your team is with a guest. A text comes in after hours. A hot lead cools off. The problem is not demand. The problem is response speed.
+          </p>
         </div>
         <div class="story-side stat-stack">
           <div class="story-stat"><strong>Busy chairs</strong><span>Your stylists are working, not babysitting the inbox.</span></div>
@@ -1202,7 +1290,9 @@
         <div class="story-copy">
           <span class="kicker">Step 2 · The solution</span>
           <h2>BLEND replies like a polished front desk that never clocks out.</h2>
-          <p>It answers quickly, keeps the tone warm, captures useful details, and moves guests toward the next step without making your team do twenty little tasks at once.</p>
+          <p>
+            It answers quickly, keeps the tone warm, captures useful details, and moves guests toward the next step without making your team do twenty little tasks at once.
+          </p>
         </div>
         <div class="story-side solution-grid">
           <div class="solution-card"><strong>Answers fast</strong><span>Calls and texts get immediate attention.</span></div>
@@ -1224,7 +1314,9 @@
           <div class="panel-copy">
             <div class="panel-index">01</div>
             <h3>Never miss a booking opportunity</h3>
-            <p>BLEND responds when your team cannot. After-hours calls, mid-service texts, and missed phone moments still become live conversations.</p>
+            <p>
+              BLEND responds when your team cannot. After-hours calls, mid-service texts, and missed phone moments still become live conversations.
+            </p>
           </div>
           <div class="panel-visual">
             <div class="chat-card chat-card-large">
@@ -1252,7 +1344,9 @@
           <div class="panel-copy">
             <div class="panel-index">02</div>
             <h3>24/7 availability without extra payroll</h3>
-            <p>Your salon should not need a midnight front desk to feel responsive. BLEND gives you constant availability without stacking more staffing cost.</p>
+            <p>
+              Your salon should not need a midnight front desk to feel responsive. BLEND gives you constant availability without stacking more staffing cost.
+            </p>
           </div>
           <div class="panel-visual">
             <div class="chat-card chat-card-large">
@@ -1280,7 +1374,9 @@
           <div class="panel-copy">
             <div class="panel-index">03</div>
             <h3>Instant text responses</h3>
-            <p>Today’s clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.</p>
+            <p>
+              Today’s clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.
+            </p>
           </div>
           <div class="panel-visual">
             <div class="chat-card chat-card-large">
@@ -1335,8 +1431,12 @@
           <div class="talk-copy">
             <span class="phone-label">Step 5 · Try it yourself</span>
             <h2>Text the line. Feel the product.</h2>
-            <p>You would never buy a car without a test drive. Same idea here. This is the cleanest way to understand BLEND in under a minute.</p>
-            <p class="talk-note">This line is built specifically for salons. <strong>Text 208-802-4546.</strong> Do not call it.</p>
+            <p>
+              You would never buy a car without a test drive. Same idea here. This is the cleanest way to understand BLEND in under a minute.
+            </p>
+            <p class="talk-note">
+              This line is built specifically for salons. <strong>Text 208-802-4546.</strong> Do not call it.
+            </p>
             <div class="talk-actions">
               <a href="sms:2088024546" class="btn btn-pink">Text 208-802-4546</a>
               <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
@@ -1373,6 +1473,7 @@
             <button class="btn btn-blue open-demo" type="button">Schedule a Demo</button>
           </div>
         </div>
+
         <div class="bottom-contact reveal">
           <a class="contact-chip" href="tel:8015906020"><span>Questions? Call or text</span> <strong>801-590-6020</strong></a>
         </div>
