@@ -428,15 +428,28 @@
       min-width: 190px;
     }
 
+    .cassie-between {
+      padding: 4px 0 6px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .cassie-between .container {
+      display: grid;
+      justify-items: center;
+    }
+
     .cassie-upsells {
-      margin-top: 24px;
       display: grid;
       justify-items: center;
       gap: 14px;
+      width: 100%;
+      margin-top: -6px;
+      margin-bottom: -8px;
     }
 
     .cassie-upsells-title {
-      font-size: clamp(1.3rem, 2.6vw, 2rem);
+      font-size: clamp(1.3rem, 2.4vw, 1.95rem);
       font-weight: 900;
       letter-spacing: -0.03em;
       color: var(--text);
@@ -451,19 +464,19 @@
 
     .cassie-starburst {
       position: absolute;
-      top: -18px;
-      left: -22px;
-      width: 142px;
-      height: 142px;
+      top: -20px;
+      left: -26px;
+      width: 164px;
+      height: 164px;
       display: grid;
       place-items: center;
       background: linear-gradient(135deg, #ff78ac, #ffc97a);
       color: #121212;
-      font-size: 0.84rem;
-      line-height: 1.05;
+      font-size: 0.92rem;
+      line-height: 1.02;
       font-weight: 900;
       text-align: center;
-      padding: 16px;
+      padding: 18px;
       clip-path: polygon(50% 0%, 60% 16%, 78% 4%, 74% 23%, 96% 18%, 82% 36%, 100% 50%, 82% 64%, 96% 82%, 74% 77%, 78% 96%, 60% 84%, 50% 100%, 40% 84%, 22% 96%, 26% 77%, 4% 82%, 18% 64%, 0% 50%, 18% 36%, 4% 18%, 26% 23%, 22% 4%, 40% 16%);
       box-shadow: 0 16px 28px rgba(17, 17, 17, 0.16);
       transform: rotate(-10deg);
@@ -501,10 +514,12 @@
       border-radius: 31px;
       background: #f2f2f7;
       padding: 14px 12px 16px;
-      min-height: 640px;
+      height: 620px;
       display: grid;
+      grid-template-rows: auto auto 1fr auto;
       gap: 10px;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+      overflow: hidden;
     }
 
     .cassie-status {
@@ -529,6 +544,19 @@
       display: grid;
       gap: 8px;
       align-content: start;
+      overflow-y: auto;
+      padding-right: 6px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(17, 17, 17, 0.22) transparent;
+    }
+
+    .cassie-chat-thread::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .cassie-chat-thread::-webkit-scrollbar-thumb {
+      background: rgba(17, 17, 17, 0.22);
+      border-radius: 999px;
     }
 
     .cassie-msg {
@@ -561,7 +589,7 @@
       height: 5px;
       border-radius: 999px;
       background: rgba(17, 17, 17, 0.22);
-      margin: 10px auto 0;
+      margin: 4px auto 0;
     }
 
     .hero-mini-benefits {
@@ -1325,6 +1353,26 @@
       background: rgba(255, 255, 255, 0.92);
     }
 
+    @media (max-width: 760px) {
+      .cassie-starburst {
+        left: -12px;
+        top: -12px;
+        width: 134px;
+        height: 134px;
+        font-size: 0.78rem;
+      }
+
+      .cassie-phone {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .cassie-screen {
+        height: 540px;
+      }
+    }
+
+
     @media (prefers-color-scheme: dark) {
       .logo-wrap,
       .hero-logo-wrap {
@@ -1420,23 +1468,6 @@
         margin: -20px 0;
       }
 
-      .cassie-starburst {
-        left: -10px;
-        top: -10px;
-        width: 122px;
-        height: 122px;
-        font-size: 0.74rem;
-      }
-
-      .cassie-phone {
-        width: 100%;
-        max-width: 360px;
-      }
-
-      .cassie-screen {
-        min-height: 560px;
-      }
-
       .solution-block .story-copy,
       .solution-block .solution-grid {
         order: initial;
@@ -1507,42 +1538,6 @@
             <a href="#talk-to-ai" class="btn btn-pink">Talk To AI</a>
             <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
           </div>
-
-          <div class="cassie-upsells">
-            <div class="cassie-upsells-title">CASSIE UPSELLS!</div>
-            <div class="cassie-phone-wrap">
-              <div class="cassie-starburst">ACTUAL CUSTOMER CONVERSATION!!</div>
-              <div class="cassie-phone" aria-label="iPhone conversation showing Cassie upselling">
-                <div class="cassie-notch"></div>
-                <div class="cassie-screen">
-                  <div class="cassie-status"><span>9:41</span><span>􀙇 􀛨</span></div>
-                  <div class="cassie-messages-title">Messages</div>
-                  <div class="cassie-chat-thread">
-                    <div class="cassie-msg customer">Hi, do you have appointments in the mid afternoon for a women's haircut?</div>
-                    <div class="cassie-msg cassie">Absolutely! Let's get you scheduled. When were you thinking of coming in?</div>
-                    <div class="cassie-msg customer">Hopefully around 12:30! We can go later if needed</div>
-                    <div class="cassie-msg cassie">Perfect! I have 12:30 PM or 1:00 PM available today. Which works better for you?</div>
-                    <div class="cassie-msg customer">12:30 works great</div>
-                    <div class="cassie-msg cassie">Excellent! And what was your first and last name?</div>
-                    <div class="cassie-msg customer">Jill ____</div>
-                    <div class="cassie-msg cassie">Got it! And I can reach you at this number, correct?</div>
-                    <div class="cassie-msg customer">Yes, you can reach me at this number</div>
-                    <div class="cassie-msg cassie">One last question; How would you describe your hair's condition? Dry, damaged, or pretty healthy?</div>
-                    <div class="cassie-msg customer">Pretty healthy, I just got it cut but it was a bit longer than I hoped for so I would like to shorten it up just a smidge more</div>
-                    <div class="cassie-msg cassie">Ahh ok. Sounds good. We want to keep it that way. So let’s go ahead and put you down for a Long Haircut and Deep Condition today at 12:30 PM. We'll see you then!</div>
-                    <div class="cassie-msg customer">Is that your basic deep conditioning? And does the cut come with styling</div>
-                    <div class="cassie-msg cassie">Great questions! Yes, it's our basic deep conditioning treatment - it adds moisture and leaves your hair feeling really soft.</div>
-                    <div class="cassie-msg cassie">And yes, the haircut includes a wash and style, so you'll leave looking great!</div>
-                    <div class="cassie-msg customer">For pricing that should be in the range of $28 ish correct?</div>
-                    <div class="cassie-msg cassie">Exactly right! The haircut is $15 and the Deep Condition is $13, so $28 total.</div>
-                    <div class="cassie-msg customer">Thank you that sounds great</div>
-                    <div class="cassie-msg cassie">You're so welcome! We'll see you at 12:30 PM!</div>
-                  </div>
-                  <div class="cassie-home-bar"></div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="hero-mini-benefits reveal">
@@ -1575,6 +1570,46 @@
           <div class="story-stat"><strong>Busy chairs</strong><span>Your stylists are working, not babysitting the inbox.</span></div>
           <div class="story-stat"><strong>After-hours interest</strong><span>Good leads show up at inconvenient times.</span></div>
           <div class="story-stat"><strong>Silent drop-off</strong><span>Most lost bookings vanish quietly, not dramatically.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cassie-between reveal" aria-label="Cassie upsells conversation">
+      <div class="container">
+        <div class="cassie-upsells">
+          <div class="cassie-upsells-title">CASSIE UPSELLS!</div>
+          <div class="cassie-phone-wrap">
+            <div class="cassie-starburst">ACTUAL CUSTOMER CONVERSATION!!</div>
+            <div class="cassie-phone" aria-label="iPhone conversation showing Cassie upselling">
+              <div class="cassie-notch"></div>
+              <div class="cassie-screen">
+                <div class="cassie-status"><span>9:41</span><span>􀙇 􀛨</span></div>
+                <div class="cassie-messages-title">Messages</div>
+                <div class="cassie-chat-thread">
+                  <div class="cassie-msg customer">Hi, do you have appointments in the mid afternoon for a women's haircut?</div>
+                  <div class="cassie-msg cassie">Absolutely! Let's get you scheduled. When were you thinking of coming in?</div>
+                  <div class="cassie-msg customer">Hopefully around 12:30! We can go later if needed</div>
+                  <div class="cassie-msg cassie">Perfect! I have 12:30 PM or 1:00 PM available today. Which works better for you?</div>
+                  <div class="cassie-msg customer">12:30 works great</div>
+                  <div class="cassie-msg cassie">Excellent! And what was your first and last name?</div>
+                  <div class="cassie-msg customer">Jill ____</div>
+                  <div class="cassie-msg cassie">Got it! And I can reach you at this number, correct?</div>
+                  <div class="cassie-msg customer">Yes, you can reach me at this number</div>
+                  <div class="cassie-msg cassie">One last question; How would you describe your hair's condition? Dry, damaged, or pretty healthy?</div>
+                  <div class="cassie-msg customer">Pretty healthy, I just got it cut but it was a bit longer than I hoped for so I would like to shorten it up just a smidge more</div>
+                  <div class="cassie-msg cassie">Ahh ok. Sounds good. We want to keep it that way. So let’s go ahead and put you down for a Long Haircut and Deep Condition today at 12:30 PM. We'll see you then!</div>
+                  <div class="cassie-msg customer">Is that your basic deep conditioning? And does the cut come with styling</div>
+                  <div class="cassie-msg cassie">Great questions! Yes, it's our basic deep conditioning treatment - it adds moisture and leaves your hair feeling really soft.</div>
+                  <div class="cassie-msg cassie">And yes, the haircut includes a wash and style, so you'll leave looking great!</div>
+                  <div class="cassie-msg customer">For pricing that should be in the range of $28 ish correct?</div>
+                  <div class="cassie-msg cassie">Exactly right! The haircut is $15 and the Deep Condition is $13, so $28 total.</div>
+                  <div class="cassie-msg customer">Thank you that sounds great</div>
+                  <div class="cassie-msg cassie">You're so welcome! We'll see you at 12:30 PM!</div>
+                </div>
+                <div class="cassie-home-bar"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
