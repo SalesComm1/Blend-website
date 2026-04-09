@@ -755,6 +755,24 @@
         0 22px 36px rgba(17, 17, 17, 0.12);
     }
 
+    .mini-benefit-cta {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(18, 18, 18, 0.5);
+      letter-spacing: 0.02em;
+    }
+    .mini-benefit-arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .mini-benefit-expandable:hover .mini-benefit-arrow {
+      transform: translateY(3px);
+    }
+    .mini-benefit-expandable.is-open .mini-benefit-arrow {
+      transform: rotate(180deg);
+    }
     .mini-benefit:active {
       transform: translateY(2px);
       box-shadow:
@@ -1880,9 +1898,10 @@
         </div>
 
         <div class="hero-mini-benefits reveal">
-          <a href="#talk-to-ai" class="mini-benefit">
+          <a href="#talk-to-ai" class="mini-benefit mini-benefit-expandable">
             <strong>24/7 response</strong>
             <span>Texts and calls never sit there getting dusty.</span>
+            <span class="mini-benefit-cta">Learn more <span class="mini-benefit-arrow">↓</span></span>
           </a>
           <a href="#talk-to-ai" class="mini-benefit">
             <strong>More booked guests</strong>
@@ -2514,8 +2533,10 @@
       e.preventDefault();
       if (panel.classList.contains('open')) {
         panel.classList.remove('open');
+        trigger.classList.remove('is-open');
       } else {
         panel.classList.add('open');
+        trigger.classList.add('is-open');
         setTimeout(function() {
           panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
@@ -2524,6 +2545,7 @@
 
     closeBtn.addEventListener('click', function() {
       panel.classList.remove('open');
+      trigger.classList.remove('is-open');
       trigger.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   })();
