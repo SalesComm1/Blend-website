@@ -2126,53 +2126,6 @@
     }
   </script>
 
-    <script>
-    // Auto-scroll phone conversations
-    (function() {
-      const threads = document.querySelectorAll('.cassie-three-phones .cassie-chat-thread');
-      threads.forEach(thread => {
-        if (thread.scrollHeight <= thread.clientHeight) return;
-        let scrollDown = true;
-        let paused = false;
-        
-        // Start scrolling when section comes into view
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting && !paused) {
-              startScroll();
-            }
-          });
-        }, { threshold: 0.3 });
-        
-        observer.observe(thread.closest('.cassie-between'));
-        
-        function startScroll() {
-          const interval = setInterval(() => {
-            if (scrollDown) {
-              thread.scrollTop += 1;
-              if (thread.scrollTop >= thread.scrollHeight - thread.clientHeight) {
-                scrollDown = false;
-                clearInterval(interval);
-                setTimeout(() => {
-                  const upInterval = setInterval(() => {
-                    thread.scrollTop -= 3;
-                    if (thread.scrollTop <= 0) {
-                      clearInterval(upInterval);
-                      scrollDown = true;
-                      setTimeout(startScroll, 2000);
-                    }
-                  }, 16);
-                }, 3000);
-              }
-            }
-          }, 30);
-        }
-        
-        // Pause on hover
-        thread.addEventListener('mouseenter', () => { paused = true; });
-        thread.addEventListener('mouseleave', () => { paused = false; });
-      });
-    })();
-    </script>
+    
 </body>
 </html>
