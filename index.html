@@ -444,6 +444,23 @@
       gap: 18px;
     }
 
+    
+    .real-convos-banner {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .real-convos-banner span {
+      display: inline-block;
+      font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(135deg, #9b5cff, #ff78ac);
+      padding: 14px 40px;
+      border-radius: 60px;
+    }
+
     .cassie-phone-col-title {
       font-size: clamp(1.1rem, 1.8vw, 1.45rem);
       font-weight: 900;
@@ -456,30 +473,9 @@
       text-transform: uppercase;
     }
 
-    .cassie-phone-col .phone-wrap-outer {
-      position: relative;
-      display: inline-block;
-    }
 
-    .mini-starburst {
-      position: absolute;
-      bottom: -20px;
-      left: -20px;
-      width: 120px;
-      height: 120px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #ff78ac, #ffc97a);
-      color: #121212;
-      font-size: 0.58rem;
-      line-height: 1.1;
-      font-weight: 900;
-      text-align: center;
-      padding: 16px;
-      clip-path: polygon(50% 0%, 60% 16%, 78% 4%, 74% 23%, 96% 18%, 82% 36%, 100% 50%, 82% 64%, 96% 82%, 74% 77%, 78% 96%, 60% 84%, 50% 100%, 40% 84%, 22% 96%, 26% 77%, 4% 82%, 18% 64%, 0% 50%, 18% 36%, 4% 18%, 26% 23%, 22% 4%, 40% 16%);
-      transform: rotate(-8deg);
-      z-index: 4;
-    }
+
+
 
     .cassie-phone-col .cassie-phone {
       width: 100%;
@@ -1665,13 +1661,14 @@
 
     <section class="cassie-between reveal">
       <div class="container">
+        <div class="real-convos-banner">
+          <span>These Are Real Conversations</span>
+        </div>
         <div class="cassie-three-phones">
 
           <div class="cassie-phone-col">
             <div class="cassie-phone-col-title">Upsell With Power</div>
-            <div class="phone-wrap-outer">
-              <div class="mini-starburst">ACTUAL CONVERSATION!!</div>
-              <div class="cassie-phone" aria-label="Phone showing upsell conversation">
+            <div class="cassie-phone" aria-label="Phone showing upsell conversation">
               <div class="cassie-notch"></div>
               <div class="cassie-screen">
                 <div class="cassie-status"><span>9:41</span><span></span></div>
@@ -1699,14 +1696,11 @@
                 </div>
               </div>
             </div>
-            </div>
           </div>
 
           <div class="cassie-phone-col">
             <div class="cassie-phone-col-title">Books Appointments 24/7</div>
-            <div class="phone-wrap-outer">
-              <div class="mini-starburst">ACTUAL CONVERSATION!!</div>
-              <div class="cassie-phone" aria-label="Phone showing appointment booking">
+            <div class="cassie-phone" aria-label="Phone showing appointment booking">
               <div class="cassie-notch"></div>
               <div class="cassie-screen">
                 <div class="cassie-status"><span>9:41</span><span></span></div>
@@ -1717,14 +1711,11 @@
                 </div>
               </div>
             </div>
-            </div>
           </div>
 
           <div class="cassie-phone-col">
             <div class="cassie-phone-col-title">Confirmations</div>
-            <div class="phone-wrap-outer">
-              <div class="mini-starburst">ACTUAL CONVERSATION!!</div>
-              <div class="cassie-phone" aria-label="Phone showing confirmation messages">
+            <div class="cassie-phone" aria-label="Phone showing confirmation messages">
               <div class="cassie-notch"></div>
               <div class="cassie-screen">
                 <div class="cassie-status"><span>9:41</span><span></span></div>
@@ -1734,7 +1725,6 @@
                   <div class="cassie-bubble cassie-bubble-gray">Customer reply placeholder.</div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
 
