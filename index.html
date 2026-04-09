@@ -463,19 +463,19 @@
 
     .mini-starburst {
       position: absolute;
-      top: -40px;
-      left: -40px;
-      width: 150px;
-      height: 150px;
+      top: -30px;
+      left: -30px;
+      width: 110px;
+      height: 110px;
       display: grid;
       place-items: center;
       background: linear-gradient(135deg, #ff78ac, #ffc97a);
       color: #121212;
-      font-size: 0.82rem;
-      line-height: 1.15;
+      font-size: 0.68rem;
+      line-height: 1.1;
       font-weight: 900;
       text-align: center;
-      padding: 22px;
+      padding: 16px;
       clip-path: polygon(50% 0%, 60% 16%, 78% 4%, 74% 23%, 96% 18%, 82% 36%, 100% 50%, 82% 64%, 96% 82%, 74% 77%, 78% 96%, 60% 84%, 50% 100%, 40% 84%, 22% 96%, 26% 77%, 4% 82%, 18% 64%, 0% 50%, 18% 36%, 4% 18%, 26% 23%, 22% 4%, 40% 16%);
       transform: rotate(-8deg);
       z-index: 4;
@@ -1655,8 +1655,25 @@
                 <div class="cassie-status"><span>9:41</span><span></span></div>
                 <div class="cassie-messages-title">Messages</div>
                 <div class="cassie-chat-thread">
-                  <div class="cassie-bubble cassie-bubble-blue">Placeholder text - upsell conversation will go here.</div>
-                  <div class="cassie-bubble cassie-bubble-gray">Customer reply placeholder.</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Hi, do you have appointments in the mid afternoon for a women’s haircut?</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Absolutely! Let’s get you scheduled. When were you thinking of coming in?</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Hopefully around 12:30! We can go later if needed</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Perfect! I have 12:30 PM or 1:00 PM available today. Which works better for you?</div>
+                  <div class="cassie-bubble cassie-bubble-gray">12:30 works great</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Excellent! And what was your first and last name?</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Jill ____</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Got it! And I can reach you at this number, correct?</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Yes, you can reach me at this number</div>
+                  <div class="cassie-bubble cassie-bubble-blue">One last question; How would you describe your hair’s condition? Dry, damaged, or pretty healthy?</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Pretty healthy, I just got it cut but it was a bit longer than I hoped for so I would like to shorten it up just a smidge more</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Ahh ok. Sounds good. We want to keep it that way. So let’s go ahead and put you down for a Long Haircut and Deep Condition today at 12:30 PM. We’ll see you then!</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Is that your basic deep conditioning? And does the cut come with styling</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Great questions! Yes, it’s our basic deep conditioning treatment - it adds moisture and leaves your hair feeling really soft.</div>
+                  <div class="cassie-bubble cassie-bubble-blue">And yes, the haircut includes a wash and style, so you’ll leave looking great!</div>
+                  <div class="cassie-bubble cassie-bubble-gray">For pricing that should be in the range of $28 ish correct?</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Exactly right! The haircut is $15 and the Deep Condition is $13, so $28 total.</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Thank you that sounds great</div>
+                  <div class="cassie-bubble cassie-bubble-blue">You’re so welcome! We’ll see you at 12:30 PM!</div>
                 </div>
               </div>
             </div>
@@ -2030,5 +2047,54 @@
       document.querySelectorAll('.animated-chat').forEach((thread) => thread.classList.add('play'));
     }
   </script>
+
+    <script>
+    // Auto-scroll phone conversations
+    (function() {
+      const threads = document.querySelectorAll('.cassie-three-phones .cassie-chat-thread');
+      threads.forEach(thread => {
+        if (thread.scrollHeight <= thread.clientHeight) return;
+        let scrollDown = true;
+        let paused = false;
+        
+        // Start scrolling when section comes into view
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !paused) {
+              startScroll();
+            }
+          });
+        }, { threshold: 0.3 });
+        
+        observer.observe(thread.closest('.cassie-between'));
+        
+        function startScroll() {
+          const interval = setInterval(() => {
+            if (scrollDown) {
+              thread.scrollTop += 1;
+              if (thread.scrollTop >= thread.scrollHeight - thread.clientHeight) {
+                scrollDown = false;
+                clearInterval(interval);
+                setTimeout(() => {
+                  const upInterval = setInterval(() => {
+                    thread.scrollTop -= 3;
+                    if (thread.scrollTop <= 0) {
+                      clearInterval(upInterval);
+                      scrollDown = true;
+                      setTimeout(startScroll, 2000);
+                    }
+                  }, 16);
+                }, 3000);
+              }
+            }
+          }, 30);
+        }
+        
+        // Pause on hover
+        thread.addEventListener('mouseenter', () => { paused = true; });
+        thread.addEventListener('mouseleave', () => { paused = false; });
+      });
+    })();
+    </script>
 </body>
 </html>
