@@ -428,6 +428,48 @@
       min-width: 190px;
     }
 
+    .cassie-three-phones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .cassie-phone-col {
+      display: grid;
+      justify-items: center;
+      gap: 18px;
+    }
+
+    .cassie-phone-col-title {
+      font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .cassie-phone-col .cassie-phone {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .cassie-phone-col .cassie-screen {
+      height: 520px;
+    }
+
+    @media (max-width: 820px) {
+      .cassie-three-phones {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        max-width: 400px;
+      }
+    }
+
     .cassie-between {
       padding: 4px 0 6px;
       position: relative;
@@ -1571,42 +1613,55 @@
       </div>
     </section>
 
-    <section class="cassie-between reveal" aria-label="Cassie upsells conversation">
+    <section class="cassie-between reveal">
       <div class="container">
-        <div class="cassie-upsells">
-          <div class="cassie-upsells-title">CASSIE UPSELLS!</div>
-          <div class="cassie-phone-wrap">
-            <div class="cassie-starburst">ACTUAL CUSTOMER CONVERSATION!!</div>
-            <div class="cassie-phone" aria-label="iPhone conversation showing Cassie upselling">
+        <div class="cassie-three-phones">
+
+          <div class="cassie-phone-col">
+            <div class="cassie-phone-col-title">Upsell With Power</div>
+            <div class="cassie-phone" aria-label="Phone showing upsell conversation">
               <div class="cassie-notch"></div>
               <div class="cassie-screen">
-                <div class="cassie-status"><span>9:41</span><span>􀙇 􀛨</span></div>
+                <div class="cassie-status"><span>9:41</span><span></span></div>
                 <div class="cassie-messages-title">Messages</div>
                 <div class="cassie-chat-thread">
-                  <div class="cassie-msg customer">Hi, do you have appointments in the mid afternoon for a women's haircut?</div>
-                  <div class="cassie-msg cassie">Absolutely! Let's get you scheduled. When were you thinking of coming in?</div>
-                  <div class="cassie-msg customer">Hopefully around 12:30! We can go later if needed</div>
-                  <div class="cassie-msg cassie">Perfect! I have 12:30 PM or 1:00 PM available today. Which works better for you?</div>
-                  <div class="cassie-msg customer">12:30 works great</div>
-                  <div class="cassie-msg cassie">Excellent! And what was your first and last name?</div>
-                  <div class="cassie-msg customer">Jill ____</div>
-                  <div class="cassie-msg cassie">Got it! And I can reach you at this number, correct?</div>
-                  <div class="cassie-msg customer">Yes, you can reach me at this number</div>
-                  <div class="cassie-msg cassie">One last question; How would you describe your hair's condition? Dry, damaged, or pretty healthy?</div>
-                  <div class="cassie-msg customer">Pretty healthy, I just got it cut but it was a bit longer than I hoped for so I would like to shorten it up just a smidge more</div>
-                  <div class="cassie-msg cassie">Ahh ok. Sounds good. We want to keep it that way. So let’s go ahead and put you down for a Long Haircut and Deep Condition today at 12:30 PM. We'll see you then!</div>
-                  <div class="cassie-msg customer">Is that your basic deep conditioning? And does the cut come with styling</div>
-                  <div class="cassie-msg cassie">Great questions! Yes, it's our basic deep conditioning treatment - it adds moisture and leaves your hair feeling really soft.</div>
-                  <div class="cassie-msg cassie">And yes, the haircut includes a wash and style, so you'll leave looking great!</div>
-                  <div class="cassie-msg customer">For pricing that should be in the range of $28 ish correct?</div>
-                  <div class="cassie-msg cassie">Exactly right! The haircut is $15 and the Deep Condition is $13, so $28 total.</div>
-                  <div class="cassie-msg customer">Thank you that sounds great</div>
-                  <div class="cassie-msg cassie">You're so welcome! We'll see you at 12:30 PM!</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Placeholder text - upsell conversation will go here.</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Customer reply placeholder.</div>
                 </div>
-                <div class="cassie-home-bar"></div>
               </div>
             </div>
           </div>
+
+          <div class="cassie-phone-col">
+            <div class="cassie-phone-col-title">Books Appointments 24/7</div>
+            <div class="cassie-phone" aria-label="Phone showing appointment booking">
+              <div class="cassie-notch"></div>
+              <div class="cassie-screen">
+                <div class="cassie-status"><span>9:41</span><span></span></div>
+                <div class="cassie-messages-title">Messages</div>
+                <div class="cassie-chat-thread">
+                  <div class="cassie-bubble cassie-bubble-blue">Placeholder text - booking conversation will go here.</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Customer reply placeholder.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cassie-phone-col">
+            <div class="cassie-phone-col-title">Confirmations</div>
+            <div class="cassie-phone" aria-label="Phone showing confirmation messages">
+              <div class="cassie-notch"></div>
+              <div class="cassie-screen">
+                <div class="cassie-status"><span>9:41</span><span></span></div>
+                <div class="cassie-messages-title">Messages</div>
+                <div class="cassie-chat-thread">
+                  <div class="cassie-bubble cassie-bubble-blue">Placeholder text - confirmation conversation will go here.</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Customer reply placeholder.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
