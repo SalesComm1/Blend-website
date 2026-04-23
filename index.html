@@ -1851,7 +1851,35 @@
         grid-template-columns: 1fr;
       }
     }
-    </style>
+    
+    .product-selector{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:10px 0;transition:box-shadow 0.3s}
+    .product-selector.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+    .product-selector .container{display:flex;align-items:center;justify-content:center;gap:6px}
+    .product-pill{padding:10px 28px;border-radius:999px;font-size:0.95rem;font-weight:700;cursor:pointer;border:2px solid transparent;background:transparent;color:var(--muted);transition:all 0.25s ease;letter-spacing:0.01em}
+    .product-pill:hover{background:rgba(0,0,0,0.04)}
+    .product-pill.active-cassie{background:linear-gradient(135deg,#7edfd2,#50a7ff);color:#0a3d5c;border-color:transparent}
+    .product-pill.active-sara{background:linear-gradient(135deg,#c084fc,#818cf8);color:#2e1065;border-color:transparent}
+    .product-pill.active-crm{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#713f12;border-color:transparent}
+    .product-content{display:none}.product-content.active{display:block}
+    .product-overview{padding:48px 0 32px}
+    .product-overview .container{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .product-card{border-radius:18px;padding:28px 24px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent}
+    .product-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.1)}
+    .product-card.card-cassie{background:linear-gradient(135deg,#e0f7f3,#d0e8ff)}
+    .product-card.card-cassie.selected{border-color:#50a7ff}
+    .product-card.card-sara{background:linear-gradient(135deg,#f3e8ff,#e8e0ff)}
+    .product-card.card-sara.selected{border-color:#818cf8}
+    .product-card.card-crm{background:linear-gradient(135deg,#fef9c3,#fde68a)}
+    .product-card.card-crm.selected{border-color:#f59e0b}
+    .product-card h3{font-size:1.35rem;margin:0 0 6px;color:#121212}
+    .product-card .card-tag{display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+    .card-cassie .card-tag{background:rgba(80,167,255,0.2);color:#1a6db5}
+    .card-sara .card-tag{background:rgba(129,140,248,0.2);color:#4338ca}
+    .card-crm .card-tag{background:rgba(245,158,11,0.2);color:#92400e}
+    .product-card p{font-size:0.92rem;color:rgba(18,18,18,0.7);line-height:1.5;margin:0}
+    @media(max-width:768px){.product-overview .container{grid-template-columns:1fr}.product-pill{padding:8px 18px;font-size:0.85rem}}
+
+  </style>
 </head>
 <body>
   <div class="paint" aria-hidden="true"></div>
@@ -1873,8 +1901,13 @@
       </div>
     </div>
   </header>
+  <div class="product-selector" id="productSelector"><div class="container"><button class="product-pill active-cassie" data-product="cassie" onclick="switchProduct('cassie')">Cassie</button><button class="product-pill" data-product="sara" onclick="switchProduct('sara')">Sara</button><button class="product-pill" data-product="crm" onclick="switchProduct('crm')">CRM</button></div></div>
+
 
   <main id="top">
+    <section class="product-overview"><div class="container"><div class="product-card card-cassie selected" onclick="switchProduct('cassie')"><span class="card-tag">For Salons</span><h3>Cassie</h3><p>AI-powered call &amp; text concierge that books appointments 24/7 so your front desk never misses a client.</p></div><div class="product-card card-sara" onclick="switchProduct('sara')"><span class="card-tag">For Schools</span><h3>Sara</h3><p>Admissions scheduling agent that converts inquiries into campus visits via personalized text conversations.</p></div><div class="product-card card-crm" onclick="switchProduct('crm')"><span class="card-tag">School Management</span><h3>CRM</h3><p>Purpose-built CRM for cosmetology schools. Manage leads, automate workflows, and let Sara run on autopilot.</p></div></div></section>
+
+    <div class="product-content active" id="content-cassie">
     <section class="hero reveal">
       <div class="container hero-shell hero-shell-simplified">
         <div class="hero-copy hero-copy-simplified">
@@ -1901,7 +1934,7 @@
           <a href="#talk-to-ai" class="mini-benefit mini-benefit-expandable">
             <strong>Complicated Bookings</strong>
             <span>Texts and calls never sit there getting dusty.</span>
-            <span class="mini-benefit-cta">Learn more <span class="mini-benefit-arrow">↓</span></span>
+            <span class="mini-benefit-cta">Learn more <span class="mini-benefit-arrow">â</span></span>
           </a>
           <a href="#talk-to-ai" class="mini-benefit" style="text-align:center">
             <strong style="text-align:center">UPSELLING!</strong>
@@ -1919,7 +1952,7 @@
             <button class="dropdown-close" id="response247-close" aria-label="Close">&times;</button>
 
             <div class="dropdown-hero-title">Your Next Client Is Calling After Hours.<br>Are You Still Sending Them to Voicemail?</div>
-            <p class="dropdown-hero-sub">Most salon bookings don't happen when you're standing at the front desk. They happen after work, late at night, on weekends—in the moment someone decides, "I need this done now." If no one answers… they don't wait. They book somewhere else.</p>
+            <p class="dropdown-hero-sub">Most salon bookings don't happen when you're standing at the front desk. They happen after work, late at night, on weekendsâin the moment someone decides, "I need this done now." If no one answersâ¦ they don't wait. They book somewhere else.</p>
 
             <hr class="dropdown-divider">
 
@@ -1927,17 +1960,17 @@
               <div class="dropdown-label">The Problem</div>
               <h3>You're Not Missing a Few Calls. You're Missing Your Busiest Booking Window.</h3>
               <ul class="dropdown-list">
-                <li>Up to 40–60% of calls happen after hours</li>
+                <li>Up to 40â60% of calls happen after hours</li>
                 <li>Most callers won't leave a voicemail</li>
                 <li>And the majority won't try again</li>
               </ul>
-              <p>In a salon, that means missed color appointments, missed extensions, and missed high-ticket services. Not just empty slots—lost revenue you never even see.</p>
+              <p>In a salon, that means missed color appointments, missed extensions, and missed high-ticket services. Not just empty slotsâlost revenue you never even see.</p>
             </div>
 
             <div class="dropdown-section">
               <div class="dropdown-label">What That Actually Costs You</div>
               <h3>Let's Make This Real</h3>
-              <p>If you miss just 5 calls per night, 5 nights a week…</p>
+              <p>If you miss just 5 calls per night, 5 nights a weekâ¦</p>
               <div class="dropdown-stat-row">
                 <div class="dropdown-stat">
                   <span class="num">25</span>
@@ -1952,7 +1985,7 @@
                   <span class="desc">missed opportunities per year</span>
                 </div>
               </div>
-              <p>Even if just a fraction would have booked—balayage, highlights, treatments, packages—you're easily losing tens of thousands in revenue annually. And it's happening quietly while your phone sits on voicemail.</p>
+              <p>Even if just a fraction would have bookedâbalayage, highlights, treatments, packagesâyou're easily losing tens of thousands in revenue annually. And it's happening quietly while your phone sits on voicemail.</p>
             </div>
 
             <hr class="dropdown-divider">
@@ -2014,13 +2047,13 @@
               <div class="dropdown-label">Why This Matters More for Salons</div>
               <h3>Your Inventory Is Time</h3>
               <p>Unlike other businesses, once a slot is empty it's gone forever. An unbooked chair is lost revenue you can't recover.</p>
-              <p>A 24/7 AI agent makes sure every open slot has a chance to be filled—and every inquiry becomes a real booking opportunity.</p>
+              <p>A 24/7 AI agent makes sure every open slot has a chance to be filledâand every inquiry becomes a real booking opportunity.</p>
             </div>
 
             <div class="dropdown-section">
               <div class="dropdown-label">Simple Math</div>
               <h3>If Your Average Service Is $120</h3>
-              <p>And you recover just 10 missed bookings per week…</p>
+              <p>And you recover just 10 missed bookings per weekâ¦</p>
               <div class="dropdown-stat-row">
                 <div class="dropdown-stat">
                   <span class="num">$1,200</span>
@@ -2054,7 +2087,7 @@
     <section id="problem" class="journey-section reveal">
       <div class="container story-block problem-block">
         <div class="story-copy">
-          <span class="kicker">Step 1 · The problem</span>
+          <span class="kicker">Step 1 Â· The problem</span>
           <h2>Salons lose revenue in the cracks.</h2>
           <p>
             Someone calls while your team is with a guest. A text comes in after hours. A hot lead cools off. The problem is not demand. The problem is response speed.
@@ -2083,8 +2116,8 @@
                 <div class="cassie-status"><span>9:41</span><span></span></div>
                 <div class="cassie-messages-title">Messages</div>
                 <div class="cassie-chat-thread">
-                  <div class="cassie-bubble cassie-bubble-gray">Hi, do you have appointments in the mid afternoon for a women’s haircut?</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Absolutely! Let’s get you scheduled. When were you thinking of coming in?</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Hi, do you have appointments in the mid afternoon for a womenâs haircut?</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Absolutely! Letâs get you scheduled. When were you thinking of coming in?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Hopefully around 12:30! We can go later if needed</div>
                   <div class="cassie-bubble cassie-bubble-blue">Perfect! I have 12:30 PM or 1:00 PM available today. Which works better for you?</div>
                   <div class="cassie-bubble cassie-bubble-gray">12:30 works great</div>
@@ -2092,16 +2125,16 @@
                   <div class="cassie-bubble cassie-bubble-gray">Jill ____</div>
                   <div class="cassie-bubble cassie-bubble-blue">Got it! And I can reach you at this number, correct?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Yes, you can reach me at this number</div>
-                  <div class="cassie-bubble cassie-bubble-blue">One last question; How would you describe your hair’s condition? Dry, damaged, or pretty healthy?</div>
+                  <div class="cassie-bubble cassie-bubble-blue">One last question; How would you describe your hairâs condition? Dry, damaged, or pretty healthy?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Pretty healthy, I just got it cut but it was a bit longer than I hoped for so I would like to shorten it up just a smidge more</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Ahh ok. Sounds good. We want to keep it that way. So let’s go ahead and put you down for a Long Haircut and Deep Condition today at 12:30 PM. We’ll see you then!</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Ahh ok. Sounds good. We want to keep it that way. So letâs go ahead and put you down for a Long Haircut and Deep Condition today at 12:30 PM. Weâll see you then!</div>
                   <div class="cassie-bubble cassie-bubble-gray">Is that your basic deep conditioning? And does the cut come with styling</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Great questions! Yes, it’s our basic deep conditioning treatment - it adds moisture and leaves your hair feeling really soft.</div>
-                  <div class="cassie-bubble cassie-bubble-blue">And yes, the haircut includes a wash and style, so you’ll leave looking great!</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Great questions! Yes, itâs our basic deep conditioning treatment - it adds moisture and leaves your hair feeling really soft.</div>
+                  <div class="cassie-bubble cassie-bubble-blue">And yes, the haircut includes a wash and style, so youâll leave looking great!</div>
                   <div class="cassie-bubble cassie-bubble-gray">For pricing that should be in the range of $28 ish correct?</div>
                   <div class="cassie-bubble cassie-bubble-blue">Exactly right! The haircut is $15 and the Deep Condition is $13, so $28 total.</div>
                   <div class="cassie-bubble cassie-bubble-gray">Thank you that sounds great</div>
-                  <div class="cassie-bubble cassie-bubble-blue">You’re so welcome! We’ll see you at 12:30 PM!</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Youâre so welcome! Weâll see you at 12:30 PM!</div>
                 </div>
               </div>
             </div>
@@ -2131,54 +2164,54 @@
                 <div class="cassie-messages-title">Messages</div>
                 <div class="cassie-chat-thread">
                   <div class="cassie-bubble cassie-bubble-gray">Can I get a gel manicure appointment this week?</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Hi Chelsea! Great to hear from you. Absolutely! Let’s get you scheduled.</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Hi Chelsea! Great to hear from you. Absolutely! Letâs get you scheduled.</div>
                   <div class="cassie-bubble cassie-bubble-blue">When were you thinking of coming in this week?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Wednesday at 3:45 or later.</div>
                   <div class="cassie-bubble cassie-bubble-blue">Perfect! I have 3:45 PM or 4:15 PM available on Wednesday, April 1st. Which works better for you?</div>
                   <div class="cassie-bubble cassie-bubble-blue">Sounds good! And I can reach you at (000)-000-0000 correct?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Yes</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Excellent! I’m going to add Gel Polish so it lasts way longer without chipping.</div>
-                  <div class="cassie-bubble cassie-bubble-blue">So I have you down for a manicure with gel polish on Wednesday, April 1st at 3:45 PM. I’ve submitted your appointment request and staff will confirm shortly!</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Excellent! Iâm going to add Gel Polish so it lasts way longer without chipping.</div>
+                  <div class="cassie-bubble cassie-bubble-blue">So I have you down for a manicure with gel polish on Wednesday, April 1st at 3:45 PM. Iâve submitted your appointment request and staff will confirm shortly!</div>
                   <div class="cassie-bubble cassie-bubble-gray">Thank you</div>
-                  <div class="cassie-bubble cassie-bubble-blue">You’re so welcome, Chelsea! We’ll see you Wednesday!</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Youâre so welcome, Chelsea! Weâll see you Wednesday!</div>
                   <div class="cassie-time-sep">9 DAYS LATER</div>
                   <div class="cassie-bubble cassie-bubble-gray">Can I schedule a boys haircut?</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Absolutely! Let’s get you scheduled.</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Absolutely! Letâs get you scheduled.</div>
                   <div class="cassie-bubble cassie-bubble-gray">When were you thinking of coming in?</div>
                   <div class="cassie-bubble cassie-bubble-blue">Are there any openings this afternoon?</div>
-                  <div class="cassie-bubble cassie-bubble-blue">I don’t have any openings this afternoon, but I have Thursday morning at 8:45 AM or 9:15 AM. Would either of those work?</div>
+                  <div class="cassie-bubble cassie-bubble-blue">I donât have any openings this afternoon, but I have Thursday morning at 8:45 AM or 9:15 AM. Would either of those work?</div>
                   <div class="cassie-bubble cassie-bubble-gray">No. I need an afternoon appointment.</div>
                   <div class="cassie-bubble cassie-bubble-blue">Perfect! I have 12:00 PM or 12:30 PM available Thursday afternoon. Which works better for you?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Later, after 4pm.</div>
                   <div class="cassie-bubble cassie-bubble-blue">Great! I have 4:00 PM or 4:30 PM on Thursday. Which one works better?</div>
                   <div class="cassie-bubble cassie-bubble-gray">4:30 please.</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Perfect! And what’s the name for this appointment?</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Perfect! And whatâs the name for this appointment?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Trystan</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Got it! And what’s Trystan’s last name?</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Got it! And whatâs Trystanâs last name?</div>
                   <div class="cassie-bubble cassie-bubble-gray">(Customer gives last name)</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Excellent! I’m going to add a Scalp Treatment while he’s here. It feels amazing and really refreshes the scalp. So I have Trystan down for a haircut with scalp treatment on Thursday, April 9th at 4:30 PM.</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Excellent! Iâm going to add a Scalp Treatment while heâs here. It feels amazing and really refreshes the scalp. So I have Trystan down for a haircut with scalp treatment on Thursday, April 9th at 4:30 PM.</div>
                   <div class="cassie-bubble cassie-bubble-gray">No scalp treatment please.</div>
-                  <div class="cassie-bubble cassie-bubble-blue">No problem! I’ve removed that. So Trystan is all set for just a haircut on Thursday, April 9th at 4:30 PM.</div>
+                  <div class="cassie-bubble cassie-bubble-blue">No problem! Iâve removed that. So Trystan is all set for just a haircut on Thursday, April 9th at 4:30 PM.</div>
                   <div class="cassie-bubble cassie-bubble-gray">Thank you</div>
-                  <div class="cassie-bubble cassie-bubble-blue">You’re welcome! We’ll see Trystan on Thursday!</div>
-                  <div class="cassie-bubble cassie-bubble-gray">I’d like to schedule a women’s haircut and highlights for next week. Early in the morning is best.</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Youâre welcome! Weâll see Trystan on Thursday!</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Iâd like to schedule a womenâs haircut and highlights for next week. Early in the morning is best.</div>
                   <div class="cassie-bubble cassie-bubble-blue">I have 10:45 AM or 11:15 AM available on Monday, April 13th for a cut and highlights. Which works better for you?</div>
                   <div class="cassie-bubble cassie-bubble-gray">What about Tuesday?</div>
                   <div class="cassie-bubble cassie-bubble-blue">I have 10:45 AM or 11:15 AM on Tuesday, April 14th. Which time works better?</div>
-                  <div class="cassie-bubble cassie-bubble-gray">I’ll do 10:45 on Monday then. Can I ask that the student be closer to graduation?</div>
+                  <div class="cassie-bubble cassie-bubble-gray">Iâll do 10:45 on Monday then. Can I ask that the student be closer to graduation?</div>
                   <div class="cassie-bubble cassie-bubble-blue">Absolutely! I have you down for 10:45 AM on Monday, April 13th for a cut and highlights. Just to confirm, is this appointment for you?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Yes</div>
                   <div class="cassie-bubble cassie-bubble-blue">Perfect! And I can reach you at (000)-000-0000, correct?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Yes</div>
-                  <div class="cassie-bubble cassie-bubble-blue">I’ve noted your request for a student closer to graduation, and staff will confirm shortly. About how long is your hair?</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Iâve noted your request for a student closer to graduation, and staff will confirm shortly. About how long is your hair?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Shoulder blade length</div>
                   <div class="cassie-bubble cassie-bubble-blue">Got it! And what color is it now?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Golden Brown</div>
                   <div class="cassie-bubble cassie-bubble-blue">Perfect! And what color are you hoping to go to?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Golden blonde</div>
-                  <div class="cassie-bubble cassie-bubble-blue">Sounds beautiful! How would you describe your hair’s condition? Dry, damaged, or pretty healthy?</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Sounds beautiful! How would you describe your hairâs condition? Dry, damaged, or pretty healthy?</div>
                   <div class="cassie-bubble cassie-bubble-gray">Pretty healthy</div>
-                  <div class="cassie-bubble cassie-bubble-blue">That’s great! I’d recommend adding Bond Rx Treatment to keep your hair in great shape with the lightening we’re doing. So I have you down for a cut and highlights with Bond Rx on Monday, April 13th at 10:45 AM. We’ll see you then!</div>
+                  <div class="cassie-bubble cassie-bubble-blue">Thatâs great! Iâd recommend adding Bond Rx Treatment to keep your hair in great shape with the lightening weâre doing. So I have you down for a cut and highlights with Bond Rx on Monday, April 13th at 10:45 AM. Weâll see you then!</div>
                   <div class="cassie-bubble cassie-bubble-gray">Sounds good</div>
                   <div class="cassie-bubble cassie-bubble-blue">Perfect! Looking forward to seeing you Monday, Chelsea!</div>
                 </div>
@@ -2193,7 +2226,7 @@
     <section id="solution" class="journey-section reveal">
       <div class="container story-block solution-block">
         <div class="story-copy">
-          <span class="kicker">Step 2 · The solution</span>
+          <span class="kicker">Step 2 Â· The solution</span>
           <h2>BLEND replies like a polished front desk that never clocks out.</h2>
           <p>
             It answers quickly, keeps the tone warm, captures useful details, and moves guests toward the next step without making your team do twenty little tasks at once.
@@ -2209,7 +2242,7 @@
 
     <section id="proof" class="journey-section reveal">
       <div class="container section-head section-head-wide">
-        <span class="kicker">Step 3 · The proof</span>
+        <span class="kicker">Step 3 Â· The proof</span>
         <h2>This is what BLEND actually sounds like.</h2>
         <p>Not vague AI talk. Real salon-style conversations that feel useful, smooth, and easy to trust.</p>
       </div>
@@ -2258,13 +2291,13 @@
               <div class="chat-label">Sample conversation</div>
               <div class="chat-window auto-scroll-chat">
                 <div class="chat-thread animated-chat">
-                  <div class="bubble client">Hey, I know it’s late. Are you open on Saturdays for balayage?</div>
+                  <div class="bubble client">Hey, I know itâs late. Are you open on Saturdays for balayage?</div>
                   <div class="bubble blend">Yes. I can help with that. Saturday availability changes quickly, but I can guide you toward the best opening.</div>
-                  <div class="bubble client">Amazing. I thought I’d have to wait until tomorrow to ask.</div>
+                  <div class="bubble client">Amazing. I thought Iâd have to wait until tomorrow to ask.</div>
                   <div class="bubble blend">Nope. BLEND keeps the salon responsive even after hours.</div>
                   <div class="bubble client">Do I need a consultation first?</div>
                   <div class="bubble blend">Sometimes that depends on your hair history and how big of a change you want, but I can help you move toward the right next step.</div>
-                  <div class="bubble client">I haven’t colored my hair in about a year.</div>
+                  <div class="bubble client">I havenât colored my hair in about a year.</div>
                   <div class="bubble blend">That is helpful context. It gives the salon a better picture before you even walk in.</div>
                   <div class="bubble client">This is so much easier than waiting for opening hours.</div>
                   <div class="bubble blend">Exactly. That is the whole point of always-on support made specifically for salons.</div>
@@ -2280,7 +2313,7 @@
             <div class="panel-index">03</div>
             <h3>Instant text responses</h3>
             <p>
-              Today’s clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.
+              Todayâs clients live on their phones. BLEND meets them there with speed, clarity, and a smooth conversational tone.
             </p>
           </div>
           <div class="panel-visual">
@@ -2288,7 +2321,7 @@
               <div class="chat-label">Sample conversation</div>
               <div class="chat-window auto-scroll-chat">
                 <div class="chat-thread animated-chat">
-                  <div class="bubble client">Do you do women’s cuts with gloss?</div>
+                  <div class="bubble client">Do you do womenâs cuts with gloss?</div>
                   <div class="bubble blend">Yes, absolutely. We can help with both. Are you looking for something subtle and shiny or more of a full refresh?</div>
                   <div class="bubble client">Subtle and shiny. Also how long does it take?</div>
                   <div class="bubble blend">Usually around two hours depending on your hair. Want me to help you move toward an appointment?</div>
@@ -2309,7 +2342,7 @@
 
     <section id="benefits" class="journey-section reveal">
       <div class="container section-head section-head-wide">
-        <span class="kicker">Step 4 · The benefits</span>
+        <span class="kicker">Step 4 Â· The benefits</span>
         <h2>What this changes for the salon.</h2>
         <p>When response improves, everything downstream gets easier: booking, guest experience, retention, and schedule protection.</p>
       </div>
@@ -2334,7 +2367,7 @@
       <div class="container">
         <div class="talk-page reveal talk-page-moment">
           <div class="talk-copy">
-            <span class="phone-label">Step 5 · Try it yourself</span>
+            <span class="phone-label">Step 5 Â· Try it yourself</span>
             <h2>Text the line. Feel the product.</h2>
             <p>
               You would never buy a car without a test drive. Same idea here. This is the cleanest way to understand BLEND in under a minute.
@@ -2353,7 +2386,7 @@
               <div class="phone-notch"></div>
               <div class="phone-screen">
                 <div class="phone-header-small">BLEND test drive</div>
-                <div class="phone-message client">Hi, I’m a salon owner. What do you actually do?</div>
+                <div class="phone-message client">Hi, Iâm a salon owner. What do you actually do?</div>
                 <div class="phone-message blend">I help salons answer faster, capture more bookings, and keep guest conversations moving even when the front desk is busy.</div>
                 <div class="phone-message client">So I should text this number?</div>
                 <div class="phone-message blend">Yes. Text 208-802-4546 to try the experience for yourself.</div>
@@ -2369,7 +2402,7 @@
       <div class="container">
         <div class="cta reveal cta-final">
           <div>
-            <span class="kicker">Step 6 · Convert</span>
+            <span class="kicker">Step 6 Â· Convert</span>
             <h2>Ready to bring BLEND into the salon?</h2>
             <p>Try the text line, ask questions, or open a demo request and keep the conversation going.</p>
           </div>
@@ -2384,18 +2417,56 @@
         </div>
       </div>
     </section>
-  </main>
+  
+    </div>
+
+    <div class="product-content" id="content-sara">
+      <section class="hero reveal"><div class="container hero-shell hero-shell-simplified"><div class="hero-copy hero-copy-simplified"><div class="hero-logo-stage" aria-hidden="true"><div class="hero-logo-wrap"><img src="blend-logo-2.png" alt="BLEND logo" class="hero-logo-img" /></div></div><div class="eyebrow">AI-powered admissions scheduling for cosmetology schools</div><h1>Fill every seat in your next class.</h1><p class="hero-lead">Sara texts prospective students, answers their questions, and books campus tours automatically — so your admissions team can focus on enrollment, not phone tag.</p><div class="hero-actions hero-actions-premium"><a href="#talk-to-ai" class="btn btn-pink" style="background:linear-gradient(135deg,#c084fc,#818cf8);border:none;">Talk To Sara</a><button class="btn btn-gold open-demo" type="button">Schedule a Demo</button></div></div></div>
+        <div class="hero-mini-benefits reveal">
+          <a href="#" class="mini-benefit" style="background:linear-gradient(135deg,#e8e0ff,#c4b5fd);"><strong>Instant engagement</strong><span>Reach prospective students within seconds of their inquiry.</span></a>
+          <a href="#" class="mini-benefit" style="background:linear-gradient(135deg,#ddd6fe,#a78bfa);"><strong>More campus tours</strong><span>Convert online leads into scheduled visits effortlessly.</span></a>
+          <a href="#" class="mini-benefit" style="background:linear-gradient(135deg,#c4b5fd,#8b5cf6);"><strong>Admissions on autopilot</strong><span>Sara works nights, weekends, and holidays.</span></a>
+        </div>
+      </section>
+      <section class="journey-section reveal" style="padding:80px 0;"><div class="container"><div class="step-label">How Sara works</div><h2 class="section-head" style="text-align:center;">From inquiry to enrolled — automatically</h2><p style="text-align:center;max-width:640px;margin:0 auto 40px;color:var(--muted);font-size:1.05rem;line-height:1.6;">When a prospective student fills out a form or calls your school, Sara reaches out instantly via text. She answers questions about programs, schedules tours, sends reminders, and follows up.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;">
+          <div style="background:linear-gradient(135deg,#f3e8ff,#e8e0ff);border-radius:18px;padding:28px 24px;"><strong style="display:block;font-size:1.15rem;margin-bottom:8px;color:#4338ca;">1. Lead comes in</strong><p style="color:rgba(18,18,18,0.7);font-size:0.92rem;line-height:1.5;margin:0;">Website form, phone call, or walk-in — Sara picks up the conversation instantly via text.</p></div>
+          <div style="background:linear-gradient(135deg,#e8e0ff,#ddd6fe);border-radius:18px;padding:28px 24px;"><strong style="display:block;font-size:1.15rem;margin-bottom:8px;color:#4338ca;">2. Sara engages</strong><p style="color:rgba(18,18,18,0.7);font-size:0.92rem;line-height:1.5;margin:0;">Answers questions about programs, tuition, financial aid, and class schedules — personalized to each student.</p></div>
+          <div style="background:linear-gradient(135deg,#ddd6fe,#c4b5fd);border-radius:18px;padding:28px 24px;"><strong style="display:block;font-size:1.15rem;margin-bottom:8px;color:#4338ca;">3. Tour booked</strong><p style="color:rgba(18,18,18,0.7);font-size:0.92rem;line-height:1.5;margin:0;">Schedules the campus visit, sends reminders, and follows up if they don't show.</p></div>
+        </div></div></section>
+      <section class="journey-section journey-moment reveal" style="padding:80px 0;"><div class="container" style="text-align:center;"><h2 class="section-head">Ready to fill your next class?</h2><p style="max-width:520px;margin:0 auto 28px;color:var(--muted);font-size:1.05rem;">See how Sara can transform your admissions process.</p><a href="#" class="btn btn-pink" style="background:linear-gradient(135deg,#c084fc,#818cf8);border:none;font-size:1.1rem;padding:16px 36px;">Schedule a Demo</a></div></section>
+    </div>
+
+    <div class="product-content" id="content-crm">
+      <section class="hero reveal"><div class="container hero-shell hero-shell-simplified"><div class="hero-copy hero-copy-simplified"><div class="hero-logo-stage" aria-hidden="true"><div class="hero-logo-wrap"><img src="blend-logo-2.png" alt="BLEND logo" class="hero-logo-img" /></div></div><div class="eyebrow">The CRM built for cosmetology school admissions</div><h1>Your entire admissions pipeline in one place.</h1><p class="hero-lead">Track every lead, automate follow-ups, and manage campus tours — all from a CRM designed specifically for cosmetology schools. Powered by Sara, so nothing falls through the cracks.</p><div class="hero-actions hero-actions-premium"><a href="#" class="btn btn-pink" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);border:none;color:#713f12;">See the CRM</a><button class="btn btn-gold open-demo" type="button">Schedule a Demo</button></div></div></div>
+        <div class="hero-mini-benefits reveal">
+          <a href="#" class="mini-benefit" style="background:linear-gradient(135deg,#fef9c3,#fde68a);"><strong style="color:#92400e;">Lead database</strong><span style="color:rgba(146,64,14,0.8);">Every inquiry, form fill, and call — organized and searchable.</span></a>
+          <a href="#" class="mini-benefit" style="background:linear-gradient(135deg,#fde68a,#fbbf24);"><strong style="color:#92400e;">Automated workflows</strong><span style="color:rgba(146,64,14,0.8);">Set it and forget it. Drip campaigns, reminders, and task triggers.</span></a>
+          <a href="#" class="mini-benefit" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);"><strong style="color:#92400e;">Sara built in</strong><span style="color:rgba(146,64,14,0.8);">Sara runs directly from your CRM — no extra tools needed.</span></a>
+        </div>
+      </section>
+      <section class="journey-section reveal" style="padding:80px 0;"><div class="container"><div class="step-label">Everything you need</div><h2 class="section-head" style="text-align:center;">Built for schools, not retrofitted</h2><p style="text-align:center;max-width:640px;margin:0 auto 40px;color:var(--muted);font-size:1.05rem;line-height:1.6;">Most CRMs are built for enterprise sales teams. Ours is built for cosmetology school admissions — with the features you actually need and none of the bloat.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:32px;">
+          <div style="background:linear-gradient(135deg,#fef9c3,#fde68a);border-radius:18px;padding:28px 24px;"><strong style="display:block;font-size:1.15rem;margin-bottom:8px;color:#92400e;">Lead management</strong><p style="color:rgba(146,64,14,0.75);font-size:0.92rem;line-height:1.5;margin:0;">See every lead's journey from first touch to enrollment. Filter by source, stage, program interest, and more.</p></div>
+          <div style="background:linear-gradient(135deg,#fde68a,#fbbf24);border-radius:18px;padding:28px 24px;"><strong style="display:block;font-size:1.15rem;margin-bottom:8px;color:#92400e;">Smart workflows</strong><p style="color:rgba(146,64,14,0.75);font-size:0.92rem;line-height:1.5;margin:0;">Automate tasks, reminders, and follow-up sequences. Never let a hot lead go cold again.</p></div>
+          <div style="background:linear-gradient(135deg,#fef9c3,#fde68a);border-radius:18px;padding:28px 24px;"><strong style="display:block;font-size:1.15rem;margin-bottom:8px;color:#92400e;">Appointment scheduling</strong><p style="color:rgba(146,64,14,0.75);font-size:0.92rem;line-height:1.5;margin:0;">Campus tours, interviews, and orientation sessions — all managed in one calendar view.</p></div>
+          <div style="background:linear-gradient(135deg,#fde68a,#fbbf24);border-radius:18px;padding:28px 24px;"><strong style="display:block;font-size:1.15rem;margin-bottom:8px;color:#92400e;">Reporting dashboard</strong><p style="color:rgba(146,64,14,0.75);font-size:0.92rem;line-height:1.5;margin:0;">Track conversion rates, response times, and enrollment pipeline at a glance.</p></div>
+        </div></div></section>
+      <section class="journey-section journey-moment reveal" style="padding:80px 0;"><div class="container" style="text-align:center;"><h2 class="section-head">See the CRM in action</h2><p style="max-width:520px;margin:0 auto 28px;color:var(--muted);font-size:1.05rem;">Get a walkthrough of how BLEND CRM can streamline your admissions from day one.</p><a href="#" class="btn btn-pink" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);border:none;color:#713f12;font-size:1.1rem;padding:16px 36px;">Schedule a Demo</a></div></section>
+    </div>
+
+</main>
 
   <footer class="site-footer">
     <div class="container footer-row">
-      <div>© 2026 BLEND. Human touch meets AI precision.</div>
+      <div>Â© 2026 BLEND. Human touch meets AI precision.</div>
       <div>Questions? 801-590-6020</div>
     </div>
   </footer>
 
   <div class="modal-backdrop" id="demoModal" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
-      <button class="close-btn" type="button" id="closeModal" aria-label="Close demo form">×</button>
+      <button class="close-btn" type="button" id="closeModal" aria-label="Close demo form">Ã</button>
       <h3 id="demoTitle">Schedule a Demo</h3>
       <p>Answer these quick questions and your email app will open a draft to Rob.</p>
       <form class="form-grid" id="demoForm">
@@ -2551,5 +2622,7 @@
   })();
   </script>
 
-  </body>
+  
+  <script>function switchProduct(p){document.querySelectorAll('.product-content').forEach(function(e){e.classList.remove('active')});document.querySelectorAll('.product-pill').forEach(function(e){e.classList.remove('active-cassie','active-sara','active-crm')});document.querySelectorAll('.product-card').forEach(function(e){e.classList.remove('selected')});document.getElementById('content-'+p).classList.add('active');document.querySelector('.product-pill[data-product="'+p+'"]').classList.add('active-'+p);document.querySelector('.card-'+p).classList.add('selected');window.scrollTo({top:0,behavior:'smooth'})}window.addEventListener('scroll',function(){var s=document.getElementById('productSelector');if(s)s.classList.toggle('scrolled',window.scrollY>20)})</script>
+</body>
 </html>
