@@ -1921,8 +1921,8 @@
     .sara-accordion:hover{background:rgba(0,0,0,0.02);border-radius:12px;margin:0 -12px;padding-left:12px;padding-right:12px}
     .sara-accordion .acc-toggle{min-width:28px;height:28px;border-radius:50%;border:2px solid rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s;font-size:1.1rem;font-weight:500;color:rgba(0,0,0,0.3)}
     .sara-accordion.open .acc-toggle{transform:rotate(45deg);border-color:rgba(99,153,34,0.5);color:#639922}
-    .sara-accordion .acc-body{max-height:0;overflow:hidden;transition:max-height 0.35s ease,opacity 0.3s;opacity:0}
-    .sara-accordion.open .acc-body{max-height:200px;opacity:1}
+    .sara-accordion .acc-body{display:none}
+    .sara-accordion.open .acc-body{display:block}
 
   </style>
 </head>
