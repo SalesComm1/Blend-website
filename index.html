@@ -1959,7 +1959,7 @@
 
   
     .hero-logo-stage{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;pointer-events:none;z-index:0}
-    .hero-logo-wrap{max-width:600px;margin:0 auto;opacity:0.12}
+    .hero-logo-wrap{max-width:600px;margin:0 auto;opacity:0;display:none}
     .hero-logo-img{width:100%}
     .hero-copy-simplified{position:relative;z-index:1}
     .hero-shell-simplified{position:relative;overflow:hidden}
@@ -2002,17 +2002,15 @@
   <div class="paint-4" aria-hidden="true"></div>
 
   <header class="site-header">
-    <div class="container nav">
-      <div class="nav-left">
-        <a class="contact-chip" href="tel:8015906020"><span>Questions?</span> <strong>801-590-6020</strong></a>
+    <div class="container nav" style="display:flex;align-items:center;justify-content:space-between;">
+      <a href="/" onclick="event.preventDefault();document.getElementById('landingPage').style.display='flex';document.getElementById('siteContent').classList.remove('active');window.scrollTo({top:0});" style="display:flex;align-items:center;">
+        <img src="blend-logo-2.png" alt="BLEND" style="height:36px;opacity:0.8;" />
+      </a>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <a href="#talk-to-ai" class="btn btn-pink">Talk To AI</a>
+        <button class="btn btn-gold open-demo" type="button">Schedule a Demo</button>
       </div>
-
-      
-
-      <div class="nav-right">
-        <a class="btn btn-purple" href="#talk-to-ai">Talk To AI</a>
-        <button class="btn btn-blue open-demo" type="button">Schedule a Demo</button>
-      </div>
+      <a href="tel:8015906020" style="font-size:0.85rem;color:var(--muted);text-decoration:none;white-space:nowrap;">Questions? <strong style="color:var(--text);">801-590-6020</strong></a>
     </div>
   </header>
   <div class="product-selector" id="productSelector"><div class="container"><button class="product-pill active-cassie" data-product="cassie" onclick="switchProduct('cassie')">Cassie</button><button class="product-pill" data-product="sara" onclick="switchProduct('sara')">Sara</button><button class="product-pill" data-product="crm" onclick="switchProduct('crm')">CRM</button></div></div>
