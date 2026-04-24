@@ -281,6 +281,8 @@
     }
 
     .hero-logo-wrap {
+      max-width: 280px;
+      margin: 0 auto;
       background: transparent !important;
       padding: 0;
       border-radius: 0;
@@ -297,6 +299,8 @@
     }
 
     .hero-logo-img {
+      max-width: 280px;
+      /* original was full-width, now constrained */
       height: clamp(210px, 24vw, 320px);
       width: auto;
       max-width: min(760px, 100%);
@@ -1924,9 +1928,71 @@
     .sara-accordion .acc-body{display:none}
     .sara-accordion.open .acc-body{display:block}
 
+  
+    .landing-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;background:var(--bg)}
+    .landing-logo{max-width:180px;margin:0 auto 16px;opacity:0.7}
+    .landing-tagline{font-size:1rem;color:var(--muted);text-align:center;margin:0 0 48px;letter-spacing:0.02em}
+    .landing-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;width:100%}
+    .landing-card{border-radius:24px;padding:40px 32px;cursor:pointer;transition:all 0.3s ease;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:12px;border:2px solid transparent}
+    .landing-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.1)}
+    .landing-card h2{font-size:2rem;margin:0;font-weight:800}
+    .landing-card .landing-sub{font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin:0}
+    .landing-card p{font-size:1rem;line-height:1.5;margin:8px 0 0}
+    .landing-card .landing-cta{font-size:0.85rem;font-weight:600;margin-top:16px;padding:8px 24px;border-radius:999px;transition:all 0.2s}
+    .landing-card-cassie{background:linear-gradient(135deg,#e0f7f3,#c5edff)}
+    .landing-card-cassie h2{color:#0a3d5c}
+    .landing-card-cassie .landing-sub{color:#1a6db5}
+    .landing-card-cassie p{color:rgba(10,61,92,0.65)}
+    .landing-card-cassie .landing-cta{background:rgba(80,167,255,0.15);color:#1a6db5}
+    .landing-card-cassie:hover{border-color:#50a7ff}
+    .landing-card-sara{background:linear-gradient(135deg,#f3e8ff,#e8e0ff)}
+    .landing-card-sara h2{color:#2e1065}
+    .landing-card-sara .landing-sub{color:#4338ca}
+    .landing-card-sara p{color:rgba(46,16,101,0.6)}
+    .landing-card-sara .landing-cta{background:rgba(129,140,248,0.15);color:#4338ca}
+    .landing-card-sara:hover{border-color:#818cf8}
+    .landing-card-crm{background:linear-gradient(135deg,#fef9c3,#fde68a)}
+    .landing-card-crm h2{color:#713f12}
+    .landing-card-crm .landing-sub{color:#92400e}
+    .landing-card-crm p{color:rgba(113,63,18,0.6)}
+    .landing-card-crm .landing-cta{background:rgba(245,158,11,0.15);color:#92400e}
+    .landing-card-crm:hover{border-color:#f59e0b}
+    .site-content{display:none}
+    .site-content.active{display:block}
+    @media(max-width:768px){.landing-cards{grid-template-columns:1fr;max-width:400px}.landing-card{padding:32px 24px}}
+
   </style>
 </head>
 <body>
+<!-- Landing Page -->
+<div class="landing-page" id="landingPage">
+  <img src="blend-logo-2.png" alt="BLEND" class="landing-logo" />
+  <p class="landing-tagline">Human touch meets AI precision</p>
+  <div class="landing-cards">
+    <a class="landing-card landing-card-cassie" onclick="enterProduct('cassie')">
+      <p class="landing-sub">Salons & Service</p>
+      <h2>Cassie</h2>
+      <p>AI-powered call & text concierge that books appointments 24/7.</p>
+      <span class="landing-cta">Explore Cassie &rarr;</span>
+    </a>
+    <a class="landing-card landing-card-sara" onclick="enterProduct('sara')">
+      <p class="landing-sub">Schools</p>
+      <h2>Sara</h2>
+      <p>Admissions scheduling agent trained by 20 years of enrollment expertise.</p>
+      <span class="landing-cta">Explore Sara &rarr;</span>
+    </a>
+    <a class="landing-card landing-card-crm" onclick="enterProduct('crm')">
+      <p class="landing-sub">Management</p>
+      <h2>CRM</h2>
+      <p>The AI-native CRM built for cosmetology school admissions.</p>
+      <span class="landing-cta">Explore CRM &rarr;</span>
+    </a>
+  </div>
+</div>
+
+<!-- Site Content (hidden until product selected) -->
+<div class="site-content" id="siteContent">
+
   <div class="paint" aria-hidden="true"></div>
   <div class="paint-2" aria-hidden="true"></div>
   <div class="paint-3" aria-hidden="true"></div>
@@ -2658,5 +2724,8 @@
 
   
   <script>function switchProduct(p){document.querySelectorAll('.product-content').forEach(function(e){e.classList.remove('active')});document.querySelectorAll('.product-pill').forEach(function(e){e.classList.remove('active-cassie','active-sara','active-crm')});document.querySelectorAll('.product-card').forEach(function(e){e.classList.remove('selected')});var content=document.getElementById('content-'+p);content.classList.add('active');content.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible')});document.querySelector('.product-pill[data-product="'+p+'"]').classList.add('active-'+p);document.querySelector('.card-'+p).classList.add('selected');window.scrollTo({top:0,behavior:'smooth'})}window.addEventListener('scroll',function(){var s=document.getElementById('productSelector');if(s)s.classList.toggle('scrolled',window.scrollY>20)})</script>
+</div><!-- /site-content -->
+
+  <script>function enterProduct(p){document.getElementById("landingPage").style.display="none";document.getElementById("siteContent").classList.add("active");switchProduct(p);window.scrollTo({top:0});}</script>
 </body>
 </html>
