@@ -2596,8 +2596,11 @@
       <button class="close-btn" type="button" id="closeModal" aria-label="Close demo form">×</button>
       <h3 id="demoTitle">Schedule a Demo</h3>
       <p>Pick a time that works for you below.</p>
-      <iframe src="https://calendar.app.google/gPVtuDpxGXF7qq2w7" style="width:100%; min-height:560px; border:0; border-radius:14px; background:#fff;" loading="lazy"></iframe>
-      <p style="text-align:center; margin-top:12px; color: var(--muted); font-size: 14px;">Trouble booking? Email <a href="mailto:Rob@salescomm.com">Rob@salescomm.com</a> directly.</p>>
+      <div id="googleSchedTarget" style="text-align:center; padding:24px;"><p style="color:var(--muted); margin:0;">Loading calendar…</p></div>
+            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet" />
+                        <script>(function(){function L(){if(typeof calendar==='undefined'||!calendar.schedulingButton){return setTimeout(L,150);}var t=document.getElementById('googleSchedTarget');if(!t||t.dataset.loaded)return;t.dataset.loaded='1';t.innerHTML='';calendar.schedulingButton.load({url:'https://calendar.app.google/gPVtuDpxGXF7qq2w7',color:'#9b5cff',label:'Pick a time',target:t});}if(document.readyState==='complete')L();else window.addEventListener('load',L);})();</script>
+                              <p style="text-align:center; margin-top:12px; color: var(--muted); font-size: 14px;">Trouble booking? Email <a href="mailto:Rob@salescomm.com">Rob@salescomm.com</a> directly.</p>>
     </div>
   </div>
 
