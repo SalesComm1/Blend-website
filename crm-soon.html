@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLEND | Ignore Our Virtual Dust</title>
+  <meta name="description" content="The BLEND CRM page is under construction. Please ignore our virtual dust." />
+  <style>
+    :root {
+        --bg: #fffaf7;
+        --text: #171717;
+        --muted: #686868;
+        --purple: #9b5cff;
+        --blue: #50a7ff;
+        --cyan: #7edfd2;
+        --gold: #ffc97a;
+        --pink: #ff78ac;
+  --shadow: 0 18px 48px rgba(17, 17, 17, 0.08);
+        --radius: 28px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+    body {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+        overflow-x: hidden;
+        position: relative;
+}
+    .blob {
+        position: absolute;
+        border-radius: 50%;
+  filter: blur(80px);
+        opacity: 0.45;
+        pointer-events: none;
+        z-index: 0;
+}
+.blob.b1 { width: 380px; height: 380px; background: var(--pink); top: -100px; left: -120px; }
+.blob.b2 { width: 420px; height: 420px; background: var(--cyan); bottom: -140px; right: -120px; }
+.blob.b3 { width: 280px; height: 280px; background: var(--gold); top: 40%; right: 20%; opacity: 0.35; }
+    .card {
+        position: relative;
+        z-index: 1;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+        padding: 56px 48px;
+        max-width: 640px;
+        width: 100%;
+        text-align: center;
+}
+    .tape {
+        display: inline-block;
+        padding: 8px 18px;
+        border-radius: 999px;
+  background: var(--gold);
+        color: #5a3d00;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+  transform: rotate(-2deg);
+        margin-bottom: 24px;
+}
+    h1 {
+  font-size: clamp(42px, 7vw, 72px);
+        line-height: 1.05;
+        margin: 0 0 20px;
+  background: linear-gradient(90deg, var(--purple), var(--pink), var(--gold));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+}
+    h2 {
+        font-size: 20px;
+        font-weight: 600;
+  color: var(--muted);
+        margin: 0 0 28px;
+}
+    p {
+        font-size: 17px;
+        line-height: 1.6;
+  color: var(--text);
+        margin: 0 0 16px;
+}
+    p.subtle {
+  color: var(--muted);
+        font-size: 15px;
+}
+    .actions {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 32px;
+}
+    .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(17,17,17,0.12); }
+.btn-gold { background: var(--gold); color: #5a3d00; }
+  .btn-purple { background: var(--purple); color: #fff; }
+        .btn-ghost {
+            background: transparent;
+      color: var(--text);
+      border: 1.5px solid rgba(17,17,17,0.15);
+    }
+        .footer {
+            position: relative;
+            z-index: 1;
+            margin-top: 32px;
+      color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+    }
+    .footer a { color: var(--purple); text-decoration: none; font-weight: 600; }
+        .cones {
+            font-size: 36px;
+            letter-spacing: 8px;
+            margin-bottom: 8px;
+            animation: sway 4s ease-in-out infinite;
+    }
+        @keyframes sway {
+      0%, 100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+          .blink {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #ff5b5b;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: blink 1.2s ease-in-out infinite;
+            vertical-align: middle;
+    }
+          @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0.2; }
+    }
+      @media (max-width: 540px) {
+      .card { padding: 40px 28px; }
+    }
+        </style>
+      </head>
+      <body>
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+
+        <main class="card">
+          <div class="cones">&#x1F6A7; &#x1F6A7; &#x1F6A7;</div>
+          <span class="tape"><span class="blink"></span>Hard hats required</span>
+          <h1>Ignore Our Virtual Dust</h1>
+          <h2>Our CRM page is under construction.</h2>
+          <p>The dashboard you came to see is currently held together with sticky notes, lukewarm coffee, and the kind of optimism only a pre-launch team can muster.</p>
+          <p>Our developers are arguing about button colors. Loudly. We promise it'll be worth the wait.</p>
+          <p class="subtle">In the meantime, the rest of BLEND is alive and well &mdash; or you can skip the wait and let us walk you through the CRM live.</p>
+            <div class="actions">
+          <a class="btn btn-gold" href="https://calendar.app.google/gPVtuDpxGXF7qq2w7" target="_blank" rel="noopener">Schedule a Demo</a>
+                  <a class="btn btn-ghost" href="/">&larr; Back to BLEND</a>
+                  </div>
+                </main>
+
+                <div class="footer">
+                No actual hammers were harmed in the making of this page. <a href="/">itsblend.com</a>
+                  </div>
+                </body>
+                </html>
+                
