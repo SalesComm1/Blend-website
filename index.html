@@ -2607,8 +2607,7 @@
   <script>
     // Open Google Calendar booking in a new tab on Schedule a Demo click
     document.addEventListener('click', function(e){
-      var b = e.target.closest && e.target.closest('.open-demo');
-        if(!b) return;
+      var t = e.target.closest && e.target.closest('a, button'); var b = t && (t.classList.contains('open-demo') || /^\s*schedule a demo\s*$/i.test(t.textContent)) ? t : null;        if(!b) return;
           e.preventDefault();
             e.stopImmediatePropagation();
               window.open('https://calendar.app.google/gPVtuDpxGXF7qq2w7','_blank','noopener');
