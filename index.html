@@ -2605,15 +2605,45 @@
   </div>
 
   <script>
-    // Open Google Calendar booking in a new tab on Schedule a Demo click
-    document.addEventListener('click', function(e){
-      var t = e.target.closest && e.target.closest('a, button'); var b = t && (t.classList.contains('open-demo') || /^\s*schedule a demo\s*$/i.test(t.textContent)) ? t : null;        if(!b) return;
-          e.preventDefault();
-            e.stopImmediatePropagation();
-              window.open('https://calendar.app.google/gPVtuDpxGXF7qq2w7','_blank','noopener');
-              }, true);
-    const revealItems = document.querySelectorAll('.reveal');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // Schedule a Demo: gate clicks behind Cloudflare Turnstile, then open booking
+      //       (function(){
+              var SITE_KEY = '0x4AAAAAADDRcVk10Q1Q0J08';
+                      var BOOKING = 'https://calendar.app.google/gPVtuDpxGXF7qq2w7';
+                              var loading = false;
+                                      function openCal(){ window.open(BOOKING,'_blank','noopener'); }
+                                              function ensureScript(cb){
+                                                        if(typeof turnstile!=='undefined') return cb();
+                                                                  if(loading) return setTimeout(function(){ ensureScript(cb); },150);
+                                                                            loading = true;
+                                                                                      var s = document.createElement('script');
+                                                                                                s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+                                                                                                          s.async = true; s.defer = true;
+                                                                                                                    s.onload = function(){ var n=0; (function w(){ if(typeof turnstile!=='undefined') return cb(); if(++n>40) return openCal(); setTimeout(w,100); })(); };
+                                                                                                                              s.onerror = function(){ openCal(); };
+                                                                                                                                        document.head.appendChild(s);
+                                                                                                                                                }
+                                                                                                                                                        function runGate(){
+                                                                                                                                                                  ensureScript(function(){
+                                                                                                                                                                              var c = document.createElement('div');
+                                                                                                                                                                                          c.style.cssText = 'position:fixed;bottom:0;right:0;visibility:hidden;';
+                                                                                                                                                                                                      document.body.appendChild(c);
+                                                                                                                                                                                                                  turnstile.render(c, {
+                                                                                                                                                                                                                                sitekey: SITE_KEY,
+                                                                                                                                                                                                                                              size: 'invisible',
+                                                                                                                                                                                                                                                            callback: function(){ openCal(); try{document.body.removeChild(c);}catch(e){} },
+                                                                                                                                                                                                                                                                          'error-callback': function(){ openCal(); try{document.body.removeChild(c);}catch(e){} }
+                                                                                                                                                                                                                                                                                      });
+                                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                document.addEventListener('click', function(e){
+                                                                                                                                                                                                                                                                                                                          var t = e.target.closest && e.target.closest('a, button');
+                                                                                                                                                                                                                                                                                                                                    var b = t && (t.classList.contains('open-demo') || /^\s*schedule a demo\s*$/i.test(t.textContent)) ? t : null;
+                                                                                                                                                                                                                                                                                                                                              if(!b) return;
+                                                                                                                                                                                                                                                                                                                                                        e.preventDefault();
+                                                                                                                                                                                                                                                                                                                                                                  e.stopImmediatePropagation();
+                                                                                                                                                                                                                                                                                                                                                                            runGate();
+                                                                                                                                                                                                                                                                                                                                                                                    }, true);
+                                                                                                                                                                                                                                                                                                                                                                                          })();    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
       const revealObserver = new IntersectionObserver((entries) => {
