@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLEND | About Us</title>
+  <meta name="description" content="The team behind BLEND — industry expertise, enterprise engineering, and VC-grade finance." />
+  <style>
+    :root {
+      --bg: #fffaf7;
+      --panel: rgba(255, 255, 255, 0.9);
+      --text: #171717;
+      --muted: #686868;
+      --purple: #9b5cff;
+      --pink: #ff78ac;
+      --shadow: 0 18px 48px rgba(17, 17, 17, 0.08);
+      --radius: 18px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .blob.b1 { width: 380px; height: 380px; background: var(--pink); top: -100px; right: -120px; }
+    .blob.b2 { width: 420px; height: 420px; background: var(--purple); bottom: -140px; left: -120px; opacity: 0.3; }
+
+    .nav {
+      position: relative;
+      z-index: 2;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .nav-brand {
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nav-back {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(17,17,17,0.12);
+      transition: all 0.15s ease;
+    }
+    .nav-back:hover { background: rgba(17,17,17,0.04); }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+    .kicker {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 120, 172, 0.12);
+      color: var(--pink);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(36px, 5.5vw, 64px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin: 0 0 20px;
+      max-width: 16ch;
+    }
+    .lede {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 0 0 56px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .team-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px 28px 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .team-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+    .team-card.purple::before { background: var(--purple); }
+    .team-card.pink::before { background: var(--pink); }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+      background: rgba(155, 92, 255, 0.12);
+    }
+    .team-card.purple .avatar { color: var(--purple); }
+    .team-card.pink .avatar {
+      color: var(--pink);
+      background: rgba(255, 120, 172, 0.14);
+    }
+
+    .team-name {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+    .team-role {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 18px;
+    }
+    .team-card.purple .team-role { color: var(--purple); }
+    .team-card.pink .team-role { color: var(--pink); }
+    .team-bio {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer a { color: var(--purple); text-decoration: none; font-weight: 600; }
+
+    @media (max-width: 600px) {
+      .nav { padding: 18px 20px; }
+      .container { padding: 20px 20px 60px; }
+      .team-card { padding: 24px 22px; }
+      .avatar { width: 80px; height: 80px; font-size: 24px; margin-bottom: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <nav class="nav">
+    <a href="/" class="nav-brand">BLEND</a>
+    <a href="/" class="nav-back">&larr; Back to BLEND</a>
+  </nav>
+
+  <main class="container">
+    <span class="kicker">The Team</span>
+    <h1>Industry expertise, enterprise engineering, and VC-grade finance.</h1>
+    <p class="lede">BLEND is built by people who have lived inside salons, beauty schools, and the high-velocity software teams that scale them. Here is who is behind it.</p>
+
+    <div class="team-grid">
+      <article class="team-card purple">
+        <div class="avatar">RT</div>
+        <h2 class="team-name">Rob Thatcher</h2>
+        <p class="team-role">Founder &amp; CEO</p>
+        <p class="team-bio">20 years in the beauty industry. Trained admissions and service reps at hundreds of schools across nearly every U.S. state. Invited speaker on AI at multiple industry conferences.</p>
+      </article>
+
+      <article class="team-card pink">
+        <div class="avatar">SA</div>
+        <h2 class="team-name">Steve Allred</h2>
+        <p class="team-role">Co-founder &amp; CTO</p>
+        <p class="team-bio">12 years in enterprise software engineering, most recently at Adobe — where he built AI tooling running Claude in production and led work on data sync and authentication.</p>
+      </article>
+
+      <article class="team-card purple">
+        <div class="avatar">JS</div>
+        <h2 class="team-name">Jon Saunders, CPA</h2>
+        <p class="team-role">CFO</p>
+        <p class="team-bio">Senior Controller at Aduro Advisors, serving as fractional CFO/Controller for venture capital and private equity funds. 10+ years in fund accounting.</p>
+      </article>
+
+      <article class="team-card pink">
+        <div class="avatar">CB</div>
+        <h2 class="team-name">Caden Bloxem</h2>
+        <p class="team-role">Software Engineer</p>
+        <p class="team-bio">Years of AI engineering experience. [Background details to be added.]</p>
+      </article>
+    </div>
+  </main>
+
+  <div class="footer">
+    Want to talk to us? <a href="/">Schedule a demo on the home page.</a>
+  </div>
+</body>
+</html>
+
