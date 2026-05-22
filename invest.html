@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLEND | For Investors</title>
+  <meta name="description" content="BLEND seed round investor materials." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fffaf7;
+      --panel: rgba(255, 255, 255, 0.9);
+      --text: #171717;
+      --muted: #686868;
+      --soft-text: #3a3a3a;
+      --purple: #9b5cff;
+      --purple-soft: rgba(155, 92, 255, 0.12);
+      --blue: #50a7ff;
+      --cyan: #7edfd2;
+      --gold: #ffc97a;
+      --gold-soft: rgba(255, 201, 122, 0.18);
+      --pink: #ff78ac;
+      --pink-soft: rgba(255, 120, 172, 0.12);
+      --shadow: 0 18px 48px rgba(17, 17, 17, 0.08);
+      --radius: 22px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .blob-1 { top: -200px; left: -180px; width: 520px; height: 520px; background: radial-gradient(circle, var(--purple), transparent 70%); }
+    .blob-2 { bottom: -240px; right: -160px; width: 560px; height: 560px; background: radial-gradient(circle, var(--pink), transparent 70%); }
+    .blob-3 { top: 40%; right: -140px; width: 360px; height: 360px; background: radial-gradient(circle, var(--gold), transparent 70%); opacity: 0.25; }
+
+    /* ===== GATE UI ===== */
+    .gate-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .gate-card {
+      background: var(--panel);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(17, 17, 17, 0.06);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      max-width: 460px;
+      width: 100%;
+      padding: 48px 40px 40px;
+      text-align: center;
+    }
+    .gate-brand {
+      font-weight: 900;
+      font-size: 36px;
+      letter-spacing: -0.03em;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 6px;
+    }
+    .gate-tagline {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 36px;
+    }
+    .gate-lock {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-soft), var(--pink-soft));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+    .gate-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin: 0 0 8px;
+    }
+    .gate-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 28px;
+    }
+    .gate-form { display: flex; flex-direction: column; gap: 14px; }
+    .gate-input {
+      font-family: inherit;
+      font-size: 16px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(17, 17, 17, 0.1);
+      background: #fff;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      letter-spacing: 0.02em;
+    }
+    .gate-input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(155, 92, 255, 0.15); }
+    .gate-btn {
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.15s ease;
+    }
+    .gate-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(155, 92, 255, 0.32); }
+    .gate-btn:disabled { opacity: 0.7; cursor: wait; transform: none; }
+    .gate-error {
+      color: #d63b6c;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 6px;
+      min-height: 20px;
+      transition: opacity 0.2s ease;
+    }
+    .gate-error.show { opacity: 1; }
+    .gate-foot {
+      margin-top: 28px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .gate-foot a { color: var(--purple); text-decoration: none; }
+    .gate-foot a:hover { text-decoration: underline; }
+    .shake { animation: shake 0.4s ease; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    /* ===== MAIN CONTENT (revealed after unlock) ===== */
+    .content {
+      display: block;
+      opacity: 1;
+      transition: opacity 0.4s ease;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 28px 80px;
+      position: relative;
+      z-index: 1;
+    }
+    .back-link {
+      display: inline-block;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(17, 17, 17, 0.08);
+      margin-bottom: 28px;
+      transition: all 0.15s ease;
+    }
+    .back-link:hover { background: rgba(17, 17, 17, 0.04); }
+
+    .hero { padding: 48px 0 32px; }
+    .hero-title {
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      margin: 14px 0 22px;
+    }
+    .hero-grad {
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-lead {
+      font-size: clamp(16px, 1.6vw, 19px);
+      color: var(--soft-text);
+      max-width: 760px;
+      line-height: 1.55;
+    }
+
+    .section { padding: 56px 0; border-top: 1px solid rgba(17,17,17,0.06); }
+    .section:first-of-type, .hero { border-top: none; }
+    .section h2 {
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      margin: 12px 0 18px;
+      max-width: 920px;
+    }
+    .section-lead {
+      font-size: 17px;
+      color: var(--soft-text);
+      max-width: 820px;
+      margin: 0 0 28px;
+      line-height: 1.6;
+    }
+
+    .kicker {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+    .kicker-pink { background: var(--pink-soft); color: var(--pink); }
+    .kicker-purple { background: var(--purple-soft); color: var(--purple); }
+    .kicker-gold { background: var(--gold-soft); color: #b67917; }
+    .kicker-cyan { background: rgba(126, 223, 210, 0.22); color: #1f8074; }
+
+    /* Stat rows */
+    .stat-row { display: grid; gap: 16px; margin-top: 8px; }
+    .stat-row-3 { grid-template-columns: repeat(3, 1fr); }
+    .stat-row-4 { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 880px) {
+      .stat-row-3, .stat-row-4 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .stat-row-3, .stat-row-4 { grid-template-columns: 1fr; }
+    }
+    .stat-card {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-left: 4px solid var(--purple);
+      border-radius: 18px;
+      padding: 22px 22px 20px;
+      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
+    }
+    .stat-card-purple { border-left-color: var(--purple); }
+    .stat-card-pink { border-left-color: var(--pink); }
+    .stat-card-gold { border-left-color: var(--gold); }
+    .stat-num {
+      font-size: 40px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--purple);
+      margin-bottom: 10px;
+    }
+    .stat-num-text { font-size: 32px; }
+    .stat-card-pink .stat-num { color: var(--pink); }
+    .stat-card-gold .stat-num { color: #b67917; }
+    .stat-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .stat-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .stat-card-tight {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(17,17,17,0.04);
+    }
+    .stat-card-tight .stat-num { font-size: 36px; color: var(--purple); }
+    .stat-card-tight .stat-label { font-size: 13px; }
+    .stat-card-tight .stat-foot { font-size: 11px; color: var(--muted); margin-top: 8px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+
+    /* Two-column / panels */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .two-col-flip { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 800px) { .two-col, .two-col-flip { grid-template-columns: 1fr; } }
+    .panel {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
+    }
+    .panel-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .panel-stat {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--purple);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .panel-text { color: var(--soft-text); margin: 0; }
+    .panel-quote {
+      font-style: italic;
+      font-weight: 500;
+      font-size: 17px;
+      color: var(--text);
+      margin: 0 0 4px;
+      border-left: 3px solid var(--purple);
+      padding-left: 14px;
+    }
+    .panel-attr {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 18px;
+      padding-left: 17px;
+    }
+    .panel-attr:last-child { margin-bottom: 0; }
+
+    /* Card rows */
+    .card-row { display: grid; gap: 18px; margin-top: 12px; }
+    .card-row-2 { grid-template-columns: 1fr 1fr; }
+    .card-row-3 { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 900px) { .card-row-3, .card-row-2 { grid-template-columns: 1fr; } }
+    .info-card {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 20px;
+      padding: 26px 24px;
+      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
+    }
+    .info-card h3 { margin: 0 0 8px; font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+    .info-card p { margin: 0; color: var(--soft-text); font-size: 14.5px; line-height: 1.55; }
+    .info-card-icon {
+      font-size: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--purple-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .info-card-num {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--purple);
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    /* Demo section */
+    .section-demo { background: linear-gradient(135deg, rgba(155,92,255,0.05), rgba(255,120,172,0.05)); margin: 56px -28px; padding: 56px 28px; border-radius: 32px; border-top: none; }
+    .demo-box {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 22px;
+      padding: 36px 30px;
+      box-shadow: var(--shadow);
+      max-width: 560px;
+      text-align: center;
+    }
+    .demo-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .demo-number {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 14px;
+    }
+    .demo-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .demo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 920px; margin: 0 auto; }
+    .demo-grid .demo-box { max-width: none; padding: 28px 24px; }
+    @media (max-width: 760px) { .demo-grid { grid-template-columns: 1fr; } }
+
+    /* Product cards */
+    .product-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 12px; }
+    @media (max-width: 900px) { .product-row { grid-template-columns: 1fr; } }
+    .product-card {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-top: 4px solid var(--purple);
+      border-radius: 18px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
+    }
+    .product-card-sara { border-top-color: var(--purple); }
+    .product-card-cassie { border-top-color: var(--pink); }
+    .product-card-leo { border-top-color: var(--gold); }
+    .product-tag {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .product-card-sara .product-tag { color: var(--purple); }
+    .product-card-cassie .product-tag { color: var(--pink); }
+    .product-card-leo .product-tag { color: #b67917; }
+    .product-sub {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .product-tagline {
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--soft-text);
+      margin: 0 0 16px;
+      line-height: 1.5;
+    }
+    .product-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--soft-text);
+    }
+    .product-list li {
+      padding: 8px 0 8px 18px;
+      position: relative;
+      border-top: 1px solid rgba(17,17,17,0.04);
+      line-height: 1.5;
+    }
+    .product-list li:first-child { border-top: none; }
+    .product-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 16px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--purple);
+    }
+    .product-card-cassie .product-list li::before { background: var(--pink); }
+    .product-card-leo .product-list li::before { background: var(--gold); }
+
+    /* Bullets / quote panels */
+    .bullet-panel { padding: 26px; }
+    .bullet-eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 14px; }
+    .bullet-list { padding: 0; margin: 0; list-style: none; }
+    .bullet-list li {
+      padding: 12px 0 12px 24px;
+      position: relative;
+      border-top: 1px solid rgba(17,17,17,0.06);
+      font-size: 15px;
+      color: var(--soft-text);
+    }
+    .bullet-list li:first-child { border-top: none; }
+    .bullet-list li::before {
+      content: '';
+      position: absolute; left: 0; top: 18px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--purple);
+    }
+    .result-panel {
+      background: linear-gradient(135deg, var(--purple-soft), var(--pink-soft));
+      border-radius: 22px;
+      padding: 36px 28px;
+      text-align: center;
+    }
+    .result-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); font-weight: 700; margin-bottom: 18px; }
+    .result-arrow {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      margin-bottom: 16px;
+    }
+    .result-from { font-size: 32px; font-weight: 700; color: var(--muted); text-decoration: line-through; }
+    .result-arrow-icon { font-size: 24px; color: var(--purple); }
+    .result-to { font-size: 64px; font-weight: 900; color: var(--purple); letter-spacing: -0.04em; line-height: 1; }
+    .result-caption { font-size: 14px; color: var(--text); font-weight: 600; margin-bottom: 8px; }
+    .result-foot { font-size: 12px; color: var(--muted); }
+    .quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 700px) { .quad-grid { grid-template-columns: 1fr; } }
+    .quad-cell {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(17,17,17,0.04);
+    }
+    .quad-title { font-weight: 800; font-size: 16px; margin-bottom: 6px; color: var(--pink); }
+    .quad-cell p { margin: 0; font-size: 14px; color: var(--soft-text); line-height: 1.55; }
+
+    .quote-panel {
+      background: linear-gradient(135deg, var(--gold-soft), var(--pink-soft));
+      border-radius: 22px;
+      padding: 40px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quote-big {
+      font-size: clamp(20px, 2.6vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin: 0;
+      text-align: center;
+    }
+
+    /* Band callout */
+    .band-callout {
+      margin-top: 24px;
+      background: linear-gradient(90deg, var(--purple-soft), var(--pink-soft));
+      border-radius: 14px;
+      padding: 14px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      font-size: 13.5px;
+      color: var(--soft-text);
+    }
+    .band-callout strong { color: var(--text); }
+
+    /* TAM grid */
+    .tam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+    @media (max-width: 720px) { .tam-grid { grid-template-columns: 1fr; } }
+    .tam-cell {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .tam-cell-accent {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      border: none;
+    }
+    .tam-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.7; font-weight: 700; margin-bottom: 8px; }
+    .tam-num { font-size: 36px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; }
+    .tam-cell .tam-num { color: var(--purple); }
+    .tam-cell-accent .tam-num { color: #fff; }
+    .tam-desc { font-size: 12.5px; opacity: 0.75; line-height: 1.4; }
+
+    /* Callouts / case studies */
+    .callout {
+      margin-top: 24px;
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-left: 4px solid var(--purple);
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+    .callout-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); font-weight: 700; margin-bottom: 8px; }
+    .callout p { margin: 0; color: var(--soft-text); font-size: 14.5px; line-height: 1.6; }
+
+    .case-study {
+      margin-top: 28px;
+      background: linear-gradient(135deg, var(--purple-soft), var(--pink-soft));
+      border-radius: 22px;
+      padding: 28px 28px 24px;
+    }
+    .case-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); font-weight: 700; margin-bottom: 8px; }
+    .case-title { margin: 0 0 12px; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+    .case-body { margin: 0 0 20px; color: var(--soft-text); font-size: 14.5px; line-height: 1.6; }
+    .case-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 600px) { .case-stat-row { grid-template-columns: 1fr; } }
+    .case-stat {
+      background: rgba(255,255,255,0.7);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+    .case-stat-num { display: block; font-size: 22px; font-weight: 900; color: var(--purple); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 4px; }
+    .case-stat-label { display: block; font-size: 12px; color: var(--muted); }
+
+    /* Pricing */
+    .pricing-panel, .lever-panel {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
+    }
+    .pricing-eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 16px; }
+    .pricing-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(17,17,17,0.06); font-size: 14.5px; }
+    .pricing-row:first-of-type { border-top: none; padding-top: 0; }
+    .pricing-name { color: var(--text); font-weight: 600; }
+    .pricing-price { color: var(--purple); font-weight: 800; }
+    .pricing-add { color: var(--muted); font-weight: 500; font-size: 13px; }
+    .pricing-total { background: var(--purple-soft); margin: 12px -10px 0; padding: 14px 14px; border-radius: 12px; border-top: none; }
+    .pricing-total .pricing-price { color: var(--purple); }
+    .lever-item { padding: 12px 0; border-top: 1px solid rgba(17,17,17,0.06); }
+    .lever-item:first-of-type { border-top: none; padding-top: 0; }
+    .lever-item h4 { margin: 0 0 4px; font-size: 14.5px; font-weight: 800; }
+    .lever-item p { margin: 0; font-size: 13px; color: var(--soft-text); line-height: 1.5; }
+
+    /* Forecast */
+    .forecast-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .forecast-cell {
+      flex: 1 1 220px;
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 18px;
+      padding: 24px;
+      text-align: center;
+    }
+    .forecast-cell-accent {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      border: none;
+      color: #fff;
+    }
+    .forecast-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.7; font-weight: 700; margin-bottom: 8px; }
+    .forecast-num { font-size: 40px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: var(--purple); margin-bottom: 6px; }
+    .forecast-cell-accent .forecast-num { color: #fff; }
+    .forecast-label { font-size: 13px; color: var(--muted); }
+    .forecast-cell-accent .forecast-label { color: rgba(255,255,255,0.85); }
+    .forecast-arrow { font-size: 22px; color: var(--purple); flex: 0 0 auto; }
+    @media (max-width: 700px) { .forecast-arrow { transform: rotate(90deg); margin: 0 auto; } }
+
+    /* Compare table */
+    .compare-table {
+      margin-top: 12px;
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
+    }
+    .compare-row { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); border-top: 1px solid rgba(17,17,17,0.06); }
+    .compare-row:first-child { border-top: none; }
+    .compare-head { background: rgba(17,17,17,0.03); font-size: 12px; font-weight: 700; }
+    .compare-cell, .compare-cell-label { padding: 14px 12px; font-size: 13.5px; text-align: center; color: var(--soft-text); border-left: 1px solid rgba(17,17,17,0.06); }
+    .compare-cell-label { text-align: left; font-weight: 600; color: var(--text); border-left: none; }
+    .compare-cell-us { background: var(--purple-soft); color: var(--purple); font-weight: 800; }
+    @media (max-width: 760px) {
+      .compare-row { grid-template-columns: 1fr 1fr; }
+      .compare-head { display: none; }
+      .compare-cell-label { background: rgba(17,17,17,0.04); }
+    }
+
+    .caption { margin-top: 18px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* Team grid */
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 12px; }
+    @media (max-width: 1000px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; } }
+    .team-card {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-top: 4px solid var(--purple);
+      border-radius: 18px;
+      padding: 24px 22px 22px;
+      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
+    }
+    .team-card-purple { border-top-color: var(--purple); }
+    .team-card-pink { border-top-color: var(--pink); }
+    .team-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      background: var(--purple-soft);
+      color: var(--purple);
+    }
+    .team-card-pink .team-avatar { background: var(--pink-soft); color: var(--pink); }
+    .team-name { font-size: 16px; font-weight: 800; margin-bottom: 2px; }
+    .team-role { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple); margin-bottom: 12px; }
+    .team-card-pink .team-role { color: var(--pink); }
+    .team-card p { margin: 0; font-size: 13px; color: var(--soft-text); line-height: 1.55; }
+
+    /* Phase row */
+    .phase-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 12px; }
+    @media (max-width: 980px) { .phase-row { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .phase-row { grid-template-columns: 1fr; } }
+    .phase-cell {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 16px;
+      padding: 22px 20px;
+    }
+    .phase-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      background: var(--purple-soft);
+      color: var(--purple);
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .phase-when { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 8px; }
+    .phase-title { font-size: 15px; font-weight: 800; margin-bottom: 8px; }
+    .phase-cell p { margin: 0; font-size: 13px; color: var(--soft-text); line-height: 1.5; }
+
+    /* Milestone grid */
+    .milestone-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 12px; }
+    @media (max-width: 980px) { .milestone-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .milestone-grid { grid-template-columns: 1fr; } }
+    .milestone-cell {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .milestone-month { font-size: 13px; font-weight: 800; color: var(--purple); margin-bottom: 16px; letter-spacing: 0.05em; }
+    .milestone-cat { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-top: 12px; margin-bottom: 4px; }
+    .milestone-cell p { margin: 0 0 4px; font-size: 13.5px; color: var(--soft-text); line-height: 1.45; }
+
+    /* The Ask */
+    .ask-target {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      border-radius: 22px;
+      padding: 32px 28px;
+    }
+    .ask-target-num { font-size: 64px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
+    .ask-target-label { font-size: 14px; font-weight: 700; opacity: 0.85; margin-bottom: 4px; }
+    .ask-target-sub { font-size: 12px; opacity: 0.75; margin-bottom: 24px; }
+    .ask-investor-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.85; font-weight: 700; margin-bottom: 10px; }
+    .ask-investor-list { padding: 0; margin: 0; list-style: none; }
+    .ask-investor-list li {
+      font-size: 14px;
+      padding: 8px 0 8px 18px;
+      position: relative;
+      border-top: 1px solid rgba(255,255,255,0.18);
+    }
+    .ask-investor-list li:first-child { border-top: none; }
+    .ask-investor-list li::before {
+      content: '';
+      position: absolute; left: 0; top: 16px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .ask-use {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 22px;
+      padding: 28px;
+    }
+    .ask-use-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 18px; }
+    .ask-use-row {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 14px 0;
+      border-top: 1px solid rgba(17,17,17,0.06);
+    }
+    .ask-use-row:first-of-type { border-top: none; padding-top: 0; }
+    .ask-pct {
+      flex: 0 0 50px;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--purple);
+      letter-spacing: -0.02em;
+    }
+    .ask-cat { display: flex; flex-direction: column; }
+    .ask-cat strong { font-size: 14px; font-weight: 800; }
+    .ask-cat span { font-size: 12.5px; color: var(--muted); }
+
+    /* Closing */
+    .section-close { padding: 80px 0 24px; text-align: center; border-top: none; }
+    .close-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      max-width: 760px;
+      margin: 0 auto 36px;
+    }
+    .close-grad {
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .close-contact {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 24px 36px;
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+    .close-name { font-size: 18px; font-weight: 800; }
+    .close-role { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+    .close-email, .close-site { font-size: 14px; color: var(--soft-text); }
+
+    /* Reveal-on-scroll polish */
+    .reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in-view, .content.visible .reveal { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Investor content -->
+  <main class="content" id="contentWrap">
+<a class="back-link" href="/">&larr; Back to BLEND</a>
+
+<header class="hero reveal">
+  <span class="kicker kicker-pink">Seed Round &middot; 2026 &middot; Confidential</span>
+  <h1 class="hero-title">Human touch meets <span class="hero-grad">AI precision</span>.</h1>
+  <p class="hero-lead">An AI-first platform built by beauty industry insiders for the moments that matter — replying to texts, booking tours, engaging leads, and driving enrollments. Live in market today.</p>
+</header>
+
+<section class="section reveal">
+  <span class="kicker kicker-pink">The Problem</span>
+  <h2>The beauty industry is leaking revenue &mdash; one missed conversation at a time.</h2>
+  <p class="section-lead">Cosmetology schools and salons live and die by conversations with prospective students and clients. But front desks get overwhelmed, admissions reps burn out, and follow-up falls through the cracks. The CRMs they use weren&rsquo;t built for the industry, weren&rsquo;t built around AI, and don&rsquo;t solve the problem where it actually lives: in the text thread, at 8pm on a Tuesday.</p>
+
+  <div class="stat-row stat-row-4">
+    <div class="stat-card stat-card-purple">
+      <div class="stat-num">50%</div>
+      <div class="stat-desc">Industry-average show rate for booked school tours</div>
+    </div>
+    <div class="stat-card stat-card-pink">
+      <div class="stat-num">~60%</div>
+      <div class="stat-desc">Of inbound inquiries to busy salons go unanswered or unreturned</div>
+    </div>
+    <div class="stat-card stat-card-purple">
+      <div class="stat-num">3</div>
+      <div class="stat-desc">Legacy CRMs dominate the space &mdash; none of them are built on AI</div>
+    </div>
+    <div class="stat-card stat-card-gold">
+      <div class="stat-num">Over 90%</div>
+      <div class="stat-desc">Of salon service interactions never even offer an upsell. Cassie offers one over 90% of the time &mdash; and closes the sale over 73% of the time.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-purple">Why Now</span>
+  <h2>An industry that knows it needs AI &mdash; and hasn&rsquo;t picked a winner yet.</h2>
+
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-eyebrow">Market reality</div>
+      <div class="panel-stat">2</div>
+      <p class="panel-text">of hundreds of cosmetology schools we&rsquo;ve spoken with are using AI in any meaningful way. Two industry conferences are paying us to teach the industry about AI in 2026.</p>
+    </div>
+    <div class="panel">
+      <div class="panel-eyebrow">What schools are telling us</div>
+      <p class="panel-quote">&ldquo;I know I need AI. We just haven&rsquo;t signed with anyone yet.&rdquo;</p>
+      <p class="panel-attr">&mdash; A typical conversation at every conference</p>
+      <p class="panel-quote">&ldquo;The AI companies we&rsquo;ve talked to just don&rsquo;t know our industry. So we didn&rsquo;t sign.&rdquo;</p>
+      <p class="panel-attr">&mdash; The exact gap BLEND was built to fill</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-purple">The Solution</span>
+  <h2>An AI-first platform built by beauty industry insiders, for beauty industry insiders.</h2>
+  <p class="section-lead">We build AI agents and software that handle the moments that matter &mdash; using techniques proven across 800+ schools over two decades.</p>
+
+  <div class="card-row card-row-3">
+    <div class="info-card">
+      <div class="info-card-icon">&#x1F4AC;</div>
+      <h3>Answer every text</h3>
+      <p>AI text concierge that handles inbound conversations 24/7, without a slow reply or missed message.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">&#x1F3AF;</div>
+      <h3>Convert like a pro</h3>
+      <p>Proven admissions techniques from 20 years of industry training &mdash; built into every message.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">&#x2728;</div>
+      <h3>AI-native CRM</h3>
+      <p>A CRM built from the ground up around AI. Not retrofitted. Not catching up. Leading.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-demo reveal">
+  <span class="kicker kicker-cyan">Try It Live</span>
+  <h2>Cassie and Sara are live. Text them.</h2>
+  <p class="section-lead">Experience BLEND&rsquo;s AI text concierges firsthand &mdash; the same systems powering live salon front desks and school admissions today. Text-only, no voice (yet). Latency is in demo stage; response times are being optimized.</p>
+
+  <div class="demo-grid">
+    <div class="demo-box">
+      <div class="demo-label">Cassie &middot; Salons &middot; Text only</div>
+      <div class="demo-number">208&middot;802&middot;4546</div>
+      <div class="demo-sub"><strong>Cassie handles salon service inquiries</strong> &mdash; booking appointments, answering service questions, the kind of texts a salon front desk gets all day.</div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-label">Sara &middot; Schools &middot; Text only</div>
+      <div class="demo-number">775&middot;599&middot;6221</div>
+      <div class="demo-sub"><strong>Sara handles school admissions inquiries</strong> &mdash; program questions, tuition, financial aid, and booking campus tours. Trained on 20 years of admissions technique.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-pink">The Product Suite</span>
+  <h2>Three products. One integrated platform.</h2>
+
+  <div class="product-row">
+    <div class="product-card product-card-sara">
+      <div class="product-tag">Sara</div>
+      <div class="product-sub">AI Admissions Agent</div>
+      <p class="product-tagline">&ldquo;Built on 20 years of proven admissions technique&rdquo;</p>
+      <ul class="product-list">
+        <li>Engages prospective students via text the moment they inquire</li>
+        <li>Answers program & tuition questions like a trained admissions counselor</li>
+        <li>Books campus tours and follows up automatically when leads go cold</li>
+      </ul>
+    </div>
+    <div class="product-card product-card-cassie">
+      <div class="product-tag">Cassie</div>
+      <div class="product-sub">AI Service Concierge</div>
+      <p class="product-tagline">&ldquo;The front desk that never clocks out&rdquo;</p>
+      <ul class="product-list">
+        <li>Replies to texts 24/7 &mdash; never a missed conversation</li>
+        <li>Books appointments, including complicated multi-service bookings</li>
+        <li>Steps in when the front desk is busy, closed, or overwhelmed</li>
+      </ul>
+    </div>
+    <div class="product-card product-card-leo">
+      <div class="product-tag">Aiden</div>
+      <div class="product-sub">AI-Native CRM Platform</div>
+      <p class="product-tagline">&ldquo;An AI company selling CRMs &mdash; not the other way around&rdquo;</p>
+      <ul class="product-list">
+        <li>Lead management, workflows, and pipeline tracking &mdash; without the bloat</li>
+        <li>Sara lives inside, coaching staff and taking over when teams are busy</li>
+        <li>Pulls reports and automates follow-up in plain English</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-purple">Sara &middot; Deep Dive</span>
+  <h2>Sara turns inquiries into enrolled students.</h2>
+  <p class="section-lead">Built by the team that trained admissions reps at 800+ schools nationwide, Sara doesn&rsquo;t just respond fast &mdash; she responds right.</p>
+
+  <div class="two-col">
+    <div class="bullet-panel">
+      <ul class="bullet-list">
+        <li>Engages leads within seconds via text</li>
+        <li>Books campus tours and answers tuition questions</li>
+        <li>Follows up automatically &mdash; turns cold leads warm</li>
+        <li>Learns each school&rsquo;s programs, voice, and close technique</li>
+      </ul>
+    </div>
+    <div class="result-panel">
+      <div class="result-eyebrow">Proven result</div>
+      <div class="result-arrow">
+        <span class="result-from">50%</span>
+        <span class="result-arrow-icon">&darr;</span>
+        <span class="result-to">90%</span>
+      </div>
+      <div class="result-caption">Show rates for school tours using the proven SalesComm approach.</div>
+      <div class="result-foot">Based on two decades of results at 800+ cosmetology schools nationwide.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-pink">Cassie &middot; Deep Dive</span>
+  <h2>Cassie is the front desk that never clocks out.</h2>
+  <p class="section-lead">Cassie is an AI text concierge for salons and service businesses. She replies when your front desk can&rsquo;t &mdash; which, in this industry, is every single day. (Text-only today; voice on the roadmap.)</p>
+
+  <div class="quad-grid">
+    <div class="quad-cell">
+      <div class="quad-title">24/7 availability</div>
+      <p>Answers every text &mdash; nights, weekends, lunch breaks, holidays.</p>
+    </div>
+    <div class="quad-cell">
+      <div class="quad-title">Real conversations</div>
+      <p>Handles multi-appointment bookings, reschedules, and complex service requests.</p>
+    </div>
+    <div class="quad-cell">
+      <div class="quad-title">Instant response</div>
+      <p>Replies to texts in seconds &mdash; when interest is still warm.</p>
+    </div>
+    <div class="quad-cell">
+      <div class="quad-title">Rescued revenue</div>
+      <p>Every unanswered text is a lost client. Cassie makes missed messages a thing of the past.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-gold">Aiden &middot; Deep Dive</span>
+  <h2>The first CRM built from the ground up around AI.</h2>
+  <p class="section-lead">Not retrofitted. Not catching up. Designed by beauty school admissions experts who spent years inside the industry&rsquo;s three largest CRMs &mdash; and knew there was a better way.</p>
+
+  <div class="two-col two-col-flip">
+    <div class="bullet-panel">
+      <div class="bullet-eyebrow">What&rsquo;s inside</div>
+      <ul class="bullet-list">
+        <li>Lead management & admissions pipeline</li>
+        <li>Automated follow-up workflows</li>
+        <li>Plain-English reports & analytics</li>
+        <li>Sara lives inside &mdash; coaches staff, answers questions</li>
+      </ul>
+    </div>
+    <div class="quote-panel">
+      <p class="quote-big">We&rsquo;re an AI company that sells CRMs &mdash; not a CRM company trying to catch up on AI.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-purple">Market Opportunity</span>
+  <h2>A massive, underserved vertical &mdash; with clear expansion paths.</h2>
+
+  <div class="stat-row stat-row-3">
+    <div class="stat-card stat-card-purple">
+      <div class="stat-num">~1,000+</div>
+      <div class="stat-label">Cosmetology Schools (US)</div>
+      <div class="stat-desc">Primary wedge &mdash; accredited beauty schools nationwide</div>
+    </div>
+    <div class="stat-card stat-card-pink">
+      <div class="stat-num">~1M+</div>
+      <div class="stat-label">Salons & Service Businesses (US)</div>
+      <div class="stat-desc">Cassie&rsquo;s core market &mdash; any business with a front desk</div>
+    </div>
+    <div class="stat-card stat-card-gold">
+      <div class="stat-num stat-num-text">Expansion</div>
+      <div class="stat-label">Adjacent Vocational</div>
+      <div class="stat-desc">Massage, trade schools, esthetics, nursing, fitness</div>
+    </div>
+  </div>
+
+  <div class="band-callout">
+    <span><strong>Base annual contract per school</strong> &asymp; $21,600 ARR</span>
+    <span><strong>Multi-location salons:</strong> $1,200&ndash;$2,400/mo per account</span>
+    <span><strong>Seat-based scaling</strong></span>
+  </div>
+
+  <div class="tam-grid">
+    <div class="tam-cell">
+      <div class="tam-eyebrow">Salon TAM</div>
+      <div class="tam-num">$1.55B</div>
+      <div class="tam-desc">107,500 addressable salons &times; $1,200/mo</div>
+    </div>
+    <div class="tam-cell">
+      <div class="tam-eyebrow">School TAM</div>
+      <div class="tam-num">$57.6M</div>
+      <div class="tam-desc">4,000 cosmetology schools &times; $1,200/mo</div>
+    </div>
+    <div class="tam-cell tam-cell-accent">
+      <div class="tam-eyebrow">Combined TAM</div>
+      <div class="tam-num">$1.6B+</div>
+      <div class="tam-desc">Schools + Salons &mdash; per year</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-pink">Traction</span>
+  <h2>We&rsquo;re already in market, and the signal is strong.</h2>
+
+  <div class="stat-row stat-row-4">
+    <div class="stat-card-tight">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Schools signed</div>
+      <div class="stat-foot">Live customers today</div>
+    </div>
+    <div class="stat-card-tight">
+      <div class="stat-num">16</div>
+      <div class="stat-label">Product contracts sold</div>
+      <div class="stat-foot">All 12-month commits</div>
+    </div>
+    <div class="stat-card-tight">
+      <div class="stat-num" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;text-align:center;letter-spacing:-0.02em;line-height:1;">
+        <span style="color:#50a7ff;">6</span>
+        <span style="color:#9b5cff;">5</span>
+        <span style="color:#b67917;">5</span>
+      </div>
+      <div class="stat-label" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;text-align:center;margin-top:14px;font-weight:700;">
+        <span style="color:#0a3d5c;">Cassie</span>
+        <span style="color:#2e1065;">Sara</span>
+        <span style="color:#713f12;">Aiden</span>
+      </div>
+      <div class="stat-foot" style="text-align:center;margin-top:14px;">Mix across 10 schools</div>
+    </div>
+    <div class="stat-card-tight">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Industry attendees across 2 AI talks</div>
+      <div class="stat-foot">Rob invited to speak</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-eyebrow">Market pull</div>
+    <p>These aren&rsquo;t paid sponsorships &mdash; the conferences invited Rob to speak on AI at two industry events this year, reaching 200+ decision-makers. Inbound interest from schools is outpacing our ability to roll Sara out.</p>
+  </div>
+
+  <div class="case-study">
+    <div class="case-eyebrow">Category proof point &middot; Brocoli</div>
+    <h3 class="case-title">A peer in adjacent verticals just proved the AI-enrollment market at scale.</h3>
+    <p class="case-body">Brocoli, an AI enrollment platform serving the same buyer, scaled from 50 to 800+ paying clients in roughly 18 months &mdash; generating $800K+ in monthly recurring revenue at $1,000/mo per client. The market is real. The willingness to pay is real. BLEND enters with 20 years of industry trust and a head start Brocoli didn&rsquo;t have.</p>
+    <div class="case-stat-row">
+      <div class="case-stat"><span class="case-stat-num">50&rarr;800+</span><span class="case-stat-label">clients in &lt;2 yrs</span></div>
+      <div class="case-stat"><span class="case-stat-num">$800K+</span><span class="case-stat-label">MRR at peak</span></div>
+      <div class="case-stat"><span class="case-stat-num">$1K</span><span class="case-stat-label">avg / client / mo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-gold">SalesComm Track Record</span>
+  <h2>Before BLEND existed, Rob&rsquo;s network already validated the model.</h2>
+  <p class="section-lead">SalesComm is Rob&rsquo;s 20-year-old training and consulting business in beauty schools and salons. The names, the relationships, and the proof of recurring spend are already in hand.</p>
+
+  <div class="stat-row stat-row-4">
+    <div class="stat-card-tight">
+      <div class="stat-num">90</div>
+      <div class="stat-label">Total brands served</div>
+      <div class="stat-foot">Cosmetology brands since inception</div>
+    </div>
+    <div class="stat-card-tight">
+      <div class="stat-num">225</div>
+      <div class="stat-label">Total locations</div>
+      <div class="stat-foot">~2.5 avg locations per brand</div>
+    </div>
+    <div class="stat-card-tight">
+      <div class="stat-num">16</div>
+      <div class="stat-label">Active brands today</div>
+      <div class="stat-foot">Currently paying SalesComm</div>
+    </div>
+    <div class="stat-card-tight">
+      <div class="stat-num">~$29K</div>
+      <div class="stat-label">Active brand MRR (today)</div>
+      <div class="stat-foot">Baseline before BLEND cross-sell</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-pink">Distribution</span>
+  <h2>We didn&rsquo;t just land 3 customers &mdash; we landed the right 3.</h2>
+  <p class="section-lead">Our first three paying schools are Paul Mitchell schools. They&rsquo;ve offered to recommend BLEND to the rest of the Paul Mitchell network in exchange for a revenue share. No signed agreement yet &mdash; but a very probable, very strategic one.</p>
+
+  <div class="stat-row stat-row-3">
+    <div class="stat-card stat-card-purple">
+      <div class="stat-num">105</div>
+      <div class="stat-label">Paul Mitchell schools in the U.S.</div>
+      <div class="stat-desc">Single, recognizable national brand</div>
+    </div>
+    <div class="stat-card stat-card-pink">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Run on Meevo software</div>
+      <div class="stat-desc">Cassie is fully integrated with Meevo today</div>
+    </div>
+    <div class="stat-card stat-card-gold">
+      <div class="stat-num">$378K</div>
+      <div class="stat-label">Cassie ARR potential from this channel alone</div>
+      <div class="stat-desc">Before any Sara or Aiden upsell</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-purple">Go-to-Market</span>
+  <h2>Distribution that&rsquo;s already paid for itself.</h2>
+  <p class="section-lead">20 years. Zero marketing. Always too busy.</p>
+
+  <div class="card-row card-row-2">
+    <div class="info-card">
+      <div class="info-card-num">01</div>
+      <h3>Warm cross-sell</h3>
+      <p>Active training engagements convert directly into BLEND customers. Schools reach out to Rob for training; he closes them on AI.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-num">02</div>
+      <h3>Network referrals</h3>
+      <p>Hundreds of schools have either paid Rob, considered his services, or know him by reputation. A trust moat 20 years deep.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-num">03</div>
+      <h3>Conference circuit</h3>
+      <p>Already invited to speak at AACS (April 2026), Mid-Year Beauty Summit, and the major fall conference &mdash; generating dozens of qualified leads per year, with no marketing spend.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-num">04</div>
+      <h3>Charter event sponsorship</h3>
+      <p>BLEND-sponsored AI assistants at industry events. Hosts get a tech-forward experience and fewer repetitive questions; we get organic exposure to attendees and hands-on product trial without a pitch.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-gold">Business Model</span>
+  <h2>SaaS economics. AI-powered margins.</h2>
+
+  <div class="two-col">
+    <div class="pricing-panel">
+      <div class="pricing-eyebrow">Pricing structure</div>
+      <div class="pricing-row"><span class="pricing-name">Sara &middot; Admissions AI</span><span class="pricing-price">$700/mo<span class="pricing-add"> + $1,500 build-out</span></span></div>
+      <div class="pricing-row"><span class="pricing-name">Cassie &middot; Service AI</span><span class="pricing-price">$300/mo<span class="pricing-add"> + integration fees</span></span></div>
+      <div class="pricing-row"><span class="pricing-name">Aiden &middot; AI-Native CRM</span><span class="pricing-price">$495&ndash;$800/mo<span class="pricing-add"> + $1,500 build-out</span></span></div>
+      <div class="pricing-row pricing-total"><span class="pricing-name">Typical single-location school</span><span class="pricing-price">$1,495&ndash;$1,800/mo &middot; $17.9K&ndash;$21.6K ARR</span></div>
+    </div>
+    <div class="lever-panel">
+      <div class="pricing-eyebrow">Key levers</div>
+      <div class="lever-item">
+        <h4>24-month contracts</h4>
+        <p>Primary discount lever &mdash; 20% off Aiden & reduced build-out. Drives retention.</p>
+      </div>
+      <div class="lever-item">
+        <h4>Usage overages</h4>
+        <p>Per-conversation pricing beyond base tiers. Scales with success.</p>
+      </div>
+      <div class="lever-item">
+        <h4>Multi-location tiering</h4>
+        <p>Additional locations priced at a steep discount &mdash; expands ACV per logo.</p>
+      </div>
+      <div class="lever-item">
+        <h4>Product-to-product pull</h4>
+        <p>Cassie wins the salon. Sara wins the school. Aiden follows. Natural cross-sell.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-purple">Financial Projections</span>
+  <h2>From $340K to $2M ARR in 24 months.</h2>
+  <p class="section-lead">Bottoms-up forecast based on current pace, the Paul Mitchell channel unlock, and weighted product mix shifting from Cassie-led to Sara-led as Aiden matures.</p>
+
+  <div class="forecast-row">
+    <div class="forecast-cell">
+      <div class="forecast-eyebrow">Today</div>
+      <div class="forecast-num">$54K</div>
+      <div class="forecast-label">Current ARR &middot; 3 schools</div>
+    </div>
+    <div class="forecast-arrow">&rarr;</div>
+    <div class="forecast-cell">
+      <div class="forecast-eyebrow">End of Year 1</div>
+      <div class="forecast-num">$340K</div>
+      <div class="forecast-label">~40 schools</div>
+    </div>
+    <div class="forecast-arrow">&rarr;</div>
+    <div class="forecast-cell forecast-cell-accent">
+      <div class="forecast-eyebrow">End of Year 2</div>
+      <div class="forecast-num">$2.0M</div>
+      <div class="forecast-label">~150 schools</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-eyebrow">2026 expense plan</div>
+    <p>Total budget: <strong>$305,700</strong> &mdash; $280,500 salaries & wages, $18,000 travel & conferences, $7,200 operations. Engineering scales from 1 today (Caden, $5K/mo) to 4 by July (Engineer 2 in March at $6K/mo, Rob GP starting April at $13.5K/mo, Engineer 3 starting July at $7K/mo). Year 1 holds Cassie-led mix; Year 2 shifts toward Sara + Aiden as the product matures.</p>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-pink">Competitive Landscape</span>
+  <h2>Nobody in our industry has what we have.</h2>
+
+  <div class="compare-table">
+    <div class="compare-row compare-head">
+      <div class="compare-cell-label"></div>
+      <div class="compare-cell">Legacy industry CRMs</div>
+      <div class="compare-cell">HubSpot / Salesforce</div>
+      <div class="compare-cell">Generic AI tools</div>
+      <div class="compare-cell compare-cell-us">BLEND</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell-label">Built for beauty industry</div>
+      <div class="compare-cell">&#x2713;</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell compare-cell-us">&#x2713;</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell-label">AI-native architecture</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell">&#x2713;</div>
+      <div class="compare-cell compare-cell-us">&#x2713;</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell-label">20 yrs industry expertise</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell compare-cell-us">&#x2713;</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell-label">AI text + CRM, integrated</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell">Partial</div>
+      <div class="compare-cell compare-cell-us">&#x2713;</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell-label">Existing client relationships</div>
+      <div class="compare-cell">&#x2713;</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell">&mdash;</div>
+      <div class="compare-cell compare-cell-us">&#x2713;</div>
+    </div>
+  </div>
+
+  <p class="caption">The market is emerging. In the beauty industry, no competitor combines two decades of hands-on admissions expertise, an existing book of school relationships, and an AI-first platform across text and CRM (with voice on the roadmap).</p>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-purple">The Team</span>
+  <h2>Industry expertise, enterprise engineering, and VC-grade finance.</h2>
+
+  <div class="team-grid">
+    <div class="team-card team-card-purple">
+      <div class="team-avatar">RT</div>
+      <div class="team-name">Rob Thatcher</div>
+      <div class="team-role">Founder & CEO</div>
+      <p>20 years in the beauty industry. Trained admissions and service reps at hundreds of schools across nearly every U.S. state. Invited speaker on AI at multiple industry conferences.</p>
+    </div>
+    <div class="team-card team-card-pink">
+      <div class="team-avatar">SA</div>
+      <div class="team-name">Steve Allred</div>
+      <div class="team-role">Technical Co-founder & CTO</div>
+      <p>12 years in enterprise software engineering, most recently at Adobe &mdash; where he built AI tooling running Claude in production and led work on data sync and authentication.</p>
+    </div>
+    <div class="team-card team-card-purple">
+      <div class="team-avatar">JS</div>
+      <div class="team-name">Jon Saunders, CPA</div>
+      <div class="team-role">CFO</div>
+      <p>Senior Controller at Aduro Advisors, serving as fractional CFO/Controller for venture capital and private equity funds. 10+ years in fund accounting.</p>
+    </div>
+    <div class="team-card team-card-pink">
+      <div class="team-avatar">CB</div>
+      <div class="team-name">Caden Bloxem</div>
+      <div class="team-role">Software Engineer</div>
+      <p>Years of AI engineering experience. Building the production stack alongside Steve from day one.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-gold">Vision</span>
+  <h2>Own beauty. Then own vocational.</h2>
+  <p class="section-lead">Beauty is the wedge &mdash; a real market with real customers and a team uniquely positioned to win. But the playbook applies to every vocational and service business that lives or dies on conversations.</p>
+
+  <div class="phase-row">
+    <div class="phase-cell">
+      <div class="phase-num">1</div>
+      <div class="phase-when">Now</div>
+      <div class="phase-title">Beauty schools and salons</div>
+      <p>Cassie live, Sara shipping, Aiden alpha. Expand Sara to every paying Cassie school.</p>
+    </div>
+    <div class="phase-cell">
+      <div class="phase-num">2</div>
+      <div class="phase-when">12&ndash;24 mo</div>
+      <div class="phase-title">Full beauty vertical coverage</div>
+      <p>Dominate cosmetology schools, expand to barber schools, nail schools, esthetics programs.</p>
+    </div>
+    <div class="phase-cell">
+      <div class="phase-num">3</div>
+      <div class="phase-when">24&ndash;36 mo</div>
+      <div class="phase-title">Adjacent vocational expansion</div>
+      <p>Massage therapy, trade schools, nursing, fitness certification &mdash; any conversation-driven vocational vertical.</p>
+    </div>
+    <div class="phase-cell">
+      <div class="phase-num">4</div>
+      <div class="phase-when">36+ mo</div>
+      <div class="phase-title">Conversation-OS for service SMB</div>
+      <p>The BLEND platform as the default operating system for any business that lives in the text thread.</p>
+    </div>
+  </div>
+
+  <p class="caption"><strong>Already validated:</strong> Rob trained this playbook in HVAC & plumbing before beauty &mdash; active conversation with an HVAC client about a custom CRM build.</p>
+</section>
+
+<section class="section reveal">
+  <span class="kicker kicker-pink">Near-Term Milestones</span>
+  <h2>What we&rsquo;ll deliver in the next 4 months.</h2>
+  <p class="section-lead">Concrete, dated commitments &mdash; not aspirations. Most of these are already in motion or under contract.</p>
+
+  <div class="milestone-grid">
+    <div class="milestone-cell">
+      <div class="milestone-month">May 2026</div>
+      <div class="milestone-cat">Product</div>
+      <p>Sara nearing full launch</p>
+      <div class="milestone-cat">Revenue</div>
+      <p>Continued Cassie rollouts</p>
+    </div>
+    <div class="milestone-cell">
+      <div class="milestone-month">June 2026</div>
+      <div class="milestone-cat">Integrations</div>
+      <p>Google + Calendly live by June 1</p>
+      <div class="milestone-cat">Customer</div>
+      <p>First contracted Sara + Aiden deployment goes live</p>
+    </div>
+    <div class="milestone-cell">
+      <div class="milestone-month">July 2026</div>
+      <div class="milestone-cat">Team</div>
+      <p>Hire 2nd software engineer</p>
+      <div class="milestone-cat">Product</div>
+      <p>Aiden fully production-grade</p>
+    </div>
+    <div class="milestone-cell">
+      <div class="milestone-month">August 2026</div>
+      <div class="milestone-cat">Customers</div>
+      <p>Sara + Aiden live in handfuls of schools</p>
+      <div class="milestone-cat">Channel</div>
+      <p>~20 Paul Mitchell schools live on Cassie</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-ask reveal">
+  <span class="kicker kicker-gold">The Ask</span>
+  <h2>Raising $1.5M Seed.</h2>
+  <p class="section-lead">To scale the team, finish Sara, and accelerate go-to-market in beauty.</p>
+
+  <div class="two-col">
+    <div class="ask-target">
+      <div class="ask-target-num">$1.5M</div>
+      <div class="ask-target-label">Pre-seed / seed round</div>
+      <div class="ask-target-sub">Open to $500K &ndash; $3M range</div>
+      <div class="ask-investor-eyebrow">Ideal investor mix</div>
+      <ul class="ask-investor-list">
+        <li>Vertical SaaS / AI-focused seed funds</li>
+        <li>Strategic angels from the beauty industry</li>
+        <li>High-net-worth individuals in the network</li>
+      </ul>
+    </div>
+    <div class="ask-use">
+      <div class="ask-use-eyebrow">Use of funds</div>
+      <div class="ask-use-row"><span class="ask-pct">40%</span><span class="ask-cat"><strong>Engineering & product</strong><span>Complete Sara, scale Aiden, AI R&D</span></span></div>
+      <div class="ask-use-row"><span class="ask-pct">25%</span><span class="ask-cat"><strong>Founder + CTO salaries</strong><span>Full-time focus, no more side-hustle</span></span></div>
+      <div class="ask-use-row"><span class="ask-pct">20%</span><span class="ask-cat"><strong>AI infrastructure & costs</strong><span>LLMs, telephony, integrations</span></span></div>
+      <div class="ask-use-row"><span class="ask-pct">15%</span><span class="ask-cat"><strong>Customer success</strong><span>Onboarding, implementation, retention</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-close reveal">
+  <h2 class="close-title">Let&rsquo;s build the AI operating system <span class="close-grad">for the beauty industry</span> &mdash; together.</h2>
+  <div class="close-contact" style="gap:0;padding:28px 36px 26px;">
+    <div class="close-name" style="margin:0 0 6px;">Rob Thatcher</div>
+    <div class="close-role" style="margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid rgba(17,17,17,0.06);">Founder & CEO</div>
+    <div class="close-email" style="margin:0 0 4px;">Rob@salescomm.com</div>
+    <div class="close-site" style="margin:0;color:#9b5cff;">itsblend.com</div>
+  </div>
+</section>
+  </main>
+  <script>
+    (function() {
+      function init() {
+        var els = document.querySelectorAll('.reveal');
+        els.forEach(function(el, i) {
+          setTimeout(function() { el.classList.add('in-view'); }, 30 * i);
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
