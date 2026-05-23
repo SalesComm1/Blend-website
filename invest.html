@@ -829,6 +829,475 @@
     /* Reveal-on-scroll polish */
     .reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.in-view, .content.visible .reveal { opacity: 1; transform: none; }
+
+    /* ===== Summary (top-of-page dashboard) ===== */
+    .summary {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 28px 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .summary-hero { text-align: center; max-width: 820px; margin: 24px auto 48px; }
+    .summary-pill {
+      display: inline-block;
+      background: var(--pink-soft);
+      color: var(--pink);
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-weight: 800; padding: 6px 14px; border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .summary h1.summary-title {
+      font-size: clamp(36px, 5.6vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+      margin: 0 0 20px;
+    }
+    .summary h1.summary-title span {
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+    }
+    .summary-lede {
+      font-size: 18px; line-height: 1.65; color: var(--soft-text);
+      max-width: 760px; margin: 0 auto;
+    }
+    .summary-lede strong { color: var(--text); font-weight: 700; }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 48px 0 40px;
+    }
+    .summary-stat {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: var(--radius);
+      padding: 26px 22px 22px;
+      box-shadow: var(--shadow);
+    }
+    .summary-stat .num {
+      font-size: 56px; font-weight: 900; letter-spacing: -0.03em;
+      line-height: 1; margin-bottom: 14px;
+    }
+    .summary-stat-1 .num { color: var(--purple); }
+    .summary-stat-2 .num { color: var(--pink); }
+    .summary-stat-3 .num.mix { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; text-align: center; font-size: 42px; }
+    .summary-stat-3 .mix span:nth-child(1) { color: #50a7ff; }
+    .summary-stat-3 .mix span:nth-child(2) { color: var(--purple); }
+    .summary-stat-3 .mix span:nth-child(3) { color: #b67917; }
+    .summary-stat-4 .num { color: #b67917; }
+    .summary-stat .label { font-weight: 800; font-size: 15px; margin-bottom: 4px; }
+    .summary-stat .foot {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); font-weight: 600;
+    }
+    .summary-stat-3 .label-mix {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;
+      text-align: center; font-weight: 700; font-size: 13px;
+      margin: 6px 0 8px;
+    }
+    .summary-stat-3 .label-mix span:nth-child(1) { color: #0a3d5c; }
+    .summary-stat-3 .label-mix span:nth-child(2) { color: #2e1065; }
+    .summary-stat-3 .label-mix span:nth-child(3) { color: #713f12; }
+
+    .summary-callout {
+      background: linear-gradient(135deg, var(--purple-soft), var(--pink-soft));
+      border: 1px solid rgba(155, 92, 255, 0.18);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .summary-callout .label {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--purple); font-weight: 800;
+    }
+    .summary-callout .label .big {
+      display: block; font-size: 32px; font-weight: 900; letter-spacing: -0.02em;
+      color: var(--text); margin-top: 8px; text-transform: none; line-height: 1.1;
+    }
+    .summary-callout p {
+      margin: 0; font-size: 17px; color: var(--soft-text); line-height: 1.55;
+    }
+    .summary-callout p strong { color: var(--text); font-weight: 700; }
+
+    .summary-use {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px 36px 32px;
+    }
+    .summary-use h2 {
+      font-size: 28px; letter-spacing: -0.02em;
+      font-weight: 800; margin: 0 0 6px;
+    }
+    .summary-use .sub { color: var(--muted); margin: 0 0 24px; font-size: 16px; }
+    .summary-use-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .summary-use-card {
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: 16px;
+      padding: 22px 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,250,247,0.4));
+    }
+    .summary-use-card .role {
+      display: inline-block;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 800; color: #fff; background: var(--purple);
+      padding: 4px 10px; border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .summary-use-card.b .role { background: var(--pink); }
+    .summary-use-card .what { font-weight: 800; font-size: 17px; margin-bottom: 6px; }
+    .summary-use-card .why { font-size: 14.5px; color: var(--muted); line-height: 1.55; }
+    .summary-target {
+      margin-top: 22px;
+      padding: 16px 22px;
+      border-radius: 14px;
+      background: var(--gold-soft);
+      display: flex; align-items: center; gap: 14px;
+      font-size: 15px;
+    }
+    .summary-target .pill-gold {
+      background: #b67917; color: #fff;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 800; padding: 6px 12px; border-radius: 999px;
+      flex-shrink: 0;
+    }
+    .summary-target strong { color: var(--text); }
+
+    /* ===== Projection (interactive slider) ===== */
+    .projection {
+      margin-top: 36px;
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .projection::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(155,92,255,0.05), transparent 40%, rgba(255,120,172,0.05));
+      pointer-events: none;
+    }
+    .projection-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .projection-head h2 {
+      font-size: 28px; letter-spacing: -0.02em;
+      font-weight: 800; margin: 0 0 4px;
+    }
+    .projection-head .sub { margin: 0; color: var(--muted); font-size: 15px; }
+    .projection-cap {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); font-weight: 700;
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(155,92,255,0.08);
+      color: var(--purple);
+      white-space: nowrap;
+    }
+
+    .projection-display {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .projection-num-block { text-align: center; }
+    .projection-num-block .label {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); font-weight: 700; margin-bottom: 8px;
+    }
+    .projection-num-block .num {
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 900; letter-spacing: -0.03em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+    }
+    .projection-num-block.arr .num {
+      background: none; -webkit-text-fill-color: var(--text); color: var(--text);
+      font-size: clamp(28px, 4vw, 40px);
+    }
+    .projection-sep {
+      font-size: 28px; color: rgba(17,17,17,0.18); font-weight: 300;
+      padding-bottom: 6px;
+    }
+
+    .projection-month-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--text); color: #fff;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+      padding: 6px 14px; border-radius: 999px;
+      margin: 14px auto 22px;
+    }
+    .projection-month-pill .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--purple);
+      animation: pulseDot 1.6s ease-in-out infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .projection-month-wrap { text-align: center; position: relative; }
+
+    /* SVG curve */
+    .projection-curve {
+      width: 100%;
+      height: 80px;
+      margin-bottom: 8px;
+      display: block;
+      position: relative;
+    }
+    .projection-curve .curve-line {
+      fill: none;
+      stroke: url(#curveGradient);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+    }
+    .projection-curve .curve-area {
+      fill: url(#curveAreaGradient);
+      opacity: 0.6;
+    }
+    .projection-curve .curve-marker {
+      fill: #fff;
+      stroke: var(--purple);
+      stroke-width: 3;
+    }
+    .projection-curve .milestone-tick {
+      stroke: rgba(17,17,17,0.12);
+      stroke-width: 1;
+      stroke-dasharray: 2 3;
+    }
+    .projection-curve .milestone-dot {
+      fill: var(--muted);
+      opacity: 0.5;
+    }
+    .projection-curve .milestone-dot.unlocked {
+      fill: var(--pink);
+      opacity: 1;
+    }
+
+    /* Slider */
+    .projection-slider-wrap { padding: 0 4px; }
+    .projection-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(to right,
+        var(--purple) 0%,
+        var(--purple) var(--pct, 0%),
+        rgba(17,17,17,0.08) var(--pct, 0%),
+        rgba(17,17,17,0.08) 100%);
+      border-radius: 999px;
+      outline: none;
+      cursor: pointer;
+      margin: 0;
+    }
+    .projection-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--purple);
+      box-shadow: 0 4px 12px rgba(155,92,255,0.3);
+      cursor: grab;
+      transition: transform 0.15s ease;
+    }
+    .projection-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+    .projection-slider::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.05); }
+    .projection-slider::-moz-range-thumb {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--purple);
+      box-shadow: 0 4px 12px rgba(155,92,255,0.3);
+      cursor: grab;
+    }
+
+    .projection-milestones {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding: 0 4px;
+      position: relative;
+    }
+    .projection-milestone {
+      text-align: center;
+      flex: 0 0 auto;
+      transform: translateX(-50%);
+      position: absolute;
+      white-space: nowrap;
+    }
+    .projection-milestone[data-edge="left"] { transform: translateX(0); text-align: left; }
+    .projection-milestone[data-edge="right"] { transform: translateX(-100%); text-align: right; }
+    .projection-milestone .ms-label {
+      font-size: 11px; font-weight: 800;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .projection-milestone .ms-note {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .projection-milestone.unlocked .ms-label { color: var(--pink); }
+    .projection-milestones-row {
+      position: relative;
+      height: 36px;
+      margin-top: 12px;
+    }
+
+    /* Source mix */
+    .projection-mix {
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(17,17,17,0.06);
+    }
+    .projection-mix-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .projection-mix-title {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-weight: 800; color: var(--muted);
+    }
+    .projection-mix-hint {
+      font-size: 12px; color: var(--muted); font-style: italic;
+    }
+    .projection-mix-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .projection-mix-cell {
+      background: rgba(17,17,17,0.03);
+      border-radius: 12px;
+      padding: 14px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .projection-mix-cell .mix-bar {
+      position: absolute;
+      inset: 0;
+      width: var(--mix-pct, 0%);
+      transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      opacity: 0.18;
+    }
+    .projection-mix-cell.schools .mix-bar { background: var(--purple); }
+    .projection-mix-cell.salons .mix-bar { background: var(--pink); }
+    .projection-mix-cell.hvac .mix-bar { background: var(--gold); }
+    .projection-mix-cell .mix-name {
+      font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 800; color: var(--text);
+      position: relative; z-index: 1;
+    }
+    .projection-mix-cell .mix-pct {
+      font-size: 22px; font-weight: 900; letter-spacing: -0.02em;
+      margin-top: 4px;
+      font-variant-numeric: tabular-nums;
+      position: relative; z-index: 1;
+    }
+    .projection-mix-cell.schools .mix-pct { color: var(--purple); }
+    .projection-mix-cell.salons .mix-pct { color: var(--pink); }
+    .projection-mix-cell.hvac .mix-pct { color: #b67917; }
+    .projection-mix-cell .mix-locked {
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      font-weight: 700; color: var(--muted);
+      margin-top: 4px;
+      position: relative; z-index: 1;
+    }
+
+    @media (max-width: 720px) {
+      .projection { padding: 28px 22px; }
+      .projection-display { grid-template-columns: 1fr; gap: 8px; }
+      .projection-sep { display: none; }
+      .projection-mix-row { grid-template-columns: 1fr; }
+    }
+
+    /* ===== Deep-dive toggle ===== */
+    .deep-dive-toggle-wrap {
+      max-width: var(--max);
+      margin: 24px auto 0;
+      padding: 24px 28px 56px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .deep-dive-toggle {
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #fff;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      border: none;
+      padding: 16px 28px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(155,92,255,0.30);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .deep-dive-toggle:hover { transform: translateY(-1px); box-shadow: 0 16px 36px rgba(155,92,255,0.36); }
+    .deep-dive-toggle .arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+      font-size: 12px;
+    }
+    .deep-dive-toggle.expanded .arrow { transform: rotate(180deg); }
+    .deep-dive-hint {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 14px;
+      font-weight: 600;
+    }
+    .deep-dive {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.6s ease, opacity 0.4s ease;
+    }
+    .deep-dive.expanded {
+      max-height: 50000px;
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+      .summary-callout { grid-template-columns: 1fr; gap: 12px; }
+      .summary-use-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .summary-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -839,6 +1308,163 @@
   <!-- Investor content -->
   <main class="content" id="contentWrap">
 <a class="back-link" href="/">&larr; Back to BLEND</a>
+
+<!-- ===== TOP-OF-PAGE SUMMARY ===== -->
+<section class="summary reveal">
+  <div class="summary-hero">
+    <span class="summary-pill">Investor Summary</span>
+    <h1 class="summary-title">The AI operating system for the <span>beauty industry</span>.</h1>
+    <p class="summary-lede">
+      Three AI agents &mdash; <strong>Cassie</strong> (text concierge for salons), <strong>Sara</strong> (admissions rep for cosmetology schools), and <strong>Aiden</strong> (an AI-native CRM that Sara lives inside) &mdash; automate the high-stakes conversations that decide whether a business wins or loses a customer. Built by a founder with <strong>20 years</strong> training admissions and service reps at <strong>800+ schools</strong> across nearly every U.S. state.
+    </p>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-stat summary-stat-1">
+      <div class="num">10</div>
+      <div class="label">Schools signed</div>
+      <div class="foot">In production backlog</div>
+    </div>
+    <div class="summary-stat summary-stat-2">
+      <div class="num">16</div>
+      <div class="label">Product contracts sold</div>
+      <div class="foot">All 12-month commits</div>
+    </div>
+    <div class="summary-stat summary-stat-3">
+      <div class="num mix">
+        <span>6</span><span>5</span><span>5</span>
+      </div>
+      <div class="label-mix">
+        <span>Cassie</span><span>Sara</span><span>Aiden</span>
+      </div>
+      <div class="foot" style="text-align:center;">Mix across contracts</div>
+    </div>
+    <div class="summary-stat summary-stat-4">
+      <div class="num">200+</div>
+      <div class="label">Industry decision-makers</div>
+      <div class="foot">Unpaid speaking invites &middot; 2 confs</div>
+    </div>
+  </div>
+
+  <div class="summary-callout">
+    <div class="label">
+      The Inflection
+      <span class="big">We&rsquo;ve crossed the line.</span>
+    </div>
+    <p>Ten schools are signed and waiting to go live. Sixteen 12-month contracts are sold. <strong>The constraint on the next dollar of revenue is no longer marketing, sales, or product-market fit &mdash; it&rsquo;s engineering capacity to build customers out.</strong> That&rsquo;s the inflection: when the curve bends, the bottleneck moves, and capital is what relocates it.</p>
+  </div>
+
+  <div class="summary-use">
+    <h2>Two engineers. 30-day production.</h2>
+    <p class="sub">The single highest-leverage move is breaking the build-out bottleneck.</p>
+    <div class="summary-use-row">
+      <div class="summary-use-card a">
+        <span class="role">Engineer 1</span>
+        <div class="what">Cassie tech support &amp; feature development</div>
+        <div class="why">Keeps the Cassie roadmap on pace. Frees current engineering from reactive support work.</div>
+      </div>
+      <div class="summary-use-card b">
+        <span class="role">Engineer 2</span>
+        <div class="what">Onboarding &amp; customer build-outs</div>
+        <div class="why">Dedicated to taking signed contracts from paper to live production in 30 days.</div>
+      </div>
+    </div>
+    <div class="summary-target">
+      <span class="pill-gold">Target</span>
+      <span><strong>Time-to-production: 30 days.</strong> Converts a signed pipeline into live, paying customers &mdash; and lets us say yes to the inbound we&rsquo;re currently turning away.</span>
+    </div>
+  </div>
+
+  <!-- ===== Interactive revenue projection ===== -->
+  <div class="projection" id="projection">
+    <div class="projection-head">
+      <div>
+        <h2>Trace the next 24 months.</h2>
+        <p class="sub">Drag the slider. Watch the curve bend when channels unlock.</p>
+      </div>
+      <span class="projection-cap">Projection &middot; Illustrative</span>
+    </div>
+
+    <div class="projection-display">
+      <div class="projection-num-block mrr">
+        <div class="label">Monthly Recurring Revenue</div>
+        <div class="num" id="projMrr">$4.5K</div>
+      </div>
+      <div class="projection-sep">=</div>
+      <div class="projection-num-block arr">
+        <div class="label">Annualized</div>
+        <div class="num" id="projArr">$54K ARR</div>
+      </div>
+    </div>
+
+    <div class="projection-month-wrap">
+      <span class="projection-month-pill"><span class="dot"></span><span id="projMonthLabel">Today</span></span>
+    </div>
+
+    <svg class="projection-curve" id="projCurve" viewBox="0 0 1000 80" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="curveGradient" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#9b5cff"/>
+          <stop offset="100%" stop-color="#ff78ac"/>
+        </linearGradient>
+        <linearGradient id="curveAreaGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#9b5cff" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#ff78ac" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path class="curve-area" id="curveArea" d=""/>
+      <path class="curve-line" id="curveLine" d=""/>
+      <g id="curveMilestones"></g>
+      <circle class="curve-marker" id="curveMarker" cx="0" cy="80" r="6"/>
+    </svg>
+
+    <div class="projection-slider-wrap">
+      <input type="range" min="0" max="24" step="0.1" value="0"
+             class="projection-slider" id="projSlider"
+             aria-label="Projection horizon in months">
+      <div class="projection-milestones-row" id="projMilestones"></div>
+    </div>
+
+    <div class="projection-mix">
+      <div class="projection-mix-head">
+        <span class="projection-mix-title">Revenue mix by source</span>
+        <span class="projection-mix-hint">Rebalances as new channels open</span>
+      </div>
+      <div class="projection-mix-row">
+        <div class="projection-mix-cell schools" id="mixSchools">
+          <div class="mix-bar" style="--mix-pct: 90%;"></div>
+          <div class="mix-name">Schools</div>
+          <div class="mix-pct">90%</div>
+          <div class="mix-locked">Cosmetology &middot; Sara + Aiden</div>
+        </div>
+        <div class="projection-mix-cell salons" id="mixSalons">
+          <div class="mix-bar" style="--mix-pct: 10%;"></div>
+          <div class="mix-name">Salons</div>
+          <div class="mix-pct">10%</div>
+          <div class="mix-locked">Paul Mitchell &middot; Cassie</div>
+        </div>
+        <div class="projection-mix-cell hvac" id="mixHvac">
+          <div class="mix-bar" style="--mix-pct: 0%;"></div>
+          <div class="mix-name">HVAC + Plumbing</div>
+          <div class="mix-pct">0%</div>
+          <div class="mix-locked">Unlocks at month 6</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOGGLE TO REVEAL FULL DECK ===== -->
+<div class="deep-dive-toggle-wrap">
+  <button type="button" class="deep-dive-toggle" id="deepDiveToggle" aria-expanded="false" aria-controls="deepDive">
+    <span class="toggle-label">See the full investor deck</span>
+    <span class="arrow">&#9660;</span>
+  </button>
+  <span class="deep-dive-hint">Problem &middot; Market &middot; Product &middot; Traction &middot; Ask</span>
+</div>
+
+<!-- ===== DEEP-DIVE (collapsed by default) ===== -->
+<div class="deep-dive" id="deepDive">
 
 <header class="hero reveal">
   <span class="kicker kicker-pink">Seed Round &middot; 2026 &middot; Confidential</span>
@@ -1483,6 +2109,8 @@
     <div class="close-site" style="margin:0;color:#9b5cff;">itsblend.com</div>
   </div>
 </section>
+
+</div><!-- /.deep-dive -->
   </main>
   <script>
     (function() {
@@ -1491,7 +2119,202 @@
         els.forEach(function(el, i) {
           setTimeout(function() { el.classList.add('in-view'); }, 30 * i);
         });
+
+        initProjection();
+
+        var toggle = document.getElementById('deepDiveToggle');
+        var deepDive = document.getElementById('deepDive');
+        var label = toggle && toggle.querySelector('.toggle-label');
+        if (toggle && deepDive) {
+          toggle.addEventListener('click', function() {
+            var expanded = deepDive.classList.toggle('expanded');
+            toggle.classList.toggle('expanded', expanded);
+            toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            if (label) label.textContent = expanded ? 'Hide the full investor deck' : 'See the full investor deck';
+            if (expanded) {
+              // Smooth-scroll to the top of the deep-dive after the expand animation kicks in
+              setTimeout(function() {
+                var rect = deepDive.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top - 24, behavior: 'smooth' });
+              }, 200);
+            }
+          });
+        }
       }
+      // ===== Projection slider =====
+      // Anchor points: [month, MRR ($), mix {schools, salons, hvac}]
+      var ANCHORS = [
+        { m: 0,  mrr: 4500,   mix: { schools: 90, salons: 10, hvac: 0  } },
+        { m: 1,  mrr: 8000,   mix: { schools: 87, salons: 13, hvac: 0  } },
+        { m: 3,  mrr: 15000,  mix: { schools: 76, salons: 24, hvac: 0  } },
+        { m: 6,  mrr: 40000,  mix: { schools: 70, salons: 28, hvac: 2  } },
+        { m: 12, mrr: 75000,  mix: { schools: 60, salons: 30, hvac: 10 } },
+        { m: 18, mrr: 110000, mix: { schools: 55, salons: 30, hvac: 15 } },
+        { m: 24, mrr: 140000, mix: { schools: 50, salons: 30, hvac: 20 } }
+      ];
+      var MILESTONES = [
+        { m: 0,  label: 'Today',  note: '' },
+        { m: 3,  label: '3 mo',  note: 'Salons unlock' },
+        { m: 6,  label: '6 mo',  note: 'HVAC + Plumbing' },
+        { m: 12, label: '12 mo', note: '' },
+        { m: 24, label: '24 mo', note: '' }
+      ];
+      var MAX_M = 24;
+      var MAX_MRR = ANCHORS[ANCHORS.length - 1].mrr;
+
+      function interp(m) {
+        for (var i = 0; i < ANCHORS.length - 1; i++) {
+          var a = ANCHORS[i], b = ANCHORS[i + 1];
+          if (m >= a.m && m <= b.m) {
+            var t = (m - a.m) / (b.m - a.m);
+            return {
+              mrr: a.mrr + (b.mrr - a.mrr) * t,
+              schools: a.mix.schools + (b.mix.schools - a.mix.schools) * t,
+              salons:  a.mix.salons  + (b.mix.salons  - a.mix.salons)  * t,
+              hvac:    a.mix.hvac    + (b.mix.hvac    - a.mix.hvac)    * t
+            };
+          }
+        }
+        var last = ANCHORS[ANCHORS.length - 1];
+        return { mrr: last.mrr, schools: last.mix.schools, salons: last.mix.salons, hvac: last.mix.hvac };
+      }
+
+      function fmtMoney(n) {
+        if (n >= 1000) return '$' + (n / 1000).toFixed(n >= 10000 ? 0 : 1) + 'K';
+        return '$' + Math.round(n);
+      }
+      function fmtArr(n) {
+        var a = n * 12;
+        if (a >= 1000000) return '$' + (a / 1000000).toFixed(2) + 'M ARR';
+        return '$' + Math.round(a / 1000) + 'K ARR';
+      }
+      function fmtMonthLabel(m) {
+        if (m < 0.5) return 'Today';
+        if (m < 1.5) return 'Month 1';
+        var rounded = Math.round(m * 10) / 10;
+        if (rounded === Math.round(rounded)) return 'Month ' + Math.round(rounded);
+        return 'Month ' + rounded.toFixed(1);
+      }
+
+      function buildCurvePath(width, height, area) {
+        var pts = [];
+        var steps = 80;
+        for (var i = 0; i <= steps; i++) {
+          var m = (i / steps) * MAX_M;
+          var v = interp(m);
+          var x = (m / MAX_M) * width;
+          var y = height - (v.mrr / MAX_MRR) * (height - 8) - 4;
+          pts.push([x, y]);
+        }
+        var d = 'M ' + pts[0][0] + ' ' + pts[0][1];
+        for (var j = 1; j < pts.length; j++) {
+          d += ' L ' + pts[j][0] + ' ' + pts[j][1];
+        }
+        if (area) {
+          d += ' L ' + width + ' ' + height + ' L 0 ' + height + ' Z';
+        }
+        return d;
+      }
+
+      function initProjection() {
+        var slider = document.getElementById('projSlider');
+        if (!slider) return;
+        var mrrEl = document.getElementById('projMrr');
+        var arrEl = document.getElementById('projArr');
+        var monthLabel = document.getElementById('projMonthLabel');
+        var curveLine = document.getElementById('curveLine');
+        var curveArea = document.getElementById('curveArea');
+        var curveMarker = document.getElementById('curveMarker');
+        var curveMilestones = document.getElementById('curveMilestones');
+        var msRow = document.getElementById('projMilestones');
+        var mixSchools = document.getElementById('mixSchools');
+        var mixSalons = document.getElementById('mixSalons');
+        var mixHvac = document.getElementById('mixHvac');
+
+        var W = 1000, H = 80;
+        curveLine.setAttribute('d', buildCurvePath(W, H, false));
+        curveArea.setAttribute('d', buildCurvePath(W, H, true));
+
+        // Milestone tick marks on the curve
+        var msMarkup = '';
+        MILESTONES.forEach(function(ms) {
+          var x = (ms.m / MAX_M) * W;
+          var v = interp(ms.m);
+          var y = H - (v.mrr / MAX_MRR) * (H - 8) - 4;
+          msMarkup += '<line class="milestone-tick" x1="' + x + '" y1="' + y + '" x2="' + x + '" y2="' + H + '" />';
+          msMarkup += '<circle class="milestone-dot" data-m="' + ms.m + '" cx="' + x + '" cy="' + y + '" r="3.5" />';
+        });
+        curveMilestones.innerHTML = msMarkup;
+
+        // Milestone labels under the slider
+        var msLabels = '';
+        MILESTONES.forEach(function(ms, idx) {
+          var pct = (ms.m / MAX_M) * 100;
+          var edge = '';
+          if (idx === 0) edge = ' data-edge="left"';
+          else if (idx === MILESTONES.length - 1) edge = ' data-edge="right"';
+          msLabels += '<div class="projection-milestone" data-m="' + ms.m + '"' + edge + ' style="left:' + pct + '%;">' +
+            '<div class="ms-label">' + ms.label + '</div>' +
+            (ms.note ? '<div class="ms-note">' + ms.note + '</div>' : '') +
+            '</div>';
+        });
+        msRow.innerHTML = msLabels;
+
+        function update(m) {
+          var v = interp(m);
+          var pct = (m / MAX_M) * 100;
+          slider.style.setProperty('--pct', pct + '%');
+          mrrEl.textContent = fmtMoney(v.mrr);
+          arrEl.textContent = fmtArr(v.mrr);
+          monthLabel.textContent = fmtMonthLabel(m);
+
+          // Marker position on curve
+          var mx = (m / MAX_M) * W;
+          var my = H - (v.mrr / MAX_MRR) * (H - 8) - 4;
+          curveMarker.setAttribute('cx', mx);
+          curveMarker.setAttribute('cy', my);
+
+          // Highlight unlocked milestones
+          var dots = curveMilestones.querySelectorAll('.milestone-dot');
+          dots.forEach(function(d) {
+            var dm = parseFloat(d.getAttribute('data-m'));
+            d.classList.toggle('unlocked', m >= dm && dm > 0);
+          });
+          var msEls = msRow.querySelectorAll('.projection-milestone');
+          msEls.forEach(function(el) {
+            var em = parseFloat(el.getAttribute('data-m'));
+            el.classList.toggle('unlocked', m >= em && em > 0);
+          });
+
+          // Update mix bars + percentages
+          var schoolsPct = Math.round(v.schools);
+          var salonsPct = Math.round(v.salons);
+          var hvacPct = Math.round(v.hvac);
+          // Normalize to 100 (interpolation drift)
+          var total = schoolsPct + salonsPct + hvacPct;
+          if (total !== 100 && total > 0) {
+            // adjust schools to absorb diff
+            schoolsPct += (100 - total);
+          }
+          mixSchools.querySelector('.mix-bar').style.setProperty('--mix-pct', v.schools + '%');
+          mixSchools.querySelector('.mix-pct').textContent = schoolsPct + '%';
+          mixSalons.querySelector('.mix-bar').style.setProperty('--mix-pct', v.salons + '%');
+          mixSalons.querySelector('.mix-pct').textContent = salonsPct + '%';
+          mixHvac.querySelector('.mix-bar').style.setProperty('--mix-pct', v.hvac + '%');
+          mixHvac.querySelector('.mix-pct').textContent = hvacPct + '%';
+
+          // HVAC locked-state label
+          var hvacLocked = mixHvac.querySelector('.mix-locked');
+          if (m < 6) hvacLocked.textContent = 'Unlocks at month 6';
+          else hvacLocked.textContent = 'Live channel';
+        }
+
+        slider.addEventListener('input', function() {
+          update(parseFloat(slider.value));
+        });
+        update(0);
+      }
+
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
       } else {
