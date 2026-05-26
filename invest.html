@@ -390,8 +390,15 @@
       font-weight: 700;
       margin-bottom: 12px;
     }
+    .demo-name {
+      font-size: clamp(32px, 4.5vw, 44px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
     .demo-number {
-      font-size: clamp(36px, 6vw, 56px);
+      font-size: clamp(24px, 4.4vw, 48px);
       font-weight: 900;
       letter-spacing: -0.02em;
       background: linear-gradient(90deg, var(--purple), var(--pink));
@@ -399,11 +406,47 @@
       background-clip: text;
       color: transparent;
       margin-bottom: 14px;
+      white-space: nowrap;
     }
     .demo-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
     .demo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 920px; margin: 0 auto; }
-    .demo-grid .demo-box { max-width: none; padding: 28px 24px; }
-    @media (max-width: 760px) { .demo-grid { grid-template-columns: 1fr; } }
+    .demo-grid .demo-box { max-width: none; padding: 28px 20px; }
+    @media (max-width: 560px) { .demo-grid { grid-template-columns: 1fr; } }
+
+    /* Brand-matched demo boxes — matches the home page landing cards */
+    /* Cassie = teal/cyan gradient with deep-navy text */
+    .demo-box.cassie {
+      background: linear-gradient(135deg, #e0f7f3, #c5edff);
+      border: 1px solid rgba(10, 61, 92, 0.06);
+    }
+    .demo-box.cassie .demo-name { color: #0a3d5c; }
+    .demo-box.cassie .demo-label { color: #1a6db5; }
+    .demo-box.cassie .demo-number {
+      background: none;
+      -webkit-background-clip: border-box;
+      background-clip: border-box;
+      -webkit-text-fill-color: #0a3d5c;
+      color: #0a3d5c;
+    }
+    .demo-box.cassie .demo-sub { color: rgba(10, 61, 92, 0.72); }
+    .demo-box.cassie .demo-sub strong { color: #0a3d5c; }
+
+    /* Sara = lavender gradient with deep-purple text */
+    .demo-box.sara {
+      background: linear-gradient(135deg, #f3e8ff, #e8e0ff);
+      border: 1px solid rgba(46, 16, 101, 0.06);
+    }
+    .demo-box.sara .demo-name { color: #2e1065; }
+    .demo-box.sara .demo-label { color: #4338ca; }
+    .demo-box.sara .demo-number {
+      background: none;
+      -webkit-background-clip: border-box;
+      background-clip: border-box;
+      -webkit-text-fill-color: #2e1065;
+      color: #2e1065;
+    }
+    .demo-box.sara .demo-sub { color: rgba(46, 16, 101, 0.7); }
+    .demo-box.sara .demo-sub strong { color: #2e1065; }
 
     /* Product cards */
     .product-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 12px; }
@@ -1315,7 +1358,7 @@
     <span class="summary-pill">Investor Summary</span>
     <h1 class="summary-title">The AI operating system for the <span>beauty industry</span>.</h1>
     <p class="summary-lede">
-      Three AI agents &mdash; <strong>Cassie</strong> (text concierge for salons), <strong>Sara</strong> (admissions rep for cosmetology schools), and <strong>Aiden</strong> (an AI-native CRM that Sara lives inside) &mdash; automate the high-stakes conversations that decide whether a business wins or loses a customer. Built by a founder with <strong>20 years</strong> training admissions and service reps at <strong>800+ schools</strong> across nearly every U.S. state.
+      Three AI agents &mdash; <strong>Cassie</strong> (text concierge for salons), <strong>Sara</strong> (admissions rep for cosmetology schools), and <strong>Aiden</strong> (an AI-native CRM and system of record, designed to pair with Sara) &mdash; automate the high-stakes conversations that decide whether a business wins or loses a customer. Built by a founder with <strong>20 years</strong> training admissions and service reps at <strong>800+ schools</strong> across nearly every U.S. state.
     </p>
   </div>
 
@@ -1441,7 +1484,7 @@
           <div class="mix-bar" style="--mix-pct: 10%;"></div>
           <div class="mix-name">Salons</div>
           <div class="mix-pct">10%</div>
-          <div class="mix-locked">Paul Mitchell &middot; Cassie</div>
+          <div class="mix-locked">Cassie</div>
         </div>
         <div class="projection-mix-cell hvac" id="mixHvac">
           <div class="mix-bar" style="--mix-pct: 0%;"></div>
@@ -1547,13 +1590,15 @@
   <p class="section-lead">Experience BLEND&rsquo;s AI text concierges firsthand &mdash; the same systems powering live salon front desks and school admissions today. Text-only, no voice (yet). Latency is in demo stage; response times are being optimized.</p>
 
   <div class="demo-grid">
-    <div class="demo-box">
-      <div class="demo-label">Cassie &middot; Salons &middot; Text only</div>
+    <div class="demo-box cassie">
+      <div class="demo-name">Cassie</div>
+      <div class="demo-label">Salons &middot; Text only</div>
       <div class="demo-number">208&middot;802&middot;4546</div>
       <div class="demo-sub"><strong>Cassie handles salon service inquiries</strong> &mdash; booking appointments, answering service questions, the kind of texts a salon front desk gets all day.</div>
     </div>
-    <div class="demo-box">
-      <div class="demo-label">Sara &middot; Schools &middot; Text only</div>
+    <div class="demo-box sara">
+      <div class="demo-name">Sara</div>
+      <div class="demo-label">Schools &middot; Text only</div>
       <div class="demo-number">775&middot;599&middot;6221</div>
       <div class="demo-sub"><strong>Sara handles school admissions inquiries</strong> &mdash; program questions, tuition, financial aid, and booking campus tours. Trained on 20 years of admissions technique.</div>
     </div>
@@ -1591,7 +1636,7 @@
       <p class="product-tagline">&ldquo;An AI company selling CRMs &mdash; not the other way around&rdquo;</p>
       <ul class="product-list">
         <li>Lead management, workflows, and pipeline tracking &mdash; without the bloat</li>
-        <li>Sara lives inside, coaching staff and taking over when teams are busy</li>
+        <li>Pairs with Sara to coach staff and take over when teams are busy</li>
         <li>Pulls reports and automates follow-up in plain English</li>
       </ul>
     </div>
@@ -1662,7 +1707,7 @@
         <li>Lead management & admissions pipeline</li>
         <li>Automated follow-up workflows</li>
         <li>Plain-English reports & analytics</li>
-        <li>Sara lives inside &mdash; coaches staff, answers questions</li>
+        <li>Native Sara integration &mdash; pair the agent with the CRM for in-context coaching</li>
       </ul>
     </div>
     <div class="quote-panel">
