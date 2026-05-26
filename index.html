@@ -2075,7 +2075,44 @@
     #sara-game-block .sg-bubble-sender { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; opacity: 0.75; }
     #sara-game-block .sg-bubble.lead .sg-bubble-sender { color: #686868; }
     #sara-game-block .sg-bubble.sara .sg-bubble-sender, #sara-game-block .sg-bubble.rep .sg-bubble-sender { color: rgba(255,255,255,0.85); }
-    #sara-game-block .sg-time-sep { text-align: center; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #686868; font-weight: 700; padding: 10px 0 6px; opacity: 0; animation: sgBubble 0.3s ease forwards; }
+    #sara-game-block .sg-time-sep {
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 800;
+      margin: 18px 0 10px;
+      padding: 0;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: sgTimeSepIn 0.5s ease forwards, sgTimeSepPulse 1.6s ease-in-out 0.5s 2;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+    }
+    #sara-game-block .sg-time-sep::before,
+    #sara-game-block .sg-time-sep::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184,121,23,0.45));
+    }
+    #sara-game-block .sg-time-sep::after {
+      background: linear-gradient(90deg, rgba(184,121,23,0.45), transparent);
+    }
+    #sara-game-block .sg-time-sep > span {
+      flex: 0 0 auto;
+      background: linear-gradient(135deg, #f59e0b, #b45309);
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(245,158,11,0.32);
+      white-space: nowrap;
+    }
+    @keyframes sgTimeSepIn { to { opacity: 1; transform: none; } }
+    @keyframes sgTimeSepPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
     #sara-game-block .sg-typing { align-self: flex-start; background: rgba(17,17,17,0.06); padding: 12px 16px; border-radius: 18px; border-bottom-left-radius: 4px; display: inline-flex; gap: 4px; }
     #sara-game-block .sg-typing.sara { align-self: flex-end; background: linear-gradient(135deg, #9b5cff, #ff78ac); border-bottom-left-radius: 18px; border-bottom-right-radius: 4px; }
     #sara-game-block .sg-typing.sara .sg-dot { background: rgba(255,255,255,0.8); }
@@ -2940,7 +2977,7 @@
     <div class="product-content" id="content-sara">
       <section class="hero reveal"><div class="container hero-shell hero-shell-simplified"><div class="hero-copy hero-copy-simplified"><div class="hero-logo-stage" aria-hidden="true"><div class="hero-logo-wrap"><img src="blend-logo-2.png" alt="BLEND logo" class="hero-logo-img" /></div></div><div class="eyebrow">AI-powered admissions scheduling for cosmetology schools</div><h1>Built by the team that<br>trained your reps.</h1><p class="hero-lead">20 years of admissions expertise. 800+ schools nationwide. Now in an AI that says the right things &mdash; not just the fast things.</p><div class="hero-actions hero-actions-premium"><a href="#talk-to-ai" class="btn btn-pink" style="background:linear-gradient(135deg,#c084fc,#818cf8);border:none;">Talk To Sara</a><button class="btn btn-gold open-demo" type="button">Schedule a Demo</button></div></div></div></section>
       <section style="padding:48px 24px;text-align:center;font-family:Inter,system-ui,sans-serif;"><div style="max-width:1180px;margin:0 auto;"><span style="display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(155,92,255,0.12);color:#9b5cff;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;">How Will You Use Sara?</span><h2 style="font-size:clamp(28px,4vw,40px);line-height:1.1;font-weight:800;letter-spacing:-0.02em;margin:0 0 32px;color:#171717;">From first inquiry to enrolled student.</h2><svg viewBox="0 0 920 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:920px;height:auto;display:block;margin:0 auto;"><defs><marker id="arrowSC" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9b5cff"/></marker></defs><rect x="20" y="20" width="200" height="100" rx="16" fill="#7edfd2"/><text x="120" y="58" text-anchor="middle" font-size="28" fill="#0d3b3a">&#128233;</text><text x="120" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#0d3b3a">Prospective student</text><text x="120" y="105" text-anchor="middle" font-size="12" fill="#0d3b3a">inquiries (text/web)</text><path d="M225,70 L240,70" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="250" y="20" width="200" height="100" rx="16" fill="#ffc97a"/><text x="350" y="58" text-anchor="middle" font-size="28" fill="#5a3d00">&#129302;</text><text x="350" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#5a3d00">Sara qualifies</text><text x="350" y="105" text-anchor="middle" font-size="12" fill="#5a3d00">24/7, on-message</text><path d="M455,70 L470,70" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="480" y="20" width="200" height="100" rx="16" fill="#ff78ac"/><text x="580" y="58" text-anchor="middle" font-size="28" fill="#4a0028">&#128199;</text><text x="580" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#4a0028">Saved to Aiden</text><text x="580" y="105" text-anchor="middle" font-size="12" fill="#4a0028">contact + context</text><path d="M685,70 L700,70" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="710" y="20" width="200" height="100" rx="16" fill="#ffc97a"/><text x="810" y="58" text-anchor="middle" font-size="28" fill="#5a3d00">&#128242;</text><text x="810" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#5a3d00">Sara follows up</text><text x="810" y="105" text-anchor="middle" font-size="12" fill="#5a3d00">books a campus tour</text><path d="M810,120 Q810,160 700,170 Q450,180 220,170 Q120,160 120,220" stroke="#9b5cff" stroke-width="3" fill="none" stroke-dasharray="4,4" marker-end="url(#arrowSC)"/><rect x="20" y="220" width="200" height="100" rx="16" fill="#7edfd2"/><text x="120" y="258" text-anchor="middle" font-size="28" fill="#0d3b3a">&#127979;</text><text x="120" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#0d3b3a">Admissions tour</text><text x="120" y="305" text-anchor="middle" font-size="12" fill="#0d3b3a">human, in person</text><path d="M225,270 L240,270" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="250" y="220" width="200" height="100" rx="16" fill="#ffc97a"/><text x="350" y="258" text-anchor="middle" font-size="28" fill="#5a3d00">&#128172;</text><text x="350" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#5a3d00">Sara follows up</text><text x="350" y="305" text-anchor="middle" font-size="12" fill="#5a3d00">answers questions</text><path d="M455,270 L470,270" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="480" y="220" width="200" height="100" rx="16" fill="#ffc97a"/><text x="580" y="258" text-anchor="middle" font-size="28" fill="#5a3d00">&#128257;</text><text x="580" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#5a3d00">Sara re-engages</text><text x="580" y="305" text-anchor="middle" font-size="12" fill="#5a3d00">if they go quiet</text><path d="M685,270 L700,270" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="710" y="220" width="200" height="100" rx="16" fill="#9b5cff"/><text x="810" y="258" text-anchor="middle" font-size="28" fill="#fff">&#127891;</text><text x="810" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Enrolled</text><text x="810" y="305" text-anchor="middle" font-size="12" fill="#fff">student starts class</text></svg><p style="max-width:680px;margin:32px auto 0;color:#686868;font-size:16px;line-height:1.6;">Sara is fully customizable. Her tone, qualifying questions, follow-up cadence, and handoff rules are all tuned to your school &mdash; so she sounds like your team and works the way you already work.</p></div></section><section class="journey-section reveal" style="padding:60px 0 20px;"><div class="container"><div class="stats-bar"><div class="stat-card"><p class="stat-num">20</p><p class="stat-label">Years training admissions</p></div><div class="stat-card"><p class="stat-num">800+</p><p class="stat-label">Schools nationwide</p></div><div class="stat-card"><p class="stat-num">3x</p><p class="stat-label">Show rate improvement</p></div><div class="stat-card"><p class="stat-num">30&rarr;90%</p><p class="stat-label">Show rate transformation</p></div></div></div></section>
-      <section class="journey-section reveal" style="padding:40px 0 20px;"><div class="container"><h2 class="section-head" style="text-align:center;">A live look at Sara at work.</h2><p style="text-align:center;max-width:620px;margin:0 auto 24px;color:var(--muted);font-size:1rem;line-height:1.6;">A real admissions pipeline. Watch leads flow through as Sara replies, alerts your reps, and books tours.</p>
+      <section class="journey-section reveal" style="padding:40px 0 20px;"><div class="container"><h2 class="section-head" style="text-align:center;">A live look at Sara at work.</h2><p style="text-align:center;max-width:620px;margin:0 auto 24px;color:var(--muted);font-size:1rem;line-height:1.6;">What a real admissions pipeline can look like. Watch leads flow through as Sara replies, alerts your reps, and books tours.</p>
 <div id="sara-flow-block">
   <div class="sf-counter-strip">
     <div class="sf-counter-cell"><div class="sf-counter-num sf-counter-1" id="sf-c1">0</div><div class="sf-counter-label">New leads</div></div>
@@ -3256,7 +3293,7 @@
   </script>
 
   
-  <script>function switchProduct(p){document.querySelectorAll('.product-content').forEach(function(e){e.classList.remove('active')});document.querySelectorAll('.product-card').forEach(function(e){e.classList.remove('selected')});var content=document.getElementById('content-'+p);content.classList.add('active');content.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible')});document.querySelector('.card-'+p).classList.add('selected');window.scrollTo({top:0,behavior:'smooth'})}window.addEventListener('scroll',function(){var o=document.querySelector('.product-overview');if(o)o.classList.toggle('shrunk',window.scrollY>120)})</script>
+  <script>function switchProduct(p){document.querySelectorAll('.product-content').forEach(function(e){e.classList.remove('active')});document.querySelectorAll('.product-card').forEach(function(e){e.classList.remove('selected')});var content=document.getElementById('content-'+p);content.classList.add('active');content.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in-view')});content.querySelectorAll('.animated-chat').forEach(function(el){el.classList.add('play')});document.querySelector('.card-'+p).classList.add('selected');window.scrollTo({top:0,behavior:'smooth'})}window.addEventListener('scroll',function(){var o=document.querySelector('.product-overview');if(o)o.classList.toggle('shrunk',window.scrollY>120)})</script>
 </div><!-- /site-content -->
 
   <script>function enterProduct(p){document.getElementById("landingPage").style.display="none";document.getElementById("siteContent").classList.add("active");switchProduct(p);window.scrollTo({top:0});}</script>
@@ -3348,24 +3385,27 @@
     hot: {
       lead: { initial:'M', name:'Mia · Prospective Student', sub:'Cosmetology inquiry', start:'Tue 9:14 PM' },
       beats: [
-        { kind:'bubble', who:'lead', text:"Hi! Do you guys still have spots open for the November cosmetology cohort?" },
+        { kind:'bubble', who:'lead', text:"Hi! Do you guys still have spots open for the November cosmetology program?" },
         { kind:'typing', who:'sara', ms:1200 },
-        { kind:'bubble', who:'sara', text:"Hi Mia! Yes — we have just a few seats left. I'd love to give you the full picture. What's the best time for a quick campus visit this week?" },
+        { kind:'bubble', who:'sara', text:"Hi Mia! Yes, we still have a few seats. Quick question first — what got you looking into cosmetology right now?" },
         { kind:'fire', cap:1, response:8 },
         { kind:'sep', text:'48 HOURS LATER · THURS 9:24 AM' },
         { kind:'bubble', who:'lead', text:"..." },
         { kind:'choice', q:"Mia hasn't replied. Your rep Jordan is in a tour. What does Sara do?",
           opts:[ {label:'Alert Jordan', branch:'alert'}, {label:'Sara handles it', branch:'auto'} ] },
-        { branch:'alert', kind:'bubble', who:'rep', text:"Hi Mia! Jordan from admissions here. Were you able to think more about visiting? I have 11am or 3pm Saturday." },
+        { branch:'alert', kind:'bubble', who:'rep', text:"Hi Mia! Jordan from admissions here. Just thinking about you — what part of cosmetology are you most passionate about?" },
         { branch:'alert', kind:'fire', cap:2 },
         { branch:'auto', kind:'typing', who:'sara', ms:900 },
-        { branch:'auto', kind:'bubble', who:'sara', text:"Hi Mia! Just following up — we have an open house this Saturday with current students. Want me to save you a spot?" },
+        { branch:'auto', kind:'bubble', who:'sara', text:"Hey Mia! Just thinking about you — what part of cosmetology are you most passionate about?" },
         { branch:'auto', kind:'fire', cap:3 },
+        { kind:'bubble', who:'lead', text:"I love hair." },
+        { kind:'typing', who:'sara', ms:1100 },
+        { kind:'bubble', who:'sara', text:"Fantastic — 85% of our cosmetology program focuses on hair! You know what we should do? Have you come see what a typical day looks like. I can show you around Saturday at 11. Does that work?" },
         { kind:'bubble', who:'lead', text:"Yes! Saturday at 11 works. I'll be there." },
         { kind:'sep', text:'AFTER THE TOUR · SAT 1:48 PM' },
         { kind:'bubble', who:'lead', text:"That was amazing. What's the next step to enroll?" },
         { kind:'typing', who:'sara', ms:900 },
-        { kind:'bubble', who:'sara', text:"So glad you loved it! I'll start your enrollment paperwork — can you come back Friday at 3pm to finish up?" },
+        { kind:'bubble', who:'sara', text:"Sounds like you really connected with the program! Let me get your paperwork started. Can you come back Friday at 3pm to wrap it up?" },
         { kind:'fire', cap:4 },
         { kind:'end', emoji:'🎯', title:'Tour booked. Mia enrolled.',
           stats:[ {v:'8 sec',l:'response time'},{v:'4/4',l:'capabilities used'},{v:'$19.2K',l:'program value secured'} ] }
@@ -3377,14 +3417,14 @@
         { kind:'sep', text:'JASMINE TOURED 5 DAYS AGO · HASN’T RESPONDED' },
         { kind:'choice', q:"Sara noticed the silence after a hot tour. What now?",
           opts:[ {label:'Sara nudges Jordan', branch:'alert'}, {label:'Sara reaches out', branch:'auto'} ] },
-        { branch:'alert', kind:'bubble', who:'rep', text:"Hey Jasmine! Following up after your tour — what questions came up after you got home?" },
+        { branch:'alert', kind:'bubble', who:'rep', text:"Hey Jasmine! Sounds like you had a great visit Wednesday. What part of the tour stood out to you most?" },
         { branch:'alert', kind:'fire', cap:2 },
         { branch:'auto', kind:'typing', who:'sara', ms:900 },
-        { branch:'auto', kind:'bubble', who:'sara', text:"Hey Jasmine! It was great meeting you Wednesday. What's holding you back from saying yes?" },
+        { branch:'auto', kind:'bubble', who:'sara', text:"Hey Jasmine! Sounds like you had a great visit Wednesday. What part of the tour stood out to you most?" },
         { branch:'auto', kind:'fire', cap:3 },
-        { kind:'bubble', who:'lead', text:"Honestly, my parents are nervous about the cost. Can we talk about financial aid?" },
-        { kind:'typing', who:'sara', ms:1100 },
-        { kind:'bubble', who:'sara', text:"Of course. Want to bring your parents in Thursday at 5? We do a quick aid walkthrough that answers exactly that." },
+        { kind:'bubble', who:'lead', text:"Honestly the instructors were amazing. My parents are nervous about the cost though." },
+        { kind:'typing', who:'sara', ms:1200 },
+        { kind:'bubble', who:'sara', text:"I love that you're including your family in this — that's a big deal. You know what we should do? Bring your parents in Thursday at 5. We do a quick financial aid walkthrough that answers exactly what they're worried about." },
         { kind:'fire', cap:1 },
         { kind:'bubble', who:'lead', text:"Yes — that would be perfect. We'll be there." },
         { kind:'fire', cap:4 },
@@ -3397,19 +3437,20 @@
       beats: [
         { kind:'sep', text:'ALEX STOPPED IN MONDAY · 2 DAYS OF SILENCE' },
         { kind:'typing', who:'sara', ms:1100 },
-        { kind:'bubble', who:'sara', text:"Hi Alex! It's Sara from admissions — really enjoyed meeting you Monday. Were you able to talk it over with your family?" },
+        { kind:'bubble', who:'sara', text:"Hi Alex! It's Sara from admissions — really enjoyed meeting you Monday. What part of the school stood out to you most?" },
         { kind:'fire', cap:1 },
-        { kind:'bubble', who:'lead', text:"Hey! Yeah we talked but I'm honestly not sure if it's the right time" },
+        { kind:'bubble', who:'lead', text:"Hey! Honestly I'm not sure if it's the right time for me." },
         { kind:'choice', q:"Soft no. Hand off to a human or let Sara keep the door open?",
           opts:[ {label:'Alert Jordan', branch:'alert'}, {label:'Sara keeps going', branch:'auto'} ] },
-        { branch:'alert', kind:'bubble', who:'rep', text:"Hi Alex, Jordan here — I get it. Want to grab 10 minutes Friday to talk it through, no pressure?" },
+        { branch:'alert', kind:'bubble', who:'rep', text:"Hi Alex, Jordan here. I love that you're thinking it through — that's how the people who make it through this program think. What's making you hesitate?" },
         { branch:'alert', kind:'fire', cap:2 },
         { branch:'auto', kind:'typing', who:'sara', ms:900 },
-        { branch:'auto', kind:'bubble', who:'sara', text:"Totally get that. Want to grab 10 minutes Friday with our enrollment advisor — no pressure, just to answer questions?" },
+        { branch:'auto', kind:'bubble', who:'sara', text:"I love that you're thinking it through carefully — that's a sign you take this seriously. What's making you hesitate?" },
         { branch:'auto', kind:'fire', cap:3 },
+        { kind:'bubble', who:'lead', text:"Money, honestly. And I'm not sure I'd actually finish." },
+        { kind:'typing', who:'sara', ms:1100 },
+        { kind:'bubble', who:'sara', text:"That's a smart thing to be thinking about. You know what we should do? Grab 10 minutes Friday with our enrollment advisor — no pressure, just to walk through aid and the 'will I finish' question. 2pm work?" },
         { kind:'bubble', who:'lead', text:"Actually yeah, that would help a lot. Friday afternoon works." },
-        { kind:'typing', who:'sara', ms:800 },
-        { kind:'bubble', who:'sara', text:"Done! 2pm Friday. I'll send you a reminder Thursday night." },
         { kind:'fire', cap:4 },
         { kind:'end', emoji:'📞', title:'Soft no turned into a Friday meeting.',
           stats:[ {v:'0',l:'walk-ins lost'},{v:'4/4',l:'capabilities used'},{v:'+1',l:'qualified meeting'} ] }
@@ -3465,7 +3506,8 @@
     }
   }
   function addSeparator(text){
-    const sep=document.createElement('div'); sep.className='sg-time-sep'; sep.textContent=text;
+    const sep=document.createElement('div'); sep.className='sg-time-sep';
+    const span=document.createElement('span'); span.textContent=text; sep.appendChild(span);
     thread.appendChild(sep); thread.scrollTop=thread.scrollHeight;
   }
   function showTyping(who, ms){
