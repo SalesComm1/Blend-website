@@ -1999,6 +1999,194 @@
     .product-overview.shrunk .product-card .card-tag{display:none}
     .product-overview.shrunk .product-card p{max-height:0;margin:0;opacity:0}
 
+    /* ============================================================
+       Interactive: Sara Lead Flow (#sara-flow-block) — scoped
+       ============================================================ */
+    #sara-flow-block { max-width: 1080px; margin: 0 auto; padding: 40px 24px; }
+    #sara-flow-block .sf-counter-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+    #sara-flow-block .sf-counter-cell { background: #fff; border: 1px solid rgba(17,17,17,0.08); border-radius: 14px; padding: 16px 18px; text-align: center; }
+    #sara-flow-block .sf-counter-num { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; }
+    #sara-flow-block .sf-counter-1 { color: #3B6D11; } #sara-flow-block .sf-counter-2 { color: #854F0B; }
+    #sara-flow-block .sf-counter-3 { color: #534AB7; } #sara-flow-block .sf-counter-4 { color: #185FA5; }
+    #sara-flow-block .sf-counter-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #686868; margin-top: 6px; }
+    #sara-flow-block .sf-pipeline-wrap { background: #fff; border-radius: 22px; border: 1px solid rgba(17,17,17,0.08); box-shadow: 0 18px 48px rgba(17,17,17,0.08); padding: 24px; }
+    #sara-flow-block .sf-pipeline-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px; }
+    #sara-flow-block .sf-pipeline-title { font-size: 14px; font-weight: 800; letter-spacing: -0.01em; }
+    #sara-flow-block .sf-pipeline-status { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #22c55e; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; }
+    #sara-flow-block .sf-live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: sfPulse 1.4s ease-in-out infinite; }
+    @keyframes sfPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.5); } }
+    #sara-flow-block .sf-pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; min-height: 320px; }
+    #sara-flow-block .sf-pipe-col { background: rgba(17,17,17,0.03); border-radius: 12px; padding: 12px 10px; min-height: 280px; display: flex; flex-direction: column; }
+    #sara-flow-block .sf-pipe-col-head { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 800; color: #686868; text-align: center; margin-bottom: 10px; }
+    #sara-flow-block .sf-pipe-col-1 .sf-pipe-col-head { color: #185FA5; }
+    #sara-flow-block .sf-pipe-col-2 .sf-pipe-col-head { color: #9b5cff; }
+    #sara-flow-block .sf-pipe-col-3 .sf-pipe-col-head { color: #854F0B; }
+    #sara-flow-block .sf-pipe-col-4 .sf-pipe-col-head { color: #22c55e; }
+    #sara-flow-block .sf-pipe-cards { display: flex; flex-direction: column; gap: 6px; }
+    #sara-flow-block .sf-lead-card { background: #fff; border-radius: 10px; padding: 8px 10px; font-size: 12px; border-left: 3px solid #50a7ff; display: flex; align-items: center; gap: 8px; animation: sfCardIn 0.4s ease; transition: all 0.5s ease; }
+    @keyframes sfCardIn { from { opacity: 0; transform: translateY(-6px) scale(0.95); } to { opacity: 1; transform: none; } }
+    #sara-flow-block .sf-lead-card.sara { border-left-color: #9b5cff; }
+    #sara-flow-block .sf-lead-card.alert { border-left-color: #854F0B; }
+    #sara-flow-block .sf-lead-card.tour { border-left-color: #22c55e; }
+    #sara-flow-block .sf-lead-avatar { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #fb7185, #f43f5e); color: #fff; font-weight: 800; font-size: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    #sara-flow-block .sf-lead-info { flex: 1; min-width: 0; }
+    #sara-flow-block .sf-lead-name { font-weight: 700; font-size: 12px; line-height: 1; }
+    #sara-flow-block .sf-lead-meta { font-size: 10px; color: #686868; margin-top: 2px; }
+    #sara-flow-block .sf-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+    #sara-flow-block .sf-btn { font-family: inherit; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 999px; border: none; cursor: pointer; transition: all 0.2s ease; }
+    #sara-flow-block .sf-btn-primary { color: #fff; background: linear-gradient(90deg, #9b5cff, #ff78ac); box-shadow: 0 6px 16px rgba(155,92,255,0.25); }
+    #sara-flow-block .sf-btn-primary:hover { transform: translateY(-1px); }
+    #sara-flow-block .sf-btn-ghost { color: #171717; background: rgba(17,17,17,0.05); }
+    #sara-flow-block .sf-btn-ghost:hover { background: rgba(17,17,17,0.08); }
+    #sara-flow-block .sf-activity { margin-top: 20px; background: rgba(17,17,17,0.03); border-radius: 14px; padding: 14px 18px; }
+    #sara-flow-block .sf-activity-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 800; color: #686868; margin-bottom: 8px; }
+    #sara-flow-block .sf-activity-feed { display: flex; flex-direction: column; gap: 4px; }
+    #sara-flow-block .sf-activity-line { font-size: 12px; color: #3a3a3a; animation: sfLineIn 0.4s ease; }
+    @keyframes sfLineIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+    #sara-flow-block .sf-activity-line em { color: #686868; font-style: normal; }
+    #sara-flow-block .sf-activity-line strong { color: #171717; font-weight: 700; }
+    @media (max-width: 720px) { #sara-flow-block .sf-pipeline { grid-template-columns: 1fr 1fr; } #sara-flow-block .sf-counter-strip { grid-template-columns: 1fr 1fr; } }
+
+    /* ============================================================
+       Interactive: Sara Pick-a-Scenario (#sara-game-block) — scoped
+       ============================================================ */
+    #sara-game-block { max-width: 1080px; margin: 0 auto; padding: 24px; }
+    #sara-game-block .sg-scenarios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 28px; }
+    #sara-game-block .sg-scenario-card { background: #fff; border: 2px solid rgba(17,17,17,0.08); border-radius: 18px; padding: 18px 18px 16px; cursor: pointer; text-align: left; transition: all 0.2s ease; font-family: inherit; color: inherit; }
+    #sara-game-block .sg-scenario-card:hover { transform: translateY(-2px); box-shadow: 0 18px 48px rgba(17,17,17,0.08); border-color: rgba(155,92,255,0.4); }
+    #sara-game-block .sg-scenario-card.active { border-color: #9b5cff; background: linear-gradient(180deg, #fff, rgba(155,92,255,0.04)); box-shadow: 0 18px 48px rgba(17,17,17,0.08); }
+    #sara-game-block .sg-scenario-eyebrow { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800; color: #9b5cff; margin-bottom: 6px; }
+    #sara-game-block .sg-scenario-title { font-weight: 800; font-size: 1rem; margin: 0 0 4px; line-height: 1.3; color: #171717; }
+    #sara-game-block .sg-scenario-desc { font-size: 0.85rem; color: #686868; margin: 0; line-height: 1.4; }
+    #sara-game-block .sg-sim { display: grid; grid-template-columns: 1fr 360px; gap: 24px; background: linear-gradient(135deg, rgba(155,92,255,0.04), rgba(255,120,172,0.04)); border-radius: 24px; padding: 28px; border: 1px solid rgba(17,17,17,0.08); }
+    #sara-game-block .sg-phone-stage { background: #fff; border-radius: 20px; border: 1px solid rgba(17,17,17,0.08); padding: 22px; display: flex; flex-direction: column; min-height: 540px; }
+    #sara-game-block .sg-phone-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.08); padding-bottom: 12px; margin-bottom: 16px; }
+    #sara-game-block .sg-phone-contact { display: flex; align-items: center; gap: 10px; }
+    #sara-game-block .sg-phone-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #fb7185, #f43f5e); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 14px; }
+    #sara-game-block .sg-phone-name { font-weight: 700; font-size: 14px; color: #171717; }
+    #sara-game-block .sg-phone-sub { font-size: 11px; color: #686868; margin-top: -1px; }
+    #sara-game-block .sg-phone-timestamp { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #686868; font-weight: 700; background: rgba(17,17,17,0.04); padding: 5px 10px; border-radius: 999px; }
+    #sara-game-block .sg-thread { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding: 4px 2px; min-height: 320px; }
+    #sara-game-block .sg-bubble { max-width: 78%; padding: 10px 14px; border-radius: 18px; font-size: 14px; line-height: 1.42; opacity: 0; transform: translateY(6px); animation: sgBubble 0.3s ease forwards; }
+    @keyframes sgBubble { to { opacity: 1; transform: none; } }
+    #sara-game-block .sg-bubble.lead { background: rgba(17,17,17,0.06); color: #171717; border-bottom-left-radius: 4px; align-self: flex-start; }
+    #sara-game-block .sg-bubble.sara { background: linear-gradient(135deg, #9b5cff, #ff78ac); color: #fff; border-bottom-right-radius: 4px; align-self: flex-end; }
+    #sara-game-block .sg-bubble.rep { background: #3b82f6; color: #fff; border-bottom-right-radius: 4px; align-self: flex-end; }
+    #sara-game-block .sg-bubble-sender { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; opacity: 0.75; }
+    #sara-game-block .sg-bubble.lead .sg-bubble-sender { color: #686868; }
+    #sara-game-block .sg-bubble.sara .sg-bubble-sender, #sara-game-block .sg-bubble.rep .sg-bubble-sender { color: rgba(255,255,255,0.85); }
+    #sara-game-block .sg-time-sep { text-align: center; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #686868; font-weight: 700; padding: 10px 0 6px; opacity: 0; animation: sgBubble 0.3s ease forwards; }
+    #sara-game-block .sg-typing { align-self: flex-start; background: rgba(17,17,17,0.06); padding: 12px 16px; border-radius: 18px; border-bottom-left-radius: 4px; display: inline-flex; gap: 4px; }
+    #sara-game-block .sg-typing.sara { align-self: flex-end; background: linear-gradient(135deg, #9b5cff, #ff78ac); border-bottom-left-radius: 18px; border-bottom-right-radius: 4px; }
+    #sara-game-block .sg-typing.sara .sg-dot { background: rgba(255,255,255,0.8); }
+    #sara-game-block .sg-typing .sg-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(17,17,17,0.4); animation: sgTypeDot 1s infinite; }
+    #sara-game-block .sg-typing .sg-dot:nth-child(2) { animation-delay: 0.15s; }
+    #sara-game-block .sg-typing .sg-dot:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes sgTypeDot { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(-3px); opacity: 1; } }
+    #sara-game-block .sg-controls { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(17,17,17,0.08); display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    #sara-game-block .sg-btn { font-family: inherit; font-size: 14px; font-weight: 700; padding: 11px 22px; border-radius: 999px; border: none; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px; }
+    #sara-game-block .sg-btn-primary { color: #fff; background: linear-gradient(90deg, #9b5cff, #ff78ac); box-shadow: 0 8px 20px rgba(155,92,255,0.28); }
+    #sara-game-block .sg-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(155,92,255,0.34); }
+    #sara-game-block .sg-btn-ghost { color: #171717; background: rgba(17,17,17,0.04); }
+    #sara-game-block .sg-btn-ghost:hover { background: rgba(17,17,17,0.07); }
+    #sara-game-block .sg-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+    #sara-game-block .sg-choice-prompt { margin-top: 14px; padding: 14px; border-radius: 14px; background: linear-gradient(135deg, rgba(255,201,122,0.18), rgba(255,120,172,0.12)); border: 1px dashed rgba(184,121,23,0.32); text-align: center; animation: sgChoicePulse 1.6s ease-in-out infinite; }
+    @keyframes sgChoicePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.01); } }
+    #sara-game-block .sg-choice-prompt-q { font-size: 13px; font-weight: 700; color: #854F0B; margin: 0 0 10px; }
+    #sara-game-block .sg-choice-buttons { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    #sara-game-block .sg-choice-btn { font-family: inherit; font-size: 13px; font-weight: 700; padding: 9px 16px; border-radius: 999px; border: 1.5px solid #171717; background: #fff; cursor: pointer; transition: all 0.15s ease; color: #171717; }
+    #sara-game-block .sg-choice-btn:hover { background: #171717; color: #fff; }
+    #sara-game-block .sg-side { display: flex; flex-direction: column; gap: 16px; }
+    #sara-game-block .sg-capability-card { background: #fff; border-radius: 16px; border: 1px solid rgba(17,17,17,0.08); padding: 18px; }
+    #sara-game-block .sg-capability-title { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800; color: #686868; margin: 0 0 14px; }
+    #sara-game-block .sg-capability { display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(17,17,17,0.08); opacity: 0.45; transition: all 0.4s ease; }
+    #sara-game-block .sg-capability:last-child { border-bottom: none; }
+    #sara-game-block .sg-capability.fired { opacity: 1; }
+    #sara-game-block .sg-capability.firing { opacity: 1; animation: sgFireGlow 0.6s ease; }
+    @keyframes sgFireGlow { 0% { transform: scale(1); } 40% { transform: scale(1.04); } 100% { transform: scale(1); } }
+    #sara-game-block .sg-cap-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    #sara-game-block .sg-capability.fired .sg-cap-icon { box-shadow: 0 0 0 3px rgba(155,92,255,0.18); }
+    #sara-game-block .sg-cap-icon-1 { background: linear-gradient(135deg,#eaf3de,#c0dd97); color: #3B6D11; }
+    #sara-game-block .sg-cap-icon-2 { background: linear-gradient(135deg,#faeeda,#fac775); color: #854F0B; }
+    #sara-game-block .sg-cap-icon-3 { background: linear-gradient(135deg,#eeedfe,#cecbf6); color: #534AB7; }
+    #sara-game-block .sg-cap-icon-4 { background: linear-gradient(135deg,#e6f1fb,#b5d4f4); color: #185FA5; }
+    #sara-game-block .sg-cap-text { flex: 1; font-weight: 700; font-size: 13px; line-height: 1.3; color: #171717; }
+    #sara-game-block .sg-cap-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(17,17,17,0.15); background: #fff; flex-shrink: 0; transition: all 0.3s ease; position: relative; }
+    #sara-game-block .sg-capability.fired .sg-cap-check { background: #22c55e; border-color: #22c55e; }
+    #sara-game-block .sg-capability.fired .sg-cap-check::after { content: ''; position: absolute; left: 6px; top: 3px; width: 5px; height: 9px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+    #sara-game-block .sg-score-card { background: linear-gradient(135deg, #171717, #2c2c2c); color: #fff; border-radius: 16px; padding: 18px; }
+    #sara-game-block .sg-score-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; font-size: 13px; }
+    #sara-game-block .sg-score-row + .sg-score-row { border-top: 1px solid rgba(255,255,255,0.08); }
+    #sara-game-block .sg-score-label { color: rgba(255,255,255,0.7); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+    #sara-game-block .sg-score-val { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 18px; color: #fff; }
+    #sara-game-block .sg-score-val.win { color: #86efac; }
+    #sara-game-block .sg-score-val.pending { color: rgba(255,255,255,0.4); }
+    #sara-game-block .sg-outcome { grid-column: 1 / -1; margin-top: 8px; background: linear-gradient(135deg, #22c55e, #14b8a6); color: #fff; border-radius: 18px; padding: 26px 28px; display: none; align-items: center; gap: 22px; flex-wrap: wrap; opacity: 0; transition: opacity 0.5s ease; }
+    #sara-game-block .sg-outcome.show { display: flex; opacity: 1; }
+    #sara-game-block .sg-outcome-emoji { font-size: 42px; line-height: 1; }
+    #sara-game-block .sg-outcome-text { flex: 1; min-width: 240px; }
+    #sara-game-block .sg-outcome-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800; opacity: 0.85; margin-bottom: 6px; }
+    #sara-game-block .sg-outcome-title { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 8px; }
+    #sara-game-block .sg-outcome-stats { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; }
+    #sara-game-block .sg-outcome-stat strong { font-size: 18px; font-weight: 900; display: block; }
+    #sara-game-block .sg-outcome-cta { background: #fff; color: #14532d; padding: 11px 22px; border-radius: 999px; border: none; font-family: inherit; font-weight: 800; font-size: 14px; cursor: pointer; flex-shrink: 0; }
+    @media (max-width: 880px) { #sara-game-block .sg-sim { grid-template-columns: 1fr; } #sara-game-block .sg-scenarios { grid-template-columns: 1fr; } }
+
+    /* ============================================================
+       Interactive: Cassie After-Hours Map (#cassie-map-block) — scoped
+       ============================================================ */
+    #cassie-map-block { max-width: 1080px; margin: 0 auto; padding: 24px; }
+    #cassie-map-block .cm-toggle-wrap { display: flex; justify-content: center; margin-bottom: 28px; }
+    #cassie-map-block .cm-toggle { display: inline-flex; background: rgba(17,17,17,0.06); border-radius: 999px; padding: 5px; position: relative; }
+    #cassie-map-block .cm-toggle-btn { font-family: inherit; font-size: 14px; font-weight: 800; padding: 12px 24px; border: none; background: transparent; cursor: pointer; border-radius: 999px; color: #686868; transition: color 0.3s ease; position: relative; z-index: 1; }
+    #cassie-map-block .cm-toggle-btn.active { color: #fff; }
+    #cassie-map-block .cm-toggle-thumb { position: absolute; top: 5px; bottom: 5px; border-radius: 999px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    #cassie-map-block .cm-toggle.without .cm-toggle-thumb { left: 5px; width: calc(50% - 5px); background: #f43f5e; }
+    #cassie-map-block .cm-toggle.with .cm-toggle-thumb { left: 50%; width: calc(50% - 5px); background: #22c55e; }
+    #cassie-map-block .cm-map { background: #fff; border-radius: 22px; border: 1px solid rgba(17,17,17,0.08); box-shadow: 0 18px 48px rgba(17,17,17,0.08); padding: 28px; }
+    #cassie-map-block .cm-map-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
+    #cassie-map-block .cm-map-title { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; color: #0a3d5c; }
+    #cassie-map-block .cm-map-sub { font-size: 12px; color: #686868; }
+    #cassie-map-block .cm-timeline { position: relative; padding: 32px 0 24px; }
+    #cassie-map-block .cm-hour-labels { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 10px; letter-spacing: 0.08em; color: #686868; font-weight: 700; }
+    #cassie-map-block .cm-hour-labels span { flex: 1; text-align: center; }
+    #cassie-map-block .cm-hour-labels span:first-child { text-align: left; }
+    #cassie-map-block .cm-hour-labels span:last-child { text-align: right; }
+    #cassie-map-block .cm-coverage-bar { height: 18px; background: rgba(17,17,17,0.04); border-radius: 10px; position: relative; margin-bottom: 8px; overflow: hidden; }
+    #cassie-map-block .cm-coverage-segment { position: absolute; top: 0; bottom: 0; border-radius: 8px; }
+    #cassie-map-block .cm-coverage-front-desk { background: linear-gradient(90deg, #94a3b8, #cbd5e1); }
+    #cassie-map-block .cm-coverage-cassie { background: linear-gradient(90deg, #22c55e, #4ade80); }
+    #cassie-map-block .cm-coverage-row { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+    #cassie-map-block .cm-coverage-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #686868; min-width: 110px; }
+    #cassie-map-block .cm-coverage-bar-wrap { flex: 1; }
+    #cassie-map-block .cm-text-icons-row { position: relative; height: 60px; margin-top: 18px; }
+    #cassie-map-block .cm-text-icon { position: absolute; width: 30px; height: 30px; border-radius: 50%; background: #50a7ff; color: #fff; display: flex; align-items: center; justify-content: center; transform: translateX(-50%); cursor: pointer; transition: all 0.4s ease; box-shadow: 0 4px 12px rgba(80,167,255,0.3); }
+    #cassie-map-block .cm-text-icon:hover { transform: translateX(-50%) scale(1.18); z-index: 2; }
+    #cassie-map-block .cm-text-icon svg { width: 16px; height: 16px; stroke: #fff; }
+    #cassie-map-block .cm-text-icon.captured { background: #22c55e; box-shadow: 0 4px 12px rgba(34,197,94,0.4); }
+    #cassie-map-block .cm-text-icon.lost { background: rgba(244,63,94,0.25); color: rgba(244,63,94,0.5); box-shadow: none; }
+    #cassie-map-block .cm-text-icon.lost svg { stroke: rgba(244,63,94,0.6); }
+    #cassie-map-block .cm-text-tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(4px); background: #0a3d5c; color: #fff; padding: 8px 12px; border-radius: 10px; width: 220px; font-size: 12px; line-height: 1.4; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; z-index: 10; box-shadow: 0 12px 28px rgba(0,0,0,0.18); }
+    #cassie-map-block .cm-text-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #0a3d5c; }
+    #cassie-map-block .cm-text-tooltip strong { display: block; margin-bottom: 2px; font-size: 11px; letter-spacing: 0.06em; }
+    #cassie-map-block .cm-text-icon:hover .cm-text-tooltip { opacity: 1; transform: translateX(-50%) translateY(0); }
+    #cassie-map-block .cm-stats { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(17,17,17,0.08); display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    #cassie-map-block .cm-stat-cell { text-align: center; }
+    #cassie-map-block .cm-stat-cell .n { font-size: 34px; font-weight: 900; letter-spacing: -0.025em; line-height: 1; font-variant-numeric: tabular-nums; transition: color 0.3s ease; }
+    #cassie-map-block .cm-map.without .cm-stat-cell.headline .n { color: #f43f5e; }
+    #cassie-map-block .cm-map.with .cm-stat-cell.headline .n { color: #22c55e; }
+    #cassie-map-block .cm-stat-cell .l { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #686868; font-weight: 700; margin-top: 8px; }
+    #cassie-map-block .cm-legend { display: flex; gap: 18px; justify-content: center; margin-top: 18px; font-size: 11px; color: #686868; flex-wrap: wrap; }
+    #cassie-map-block .cm-legend-item { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+    #cassie-map-block .cm-legend-dot { width: 12px; height: 12px; border-radius: 4px; }
+    #cassie-map-block .cm-legend-dot.front-desk { background: linear-gradient(90deg, #94a3b8, #cbd5e1); }
+    #cassie-map-block .cm-legend-dot.cassie { background: linear-gradient(90deg, #22c55e, #4ade80); }
+    #cassie-map-block .cm-legend-dot.captured { background: #22c55e; border-radius: 50%; }
+    #cassie-map-block .cm-legend-dot.lost { background: rgba(244,63,94,0.25); border-radius: 50%; }
+    #cassie-map-block .cm-punchline { text-align: center; font-size: 18px; font-weight: 800; letter-spacing: -0.01em; margin-top: 24px; line-height: 1.45; color: #0a3d5c; }
+    #cassie-map-block .cm-punchline em { font-style: normal; color: #1a6db5; }
+    @media (max-width: 720px) { #cassie-map-block .cm-stats { grid-template-columns: 1fr; } #cassie-map-block .cm-coverage-row { flex-direction: column; align-items: stretch; gap: 6px; } #cassie-map-block .cm-coverage-label { min-width: 0; } #cassie-map-block .cm-hour-labels { font-size: 9px; } #cassie-map-block .cm-text-icon { width: 24px; height: 24px; } #cassie-map-block .cm-text-icon svg { width: 12px; height: 12px; } }
+
   </style>
 </head>
 <body>
@@ -2523,6 +2711,52 @@
       </div>
     </section>
 
+    <section class="journey-section reveal" style="padding:60px 0;">
+      <div class="container">
+        <h2 class="section-head" style="text-align:center;">Your front desk closes at 6. Your customers don't.</h2>
+        <p style="text-align:center;max-width:620px;margin:0 auto 24px;color:var(--muted);font-size:1.05rem;line-height:1.6;">A real Tuesday at a real salon. Every dot is a real text inquiry. Toggle to see what happens when nobody's there to catch them.</p>
+        <div id="cassie-map-block">
+          <div class="cm-toggle-wrap">
+            <div class="cm-toggle without" id="cm-toggle">
+              <span class="cm-toggle-thumb"></span>
+              <button class="cm-toggle-btn active" data-state="without">Without Cassie</button>
+              <button class="cm-toggle-btn" data-state="with">With Cassie</button>
+            </div>
+          </div>
+          <div class="cm-map without" id="cm-map">
+            <div class="cm-map-head">
+              <div class="cm-map-title" id="cm-mapTitle">Tuesday inbox &mdash; without Cassie</div>
+              <div class="cm-map-sub">Hover any dot to see the actual text</div>
+            </div>
+            <div class="cm-timeline">
+              <div class="cm-hour-labels"><span>6am</span><span>9am</span><span>12pm</span><span>3pm</span><span>6pm</span><span>9pm</span><span>12am</span><span>2am</span></div>
+              <div class="cm-coverage-row">
+                <div class="cm-coverage-label">Front desk</div>
+                <div class="cm-coverage-bar-wrap"><div class="cm-coverage-bar"><div class="cm-coverage-segment cm-coverage-front-desk" style="left: 15%; width: 45%;"></div></div></div>
+              </div>
+              <div class="cm-coverage-row">
+                <div class="cm-coverage-label">Cassie</div>
+                <div class="cm-coverage-bar-wrap"><div class="cm-coverage-bar"><div class="cm-coverage-segment cm-coverage-cassie" id="cm-cassieCoverage" style="left: 0; width: 100%;"></div></div></div>
+              </div>
+              <div class="cm-text-icons-row" id="cm-iconsRow"></div>
+            </div>
+            <div class="cm-legend">
+              <span class="cm-legend-item"><span class="cm-legend-dot front-desk"></span> Front desk open</span>
+              <span class="cm-legend-item"><span class="cm-legend-dot cassie"></span> Cassie active</span>
+              <span class="cm-legend-item"><span class="cm-legend-dot captured"></span> Booking captured</span>
+              <span class="cm-legend-item"><span class="cm-legend-dot lost"></span> Lost &mdash; no reply</span>
+            </div>
+            <div class="cm-stats">
+              <div class="cm-stat-cell headline"><div class="n" id="cm-statHeadline">4</div><div class="l">bookings captured</div></div>
+              <div class="cm-stat-cell"><div class="n" id="cm-statLost">9</div><div class="l">leads lost to silence</div></div>
+              <div class="cm-stat-cell"><div class="n" id="cm-statRev">$310</div><div class="l">revenue captured</div></div>
+            </div>
+            <p class="cm-punchline" id="cm-punchline">68% of texts arrived when your <em>front desk was closed</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="proof" class="journey-section reveal">
       <div class="container section-head section-head-wide">
         <span class="kicker">Step 3 · The proof</span>
@@ -2706,14 +2940,86 @@
     <div class="product-content" id="content-sara">
       <section class="hero reveal"><div class="container hero-shell hero-shell-simplified"><div class="hero-copy hero-copy-simplified"><div class="hero-logo-stage" aria-hidden="true"><div class="hero-logo-wrap"><img src="blend-logo-2.png" alt="BLEND logo" class="hero-logo-img" /></div></div><div class="eyebrow">AI-powered admissions scheduling for cosmetology schools</div><h1>Built by the team that<br>trained your reps.</h1><p class="hero-lead">20 years of admissions expertise. 800+ schools nationwide. Now in an AI that says the right things &mdash; not just the fast things.</p><div class="hero-actions hero-actions-premium"><a href="#talk-to-ai" class="btn btn-pink" style="background:linear-gradient(135deg,#c084fc,#818cf8);border:none;">Talk To Sara</a><button class="btn btn-gold open-demo" type="button">Schedule a Demo</button></div></div></div></section>
       <section style="padding:48px 24px;text-align:center;font-family:Inter,system-ui,sans-serif;"><div style="max-width:1180px;margin:0 auto;"><span style="display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(155,92,255,0.12);color:#9b5cff;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;">How Will You Use Sara?</span><h2 style="font-size:clamp(28px,4vw,40px);line-height:1.1;font-weight:800;letter-spacing:-0.02em;margin:0 0 32px;color:#171717;">From first inquiry to enrolled student.</h2><svg viewBox="0 0 920 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:920px;height:auto;display:block;margin:0 auto;"><defs><marker id="arrowSC" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9b5cff"/></marker></defs><rect x="20" y="20" width="200" height="100" rx="16" fill="#7edfd2"/><text x="120" y="58" text-anchor="middle" font-size="28" fill="#0d3b3a">&#128233;</text><text x="120" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#0d3b3a">Prospective student</text><text x="120" y="105" text-anchor="middle" font-size="12" fill="#0d3b3a">inquiries (text/web)</text><path d="M225,70 L240,70" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="250" y="20" width="200" height="100" rx="16" fill="#ffc97a"/><text x="350" y="58" text-anchor="middle" font-size="28" fill="#5a3d00">&#129302;</text><text x="350" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#5a3d00">Sara qualifies</text><text x="350" y="105" text-anchor="middle" font-size="12" fill="#5a3d00">24/7, on-message</text><path d="M455,70 L470,70" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="480" y="20" width="200" height="100" rx="16" fill="#ff78ac"/><text x="580" y="58" text-anchor="middle" font-size="28" fill="#4a0028">&#128199;</text><text x="580" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#4a0028">Saved to Aiden</text><text x="580" y="105" text-anchor="middle" font-size="12" fill="#4a0028">contact + context</text><path d="M685,70 L700,70" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="710" y="20" width="200" height="100" rx="16" fill="#ffc97a"/><text x="810" y="58" text-anchor="middle" font-size="28" fill="#5a3d00">&#128242;</text><text x="810" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#5a3d00">Sara follows up</text><text x="810" y="105" text-anchor="middle" font-size="12" fill="#5a3d00">books a campus tour</text><path d="M810,120 Q810,160 700,170 Q450,180 220,170 Q120,160 120,220" stroke="#9b5cff" stroke-width="3" fill="none" stroke-dasharray="4,4" marker-end="url(#arrowSC)"/><rect x="20" y="220" width="200" height="100" rx="16" fill="#7edfd2"/><text x="120" y="258" text-anchor="middle" font-size="28" fill="#0d3b3a">&#127979;</text><text x="120" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#0d3b3a">Admissions tour</text><text x="120" y="305" text-anchor="middle" font-size="12" fill="#0d3b3a">human, in person</text><path d="M225,270 L240,270" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="250" y="220" width="200" height="100" rx="16" fill="#ffc97a"/><text x="350" y="258" text-anchor="middle" font-size="28" fill="#5a3d00">&#128172;</text><text x="350" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#5a3d00">Sara follows up</text><text x="350" y="305" text-anchor="middle" font-size="12" fill="#5a3d00">answers questions</text><path d="M455,270 L470,270" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="480" y="220" width="200" height="100" rx="16" fill="#ffc97a"/><text x="580" y="258" text-anchor="middle" font-size="28" fill="#5a3d00">&#128257;</text><text x="580" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#5a3d00">Sara re-engages</text><text x="580" y="305" text-anchor="middle" font-size="12" fill="#5a3d00">if they go quiet</text><path d="M685,270 L700,270" stroke="#9b5cff" stroke-width="3" fill="none" marker-end="url(#arrowSC)"/><rect x="710" y="220" width="200" height="100" rx="16" fill="#9b5cff"/><text x="810" y="258" text-anchor="middle" font-size="28" fill="#fff">&#127891;</text><text x="810" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Enrolled</text><text x="810" y="305" text-anchor="middle" font-size="12" fill="#fff">student starts class</text></svg><p style="max-width:680px;margin:32px auto 0;color:#686868;font-size:16px;line-height:1.6;">Sara is fully customizable. Her tone, qualifying questions, follow-up cadence, and handoff rules are all tuned to your school &mdash; so she sounds like your team and works the way you already work.</p></div></section><section class="journey-section reveal" style="padding:60px 0 20px;"><div class="container"><div class="stats-bar"><div class="stat-card"><p class="stat-num">20</p><p class="stat-label">Years training admissions</p></div><div class="stat-card"><p class="stat-num">800+</p><p class="stat-label">Schools nationwide</p></div><div class="stat-card"><p class="stat-num">3x</p><p class="stat-label">Show rate improvement</p></div><div class="stat-card"><p class="stat-num">30&rarr;90%</p><p class="stat-label">Show rate transformation</p></div></div></div></section>
-      <section class="journey-section reveal" style="padding:40px 0 80px;"><div class="container"><h2 class="section-head" style="text-align:center;">Same question. Two very different outcomes.</h2><p style="text-align:center;max-width:580px;margin:0 auto 10px;color:var(--muted);font-size:1rem;">Sara doesn't just respond fast. She responds <strong>right</strong> &mdash; because she was trained by the same team that trained your admissions reps.</p><div class="compare-grid">
+      <section class="journey-section reveal" style="padding:40px 0 20px;"><div class="container"><h2 class="section-head" style="text-align:center;">A live look at Sara at work.</h2><p style="text-align:center;max-width:620px;margin:0 auto 24px;color:var(--muted);font-size:1rem;line-height:1.6;">A real admissions pipeline. Watch leads flow through as Sara replies, alerts your reps, and books tours.</p>
+<div id="sara-flow-block">
+  <div class="sf-counter-strip">
+    <div class="sf-counter-cell"><div class="sf-counter-num sf-counter-1" id="sf-c1">0</div><div class="sf-counter-label">New leads</div></div>
+    <div class="sf-counter-cell"><div class="sf-counter-num sf-counter-2" id="sf-c2">0</div><div class="sf-counter-label">Replied by Sara</div></div>
+    <div class="sf-counter-cell"><div class="sf-counter-num sf-counter-3" id="sf-c3">0</div><div class="sf-counter-label">Rep alerts sent</div></div>
+    <div class="sf-counter-cell"><div class="sf-counter-num sf-counter-4" id="sf-c4">0</div><div class="sf-counter-label">Tours booked</div></div>
+  </div>
+  <div class="sf-pipeline-wrap">
+    <div class="sf-pipeline-head">
+      <div class="sf-pipeline-title">Live admissions pipeline</div>
+      <div class="sf-pipeline-status"><span class="sf-live-dot"></span>Sara is working</div>
+    </div>
+    <div class="sf-pipeline">
+      <div class="sf-pipe-col sf-pipe-col-1"><div class="sf-pipe-col-head">New inquiry</div><div class="sf-pipe-cards" id="sf-col-1"></div></div>
+      <div class="sf-pipe-col sf-pipe-col-2"><div class="sf-pipe-col-head">Sara replied</div><div class="sf-pipe-cards" id="sf-col-2"></div></div>
+      <div class="sf-pipe-col sf-pipe-col-3"><div class="sf-pipe-col-head">Rep alerted</div><div class="sf-pipe-cards" id="sf-col-3"></div></div>
+      <div class="sf-pipe-col sf-pipe-col-4"><div class="sf-pipe-col-head">Tour booked</div><div class="sf-pipe-cards" id="sf-col-4"></div></div>
+    </div>
+    <div class="sf-controls">
+      <button class="sf-btn sf-btn-primary" id="sf-toggleBtn">&#9208; Pause</button>
+      <button class="sf-btn sf-btn-ghost" id="sf-stepBtn">Step forward &rarr;</button>
+    </div>
+    <div class="sf-activity">
+      <div class="sf-activity-label">Activity feed</div>
+      <div class="sf-activity-feed" id="sf-feed"></div>
+    </div>
+  </div>
+</div>
+</div></section>
+
+<section class="journey-section reveal" style="padding:40px 0 80px;"><div class="container"><h2 class="section-head" style="text-align:center;">Same question. Two very different outcomes.</h2><p style="text-align:center;max-width:580px;margin:0 auto 10px;color:var(--muted);font-size:1rem;">Sara doesn't just respond fast. She responds <strong>right</strong> &mdash; because she was trained by the same team that trained your admissions reps.</p><div class="compare-grid">
 <div class="compare-pair"><div class="compare-card"><div class="compare-card-header bad">Untrained AI</div><div class="compare-card-body"><div class="compare-bubble prospect">&ldquo;How much is it to go to school?&rdquo;</div><div class="compare-bubble bad-reply">&ldquo;$22,000.&rdquo;</div><div class="compare-annotation bad">Conversation over. Price with no context = sticker shock.</div></div></div><div class="compare-card"><div class="compare-card-header good">Sara (trained by BLEND)</div><div class="compare-card-body"><div class="compare-bubble prospect">&ldquo;How much is it to go to school?&rdquo;</div><div class="compare-bubble good-reply">&ldquo;Great question! Out of pocket costs depend on a couple of things. How familiar are you with FAFSA?&rdquo;</div><div class="compare-annotation good">Redirects to financial aid. Prospect feels helped, not sold.</div></div></div></div>
 <div class="compare-pair"><div class="compare-card"><div class="compare-card-header bad">Untrained AI</div><div class="compare-card-body"><div class="compare-bubble prospect">&ldquo;What kind of schedules do you have?&rdquo;</div><div class="compare-bubble bad-reply">&ldquo;Monday through Friday, 9-5. So it may be tough with your work schedule.&rdquo;</div><div class="compare-annotation bad">Answered the question AND talked them out of it in one sentence.</div></div></div><div class="compare-card"><div class="compare-card-header good">Sara (trained by BLEND)</div><div class="compare-card-body"><div class="compare-bubble prospect">&ldquo;What kind of schedules do you have?&rdquo;</div><div class="compare-bubble good-reply">&ldquo;Good question! We have a couple of different options. What kind of schedule are you looking for?&rdquo;</div><div class="compare-annotation good">Stays focused on the conversation. Opens dialogue instead of closing it.</div></div></div></div>
 <div class="compare-pair"><div class="compare-card"><div class="compare-card-header bad">Untrained AI</div><div class="compare-card-body"><div class="compare-bubble prospect">&ldquo;Do you guys have a nail program?&rdquo;</div><div class="compare-bubble bad-reply">&ldquo;No unfortunately we don't. Would you like to know more about our school?&rdquo;</div><div class="compare-annotation bad">Turns away a paying student who could enroll in cosmetology.</div></div></div><div class="compare-card"><div class="compare-card-header good">Sara (trained by BLEND)</div><div class="compare-card-body"><div class="compare-bubble prospect">&ldquo;Do you guys have a nail program?&rdquo;</div><div class="compare-bubble good-reply">&ldquo;Great question! As part of our Cosmetology program we do have a nail component. What are you planning on doing with your license?&rdquo;</div><div class="compare-annotation good">Redirects to an opportunity. Gets the prospect talking about their future.</div></div></div></div>
 <div class="compare-pair"><div class="compare-card"><div class="compare-card-header bad">Untrained AI</div><div class="compare-card-body"><div class="compare-bubble prospect">&ldquo;When is your next class start?&rdquo;</div><div class="compare-bubble bad-reply">&ldquo;Tomorrow. So it'll be hard to get you into that one. Our cutoff day was yesterday. Would you like to look into next month?&rdquo;</div><div class="compare-annotation bad">Eliminates the nearest option AND decides for the prospect.</div></div></div><div class="compare-card"><div class="compare-card-header good">Sara (trained by BLEND)</div><div class="compare-card-body"><div class="compare-bubble prospect">&ldquo;When is your next class start?&rdquo;</div><div class="compare-bubble good-reply">&ldquo;Good question. We have a couple of different start dates coming up. When were you thinking of starting?&rdquo;</div><div class="compare-annotation good">Keeps all options open. Lets the prospect decide.</div></div></div></div>
 </div>
 <div style="text-align:center;padding:32px 20px;margin:20px 0;border-radius:18px;background:rgba(129,140,248,0.04);"><div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:14px;"><div style="display:flex;align-items:center;gap:8px;"><span style="background:linear-gradient(135deg,#f09595,#e24b4a);color:#501313;font-size:0.85rem;font-weight:700;padding:8px 20px;border-radius:999px;text-transform:uppercase;letter-spacing:0.05em;">Answers</span><span style="font-size:0.95rem;color:rgba(18,18,18,0.5);">= dead end</span></div><div style="font-size:1.3rem;color:rgba(18,18,18,0.2);font-weight:700;">vs</div><div style="display:flex;align-items:center;gap:8px;"><span style="background:linear-gradient(135deg,#97c459,#639922);color:#173404;font-size:0.85rem;font-weight:700;padding:8px 20px;border-radius:999px;text-transform:uppercase;letter-spacing:0.05em;">Starts</span><span style="font-size:0.95rem;color:rgba(18,18,18,0.5);">= enrollment</span></div></div><p style="font-size:1.05rem;color:rgba(18,18,18,0.6);margin:0;">Untrained reps <span style="color:#a32d2d;font-weight:700;">answer</span> questions. Sara <span style="color:#3b6d11;font-weight:700;">starts</span> conversations.</p></div></div></section>
-      <section class="journey-section reveal" style="padding:60px 0;"><div class="container"><h2 class="section-head" style="text-align:center;">Your reps forget. Sara never does.</h2><p style="text-align:center;max-width:620px;margin:0 auto 12px;color:var(--muted);font-size:1.05rem;line-height:1.6;">The #1 reason schools lose enrollments isn't bad marketing &mdash; it's dropped follow-ups. A rep gets busy, a lead slips through, and a student who was ready to enroll goes somewhere else.</p><p style="text-align:center;max-width:620px;margin:0 auto 36px;color:var(--muted);font-size:1.05rem;line-height:1.6;">Sara eliminates that entirely. Click each step to see how.</p><div style="max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:0;"><div class="sara-accordion" onclick="this.classList.toggle('open')" style="display:flex;gap:18px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,0.06);"><div style="min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#eaf3de,#c0dd97);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div style="flex:1;"><p style="font-weight:700;font-size:1.1rem;margin:0;color:#121212;">New lead? Sara reaches out instantly.</p><div class="acc-body"><p style="font-size:0.92rem;color:var(--muted);margin:8px 0 0;line-height:1.5;">Within seconds of an inquiry &mdash; whether it's a web form, a text inquiry, or a walk-in who left their number &mdash; Sara sends a warm, personalized text. Not a canned auto-reply. A real conversation starter that sounds like your best admissions rep on their best day. Your team doesn't even need to know it happened.</p></div></div><div class="acc-toggle">+</div></div><div class="sara-accordion" onclick="this.classList.toggle('open')" style="display:flex;gap:18px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,0.06);"><div style="min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#faeeda,#fac775);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#854F0B" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div style="flex:1;"><p style="font-weight:700;font-size:1.1rem;margin:0;color:#121212;">Lead going stale? Sara alerts your rep.</p><div class="acc-body"><p style="font-size:0.92rem;color:var(--muted);margin:8px 0 0;line-height:1.5;">Sara monitors every lead's activity in real time. When engagement drops &mdash; no response in 48 hours, a missed tour, or a conversation gone quiet &mdash; she flags it and sends your rep a notification with the exact message to send and the best time to send it. No guessing. No "I forgot." Just a clear next step, built from 20 years of admissions training.</p></div></div><div class="acc-toggle">+</div></div><div class="sara-accordion" onclick="this.classList.toggle('open')" style="display:flex;gap:18px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,0.06);"><div style="min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#eeedfe,#cecbf6);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="2" stroke-linecap="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div><div style="flex:1;"><p style="font-weight:700;font-size:1.1rem;margin:0;color:#121212;">Rep too busy? Hand it off to Sara.</p><div class="acc-body"><p style="font-size:0.92rem;color:var(--muted);margin:8px 0 0;line-height:1.5;">Your rep sees Sara's nudge but they're in the middle of a tour? One tap and Sara takes the wheel. She picks up the conversation exactly where it left off, using the same trained language and follow-up cadence your best rep would use. The student never knows the difference &mdash; they just know someone cared enough to follow up.</p></div></div><div class="acc-toggle">+</div></div><div class="sara-accordion" onclick="this.classList.toggle('open')" style="display:flex;gap:18px;align-items:center;padding:20px 0;"><div style="min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#e6f1fb,#b5d4f4);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div style="flex:1;"><p style="font-weight:700;font-size:1.1rem;margin:0;color:#121212;">Your cadence. Our expertise. Zero leads lost.</p><div class="acc-body"><p style="font-size:0.92rem;color:var(--muted);margin:8px 0 0;line-height:1.5;">Already have a follow-up process that works? Give it to us and we'll program it into Sara and Aiden. Don't have one? Even better &mdash; we'll install the same proven sequences we've been teaching admissions teams at 800+ schools for two decades. Either way, your pipeline runs on a system that never skips a step.</p></div></div><div class="acc-toggle">+</div></div></div></div></section>
+      <section class="journey-section reveal" style="padding:60px 0;"><div class="container"><h2 class="section-head" style="text-align:center;">Your reps forget. Sara never does.</h2><p style="text-align:center;max-width:620px;margin:0 auto 12px;color:var(--muted);font-size:1.05rem;line-height:1.6;">The #1 reason schools lose enrollments isn't bad marketing &mdash; it's dropped follow-ups. A rep gets busy, a lead slips through, and a student who was ready to enroll goes somewhere else.</p><p style="text-align:center;max-width:620px;margin:0 auto 24px;color:var(--muted);font-size:1.05rem;line-height:1.6;">Pick a scenario below. Watch Sara work it.</p>
+<div id="sara-game-block">
+  <div class="sg-scenarios" id="sg-scenarios">
+    <button class="sg-scenario-card active" data-scenario="hot"><div class="sg-scenario-eyebrow">Scenario 1</div><p class="sg-scenario-title">Hot lead, Tuesday 9pm</p><p class="sg-scenario-desc">Inbound text after hours. Your team's home. Watch Sara catch and convert.</p></button>
+    <button class="sg-scenario-card" data-scenario="cold"><div class="sg-scenario-eyebrow">Scenario 2</div><p class="sg-scenario-title">Lead went quiet after tour</p><p class="sg-scenario-desc">She loved the campus. Then ghosted. Sara re-engages.</p></button>
+    <button class="sg-scenario-card" data-scenario="walkin"><div class="sg-scenario-eyebrow">Scenario 3</div><p class="sg-scenario-title">Walk-in, never called back</p><p class="sg-scenario-desc">Stopped by, left a number. Two days of silence. Sara revives the lead.</p></button>
+  </div>
+  <div class="sg-sim">
+    <div class="sg-phone-stage">
+      <div class="sg-phone-header">
+        <div class="sg-phone-contact"><div class="sg-phone-avatar" id="sg-leadAvatar">M</div><div><div class="sg-phone-name" id="sg-leadName">Mia &middot; Prospective Student</div><div class="sg-phone-sub" id="sg-leadSub">Cosmetology inquiry</div></div></div>
+        <div class="sg-phone-timestamp" id="sg-timestamp">Tue 9:14 PM</div>
+      </div>
+      <div class="sg-thread" id="sg-thread"></div>
+      <div id="sg-choiceMount"></div>
+      <div class="sg-controls" id="sg-controls">
+        <button class="sg-btn sg-btn-primary" id="sg-playBtn">&#9654; Play scenario</button>
+        <button class="sg-btn sg-btn-ghost" id="sg-resetBtn" disabled>Reset</button>
+      </div>
+    </div>
+    <div class="sg-side">
+      <div class="sg-capability-card">
+        <div class="sg-capability-title">Sara's Playbook</div>
+        <div class="sg-capability" data-cap="1"><div class="sg-cap-icon sg-cap-icon-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="sg-cap-text">Reach out instantly</div><div class="sg-cap-check"></div></div>
+        <div class="sg-capability" data-cap="2"><div class="sg-cap-icon sg-cap-icon-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="sg-cap-text">Alert your rep when leads go stale</div><div class="sg-cap-check"></div></div>
+        <div class="sg-capability" data-cap="3"><div class="sg-cap-icon sg-cap-icon-3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div><div class="sg-cap-text">Take over when reps are busy</div><div class="sg-cap-check"></div></div>
+        <div class="sg-capability" data-cap="4"><div class="sg-cap-icon sg-cap-icon-4"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="sg-cap-text">Run your cadence end-to-end</div><div class="sg-cap-check"></div></div>
+      </div>
+      <div class="sg-score-card">
+        <div class="sg-score-row"><span class="sg-score-label">Response time</span><span class="sg-score-val pending" id="sg-scoreResponse">&mdash;</span></div>
+        <div class="sg-score-row"><span class="sg-score-label">Steps complete</span><span class="sg-score-val pending" id="sg-scoreSteps">0 / 4</span></div>
+        <div class="sg-score-row"><span class="sg-score-label">Outcome</span><span class="sg-score-val pending" id="sg-scoreOutcome">&mdash;</span></div>
+      </div>
+    </div>
+    <div class="sg-outcome" id="sg-outcome">
+      <div class="sg-outcome-emoji" id="sg-outcomeEmoji">&#127919;</div>
+      <div class="sg-outcome-text"><div class="sg-outcome-eyebrow">Outcome</div><p class="sg-outcome-title" id="sg-outcomeTitle">Tour booked. Lead saved.</p><div class="sg-outcome-stats" id="sg-outcomeStats"></div></div>
+      <button class="sg-outcome-cta" onclick="document.getElementById('sg-resetBtn').click()">Try another scenario &rarr;</button>
+    </div>
+  </div>
+</div>
+</div></section>
       <section class="journey-section journey-moment reveal" style="padding:80px 0;"><div class="container" style="text-align:center;"><h2 class="section-head">See Sara in action.</h2><p style="max-width:520px;margin:0 auto 28px;color:var(--muted);font-size:1.05rem;">Put her to the test. Text Sara your toughest admissions question and watch how she handles it &mdash; live, in real time.</p><div style="max-width:520px;margin:0 auto 32px;padding:36px 28px;border-radius:22px;background:linear-gradient(135deg,rgba(192,132,252,0.10),rgba(129,140,248,0.10));border:1px solid rgba(129,140,248,0.18);"><p style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:#6d28d9;font-weight:700;margin:0 0 12px;">Text Sara &mdash; Live Demo</p><a href="sms:+17755996221" style="display:block;font-size:clamp(28px,5vw,42px);font-weight:900;letter-spacing:-0.02em;background:linear-gradient(90deg,#c084fc,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none;margin:0 0 10px;">775-599-6221</a><p style="font-size:0.9rem;color:var(--muted);margin:0;">Send any admissions question. Sara responds like she would for your school.</p></div><a href="#" class="btn btn-pink" style="background:linear-gradient(135deg,#c084fc,#818cf8);border:none;font-size:1.1rem;padding:16px 36px;">Schedule a Demo</a></div></section>
     </div>
 
@@ -2957,5 +3263,341 @@
 
 <div class="construction-overlay" id="constructionOverlay" onclick="if(event.target===this)this.classList.remove('open')"><div class="construction-modal"><h2>Under Construction</h2><p>Our chat feature is coming soon! In the meantime, send us a text at <strong>801-590-6020</strong> or schedule a demo.</p><button onclick="document.getElementById('constructionOverlay').classList.remove('open')">Got It</button></div></div>
 <script src="turnstile-gate.js?v=3" async defer></script>
+
+<!-- =============================================================
+     Interactive: Sara Lead Flow (sf-*)
+     ============================================================= -->
+<script>
+(function(){
+  if (!document.getElementById('sara-flow-block')) return;
+  const NAMES = ['Mia','Jasmine','Alex','Riley','Sage','Devon','Kai','Harper','Casey','Morgan','Quinn','Avery','Rowan','Eden','Skye'];
+  const SOURCES = ['web form','text inquiry','walk-in','referral','open house RSVP'];
+  let nameIdx = 0;
+  let counters = { 'sf-c1':0,'sf-c2':0,'sf-c3':0,'sf-c4':0 };
+  let playing = true;
+  let tickHandle = null;
+  function randName(){ const n=NAMES[nameIdx % NAMES.length]; nameIdx++; return n; }
+  function randSource(){ return SOURCES[Math.floor(Math.random()*SOURCES.length)]; }
+  function bump(key){ counters[key]++; document.getElementById(key).textContent = counters[key]; }
+  function addToCol(colNum, lead, extraClass){
+    const col = document.getElementById('sf-col-'+colNum);
+    const card = document.createElement('div');
+    card.className = 'sf-lead-card '+(extraClass||'');
+    card.innerHTML = '<div class="sf-lead-avatar">'+lead.initial+'</div>'+
+      '<div class="sf-lead-info"><div class="sf-lead-name">'+lead.name+'</div>'+
+      '<div class="sf-lead-meta">'+lead.source+'</div></div>';
+    col.insertBefore(card, col.firstChild);
+    while (col.children.length > 4){ const last = col.lastChild; last.style.opacity='0'; setTimeout(()=>last.remove(),400); break; }
+    return card;
+  }
+  function addFeed(html){
+    const feed = document.getElementById('sf-feed');
+    const div = document.createElement('div');
+    div.className = 'sf-activity-line';
+    div.innerHTML = html;
+    feed.insertBefore(div, feed.firstChild);
+    while (feed.children.length > 3) feed.removeChild(feed.lastChild);
+  }
+  function newLead(){
+    const name = randName();
+    const lead = { name:name, initial:name[0], source:randSource() };
+    addToCol(1, lead);
+    bump('sf-c1');
+    addFeed('<em>just now</em> &mdash; <strong>'+name+'</strong> inquired via '+lead.source);
+    setTimeout(()=>{
+      addToCol(2, lead, 'sara');
+      bump('sf-c2');
+      addFeed('<em>+8 sec</em> &mdash; Sara replied to <strong>'+name+'</strong>');
+    }, 1200);
+    const path = Math.random();
+    setTimeout(()=>{
+      if (path < 0.6){
+        addToCol(4, lead, 'tour');
+        bump('sf-c4');
+        addFeed('<em>+2 min</em> &mdash; <strong>'+name+'</strong> booked a campus tour');
+      } else if (path < 0.9){
+        addToCol(3, lead, 'alert');
+        bump('sf-c3');
+        addFeed('<em>+48 hrs</em> &mdash; Sara alerted rep about <strong>'+name+'</strong>');
+        setTimeout(()=>{
+          addToCol(4, lead, 'tour');
+          bump('sf-c4');
+          addFeed('<em>+1 hr</em> &mdash; <strong>'+name+'</strong> booked a tour (rep recovered)');
+        }, 1800);
+      }
+    }, 3200);
+  }
+  function tick(){ if (!playing) return; newLead(); }
+  function start(){ if (tickHandle) clearInterval(tickHandle); tickHandle = setInterval(tick, 2400); tick(); }
+  document.getElementById('sf-toggleBtn').addEventListener('click', function(e){
+    playing = !playing;
+    e.target.textContent = playing ? '⏸ Pause' : '▶ Resume';
+  });
+  document.getElementById('sf-stepBtn').addEventListener('click', newLead);
+  start();
+})();
+</script>
+
+<!-- =============================================================
+     Interactive: Sara Pick-a-Scenario (sg-*)
+     ============================================================= -->
+<script>
+(function(){
+  if (!document.getElementById('sara-game-block')) return;
+  const SCENARIOS = {
+    hot: {
+      lead: { initial:'M', name:'Mia · Prospective Student', sub:'Cosmetology inquiry', start:'Tue 9:14 PM' },
+      beats: [
+        { kind:'bubble', who:'lead', text:"Hi! Do you guys still have spots open for the November cosmetology cohort?" },
+        { kind:'typing', who:'sara', ms:1200 },
+        { kind:'bubble', who:'sara', text:"Hi Mia! Yes — we have just a few seats left. I'd love to give you the full picture. What's the best time for a quick campus visit this week?" },
+        { kind:'fire', cap:1, response:8 },
+        { kind:'sep', text:'48 HOURS LATER · THURS 9:24 AM' },
+        { kind:'bubble', who:'lead', text:"..." },
+        { kind:'choice', q:"Mia hasn't replied. Your rep Jordan is in a tour. What does Sara do?",
+          opts:[ {label:'Alert Jordan', branch:'alert'}, {label:'Sara handles it', branch:'auto'} ] },
+        { branch:'alert', kind:'bubble', who:'rep', text:"Hi Mia! Jordan from admissions here. Were you able to think more about visiting? I have 11am or 3pm Saturday." },
+        { branch:'alert', kind:'fire', cap:2 },
+        { branch:'auto', kind:'typing', who:'sara', ms:900 },
+        { branch:'auto', kind:'bubble', who:'sara', text:"Hi Mia! Just following up — we have an open house this Saturday with current students. Want me to save you a spot?" },
+        { branch:'auto', kind:'fire', cap:3 },
+        { kind:'bubble', who:'lead', text:"Yes! Saturday at 11 works. I'll be there." },
+        { kind:'sep', text:'AFTER THE TOUR · SAT 1:48 PM' },
+        { kind:'bubble', who:'lead', text:"That was amazing. What's the next step to enroll?" },
+        { kind:'typing', who:'sara', ms:900 },
+        { kind:'bubble', who:'sara', text:"So glad you loved it! I'll start your enrollment paperwork — can you come back Friday at 3pm to finish up?" },
+        { kind:'fire', cap:4 },
+        { kind:'end', emoji:'🎯', title:'Tour booked. Mia enrolled.',
+          stats:[ {v:'8 sec',l:'response time'},{v:'4/4',l:'capabilities used'},{v:'$19.2K',l:'program value secured'} ] }
+      ]
+    },
+    cold: {
+      lead: { initial:'J', name:'Jasmine · Toured 5 days ago', sub:'Cosmetology · enrolled? unknown', start:'Mon 10:02 AM' },
+      beats: [
+        { kind:'sep', text:'JASMINE TOURED 5 DAYS AGO · HASN’T RESPONDED' },
+        { kind:'choice', q:"Sara noticed the silence after a hot tour. What now?",
+          opts:[ {label:'Sara nudges Jordan', branch:'alert'}, {label:'Sara reaches out', branch:'auto'} ] },
+        { branch:'alert', kind:'bubble', who:'rep', text:"Hey Jasmine! Following up after your tour — what questions came up after you got home?" },
+        { branch:'alert', kind:'fire', cap:2 },
+        { branch:'auto', kind:'typing', who:'sara', ms:900 },
+        { branch:'auto', kind:'bubble', who:'sara', text:"Hey Jasmine! It was great meeting you Wednesday. What's holding you back from saying yes?" },
+        { branch:'auto', kind:'fire', cap:3 },
+        { kind:'bubble', who:'lead', text:"Honestly, my parents are nervous about the cost. Can we talk about financial aid?" },
+        { kind:'typing', who:'sara', ms:1100 },
+        { kind:'bubble', who:'sara', text:"Of course. Want to bring your parents in Thursday at 5? We do a quick aid walkthrough that answers exactly that." },
+        { kind:'fire', cap:1 },
+        { kind:'bubble', who:'lead', text:"Yes — that would be perfect. We'll be there." },
+        { kind:'fire', cap:4 },
+        { kind:'end', emoji:'💚', title:'Cold lead revived. Parents in the door.',
+          stats:[ {v:'0',l:'leads lost to silence'},{v:'4/4',l:'capabilities used'},{v:'78%',l:'recovery probability'} ] }
+      ]
+    },
+    walkin: {
+      lead: { initial:'A', name:'Alex · Walk-in (Mon)', sub:'Left a number, never called back', start:'Wed 2:15 PM' },
+      beats: [
+        { kind:'sep', text:'ALEX STOPPED IN MONDAY · 2 DAYS OF SILENCE' },
+        { kind:'typing', who:'sara', ms:1100 },
+        { kind:'bubble', who:'sara', text:"Hi Alex! It's Sara from admissions — really enjoyed meeting you Monday. Were you able to talk it over with your family?" },
+        { kind:'fire', cap:1 },
+        { kind:'bubble', who:'lead', text:"Hey! Yeah we talked but I'm honestly not sure if it's the right time" },
+        { kind:'choice', q:"Soft no. Hand off to a human or let Sara keep the door open?",
+          opts:[ {label:'Alert Jordan', branch:'alert'}, {label:'Sara keeps going', branch:'auto'} ] },
+        { branch:'alert', kind:'bubble', who:'rep', text:"Hi Alex, Jordan here — I get it. Want to grab 10 minutes Friday to talk it through, no pressure?" },
+        { branch:'alert', kind:'fire', cap:2 },
+        { branch:'auto', kind:'typing', who:'sara', ms:900 },
+        { branch:'auto', kind:'bubble', who:'sara', text:"Totally get that. Want to grab 10 minutes Friday with our enrollment advisor — no pressure, just to answer questions?" },
+        { branch:'auto', kind:'fire', cap:3 },
+        { kind:'bubble', who:'lead', text:"Actually yeah, that would help a lot. Friday afternoon works." },
+        { kind:'typing', who:'sara', ms:800 },
+        { kind:'bubble', who:'sara', text:"Done! 2pm Friday. I'll send you a reminder Thursday night." },
+        { kind:'fire', cap:4 },
+        { kind:'end', emoji:'📞', title:'Soft no turned into a Friday meeting.',
+          stats:[ {v:'0',l:'walk-ins lost'},{v:'4/4',l:'capabilities used'},{v:'+1',l:'qualified meeting'} ] }
+      ]
+    }
+  };
+  let currentScenario = 'hot', beatIdx = 0, branch = null, firedCount = 0, isPlaying = false, responseShown = false;
+  const RESPONSE_SECONDS = 8;
+  const scope = document.getElementById('sara-game-block');
+  const $ = id => document.getElementById(id);
+  const thread = $('sg-thread'), choiceMount = $('sg-choiceMount'), playBtn = $('sg-playBtn'), resetBtn = $('sg-resetBtn');
+  const scenariosWrap = $('sg-scenarios');
+  const capabilities = scope.querySelectorAll('.sg-capability');
+  const outcome = $('sg-outcome'), outcomeEmoji = $('sg-outcomeEmoji'), outcomeTitle = $('sg-outcomeTitle'), outcomeStats = $('sg-outcomeStats');
+  function clearStage(){
+    thread.innerHTML=''; choiceMount.innerHTML='';
+    capabilities.forEach(c=>c.classList.remove('fired','firing'));
+    firedCount=0; responseShown=false; beatIdx=0; branch=null; isPlaying=false;
+    $('sg-scoreResponse').textContent='—'; $('sg-scoreResponse').classList.add('pending'); $('sg-scoreResponse').classList.remove('win');
+    $('sg-scoreSteps').textContent='0 / 4'; $('sg-scoreSteps').classList.add('pending'); $('sg-scoreSteps').classList.remove('win');
+    $('sg-scoreOutcome').textContent='—'; $('sg-scoreOutcome').classList.add('pending'); $('sg-scoreOutcome').classList.remove('win');
+    outcome.classList.remove('show'); playBtn.disabled=false; playBtn.textContent='▶ Play scenario'; resetBtn.disabled=true;
+  }
+  function loadScenario(key){
+    currentScenario=key;
+    const sc=SCENARIOS[key];
+    $('sg-leadAvatar').textContent=sc.lead.initial;
+    $('sg-leadName').innerHTML=sc.lead.name.replace(/·/g,'&middot;');
+    $('sg-leadSub').textContent=sc.lead.sub;
+    $('sg-timestamp').textContent=sc.lead.start;
+    clearStage();
+  }
+  function fireCapability(n){
+    const cap=scope.querySelector('.sg-capability[data-cap="'+n+'"]');
+    if (cap && !cap.classList.contains('fired')){
+      cap.classList.add('firing','fired'); firedCount++;
+      $('sg-scoreSteps').textContent=firedCount+' / 4'; $('sg-scoreSteps').classList.remove('pending');
+      if (firedCount===4) $('sg-scoreSteps').classList.add('win');
+      setTimeout(()=>cap.classList.remove('firing'),700);
+    }
+  }
+  function addBubble(who, text){
+    const div=document.createElement('div'); div.className='sg-bubble '+who;
+    const sender=document.createElement('div'); sender.className='sg-bubble-sender';
+    sender.textContent = who==='lead'?'Lead':(who==='sara'?'Sara (AI)':'Rep (Jordan)');
+    div.appendChild(sender);
+    const body=document.createElement('div'); body.textContent=text; div.appendChild(body);
+    thread.appendChild(div); thread.scrollTop=thread.scrollHeight;
+    if (who==='sara' && !responseShown){
+      $('sg-scoreResponse').textContent=RESPONSE_SECONDS+' sec';
+      $('sg-scoreResponse').classList.remove('pending'); $('sg-scoreResponse').classList.add('win');
+      responseShown=true;
+    }
+  }
+  function addSeparator(text){
+    const sep=document.createElement('div'); sep.className='sg-time-sep'; sep.textContent=text;
+    thread.appendChild(sep); thread.scrollTop=thread.scrollHeight;
+  }
+  function showTyping(who, ms){
+    return new Promise(r=>{
+      const t=document.createElement('div'); t.className='sg-typing '+who;
+      t.innerHTML='<span class="sg-dot"></span><span class="sg-dot"></span><span class="sg-dot"></span>';
+      thread.appendChild(t); thread.scrollTop=thread.scrollHeight;
+      setTimeout(()=>{ t.remove(); r(); }, ms);
+    });
+  }
+  function showChoice(beat){
+    return new Promise(r=>{
+      const wrap=document.createElement('div'); wrap.className='sg-choice-prompt';
+      const q=document.createElement('p'); q.className='sg-choice-prompt-q'; q.textContent=beat.q; wrap.appendChild(q);
+      const row=document.createElement('div'); row.className='sg-choice-buttons';
+      beat.opts.forEach(opt=>{
+        const b=document.createElement('button'); b.className='sg-choice-btn'; b.textContent=opt.label;
+        b.addEventListener('click', ()=>{ wrap.remove(); branch=opt.branch; r(); });
+        row.appendChild(b);
+      });
+      wrap.appendChild(row); choiceMount.appendChild(wrap);
+    });
+  }
+  function showOutcome(beat){
+    outcomeEmoji.textContent=beat.emoji; outcomeTitle.textContent=beat.title;
+    outcomeStats.innerHTML='';
+    beat.stats.forEach(s=>{
+      const d=document.createElement('div'); d.className='sg-outcome-stat';
+      d.innerHTML='<strong>'+s.v+'</strong>'+s.l; outcomeStats.appendChild(d);
+    });
+    outcome.classList.add('show');
+    $('sg-scoreOutcome').textContent='✓ Win';
+    $('sg-scoreOutcome').classList.remove('pending'); $('sg-scoreOutcome').classList.add('win');
+    playBtn.disabled=true; playBtn.textContent='Scenario complete'; resetBtn.disabled=false;
+  }
+  function wait(ms){ return new Promise(r=>setTimeout(r,ms)); }
+  async function playNextBeat(){
+    const sc=SCENARIOS[currentScenario];
+    while (beatIdx < sc.beats.length){
+      const beat=sc.beats[beatIdx]; beatIdx++;
+      if (beat.branch && beat.branch !== branch) continue;
+      switch (beat.kind){
+        case 'bubble': addBubble(beat.who, beat.text); await wait(700); break;
+        case 'typing': await showTyping(beat.who, beat.ms||1000); break;
+        case 'sep':    addSeparator(beat.text); await wait(500); break;
+        case 'fire':   fireCapability(beat.cap); await wait(400); break;
+        case 'choice': await showChoice(beat); break;
+        case 'end':    showOutcome(beat); isPlaying=false; return;
+      }
+    }
+    isPlaying=false;
+  }
+  scenariosWrap.addEventListener('click', e=>{
+    const card=e.target.closest('.sg-scenario-card');
+    if (!card || isPlaying) return;
+    scenariosWrap.querySelectorAll('.sg-scenario-card').forEach(c=>c.classList.remove('active'));
+    card.classList.add('active'); loadScenario(card.dataset.scenario);
+  });
+  playBtn.addEventListener('click', async ()=>{
+    if (isPlaying) return;
+    if (beatIdx > 0) clearStage();
+    isPlaying=true; playBtn.textContent='Playing…'; resetBtn.disabled=false;
+    await playNextBeat();
+  });
+  resetBtn.addEventListener('click', clearStage);
+  loadScenario('hot');
+})();
+</script>
+
+<!-- =============================================================
+     Interactive: Cassie After-Hours Map (cm-*)
+     ============================================================= -->
+<script>
+(function(){
+  if (!document.getElementById('cassie-map-block')) return;
+  const TEXTS = [
+    { pct: 6,  time:'7:12 AM',  name:'Devon',  msg:'Any walk-in slots before 9?' },
+    { pct: 12, time:'8:21 AM',  name:'Marcus', msg:'Can I push my 10am to 11?' },
+    { pct: 19, time:'9:48 AM',  name:'Ashley', msg:'Booking a brow wax — open today?' },
+    { pct: 33, time:'12:42 PM', name:'Priya',  msg:'Need a haircut this week, what’s open?' },
+    { pct: 41, time:'2:14 PM',  name:'Jess',   msg:'Quick gel mani by 4?' },
+    { pct: 47, time:'3:31 PM',  name:'Riley',  msg:'Color appt for next Tuesday?' },
+    { pct: 56, time:'5:08 PM',  name:'Sage',   msg:'What do you charge for balayage?' },
+    { pct: 62, time:'6:15 PM',  name:'Maria',  msg:'After hours — can I book for tomorrow?' },
+    { pct: 68, time:'7:34 PM',  name:'Eden',   msg:'Hi! Open this Saturday?' },
+    { pct: 74, time:'8:48 PM',  name:'Kai',    msg:'Need a cut + style by Friday' },
+    { pct: 81, time:'10:12 PM', name:'Quinn',  msg:'Color emergency, can someone reach me?' },
+    { pct: 88, time:'11:39 PM', name:'Avery',  msg:'Bridal trial — when can I come in?' },
+    { pct: 95, time:'1:18 AM',  name:'Skye',   msg:'Hours tomorrow? Need an early appt.' }
+  ];
+  const DESK_OPEN_MIN = 15, DESK_OPEN_MAX = 60;
+  const iconsRow = document.getElementById('cm-iconsRow');
+  TEXTS.forEach(t=>{
+    const div=document.createElement('div'); div.className='cm-text-icon'; div.style.left=t.pct+'%';
+    div.dataset.deskOpen = (t.pct >= DESK_OPEN_MIN && t.pct <= DESK_OPEN_MAX) ? '1' : '0';
+    div.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'+
+      '<div class="cm-text-tooltip"><strong>'+t.name+' · '+t.time+'</strong>"'+t.msg+'"</div>';
+    iconsRow.appendChild(div);
+  });
+  const map = document.getElementById('cm-map');
+  const toggle = document.getElementById('cm-toggle');
+  const cassieCoverage = document.getElementById('cm-cassieCoverage');
+  const statHeadline = document.getElementById('cm-statHeadline');
+  const statLost = document.getElementById('cm-statLost');
+  const statRev = document.getElementById('cm-statRev');
+  const mapTitle = document.getElementById('cm-mapTitle');
+  const punchline = document.getElementById('cm-punchline');
+  const icons = iconsRow.querySelectorAll('.cm-text-icon');
+  function setState(state){
+    toggle.classList.remove('without','with'); toggle.classList.add(state);
+    map.classList.remove('without','with'); map.classList.add(state);
+    toggle.querySelectorAll('.cm-toggle-btn').forEach(b=>b.classList.toggle('active', b.dataset.state===state));
+    if (state==='without'){
+      mapTitle.innerHTML='Tuesday inbox &mdash; without Cassie';
+      cassieCoverage.style.opacity='0';
+      icons.forEach(ic=>{ ic.classList.remove('captured'); if (ic.dataset.deskOpen==='1') ic.classList.remove('lost'); else ic.classList.add('lost'); });
+      statHeadline.textContent='4'; statLost.textContent='9'; statRev.textContent='$310';
+      punchline.innerHTML='68% of texts arrived when your <em>front desk was closed</em>.';
+    } else {
+      mapTitle.innerHTML='Tuesday inbox &mdash; with Cassie';
+      cassieCoverage.style.opacity='1';
+      icons.forEach(ic=>{ ic.classList.remove('lost'); ic.classList.add('captured'); });
+      statHeadline.textContent='13'; statLost.textContent='0'; statRev.textContent='$1,247';
+      punchline.innerHTML='Every text answered. Every booking captured. <em>The front desk that never clocks out.</em>';
+    }
+  }
+  toggle.addEventListener('click', e=>{
+    const btn=e.target.closest('.cm-toggle-btn'); if (!btn) return;
+    setState(btn.dataset.state);
+  });
+  setState('without');
+})();
+</script>
 </body>
 </html>
