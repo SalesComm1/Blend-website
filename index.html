@@ -2015,8 +2015,9 @@
     #sara-flow-block .sf-pipeline-status { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #22c55e; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; }
     #sara-flow-block .sf-live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: sfPulse 1.4s ease-in-out infinite; }
     @keyframes sfPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.5); } }
-    #sara-flow-block .sf-pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; min-height: 320px; }
-    #sara-flow-block .sf-pipe-col { background: rgba(17,17,17,0.03); border-radius: 12px; padding: 12px 10px; min-height: 280px; display: flex; flex-direction: column; }
+    #sara-flow-block .sf-pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; contain: layout style; }
+    #sara-flow-block .sf-pipe-col { background: rgba(17,17,17,0.03); border-radius: 12px; padding: 12px 10px; height: 280px; display: flex; flex-direction: column; overflow: hidden; }
+    #sara-flow-block .sf-pipe-cards { overflow: hidden; }
     #sara-flow-block .sf-pipe-col-head { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 800; color: #686868; text-align: center; margin-bottom: 10px; }
     #sara-flow-block .sf-pipe-col-1 .sf-pipe-col-head { color: #185FA5; }
     #sara-flow-block .sf-pipe-col-2 .sf-pipe-col-head { color: #9b5cff; }
@@ -3311,7 +3312,9 @@
   const SOURCES = ['web form','text inquiry','walk-in','referral','open house RSVP'];
   let nameIdx = 0;
   let counters = { 'sf-c1':0,'sf-c2':0,'sf-c3':0,'sf-c4':0 };
-  let playing = true;
+  // On mobile, start paused so the page doesn't shift around while the user is reading.
+  const isMobile = window.matchMedia('(max-width: 720px)').matches;
+  let playing = !isMobile;
   let tickHandle = null;
   function randName(){ const n=NAMES[nameIdx % NAMES.length]; nameIdx++; return n; }
   function randSource(){ return SOURCES[Math.floor(Math.random()*SOURCES.length)]; }
@@ -3365,10 +3368,12 @@
     }, 3200);
   }
   function tick(){ if (!playing) return; newLead(); }
-  function start(){ if (tickHandle) clearInterval(tickHandle); tickHandle = setInterval(tick, 2400); tick(); }
+  function start(){ if (tickHandle) clearInterval(tickHandle); tickHandle = setInterval(tick, 2400); if (playing) tick(); }
+  // Reflect initial state in the button label (mobile starts paused).
+  document.getElementById('sf-toggleBtn').textContent = playing ? '⏸ Pause' : '▶ Play';
   document.getElementById('sf-toggleBtn').addEventListener('click', function(e){
     playing = !playing;
-    e.target.textContent = playing ? '⏸ Pause' : '▶ Resume';
+    e.target.textContent = playing ? '⏸ Pause' : '▶ Play';
   });
   document.getElementById('sf-stepBtn').addEventListener('click', newLead);
   start();
